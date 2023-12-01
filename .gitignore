@@ -1,3 +1,9 @@
+# Ignore everything
 *
+
+# But this files...
 !.gitignore
-!./.config/qtile*
+!.config/qtile*
+
+# ...even if they are in subdirectories
+*/
