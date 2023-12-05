@@ -1,0 +1,92 @@
+* {
+    font:   "GT Walsheim Pro Bold 12";
+
+    black:      #1b1b1d;
+    gray:       #000000;
+    darkgray:   #5f5f5f;
+    white:       #f1f1f1;
+
+    red:        #d71921;
+    yellow:     #FFFF33;
+
+    background-color:   transparent;
+    text-color:         @white;
+
+    margin:     0;
+    padding:    0;
+    spacing:    0;
+}
+
+window {
+    location: center;
+    width: 480px;
+
+    border: 2px;
+    border-color: @red;
+    background-color: @black;
+}
+
+inputbar {
+    spacing: 8px; 
+    padding: 8px;
+
+    background-color: @darkgray;
+}
+
+prompt, entry, element-icon, element-text {
+    vertical-align: 0.5;
+}
+
+prompt {
+    text-color: @white;
+}
+
+textbox {
+    padding: 8px;
+    background-color: @black;
+}
+
+listview {
+    padding: 4px 0;
+    lines: 8;
+    columns: 1;
+
+    fixed-height: false;
+}
+
+element {
+    padding: 8px;
+    spacing: 8px;
+}
+
+element normal normal {
+    text-color: @white;
+}
+
+element normal urgent {
+    text-color: @yellow;
+}
+
+element normal active {
+    text-color: @red;
+}
+
+element selected {
+    text-color: @black;
+}
+
+element selected normal, element selected active {
+    background-color: @red;
+}
+
+element selected urgent {
+    background-color: @yellow;
+}
+
+element-icon {
+    size: 0.8em;
+}
+
+element-text {
+    text-color: inherit;
+}
