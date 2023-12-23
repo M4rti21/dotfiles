@@ -1,20 +1,29 @@
 * {
-    font:   "GT Walsheim Pro Bold 12";
+    font:   "Geist Bold 11";
 
-    black:      #1b1b1d;
-    gray:       #000000;
-    darkgray:   #5f5f5f;
-    white:       #f1f1f1;
+    base:             #000000;
+    text:             #eeefef;
+    overlay:          #1b1b1b;
+    disabled:         #363736;
+    accent:           #CC2850;
 
-    red:        #d71921;
-    yellow:     #FFFF33;
-
+    black:            #000000;
+    white:            #eeefef;
+    red:              #df6464;
+    orange:           #ed9e56;
+    yellow:           #edcf58;
+    green:            #c5d05d;
+    cyan:             #81cabe;
+    blue:             #8cb7e0;
+    magenta:          #cfabdf;
+    
     background-color:   transparent;
-    text-color:         @white;
+    text-color:         @text;
 
     margin:     0;
     padding:    0;
     spacing:    0;
+    text-transform: lowercase;
 }
 
 window {
@@ -22,15 +31,14 @@ window {
     width: 480px;
 
     border: 2px;
-    border-color: @red;
-    background-color: @black;
+    border-color: @accent;
+    background-color: @base;
 }
 
 inputbar {
     spacing: 8px; 
     padding: 8px;
-
-    background-color: @darkgray;
+    background-color: @overlay;
 }
 
 prompt, entry, element-icon, element-text {
@@ -38,12 +46,12 @@ prompt, entry, element-icon, element-text {
 }
 
 prompt {
-    text-color: @white;
+    text-color: @text;
 }
 
 textbox {
     padding: 8px;
-    background-color: @black;
+    background-color: @base;
 }
 
 listview {
@@ -60,7 +68,7 @@ element {
 }
 
 element normal normal {
-    text-color: @white;
+    text-color: @text;
 }
 
 element normal urgent {
@@ -68,15 +76,15 @@ element normal urgent {
 }
 
 element normal active {
-    text-color: @red;
+    text-color: @accent;
 }
 
 element selected {
-    text-color: @black;
+    text-color: @base;
 }
 
 element selected normal, element selected active {
-    background-color: @red;
+    background-color: @accent;
 }
 
 element selected urgent {

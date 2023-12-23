@@ -11,6 +11,11 @@
 #
 #   github repo: https://github.com/M4rti21/dotfiles
 
+# SERVICES
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # APPLICATIONS
-nitrogen --restore &
-otd-daemon &
+dunst &                   # Notification daemon
+nitrogen --restore &      # Wallpaper
+
+otd-daemon &              # OpenTabletDriver
