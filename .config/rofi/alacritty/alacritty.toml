@@ -1,0 +1,12 @@
+import = ["/home/m4rti/.config/alacritty/theme.toml"]
+
+[font.normal]
+family = "Geist Mono"
+style = "Regular"
+
+[window]
+dynamic_title = false
+
+[window.padding]
+x = 8
+y = 8

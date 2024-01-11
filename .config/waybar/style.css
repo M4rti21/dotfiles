@@ -1,0 +1,84 @@
+* {
+	border: none;
+	font-family: GeistMono Nerd Font;
+	font-size: 14px;
+	font-weight: Bold;
+	color: #bdbdbd;
+}
+
+window#waybar {
+	background: #080808;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+}
+.modules-right {
+}
+.modules-right * {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.modules-center {
+}
+.modules-left {
+}
+
+tooltip {
+	background: #323437;
+	border-radius: 10px;
+}
+
+#workspaces {
+}
+#workspaces button {
+    background: transparent;
+    color: #323437;
+}
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+#workspaces button.active {
+	transition: all 0.2s cubic-bezier(.55,-0.68,.48,1.682);
+}
+#workspaces button.urgent {
+    color: #ff5454;
+    background: #e3c78a;
+    border-radius: 10px;
+}
+
+#custom-sep {
+	color: #313244;
+	font-size: 18px;
+}
+
+#mode {
+	color: #cc3436;
+	font-weight: bold;
+}
+
+/*-----*/
+#tray {
+	
+}
+#network.disconnected {
+	color: #ff5454;
+}
+#network.disabled {
+	color: #e3c78a;
+}
+#idle_inhibitor.activated {
+	color: #2dcc36;
+}
+#pulseaudio.muted {
+	color: #e3c78a;
+}
+#battery.charging {
+	color: #8cc85f;
+}
+#battery.warning:not(.charging) {
+	color: #e3c78a;
+}
+#battery.critical:not(.charging) {
+	color: #ff5454;
+}
