@@ -27,7 +27,7 @@ from widgets.lookaway import LookAway
 mod = "mod4"
 alt = "mod1"
 
-terminal = guess_terminal("kitty") or "kitty"
+terminal = guess_terminal("kitty")
 
 commands = {
     "runner": "rofi -show drun -show-icons",
@@ -37,9 +37,6 @@ commands = {
     "taskmgr": terminal + " -e btop",
     "volume": "pavucontrol",
     "screenshot": "flameshot gui",
-    "passwd": "com.bitwarden.desktop",
-    "bright": "brightness-controller",
-    "spotify": "env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U"
 }
 
 # HELPER FUNCTIONS
@@ -131,13 +128,13 @@ colors = {
 }
 
 panel_size = 28
-gap_size = 4
+gap_size = 0
 
 borders = {
     "margin": gap_size,
     "single_margin": gap_size,
     "border_width": 2,
-    "border_on_single": True,
+    "border_on_single": False,
     "border_focus": colors["accent"],
     "border_normal": colors["disabled"],
 }
@@ -162,8 +159,6 @@ groups.append(ScratchPad('sp', [
     DropDown('vol', commands["volume"], **sp_size),     # Volume
     DropDown('net', commands["network"], **sp_size),    # Network
     DropDown('tsk', commands["taskmgr"], **sp_size),    # System Monitor
-    DropDown('pwd', commands["passwd"], **sp_size),     # Passwords
-    DropDown('spt', commands["spotify"], **sp_size),    # Spotify
 ]))
 
 def sp_run(code):
@@ -176,13 +171,11 @@ keys.extend([
     sp_key("v", "vol"),
     sp_key("n", "net"),
     sp_key("b", "tsk"),
-    sp_key("p", "pwd"),
-    sp_key("s", "spt"),
 ])
 
 layouts = [
     layout.Columns(**borders),
-    layout.Max(**borders),
+    layout.Max(),
 ]
 
 # FLOATING WINDOW RULES "xprop"
@@ -252,7 +245,7 @@ def get_new_bar(screen_id):
         ),
         WName(),
         widget.Spacer(),
-        LookAway(),
+        # LookAway(),
         *systray,
         sp_widget("󰈀", "net"),
         widget.CheckUpdates(
@@ -274,10 +267,9 @@ def get_new_bar(screen_id):
             mouse_callbacks={'Button1': sp_run('vol')},
         ),
         ToggleClock(),
-        widget.TextBox(
-            text=" ",
-            mouse_callbacks={'Button1': lazy.spawn(commands["logout"])},
-            fontsize=12,
+        widget.QuickExit(
+            default_text=" ",
+            countdown_format="{} "
         ),
     ]
 
@@ -285,20 +277,20 @@ def get_new_bar(screen_id):
         "widgets": this_widgets,
         "size": panel_size,
         "background": colors["background"],
-        "margin": [0, 0, gap_size, 0],
+        "margin": [gap_size, 0, 0, 0],
     }
 
 
 gaps = {
     "left": bar.Gap(gap_size),
     "right": bar.Gap(gap_size),
-    "bottom": bar.Gap(gap_size)
+    "top": bar.Gap(gap_size)
 }
 
 screens = [
-    Screen(top=bar.Bar(**get_new_bar(1)), **gaps),
-    Screen(top=bar.Bar(**get_new_bar(2)), **gaps),
-    Screen(top=bar.Bar(**get_new_bar(3)), **gaps)
+    Screen(bottom=bar.Bar(**get_new_bar(1)), **gaps),
+    Screen(bottom=bar.Bar(**get_new_bar(2)), **gaps),
+    Screen(bottom=bar.Bar(**get_new_bar(3)), **gaps)
 ]
 
 dgroups_key_binder = None
