@@ -3,17 +3,17 @@ return {
     opt = {
         bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
         filetypes = {
-            "css", 
-            "graphql", 
-            "html", 
-            "javascript", 
-            "javascriptreact", 
-            "json", 
-            "less", 
-            "markdown", 
+            "css",
+            "graphql",
+            "html",
+            "javascript",
+            "javascriptreact",
+            "json",
+            "less",
+            "markdown",
             "scss",
-            "typescript", 
-            "typescriptreact", 
+            "typescript",
+            "typescriptreact",
             "yaml"
         },
         cli_options = {
@@ -31,7 +31,7 @@ return {
             semi = true,
             single_attribute_per_line = false,
             single_quote = false,
-            tab_width = 2,
+            tab_width = 4,
             trailing_comma = "es5",
             use_tabs = true,
             vue_indent_script_and_style = false

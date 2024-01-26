@@ -5,14 +5,14 @@ class WName(base._TextBox):
     """Displays the name of the window that currently has focus"""
 
     defaults = [
-        ("for_current_screen", True, ""),
+        ("for_current_screen", False, ""),
         ("empty_group_string"," ", ""),
         ("format", "{name}", "format of the text"),
         ("parse_text", None, ""),
     ]
 
-    def __init__(self, width=bar.STRETCH, **config):
-        base._TextBox.__init__(self, width=width, **config)
+    def __init__(self, **config):
+        base._TextBox.__init__(self, **config)
         self.add_defaults(self.defaults)
 
     def _configure(self, qtile, bar):

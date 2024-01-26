@@ -2,6 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- [[ PLUGINS ]]
+
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -13,6 +14,9 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   }
 end
+
+
+
 vim.opt.relativenumber = true
 vim.opt.rtp:prepend(lazypath)
 vim.opt.scrolloff = 20
@@ -24,14 +28,13 @@ require('lazy').setup({
   { import = 'themes' },
 }, {})
 
-
 -- [[ SETTINGS ]]
 vim.cmd.colorscheme "moonfly"
 vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#323437' })
 vim.api.nvim_set_hl(0, 'LineNr', { fg = '#bdbdbd' })
 vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#323437' })
 
-vim.o.hlsearch = false          -- Set highlight on search
+vim.o.hlsearch = true           -- Set highlight on search
 vim.wo.number = true            -- Make line numbers default
 vim.o.mouse = 'a'               -- Enable mouse mode
 vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
@@ -45,7 +48,7 @@ vim.wo.signcolumn = 'yes' -- Keep signcolumn on by default
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 100
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
