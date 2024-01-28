@@ -1,0 +1,20 @@
+[global]
+origin = top-center
+paddint = 4
+offset = 8x8
+font = "Geist Mono Nerd Font 11"
+frame_color = "#cc2850"
+separator_color= frame
+
+[urgency_low]
+background = "#080808"
+foreground = "#CDD6F4"
+
+[urgency_normal]
+background = "#080808"
+foreground = "#CDD6F4"
+
+[urgency_critical]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"
