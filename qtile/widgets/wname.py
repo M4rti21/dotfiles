@@ -33,7 +33,8 @@ class WName(base._TextBox):
         if window is None:
             name = ""
         else:
-            name = self.qtile.current_screen.group.current_window._wm_class[1]
+            # name = self.qtile.current_screen.group.current_window._wm_class[1]
+            name = self.qtile.current_screen.group.current_window.name
         self.update(name.title())
 
     def hook_response_current_screen(self, *args):

@@ -1,26 +1,27 @@
 from libqtile import widget
 
 
-def format_date():
-    return "󰃭 %d/%m/%Y"
-
-
-def format_time():
-    return " %H:%M"
-
-
 class ToggleClock(widget.Clock):
-    state = True
+    defaults = [
+        (
+            "short_format",
+            " %H:%M",
+        ),
+        (
+            "long_format",
+            "󰃭 %d/%m/%Y",
+        ),
+    ]
 
     def __init__(self, **config):
         widget.Clock.__init__(self, **config)
-        self.mouse_callbacks = {'Button1': self.toggle}
-        self.format = format_time()
+        self.add_defaults(ToggleClock.defaults)
+        self.format = self.short_format
 
-    def toggle(self):
-        self.state = not self.state
-        if self.state:
-            self.format = format_time()
-        else:
-            self.format = format_date()
+    def mouse_enter(self, *args, **kwargs):
+        self.format = self.long_format
+        self.bar.draw()
+
+    def mouse_leave(self, *args, **kwargs):
+        self.format = self.short_format
         self.bar.draw()

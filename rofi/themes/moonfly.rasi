@@ -6,6 +6,7 @@
 
     width: 600;
     font: "GeistMono Nerd Font SemiBold 11";
+    text-transform: lowercase;
 }
 
 element-text, element-icon , mode-switcher {

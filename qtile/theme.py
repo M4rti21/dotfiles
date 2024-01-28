@@ -7,15 +7,6 @@ colors = {
     "foreground":       "#bdbdbd",
     "disabled":         "#323437",
     "accent":           "#cc2850",
-
-    "black":            "#323437",
-    "white":            "#c6c6c6",
-    "red":              "#ff5454",
-    "yellow":           "#e3c78a",
-    "green":            "#8cc85f",
-    "cyan":             "#81cabe",
-    "blue":             "#80a0ff",
-    "magenta":          "#cf87e8"
 }
 
 panel_size = 24

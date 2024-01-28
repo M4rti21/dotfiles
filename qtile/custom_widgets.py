@@ -1,7 +1,6 @@
 import theme
 
 from libqtile import widget
-from qtile_extras import widget as xwidget
 from libqtile.lazy import lazy
 
 from widgets.clock import ToggleClock

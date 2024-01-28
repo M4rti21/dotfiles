@@ -14,73 +14,82 @@ import theme
 import custom_widgets as cw
 
 from libqtile import hook
-from libqtile import bar, layout, widget
+from libqtile import bar, layout 
+## import layouts Columns, Max, MonadTall, Tile, TreeTab, VerticalTile, Zoomy
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-from qtile_extras import widget as xwidget
 
-# COMMANDS
-
+# KEYS
 mod = "mod4"
 alt = "mod1"
+ret = "Return"
+ctrl = "control"
+shift = "shift"
+tab = "Tab"
+space = "space"
 
+# PROGRAMS
 terminal = guess_terminal("kitty") or "alacritty"
+web_browser = "firefox"
+file_manager = "pcmanfm"
+system_monitor = "btop"
+screenshot_tool = "flameshot gui"
+network_manager = "nmtui"
+audio_manager = "pavucontrol"
 
 commands = {
     "runner": "rofi -show drun -show-icons",
-    "network": terminal + " -e nmtui",
-    "taskmgr": terminal + " -e btop",
-    "volume": "pavucontrol",
-    "screenshot": "flameshot gui",
+    "network": terminal + " -e " + network_manager,
+    "taskmgr": terminal + " -e " + system_monitor,
+    "volume": audio_manager,
+    "screenshot": screenshot_tool,
 }
 
 # HELPER FUNCTIONS
 @lazy.window.function
 def float_to_front(window):
-    if window.floating:
-        window.cmd_bring_to_front()
-    else:
-        window.cmd_bring_to_front()
-        window.cmd_disable_floating()
+    window.cmd_bring_to_front()
 
 
 # KEYBINDINGS
 keys = [
     # Qtile
-    Key([alt, "shift"], "Tab", lazy.next_screen()), # CHANGE WHENEVER
+    Key([alt, shift], tab, lazy.next_screen()), # CHANGE WHENEVER
 
-    Key([mod, "control"], "r", lazy.reload_config()),  # Reload the config
-    Key([mod, "control"], "q", lazy.shutdown()),  # Shutdown Qtile
+    Key([mod, ctrl], "r", lazy.reload_config()),  # Reload the config
+    Key([mod, ctrl], "q", lazy.shutdown()),  # Shutdown Qtile
     Key([mod], "h", lazy.layout.left()),  # Move focus to left
     # Switch between windows
     Key([mod], "l", lazy.layout.right()),  # Move focus to right
     Key([mod], "j", lazy.layout.down()),  # Move focus down
     Key([mod], "k", lazy.layout.up()),  # Move focus up
-    Key([alt], "Tab", lazy.group.next_window(), float_to_front()),  # Move window focus to other window
+    Key([alt], tab, lazy.group.next_window(), float_to_front()),  # Move window focus to other window
     # Move windows
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left()),  # Move window to the left
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right()),  # Move window to the right
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),  # Move window down
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),  # Move window up
+    Key([mod, shift], "h", lazy.layout.shuffle_left()),  # Move window to the left
+    Key([mod, shift], "l", lazy.layout.shuffle_right()),  # Move window to the right
+    Key([mod, shift], "j", lazy.layout.shuffle_down()),  # Move window down
+    Key([mod, shift], "k", lazy.layout.shuffle_up()),  # Move window up
     # Resize windows
-    Key([mod, "control"], "h", lazy.layout.grow_left()),  # Grow window to the left
-    Key([mod, "control"], "l", lazy.layout.grow_right()),  # Grow window to the right
-    Key([mod, "control"], "j", lazy.layout.grow_down()),  # Grow window down
-    Key([mod, "control"], "k", lazy.layout.grow_up()),  # Grow window up
+    Key([mod, ctrl], "h", lazy.layout.grow_left()),  # Grow window to the left
+    Key([mod, ctrl], "l", lazy.layout.grow_right()),  # Grow window to the right
+    Key([mod, ctrl], "j", lazy.layout.grow_down()),  # Grow window down
+    Key([mod, ctrl], "k", lazy.layout.grow_up()),  # Grow window up
     # Layout controls
-    Key([mod], "Tab", lazy.next_layout()),  # Toggle between layouts
+    Key([mod], tab, lazy.next_layout()),  # Toggle between layouts
     # Window controls
     Key([mod], "w", lazy.window.kill()),  # Kill focused window
     Key([mod], "f", lazy.window.toggle_fullscreen()),  # Toggle fullscreen on the focused window
     Key([mod], "t", lazy.window.toggle_floating()),  # Toggle floating on the focused window
     # Controls
-    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard()),  # Toggle between keyboard layouts
+    Key([mod], space, lazy.widget["keyboardlayout"].next_keyboard()),  # Toggle between keyboard layouts
     # Run programs
-    Key([mod], "Return", lazy.spawn(terminal)),  # Launch terminal
     Key([mod], "r", lazy.spawn(commands["runner"])),  # Rofi prompt
-    Key([mod, "shift"], "s", lazy.spawn(commands["screenshot"])),  # Take a screenshot
+    Key([mod], ret, lazy.spawn(terminal)),  # Launch terminal
+    Key([mod], "b", lazy.spawn(web_browser)),  # Launch web browser
+    Key([mod, shift], "s", lazy.spawn(commands["screenshot"])),  # Take a screenshot
+    Key([mod], "v", lazy.spawn(file_manager)),  # Take a screenshot
 ]
 
 mouse = [
@@ -96,12 +105,12 @@ group_layout = "columns"
 for i in range(group_count):
     groups.append(Group(
         name=str(i + 1),
-        layout=str(group_layout),
+        layout=group_layout,
         label=""
     ))
     keys.extend([
         Key([mod], groups[i].name, lazy.group[groups[i].name].toscreen()),  # Switch to group
-        Key([mod, "shift"], groups[i].name, lazy.window.togroup(groups[i].name, switch_group=False)),
+        Key([mod, shift], groups[i].name, lazy.window.togroup(groups[i].name, switch_group=False)),
         # Move focused window to group
     ])
 
@@ -114,9 +123,9 @@ widget_defaults = dict(
 )
 
 groups.append(ScratchPad('sp', [
-    DropDown('vol', commands["volume"], **theme.sp_size),     # Volume
-    DropDown('net', commands["network"], **theme.sp_size),    # Network
-    DropDown('tsk', commands["taskmgr"], **theme.sp_size),    # System Monitor
+    DropDown('vol', commands["volume"], **theme.sp_size),       # Volume
+    DropDown('net', commands["network"], **theme.sp_size),      # Network
+    DropDown('tsk', commands["taskmgr"], **theme.sp_size),      # System Monitor
 ]))
 
     
@@ -125,8 +134,9 @@ def sp_key(key, code):
 
 
 keys.extend([
-    sp_key("v", "vol"),
-    sp_key("b", "tsk"),
+    sp_key("p", "vol"),
+    sp_key("m", "tsk"),
+    sp_key("n", "net"),
 ])
 
 layouts = [
@@ -157,20 +167,21 @@ floating_layout = layout.Floating(
 
 
 def get_bar(index):
-    systray = [cw.systray()] if index == 2 else []
+    systray = [cw.systray()] if index == 0 else []
     return {
         "widgets": [
             cw.layout(),
             cw.workspaces(),
             cw.spacer(),
+            # cw.window_title(),
             cw.window_name(),
             cw.spacer(),
             *systray,
             cw.caps(),
             cw.keyboard(),
-            cw.scratchpad("󰈀", "net"),
+            # cw.scratchpad("󰈀", "net"),
             cw.volume(),
-            cw.clock()
+            cw.clock(),
         ],
         "size": theme.panel_size,
         "background": theme.colors["background"],
