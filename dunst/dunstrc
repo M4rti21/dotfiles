@@ -1,10 +1,12 @@
 [global]
-origin = top-center
+origin = bottom-right
 paddint = 4
-offset = 8x8
+offset = 8x33
 font = "Geist Mono Nerd Font 11"
 frame_color = "#cc2850"
+frame_width = 2
 separator_color= frame
+gap_size = 2
 
 [urgency_low]
 background = "#080808"
