@@ -1,14 +1,18 @@
-vim.cmd [[colorscheme moonfly]]
+vim.cmd([[colorscheme moonfly]])
 
-vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#323437' })
-vim.api.nvim_set_hl(0, 'LineNr', { fg = '#bdbdbd' })
-vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#323437' })
+vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#323437" })
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#bdbdbd" })
+vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#323437" })
 
-local highlight_grouk = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlightkgroup,
-  pattern = '*',
+local highlight_grouk = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlightkgroup,
+	pattern = "*",
 })
+
+vim.g.mkdp_refresh_slow = 0
+vim.g.mkdp_markdown_css = "/home/m4rti/dotfiles/nvim/src/github-markdown.css"
+vim.g.mkdp_theme = "dark"
