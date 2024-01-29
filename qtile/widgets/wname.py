@@ -1,11 +1,11 @@
-from libqtile import bar, hook
+from libqtile import hook
 from libqtile.widget import base
 
 class WName(base._TextBox):
     """Displays the name of the window that currently has focus"""
 
     defaults = [
-        ("for_current_screen", False, ""),
+        ("for_current_screen", True, ""),
         ("empty_group_string"," ", ""),
         ("format", "{name}", "format of the text"),
         ("parse_text", None, ""),
@@ -35,7 +35,9 @@ class WName(base._TextBox):
         else:
             # name = self.qtile.current_screen.group.current_window._wm_class[1]
             name = self.qtile.current_screen.group.current_window.name
-        self.update(name.title())
+        # turn to lowercase
+        title = str(name.title()).lower()
+        self.update(title)
 
     def hook_response_current_screen(self, *args):
         if self.for_current_screen:

@@ -10,6 +10,7 @@
 #   github repo: https://github.com/M4rti21/dotfiles
 
 import subprocess
+
 import theme
 
 from widgets.clock import ToggleClock
@@ -18,6 +19,9 @@ from widgets.caps import  Caps
 
 from libqtile import hook, widget
 from libqtile import bar, layout
+from libqtile.layout.max import Max
+from libqtile.layout.columns import Columns
+from libqtile.layout.floating import Floating
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -142,14 +146,14 @@ keys.extend([
 ])
 
 layouts = [
-    layout.Columns(**theme.borders),
-    layout.Max(**theme.borders),
+    Columns(**theme.borders),
+    Max(**theme.borders),
 ]
 
 # FLOATING WINDOW RULES "xprop"
-floating_layout = layout.Floating(
+floating_layout = Floating(
     float_rules=[
-        *layout.Floating.default_float_rules,
+        *Floating.default_float_rules,
         Match(wm_class='confirm'),
         Match(wm_class='dialog'),
         Match(wm_class='download'),
@@ -210,7 +214,8 @@ def get_bar(index):
                 *systray,
                 Caps(),
                 widget.KeyboardLayout(
-                    configured_keyboards=['us', 'es cat']
+                    configured_keyboards=['us', 'es cat'],
+                    display_map={'us': 'ENG', 'es cat': 'CAT'},
                     ),
                 widget.Volume(
                     fmt="󰕾 {}",
