@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",

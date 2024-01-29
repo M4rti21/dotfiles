@@ -21,5 +21,6 @@ return require('packer').startup(function(use)
 			{'L3MON4D3/LuaSnip'},
 		}
 	}
+    use { 'mhartington/formatter.nvim' }
 	use { 'github/copilot.vim' }
 end)

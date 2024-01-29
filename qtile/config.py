@@ -1,5 +1,5 @@
 #   qtile config by:
-#   
+#
 #    ███╗   ███╗██╗  ██╗██████╗ ████████╗██╗
 #    ████╗ ████║██║  ██║██╔══██╗╚══██╔══╝██║
 #    ██╔████╔██║███████║██████╔╝   ██║   ██║
@@ -11,11 +11,13 @@
 
 import subprocess
 import theme
-import custom_widgets as cw
 
-from libqtile import hook
-from libqtile import bar, layout 
-## import layouts Columns, Max, MonadTall, Tile, TreeTab, VerticalTile, Zoomy
+from widgets.clock import ToggleClock
+from widgets.wname import WName
+from widgets.caps import  Caps
+
+from libqtile import hook, widget
+from libqtile import bar, layout
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -128,7 +130,7 @@ groups.append(ScratchPad('sp', [
     DropDown('tsk', commands["taskmgr"], **theme.sp_size),      # System Monitor
 ]))
 
-    
+
 def sp_key(key, code):
     return Key([mod], key, lazy.group['sp'].dropdown_toggle(code))
 
@@ -167,31 +169,65 @@ floating_layout = layout.Floating(
 
 
 def get_bar(index):
-    systray = [cw.systray()] if index == 0 else []
+    systray = [
+            widget.WidgetBox(
+                widgets=[
+                    widget.TextBox(text="[", padding=0),
+                    widget.Systray(icon_size=16),
+                    widget.TextBox(text=" ]", padding=0),
+                ],
+                text_closed="",
+                text_open="",
+                close_button_location='right',
+            )
+    ] if index == 0 else []
+
     return {
-        "widgets": [
-            cw.layout(),
-            cw.workspaces(),
-            cw.spacer(),
-            # cw.window_title(),
-            cw.window_name(),
-            cw.spacer(),
-            *systray,
-            cw.caps(),
-            cw.keyboard(),
-            # cw.scratchpad("󰈀", "net"),
-            cw.volume(),
-            cw.clock(),
-        ],
-        "size": theme.panel_size,
-        "background": theme.colors["background"],
-        "margin": [theme.gap_size, 0, 0, 0],
-        "gaps": {
-            "left": bar.Gap(theme.gap_size),
-            "right": bar.Gap(theme.gap_size),
-            "top": bar.Gap(theme.gap_size)
-        }
-    }
+            "widgets": [
+                widget.CurrentLayoutIcon(
+                    scale=0.75,
+                    use_mask=True,
+                    foreground=theme.colors["foreground"]
+                    ),
+                widget.GroupBox(
+                    highlight_method="line",
+                    highlight_color=[theme.colors["background"], theme.colors["background"]],
+                    inactive=theme.colors["disabled"],
+                    this_screen_border=theme.colors["accent"],
+                    this_current_screen_border=theme.colors["accent"],
+                    active=theme.colors["foreground"],
+                    other_current_screen_border=theme.colors["disabled"],
+                    other_screen_border=theme.colors["disabled"],
+                    padding=4,
+                    margin_y=4,
+                    disable_drag=True,
+                    font=theme.system_font,
+                    ),
+                widget.Spacer(),
+                # cw.window_title(),
+                WName(),
+                widget.Spacer(),
+                *systray,
+                Caps(),
+                widget.KeyboardLayout(
+                    configured_keyboards=['us', 'es cat']
+                    ),
+                widget.Volume(
+                    fmt="󰕾 {}",
+                    emoji=False,
+                    mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle('vol')},
+                    ),
+                ToggleClock(),
+                ],
+            "size": theme.panel_size,
+            "background": theme.colors["background"],
+            "margin": [theme.gap_size, 0, 0, 0],
+            "gaps": {
+                "left": bar.Gap(theme.gap_size),
+                "right": bar.Gap(theme.gap_size),
+                "top": bar.Gap(theme.gap_size)
+                }
+            }
 
 screens = [
     Screen(bottom=bar.Bar(**get_bar(0))),
@@ -221,4 +257,3 @@ def autostart():
     base_dir = "/home/m4rti/.config/qtile/scripts/"
     subprocess.run(base_dir + "display_settings.sh")
     subprocess.run(base_dir + "autostart.sh")
-
