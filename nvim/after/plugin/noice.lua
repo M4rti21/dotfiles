@@ -69,6 +69,6 @@ notify.setup({
 	minimum_width = 50,
 	render = "minimal",
 	stages = "static",
-	timeout = 1000,
+	timeout = 4000,
 	top_down = true,
 })
