@@ -18,7 +18,7 @@ from widgets.wname import WName
 from widgets.caps import  Caps
 
 from libqtile import hook, widget
-from libqtile import bar, layout
+from libqtile import bar
 from libqtile.layout.max import Max
 from libqtile.layout.columns import Columns
 from libqtile.layout.floating import Floating

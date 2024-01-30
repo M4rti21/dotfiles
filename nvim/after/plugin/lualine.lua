@@ -50,8 +50,8 @@ lualine.setup({
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch" },
-		lualine_c = { "diagnostics" },
-		lualine_x = { "diff" },
+		lualine_c = { "diagnostics", "diff" },
+		lualine_x = { "location" },
 		lualine_y = { "filename" },
 		lualine_z = { "progress" },
 	},

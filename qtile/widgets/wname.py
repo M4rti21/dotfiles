@@ -33,9 +33,7 @@ class WName(base._TextBox):
         if window is None:
             name = ""
         else:
-            # name = self.qtile.current_screen.group.current_window._wm_class[1]
-            name = self.qtile.current_screen.group.current_window.name
-        # turn to lowercase
+            name = self.qtile.current_screen.group.current_window._wm_class[1]
         title = str(name.title()).lower()
         self.update(title)
 
