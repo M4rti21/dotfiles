@@ -18,31 +18,22 @@ return require("packer").startup(function(use)
 			{ "neovim/nvim-lspconfig" },
 			{ "hrsh7th/nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-path" },
 			{ "L3MON4D3/LuaSnip" },
 		},
 	})
 	use({ "bluz71/vim-moonfly-colors", as = "moonfly" })
 	use({ "github/copilot.vim" })
 	use({ "mhartington/formatter.nvim" })
-	use({ "folke/which-key.nvim" })
 	use({
 		"iamcco/markdown-preview.nvim",
-		{
-			run = function()
-				vim.fn["mkdp#util#install"]()
-			end,
-		},
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
 	})
-	use({ "folke/todo-comments.nvim" })
+	use({ "numToStr/Comment.nvim", opts = {} })
 	use({
-		"folke/noice.nvim",
-		requires = {
-			{ "MunifTanjim/nui.nvim" },
-			{ "rcarriga/nvim-notify" },
-		},
-	})
-	use({
-		"hoob3rt/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 end)

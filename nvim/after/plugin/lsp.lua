@@ -31,7 +31,7 @@ lsp_zero.on_attach(function(_, bufnr)
 	end, opts)
 end)
 
-require("lspconfig").sumneko_lua.setup({
+require("lspconfig").lua_ls.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
