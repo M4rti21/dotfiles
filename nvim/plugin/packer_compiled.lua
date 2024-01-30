@@ -94,15 +94,15 @@ _G.packer_plugins = {
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["conform.nvim"] = {
+    loaded = true,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   ["copilot.vim"] = {
     loaded = true,
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
-  },
-  ["formatter.nvim"] = {
-    loaded = true,
-    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/formatter.nvim",
-    url = "https://github.com/mhartington/formatter.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -153,6 +153,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,

@@ -24,7 +24,7 @@ return require("packer").startup(function(use)
 	})
 	use({ "bluz71/vim-moonfly-colors", as = "moonfly" })
 	use({ "github/copilot.vim" })
-	use({ "mhartington/formatter.nvim" })
+	use({ "stevearc/conform.nvim" })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function()
