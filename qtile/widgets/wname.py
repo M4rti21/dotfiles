@@ -28,16 +28,17 @@ class WName(base._TextBox):
         hook.unsubscribe.float_change(self.hook_response)
         hook.unsubscribe.current_screen_change(self.hook_response_current_screen)
 
-    def hook_response(self, *args):
+    def hook_response(self):
         window = self.qtile.current_screen.group.current_window
         if window is None:
             name = ""
         else:
             name = self.qtile.current_screen.group.current_window._wm_class[1]
+            # name = self.qtile.current_screen.group.current_window.name
         title = str(name.title()).lower()
         self.update(title)
 
-    def hook_response_current_screen(self, *args):
+    def hook_response_current_screen(self):
         if self.for_current_screen:
             self.hook_response()
 
