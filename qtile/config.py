@@ -38,21 +38,16 @@ space = "space"
 
 # PROGRAMS
 terminal = guess_terminal("kitty") or "alacritty"
-web_browser = "firefox"
-file_manager = "pcmanfm"
-system_monitor = "btop"
-screenshot_tool = "flameshot"
-network_manager = "nmtui"
-audio_manager = "pavucontrol"
+terminal_run = terminal + " -e "
 
-commands = {
-    "runner": "rofi -show drun -show-icons",
-    "network": terminal + " -e " + network_manager,
-    "taskmgr": terminal + " -e " + system_monitor,
-    "volume": audio_manager,
-    "select_screenshot": screenshot_tool + " gui",
-    "full_screenshot": screenshot_tool + " full",
-}
+browser = "firefox"
+task_manager= terminal_run + "btop"
+network_manager = terminal_run + "nmtui"
+audio_manager = "pavucontrol"
+file_manager = terminal_run + "ranger"
+screenshot_selection = "flameshot gui"
+screenshot_full = "flameshot full"
+runner = "rofi -show drun -show-icons"
 
 # HELPER FUNCTIONS
 @lazy.window.function
@@ -92,12 +87,12 @@ keys = [
     # Controls
     Key([mod], space, lazy.widget["keyboardlayout"].next_keyboard()),  # Toggle between keyboard layouts
     # Run programs
-    Key([mod], "r", lazy.spawn(commands["runner"])),  # Rofi prompt
+    Key([mod], "r", lazy.spawn(runner)),  # Rofi prompt
     Key([mod], ret, lazy.spawn(terminal)),  # Launch terminal
-    Key([mod], "b", lazy.spawn(web_browser)),  # Launch web browser
-    Key([mod, shift], "s", lazy.spawn(commands["select_screenshot"])),  # Take a screenshot
-    Key([mod, ctrl], "s", lazy.spawn(commands["full_screenshot"])),  # Take a screenshot
-    Key([mod], "v", lazy.spawn(file_manager)),  # Take a screenshot
+    Key([mod], "b", lazy.spawn(browser)),  # Launch web browser
+    Key([mod, shift], "s", lazy.spawn(screenshot_selection)),  # Take a screenshot
+    Key([mod, ctrl], "s", lazy.spawn(screenshot_full)),  # Take a screenshot
+    Key([mod], "BackSpace", lazy.spawn(file_manager)),  # Launch file manager
 ]
 
 mouse = [
@@ -131,9 +126,9 @@ widget_defaults = dict(
 )
 
 groups.append(ScratchPad('sp', [
-    DropDown('vol', commands["volume"], **theme.sp_size),       # Volume
-    DropDown('net', commands["network"], **theme.sp_size),      # Network
-    DropDown('tsk', commands["taskmgr"], **theme.sp_size),      # System Monitor
+    DropDown('vol', audio_manager, **theme.sp_size),       # Volume
+    DropDown('net', network_manager, **theme.sp_size),      # Network
+    DropDown('tsk', task_manager, **theme.sp_size),      # System Monitor
 ]))
 
 
@@ -142,8 +137,8 @@ def sp_key(key, code):
 
 
 keys.extend([
-    sp_key("p", "vol"),
-    sp_key("m", "tsk"),
+    sp_key("v", "vol"),
+    sp_key("b", "tsk"),
     sp_key("n", "net"),
 ])
 
