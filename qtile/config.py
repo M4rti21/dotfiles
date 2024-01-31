@@ -41,7 +41,7 @@ terminal = guess_terminal("kitty") or "alacritty"
 web_browser = "firefox"
 file_manager = "pcmanfm"
 system_monitor = "btop"
-screenshot_tool = "flameshot gui"
+screenshot_tool = "flameshot"
 network_manager = "nmtui"
 audio_manager = "pavucontrol"
 
@@ -50,7 +50,8 @@ commands = {
     "network": terminal + " -e " + network_manager,
     "taskmgr": terminal + " -e " + system_monitor,
     "volume": audio_manager,
-    "screenshot": screenshot_tool,
+    "select_screenshot": screenshot_tool + " gui",
+    "full_screenshot": screenshot_tool + " full",
 }
 
 # HELPER FUNCTIONS
@@ -94,7 +95,8 @@ keys = [
     Key([mod], "r", lazy.spawn(commands["runner"])),  # Rofi prompt
     Key([mod], ret, lazy.spawn(terminal)),  # Launch terminal
     Key([mod], "b", lazy.spawn(web_browser)),  # Launch web browser
-    Key([mod, shift], "s", lazy.spawn(commands["screenshot"])),  # Take a screenshot
+    Key([mod, shift], "s", lazy.spawn(commands["select_screenshot"])),  # Take a screenshot
+    Key([mod, ctrl], "s", lazy.spawn(commands["full_screenshot"])),  # Take a screenshot
     Key([mod], "v", lazy.spawn(file_manager)),  # Take a screenshot
 ]
 
@@ -215,7 +217,7 @@ def get_bar(index):
                 Caps(),
                 widget.KeyboardLayout(
                     configured_keyboards=['us', 'es cat'],
-                    display_map={'us': 'ENG', 'es cat': 'CAT'},
+                    display_map={'us': ' us', 'es cat': 'cat'},
                     ),
                 widget.Volume(
                     fmt="󰕾 {}",

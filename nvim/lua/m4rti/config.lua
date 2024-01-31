@@ -16,3 +16,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.g.mkdp_refresh_slow = 0
 vim.g.mkdp_markdown_css = "/home/m4rti/dotfiles/nvim/src/github-markdown.css"
 vim.g.mkdp_theme = "dark"
+
+vim.o.wrap = false
