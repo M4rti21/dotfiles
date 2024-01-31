@@ -13,8 +13,8 @@ import subprocess
 
 import theme
 
-from widgets.wname import WName
 from widgets.caps import  Caps
+from widgets.clock import ToggleClock
 
 from libqtile import hook, widget
 from libqtile import bar
@@ -99,29 +99,23 @@ mouse = [
     Click([mod], "Button1", float_to_front(lazy.window)),
 ]
 
-groups = []
+monitor_count = 3
 group_count = 9
-group_layout = "columns"
+
+groups = []
 
 def go_to_group(name):
     def f(qtile):
-        if name in ['1', '4', '7']:
-            qtile.cmd_to_screen(0)
-            qtile.cmd_to_group(name)
-        elif name in ['2', '5', '8']:
-            qtile.cmd_to_screen(1)
-            qtile.cmd_to_group(name)
-        else: # name in ['3', '6', '9']
-            qtile.cmd_to_screen(2)
-            qtile.cmd_to_group(name)
+        screen_index = (int(name) - 1) % monitor_count
+        qtile.cmd_to_screen(screen_index)
+        qtile.groups_map[name].cmd_toscreen()
     return f
 
 for i in range(group_count):
     name = str(i + 1)
     groups.append(Group(
         name=name,
-        layout=group_layout,
-        #label=""
+        layout="columns",
         label=name
     ))
     keys.extend([
@@ -196,13 +190,13 @@ def get_bar(index):
             )
     ] if index == 0 else []
 
-    visible_groups = []
-    if index == 0:
-        visible_groups = ['1', '4', '7']
-    elif index == 1:
-        visible_groups = ['2', '5', '8']
-    else:
-        visible_groups = ['3', '6', '9']
+    def get_visible_groups(index):
+        if monitor_count <= 0:
+            return []
+        group_indices = [i + index for i in range(-1, 9, monitor_count)]
+        return [str(group_index) for group_index in group_indices]
+
+    visible_groups = get_visible_groups(index)
 
     return {
             "widgets": [
@@ -231,10 +225,12 @@ def get_bar(index):
                     font=theme.system_font,
                     mouse_callbacks={'Button1': None}
                     ),
-                WName(
-                    short_name=False,
+                widget.WindowName(
+                    format="{name}",
                     ),
-                widget.Spacer(),
+                # WName(
+                #     short_name=False,
+                #     ),
                 *systray,
                 Caps(),
                 widget.KeyboardLayout(
@@ -247,12 +243,7 @@ def get_bar(index):
                     emoji=False,
                     mouse_callbacks={'Button1': None} 
                     ),
-                widget.Clock(
-                    format="󰃭 %d/%m/%Y",
-                    ),
-                widget.Clock(
-                    format=" %H:%M",
-                    ),
+                ToggleClock()
                 ],
             "size": theme.panel_size,
             "background": theme.colors["background"],
@@ -264,11 +255,12 @@ def get_bar(index):
                 }
             }
 
-screens = [
-    Screen(bottom=bar.Bar(**get_bar(0))),
-    Screen(bottom=bar.Bar(**get_bar(1))),
-    Screen(bottom=bar.Bar(**get_bar(2)))
-]
+screens = []
+
+for i in range(monitor_count):
+    screens.append(
+        Screen(bottom=bar.Bar(**get_bar(i - 1))),
+    )
 
 
 dgroups_key_binder = None
