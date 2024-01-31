@@ -2,11 +2,11 @@ local conform = require("conform")
 conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "black" },
+		python = { "yapf" },
 		javascript = { "deno" },
 		typescript = { "deno" },
 		bash = { "beautysh" },
-        css = { "stylelint" },
+		css = { "stylelint" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
