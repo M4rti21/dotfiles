@@ -1,22 +1,16 @@
 from libqtile import hook
-from libqtile.widget import base
+from libqtile.widget.base import _TextBox
 
-class WName(base._TextBox):
+class WName(_TextBox):
     """Displays the name of the window that currently has focus"""
-
-    defaults = [
-        ("for_current_screen", True, ""),
-        ("empty_group_string"," ", ""),
-        ("format", "{name}", "format of the text"),
-        ("parse_text", None, ""),
-    ]
+    short_name = False
 
     def __init__(self, **config):
-        base._TextBox.__init__(self, **config)
-        self.add_defaults(self.defaults)
+        _TextBox.__init__(self, **config)
+        self.short_name = config.get("short_name", False)
 
     def _configure(self, qtile, bar):
-        base._TextBox._configure(self, qtile, bar)
+        _TextBox._configure(self, qtile, bar)
         hook.subscribe.client_name_updated(self.hook_response)
         hook.subscribe.focus_change(self.hook_response)
         hook.subscribe.float_change(self.hook_response)
@@ -33,8 +27,10 @@ class WName(base._TextBox):
         if window is None:
             name = ""
         else:
-            name = self.qtile.current_screen.group.current_window._wm_class[1]
-            # name = self.qtile.current_screen.group.current_window.name
+            if self.short_name:
+                name = self.qtile.current_screen.group.current_window._wm_class[1]
+            else:
+                name = self.qtile.current_screen.group.current_window.name
         title = str(name.title()).lower()
         self.update(title)
 
@@ -44,4 +40,4 @@ class WName(base._TextBox):
 
     def finalize(self):
         self.remove_hooks()
-        base._TextBox.finalize(self)
+        _TextBox.finalize(self)

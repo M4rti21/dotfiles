@@ -13,7 +13,6 @@ import subprocess
 
 import theme
 
-from widgets.clock import ToggleClock
 from widgets.wname import WName
 from widgets.caps import  Caps
 
@@ -25,7 +24,6 @@ from libqtile.layout.floating import Floating
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-
 
 # KEYS
 mod = "mod4"
@@ -102,19 +100,34 @@ mouse = [
 ]
 
 groups = []
-group_count = 6
+group_count = 9
 group_layout = "columns"
 
+def go_to_group(name):
+    def f(qtile):
+        if name in ['1', '4', '7']:
+            qtile.cmd_to_screen(0)
+            qtile.cmd_to_group(name)
+        elif name in ['2', '5', '8']:
+            qtile.cmd_to_screen(1)
+            qtile.cmd_to_group(name)
+        else: # name in ['3', '6', '9']
+            qtile.cmd_to_screen(2)
+            qtile.cmd_to_group(name)
+    return f
+
 for i in range(group_count):
+    name = str(i + 1)
     groups.append(Group(
-        name=str(i + 1),
+        name=name,
         layout=group_layout,
-        label=""
+        #label=""
+        label=name
     ))
     keys.extend([
-        Key([mod], groups[i].name, lazy.group[groups[i].name].toscreen()),  # Switch to group
-        Key([mod, shift], groups[i].name, lazy.window.togroup(groups[i].name, switch_group=False)),
-        # Move focused window to group
+        Key([mod], name, lazy.function(go_to_group(name))),
+        # Key([mod], groups[i].name, lazy.group[groups[i].name].toscreen()),  # Switch to group
+        Key([mod, 'shift'], name, lazy.window.togroup(name)),
     ])
 
 widget_defaults = dict(
@@ -183,14 +196,24 @@ def get_bar(index):
             )
     ] if index == 0 else []
 
+    visible_groups = []
+    if index == 0:
+        visible_groups = ['1', '4', '7']
+    elif index == 1:
+        visible_groups = ['2', '5', '8']
+    else:
+        visible_groups = ['3', '6', '9']
+
     return {
             "widgets": [
                 widget.CurrentLayoutIcon(
                     scale=0.75,
                     use_mask=True,
-                    foreground=theme.colors["foreground"]
+                    foreground=theme.colors["foreground"],
+                    mouse_callbacks={'Button1': None}
                     ),
                 widget.GroupBox(
+                    visible_groups=visible_groups,
                     highlight_method="line",
                     highlight_color=[theme.colors["background"], theme.colors["background"]],
                     inactive=theme.colors["disabled"],
@@ -199,27 +222,37 @@ def get_bar(index):
                     active=theme.colors["foreground"],
                     other_current_screen_border=theme.colors["disabled"],
                     other_screen_border=theme.colors["disabled"],
+                    scroll=False,
                     padding=4,
                     margin_y=4,
                     disable_drag=True,
+                    toggle=False,
+                    use_mouse_wheel=False,
                     font=theme.system_font,
+                    mouse_callbacks={'Button1': None}
                     ),
-                widget.Spacer(),
-                # cw.window_title(),
-                WName(),
+                WName(
+                    short_name=False,
+                    ),
                 widget.Spacer(),
                 *systray,
                 Caps(),
                 widget.KeyboardLayout(
                     configured_keyboards=['us', 'es cat'],
-                    display_map={'us': ' us', 'es cat': 'cat'},
+                    display_map={'us': 'ENG', 'es cat': 'CAT'},
+                    mouse_callbacks={'Button1': None} 
                     ),
                 widget.Volume(
                     fmt="󰕾 {}",
                     emoji=False,
-                    mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle('vol')},
+                    mouse_callbacks={'Button1': None} 
                     ),
-                ToggleClock(),
+                widget.Clock(
+                    format="󰃭 %d/%m/%Y",
+                    ),
+                widget.Clock(
+                    format=" %H:%M",
+                    ),
                 ],
             "size": theme.panel_size,
             "background": theme.colors["background"],
