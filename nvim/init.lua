@@ -54,6 +54,7 @@ local plugins = {
 	},
 	{ "terrortylor/nvim-comment" },
 	{ "m4xshen/autoclose.nvim" },
+	{ "norcalli/nvim-colorizer.lua" },
 }
 
 local opts = {}
@@ -71,3 +72,4 @@ require("plugin.lualine")
 require("plugin.nvim_comment")
 require("plugin.telescope")
 require("plugin.treesitter")
+require("plugin.colorizer")
