@@ -1,5 +1,6 @@
 local lsp_zero = require("lsp-zero")
 local lspconfig = require("lspconfig")
+require("java").setup()
 
 lsp_zero.on_attach(function(_, bufnr)
 	local opts = { buffer = bufnr, remap = false }
@@ -32,11 +33,12 @@ lsp_zero.on_attach(function(_, bufnr)
 	end, opts)
 end)
 
+lspconfig.jdtls.setup({})
+
 lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				-- Get the language server to recognize the `vim` global
 				globals = { "vim" },
 			},
 		},

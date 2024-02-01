@@ -7,6 +7,7 @@ conform.setup({
 		typescript = { "deno" },
 		bash = { "beautysh" },
 		css = { "stylelint" },
+		java = { "jdtls" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
