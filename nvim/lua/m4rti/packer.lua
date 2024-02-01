@@ -37,4 +37,5 @@ return require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 	use({ "terrortylor/nvim-comment" })
+	use({ "m4xshen/autoclose.nvim" })
 end)

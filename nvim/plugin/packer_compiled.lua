@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["autoclose.nvim"] = {
+    loaded = true,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
+    url = "https://github.com/m4xshen/autoclose.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -108,6 +113,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
+  ["lua-async-await"] = {
+    loaded = true,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/lua-async-await",
+    url = "https://github.com/nvim-java/lua-async-await"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -139,6 +149,11 @@ _G.packer_plugins = {
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
   },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -148,6 +163,31 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-java"] = {
+    loaded = true,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/nvim-java",
+    url = "https://github.com/nvim-java/nvim-java"
+  },
+  ["nvim-java-core"] = {
+    loaded = true,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/nvim-java-core",
+    url = "https://github.com/nvim-java/nvim-java-core"
+  },
+  ["nvim-java-dap"] = {
+    loaded = true,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/nvim-java-dap",
+    url = "https://github.com/nvim-java/nvim-java-dap"
+  },
+  ["nvim-java-test"] = {
+    loaded = true,
+    path = "/home/m4rti/.local/share/nvim/site/pack/packer/start/nvim-java-test",
+    url = "https://github.com/nvim-java/nvim-java-test"
   },
   ["nvim-lspconfig"] = {
     loaded = true,

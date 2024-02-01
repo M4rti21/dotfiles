@@ -1,4 +1,5 @@
 local lsp_zero = require("lsp-zero")
+local lspconfig = require("lspconfig")
 
 lsp_zero.on_attach(function(_, bufnr)
 	local opts = { buffer = bufnr, remap = false }
@@ -31,7 +32,7 @@ lsp_zero.on_attach(function(_, bufnr)
 	end, opts)
 end)
 
-require("lspconfig").lua_ls.setup({
+lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -43,7 +44,7 @@ require("lspconfig").lua_ls.setup({
 })
 
 -- set vim as a lua global variable
-require("mason").setup({})
+require("mason").setup()
 require("mason-lspconfig").setup({
 	handlers = {
 		lsp_zero.default_setup,
