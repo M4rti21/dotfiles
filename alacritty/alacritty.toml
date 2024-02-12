@@ -13,6 +13,11 @@ bold_italic.family = "ComicShannsMono Nerd Font"
 
 size = 13
 
+[cursor]
+style.shape = "Beam"
+style.blinking = "Always"
+vi_mode_style.shape = "Block"
+
 [colors]
 draw_bold_text_with_bright_colors = true
 
