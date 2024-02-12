@@ -29,7 +29,6 @@ local plugins = {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
     },
-    { "m4xshen/autoclose.nvim" },      -- auto close brackets
     { "norcalli/nvim-colorizer.lua" }, -- color highlight
     -- lsp
     {
@@ -49,27 +48,6 @@ local plugins = {
     {
         'stevearc/conform.nvim',
         opts = {},
-    },
-    {
-        'nvim-java/nvim-java',
-        dependencies = {
-            'nvim-java/lua-async-await',
-            'nvim-java/nvim-java-core',
-            'nvim-java/nvim-java-test',
-            'nvim-java/nvim-java-dap',
-            'MunifTanjim/nui.nvim',
-            'neovim/nvim-lspconfig',
-            'mfussenegger/nvim-dap',
-            {
-                'williamboman/mason.nvim',
-                opts = {
-                    registries = {
-                        'github:nvim-java/mason-registry',
-                        'github:mason-org/mason-registry',
-                    },
-                },
-            }
-        },
     },
     { "terrortylor/nvim-comment" },
     {
@@ -91,7 +69,6 @@ require("remap")
 require("config")
 
 -- import plugin configs
-require("plugin.autoclose")
 require("plugin.conform")
 require("plugin.lsp")
 require("plugin.lualine")

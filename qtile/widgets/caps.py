@@ -32,8 +32,8 @@ class Caps(base.ThreadPoolText):
         if not indicators:
             return status
         if indicators[0] == True:
-            status+="󰪛"
+            status+="A"
         if indicators[1] == True:
-            status+=""
+            status+="L"
         return status
 

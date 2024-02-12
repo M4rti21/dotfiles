@@ -1,6 +1,7 @@
 # THEME SETTINGS
 
-system_font = "GeistMono Nerd Font Bold"
+system_font = "GeistMono Nerd Font SemiBold"
+system_font = "ComicShannsMono Nerd Font Mono Bold"
 
 colors = dict(
         background = "#080808",
@@ -23,8 +24,8 @@ borders = dict(
 
 widget_defaults = dict(
         font = system_font,
-        fontsize = 14,
-        padding = 10,
+        fontsize = 18,
+        padding = 8,
         margin = 0,
         foreground = colors["foreground"]
         )

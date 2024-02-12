@@ -5,11 +5,11 @@ class ToggleClock(widget.Clock):
     defaults = [
         (
             "short_format",
-            " %H:%M",
+            "%H:%M",
         ),
         (
             "long_format",
-            "󰃭 %d/%m/%Y",
+            "%d/%m/%Y",
         ),
     ]
     short = True

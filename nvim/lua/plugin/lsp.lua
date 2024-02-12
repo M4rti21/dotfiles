@@ -1,5 +1,3 @@
-require('java').setup()
-
 local lsp_zero = require("lsp-zero")
 local lspconfig = require("lspconfig")
 
@@ -43,7 +41,6 @@ lspconfig.lua_ls.setup({
         },
     },
 })
-lspconfig.jdtls.setup({})
 
 require("mason").setup()
 require("mason-lspconfig").setup({

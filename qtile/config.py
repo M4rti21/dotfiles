@@ -1,4 +1,4 @@
-#   qtile config by:
+# t  qtile config by:
 #
 #    ███╗   ███╗██╗  ██╗██████╗ ████████╗██╗
 #    ████╗ ████║██║  ██║██╔══██╗╚══██╔══╝██║
@@ -23,7 +23,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 # PROGRAMS
-terminal = guess_terminal("kitty")
+terminal = guess_terminal("alacritty")
 
 # HELPER FUNCTIONS
 @lazy.window.function
@@ -146,7 +146,7 @@ def get_bar(index):
                 text_open="",
                 close_button_location='right',
                 )
-            ] if index == -1 else []
+            ] if index == 0 else []
 
     visible_groups = []
 
@@ -163,30 +163,31 @@ def get_bar(index):
                     scale=0.75,
                     use_mask=True,
                     foreground=theme.colors["foreground"],
-                    mouse_callbacks={'Button1': None}
                     ),
                 widget.GroupBox(
                     visible_groups=visible_groups,
                     highlight_method="line",
                     highlight_color=[theme.colors["background"], theme.colors["background"]],
                     inactive=theme.colors["disabled"],
-                    this_screen_border=theme.colors["disabled"],
+                    this_screen_border=theme.colors["foreground"],
                     this_current_screen_border=theme.colors["accent"],
                     active=theme.colors["foreground"],
                     other_current_screen_border=theme.colors["disabled"],
                     other_screen_border=theme.colors["disabled"],
                     scroll=False,
+                    borderwidth=2,
                     padding=4,
                     margin_y=4,
                     disable_drag=True,
-                    toggle=False,
                     use_mouse_wheel=False,
-                    font=theme.system_font,
-                    mouse_callbacks={'Button1': None}
                     ),
                 widget.WindowName(
                     format="{name}",
                     ),
+                widget.TextBox(
+                    text="arch btw",
+                    ),
+                widget.Spacer(),  
                 *systray,
                 Caps(),
                 widget.KeyboardLayout(
@@ -194,7 +195,7 @@ def get_bar(index):
                     display_map={'us': 'ENG', 'es cat': 'CAT'},
                     ),
                 widget.Volume(
-                    fmt="󰕾 {}",
+                    #fmt="󰕾 {}",
                     emoji=False,
                     emoji_list=["󰸈", "󰕿", "󰖀", "󰕾"],
                     mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle("vol") } 
