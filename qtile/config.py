@@ -1,4 +1,4 @@
-# t  qtile config by:
+#   qtile config by:
 #
 #    ███╗   ███╗██╗  ██╗██████╗ ████████╗██╗
 #    ████╗ ████║██║  ██║██╔══██╗╚══██╔══╝██║
@@ -105,13 +105,7 @@ groups.append(ScratchPad('sp', [
     DropDown('vol', "pavucontrol", **theme.sp_size),
     ]))
 
-widget_defaults = dict(
-        font=theme.system_font,
-        fontsize=14,
-        padding=10,
-        margin=0,
-        foreground=theme.colors["foreground"]
-        )
+widget_defaults = theme.widget_defaults
 
 layouts = [
         Columns(**theme.borders),
@@ -135,18 +129,20 @@ floating_layout = Floating(
         )
 
 def get_bar(index):
-    systray = [
-            widget.WidgetBox(
-                widgets=[
-                    widget.TextBox(text="[", padding=0),
-                                   widget.Systray(icon_size=16),
-                                   widget.TextBox(text=" ]", padding=0),
+    systray = []
+    if index == 0:
+        systray = [
+                widget.WidgetBox(
+                    widgets=[
+                        widget.TextBox(text="[", padding=0),
+                        widget.Systray(icon_size=16),
+                        widget.TextBox(text=" ]", padding=0),
                     ],
                 text_closed="",
                 text_open="",
                 close_button_location='right',
                 )
-            ] if index == 0 else []
+            ]
 
     visible_groups = []
 
@@ -157,8 +153,11 @@ def get_bar(index):
     elif index == 2:
         visible_groups = ["3", "6", "9"]
 
-    return {
-            "widgets": [
+    pannel = {
+            "size" : theme.panel_size,
+            "margin" : [theme.gap_size, 0, 0, 0],
+            "background" : theme.colors["background"],
+            "widgets" : [
                 widget.CurrentLayoutIcon(
                     scale=0.75,
                     use_mask=True,
@@ -181,13 +180,8 @@ def get_bar(index):
                     disable_drag=True,
                     use_mouse_wheel=False,
                     ),
-                widget.WindowName(
-                    format="{name}",
-                    ),
-                widget.TextBox(
-                    text="arch btw",
-                    ),
-                widget.Spacer(),  
+                widget.WindowName(format="{name}"),
+                widget.Spacer(),
                 *systray,
                 Caps(),
                 widget.KeyboardLayout(
@@ -195,27 +189,41 @@ def get_bar(index):
                     display_map={'us': 'ENG', 'es cat': 'CAT'},
                     ),
                 widget.Volume(
-                    #fmt="󰕾 {}",
+                    fmt=" {}",
                     emoji=False,
                     emoji_list=["󰸈", "󰕿", "󰖀", "󰕾"],
                     mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle("vol") } 
                     ),
-                ToggleClock()
+                ToggleClock(),
+                widget.QuickExit(
+                    default_text="",
+                    countdown_format="{}",
+                    countdown_start=4,
+                    ),
+                widget.Spacer(length=theme.widget_padding),
                 ],
-            "size" : theme.panel_size,
-            "background" : theme.colors["background"],
-            "margin" : [theme.gap_size, 0, 0, 0],
-            "gaps" : {
-                "left" : bar.Gap(theme.gap_size),
-                "right" : bar.Gap(theme.gap_size),
-                "top" : bar.Gap(theme.gap_size)
-                }
             }
+    return pannel
 
 screens = [
-        Screen(bottom=bar.Bar(**get_bar(0))),
-        Screen(bottom=bar.Bar(**get_bar(1))),
-        Screen(bottom=bar.Bar(**get_bar(2))),
+        Screen(
+            bottom=bar.Bar(**get_bar(0)),
+            left=bar.Gap(theme.gap_size),
+            right=bar.Gap(theme.gap_size),
+            top=bar.Gap(theme.gap_size),
+            ),
+        Screen(
+            bottom=bar.Bar(**get_bar(1)),
+            left=bar.Gap(theme.gap_size),
+            right=bar.Gap(theme.gap_size),
+            top=bar.Gap(theme.gap_size),
+            ),
+        Screen(
+            bottom=bar.Bar(**get_bar(2)),
+            left=bar.Gap(theme.gap_size),
+            right=bar.Gap(theme.gap_size),
+            top=bar.Gap(theme.gap_size),
+            ),
         ]
 
 dgroups_key_binder = None
