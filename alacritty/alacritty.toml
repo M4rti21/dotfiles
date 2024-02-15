@@ -5,12 +5,12 @@ padding.x = 8
 padding.y = 8
 
 [font]
-normal.family = "ComicShannsMono Nerd Font"
-bold.family = "ComicShannsMono Nerd Font"
-italic.family = "ComicShannsMono Nerd Font"
-bold_italic.family = "ComicShannsMono Nerd Font"
+normal.family = "MartianMono Nerd Font"
+normal.style = "Medium"
+bold.family = "MartianMono Nerd Font"
+bold.style = "Bold"
 
-size = 13
+size = 11
 
 [cursor]
 style.shape = "Beam"
