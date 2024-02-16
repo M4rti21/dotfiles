@@ -1,14 +1,15 @@
 # THEME SETTINGS
 
-system_font = "MartianMono Nerd Font"
-system_font_weight = "Medium"
-font_size = 12
-panel_size = 24
-gap_size = 1
-gap_border_size = 8
-border_size = 2
-widget_padding = 8
-widget_margin = 0
+font_family     = "MartianMono Nerd Font"
+font_weight     = "Medium"
+font_size       = 12
+border_size     = 2
+inner_gap       = 1
+outter_gap      = 4
+panel_size      = 24
+panel_margin    = [outter_gap, 0, 0, 0]
+widget_padding  = 8
+widget_margin   = 0
 
 colors = {
         "background": "#080808",
@@ -18,8 +19,8 @@ colors = {
         }
 
 borders = {
-        "margin" : gap_size,
-        "single_margin" : gap_size,
+        "margin" : inner_gap,
+        "single_margin" : inner_gap,
         "border_width" : border_size,
         "border_on_single" : True,
         "border_focus" : colors["accent"],
@@ -27,7 +28,7 @@ borders = {
         }
 
 widget_defaults = {
-        "font" : system_font + " " + system_font_weight,
+        "font" : font_family + " " + font_weight,
         "fontsize" : font_size,
         "padding" : widget_padding,
         "margin" : widget_margin,
