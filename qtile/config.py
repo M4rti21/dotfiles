@@ -37,25 +37,11 @@ workspace_per_screen    = 3                                 # Number of workspac
 default_layout          = "columns"                         # Default layout
 base_dir = os.path.expanduser("~/.config/qtile/scripts/")   # Scripts directory
 autostart_scripts = [
-        "display_settings_x11.sh", # use "display_settings_wayland.sh" for wayland
+        "display_settings_x11.sh",
         "autostart.sh",
         ]
+workspace_count = screen_count * workspace_per_screen       # DO NOT MODIFY!!!
 
-# QTILE CONFIG
-dgroups_key_binder = None                   # (None | "M") 
-dgroups_app_rules = []                      # (List of rules)
-auto_fullscreen = True                      # (True | False)
-bring_front_click = "floating_only"         # (True | False | "floating_only")
-cursor_warp = False                         # (True | False)
-floats_kept_above = True                    # (True | False)
-follow_mouse_focus = False                  # (True | False)
-focus_on_window_activation = "smart"        # ("urgent" | "focus" | "smart" | "never")
-reconfigure_screens = True                  # (True | False)
-auto_minimize = False                       # (True | False)
-wl_input_rules = None                       # (None | List of rules)
-wmname = "LG3D"                             # Just use LG3D because it makes Java apps work :/
-
-workspace_count = screen_count * workspace_per_screen      # Do not modify
 
 # PROGRAMS
 terminal    = guess_terminal("alacritty") or "xterm"
@@ -64,11 +50,6 @@ ss_select   = "flameshot gui"
 ss_full     = "flameshot full"
 
 # SCRATCHPADS 
-# name = "command"
-# is_flatpak = True/False
-# flatpak = "flatpak run com.example.app"
-
-# volume control
 sps: List[ScrPad] =[
         # volume control
         ScrPad(
@@ -106,6 +87,20 @@ sps: List[ScrPad] =[
             flatpak = "flatpak run com.bitwarden.desktop",
             ),
         ]
+
+# QTILE CONFIG
+dgroups_key_binder = None                   # (None | "M") 
+dgroups_app_rules = []                      # (List of rules)
+auto_fullscreen = True                      # (True | False)
+bring_front_click = "floating_only"         # (True | False | "floating_only")
+cursor_warp = False                         # (True | False)
+floats_kept_above = True                    # (True | False)
+follow_mouse_focus = False                  # (True | False)
+focus_on_window_activation = "smart"        # ("urgent" | "focus" | "smart" | "never")
+reconfigure_screens = True                  # (True | False)
+auto_minimize = False                       # (True | False)
+wl_input_rules = None                       # (None | List of rules)
+wmname = "LG3D"                             # Just use LG3D because it makes Java apps work :/
 
 # QTILE ARRAYS (DO NOT MODIFY)
 keys    = []
@@ -155,18 +150,7 @@ mouse.extend([
         Click([mod1], "Button1", lazy.window.bring_to_front()),
         ])
 
-#GROUPS
-# groups.append(ScratchPad('sp', [
-#     DropDown('vol', volume, **theme.sp_size),
-#     DropDown('mus', music, match=Match(wm_class="spotify"), **theme.sp_size),
-#     DropDown('tsk', task_mgr, **theme.sp_size),
-#     DropDown('net', network_mgr, **theme.sp_size),
-#     DropDown('pwd', passwd_mgr, match=Match(wm_class="bitwarden"), **theme.sp_size),
-#     ]))
-# take into account if an app is a flatpak, if so, use the match=Match(wm_class="app") argument
-# variables can be modified and the following code will still work
-
-# array of non-flatpak scratchpads
+# SCRATCHPADS
 drop_downs = []
 for sp in sps:
     if sp.is_flatpak:
@@ -229,7 +213,7 @@ floating_layout = Floating(
 
 def get_bar(index):
     systray = []
-    if index+1 == primary_screen:
+    if index + 1 == primary_screen:
         systray = [
                 widget.WidgetBox(
                     widgets=[
