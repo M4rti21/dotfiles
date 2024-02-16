@@ -1,10 +1,12 @@
 # THEME SETTINGS
 
 system_font = "MartianMono Nerd Font"
+system_font_weight = "Medium"
 font_size = 12
 panel_size = 24
-gap_size = 4
-border_size = 3
+gap_size = 1
+gap_border_size = 8
+border_size = 2
 widget_padding = 8
 widget_margin = 0
 
@@ -25,7 +27,7 @@ borders = {
         }
 
 widget_defaults = {
-        "font" : system_font,
+        "font" : system_font + " " + system_font_weight,
         "fontsize" : font_size,
         "padding" : widget_padding,
         "margin" : widget_margin,

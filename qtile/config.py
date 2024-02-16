@@ -9,6 +9,7 @@
 #
 #   github repo: https://github.com/M4rti21/dotfiles
 
+import os
 import subprocess
 import theme
 from widgets.caps import  Caps
@@ -22,95 +23,102 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, 
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+# VARIABLES !!!IMPORTANT!!!
+wm = "X11"                                                  # Wayland or X11
+mod = "mod4"                                                # Super key
+alt = "mod1"                                                # Alt key
+screen_count = 3                                            # Number of screens
+workspace_per_screen = 3                                    # Number of workspaces per screen
+default_layout = "columns"                                  # Default layout
+base_dir = os.path.expanduser("~/.config/qtile/scripts/")   # Scripts directory
+autostart_scripts = [
+        "display_settings_x11.sh",
+        "autostart.sh",
+        ]
+
+workspace_count = screen_count * workspace_per_screen
+
+# QTILE ARRAYS (DO NOT MODIFY)
+keys = []
+mouse = []
+groups = []
+screens = []
+layouts = []
+
 # PROGRAMS
 terminal = guess_terminal("alacritty")
-
-# HELPER FUNCTIONS
-@lazy.window.function
-def float_to_front(window):
-    window.cmd_bring_to_front()
-
-groups = []
+runner = "rofi -show drun -show-icons"
+screenshot_select = "flameshot gui"
+screenshot_full = "flameshot full"
 
 # KEYBINDINGS
-mod = "mod4"
-alt = "mod1"
-
-keys = [
-        Key([mod, "control"], "r", lazy.reload_config()),  # Reload the config
-        Key([mod, "control"], "q", lazy.shutdown()),  # Shutdown Qtile
-        Key([mod], "h", lazy.layout.left()),  # Move focus to left
+keys.extend([
+        # Qtile controls
+        Key([mod, "control"], "r", lazy.reload_config()),                           # Reload the config
+        Key([mod, "control"], "q", lazy.shutdown()),                                # Shutdown Qtile
+        Key([mod], "Tab", lazy.next_layout()),                                      # Toggle between layouts
+        Key([alt], "Tab", lazy.group.next_window(), lazy.window.bring_to_front()),  # Move window focus to other window
         # Switch between windows
-        Key([mod], "l", lazy.layout.right()),  # Move focus to right
-        Key([mod], "j", lazy.layout.down()),  # Move focus down
-        Key([mod], "k", lazy.layout.up()),  # Move focus up
-        Key([alt], "Tab", lazy.group.next_window(), float_to_front()),  # Move window focus to other window
+        Key([mod], "h", lazy.layout.left()),                                        # Move focus to left
+        Key([mod], "l", lazy.layout.right()),                                       # Move focus to right
+        Key([mod], "j", lazy.layout.down()),                                        # Move focus down
+        Key([mod], "k", lazy.layout.up()),                                                                                                                                                                                                                                                              # Move focus up
         # Move windows
-        Key([mod, "shift"], "h", lazy.layout.shuffle_left()),  # Move window to the left
-        Key([mod, "shift"], "l", lazy.layout.shuffle_right()),  # Move window to the right
-        Key([mod, "shift"], "j", lazy.layout.shuffle_down()),  # Move window down
-        Key([mod, "shift"], "k", lazy.layout.shuffle_up()),  # Move window up
+        Key([mod, "shift"], "h", lazy.layout.shuffle_left()),                       # Move window to the left
+        Key([mod, "shift"], "l", lazy.layout.shuffle_right()),                      # Move window to the right
+        Key([mod, "shift"], "j", lazy.layout.shuffle_down()),                       # Move window down
+        Key([mod, "shift"], "k", lazy.layout.shuffle_up()),                         # Move window up
         # Resize windows
-        Key([mod, "control"], "h", lazy.layout.grow_left()),  # Grow window to the left
-        Key([mod, "control"], "l", lazy.layout.grow_right()),  # Grow window to the right
-        Key([mod, "control"], "j", lazy.layout.grow_down()),  # Grow window down
-        Key([mod, "control"], "k", lazy.layout.grow_up()),  # Grow window up
-        # Layout controls
-        Key([mod], "Tab", lazy.next_layout()),  # Toggle between layouts
+        Key([mod, "control"], "h", lazy.layout.grow_left()),                        # Grow window to the left
+        Key([mod, "control"], "l", lazy.layout.grow_right()),                       # Grow window to the right
+        Key([mod, "control"], "j", lazy.layout.grow_down()),                        # Grow window down
+        Key([mod, "control"], "k", lazy.layout.grow_up()),                          # Grow window up
         # Window controls
-        Key([mod], "w", lazy.window.kill()),  # Kill focused window
-        Key([mod], "f", lazy.window.toggle_fullscreen()),  # Toggle fullscreen on the focused window
-        Key([mod], "t", lazy.window.toggle_floating()),  # Toggle floating on the focused window
-        # Controls
-        Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard()),  # Toggle between keyboard layouts
+        Key([mod], "w", lazy.window.kill()),                                        # Kill focused window
+        Key([mod], "f", lazy.window.toggle_fullscreen()),                           # Toggle fullscreen on the focused window
+        Key([mod], "t", lazy.window.toggle_floating()),                             # Toggle floating on the focused window
         # Run programs
-        Key([mod], "r", lazy.spawn("rofi -show drun -show-icons")),  # Rofi prompt
-        Key([mod], "Return", lazy.spawn(terminal)),  # Launch terminal
-        Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),  # Take a screenshot
-        Key([mod, "control"], "s", lazy.spawn("flameshot full")),  # Take a screenshot
-        # Scratchpads
-        Key([mod], "v", lazy.group['sp'].dropdown_toggle("pavucontrol"))
-        ]
-
-mouse = [
-        Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-        Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-        Click([mod], "Button1", float_to_front(lazy.window)),
-        ]
-
-for name in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
-    def go_to_group(name):
-        def f(qtile):
-            if name in ["1", "4", "7"]:
-                qtile.cmd_to_screen(0)
-            elif name in ["2", "5", "8"]:
-                qtile.cmd_to_screen(1)
-            elif name in ["3", "6", "9"]:
-                qtile.cmd_to_screen(2)
-            qtile.groups_map[name].cmd_toscreen()
-        return f
-
-    groups.append(Group(
-        name=name,
-        layout="columns",
-        label=name
-        ))
-
-    keys.extend([
-        Key([mod], name, lazy.function(go_to_group(name))),
-        Key([mod, 'shift'], name, lazy.window.togroup(name)),
+        Key([mod], "r", lazy.spawn(runner)),                                        # Rofi prompt
+        Key([mod], "Return", lazy.spawn(terminal)),                                 # Launch terminal
+        Key([mod, "shift"], "s", lazy.spawn(screenshot_select)),                    # Take a screenshot
+        Key([mod, "control"], "s", lazy.spawn(screenshot_full)),                    # Take a screenshot
+        # Extras
+        Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard()),         # Toggle between keyboard layouts
         ])
 
+mouse.extend([
+        Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+        Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+        Click([mod], "Button1", lazy.window.bring_to_front()),
+        ])
+
+# GROUPS
 groups.append(ScratchPad('sp', [
     DropDown('vol', "pavucontrol", **theme.sp_size),
     ]))
 
-widget_defaults = theme.widget_defaults
+def go_to_group(name):
+    def f(qtile):
+        screen_index = (int(name) - 1)
+        qtile.cmd_to_screen(screen_index)
+        qtile.groups_map[name].cmd_toscreen()
+    return f
 
-layouts = [
+for name in map(str, range(1, workspace_count + 1)):
+    groups.append(Group(
+        name=name,
+        layout=default_layout,
+        label=name
+    ))
+    keys.extend([
+        Key([mod], name, lazy.function(go_to_group(name))),
+        Key([mod, 'shift'], name, lazy.window.togroup(name)),
+    ])
+
+layouts.extend([
         Columns(**theme.borders),
         Max(**theme.borders),
-        ]
+        ])
 
 # FLOATING WINDOW RULES "xprop"
 floating_layout = Floating(
@@ -146,16 +154,13 @@ def get_bar(index):
 
     visible_groups = []
 
-    if index == 0:
-        visible_groups = ["1", "4", "7"]
-    elif index == 1:
-        visible_groups = ["2", "5", "8"]
-    elif index == 2:
-        visible_groups = ["3", "6", "9"]
+    for i in range(workspace_count):
+        if i % screen_count == index:
+            visible_groups.append(str(i + 1))
 
     pannel = {
             "size" : theme.panel_size,
-            "margin" : [theme.gap_size, 0, 0, 0],
+            "margin" : [theme.gap_border_size, 0, 0, 0],
             "background" : theme.colors["background"],
             "widgets" : [
                 widget.CurrentLayoutIcon(
@@ -164,6 +169,7 @@ def get_bar(index):
                     foreground=theme.colors["foreground"],
                     ),
                 widget.GroupBox(
+                    font=theme.system_font,
                     visible_groups=visible_groups,
                     highlight_method="line",
                     highlight_color=[theme.colors["background"], theme.colors["background"]],
@@ -181,7 +187,6 @@ def get_bar(index):
                     use_mouse_wheel=False,
                     ),
                 widget.WindowName(format="{name}"),
-                widget.Spacer(),
                 *systray,
                 Caps(),
                 widget.KeyboardLayout(
@@ -205,30 +210,18 @@ def get_bar(index):
             }
     return pannel
 
-screens = [
+for i in range(screen_count):
+    screens.append(
         Screen(
-            bottom=bar.Bar(**get_bar(0)),
-            left=bar.Gap(theme.gap_size),
-            right=bar.Gap(theme.gap_size),
-            top=bar.Gap(theme.gap_size),
-            ),
-        Screen(
-            bottom=bar.Bar(**get_bar(1)),
-            left=bar.Gap(theme.gap_size),
-            right=bar.Gap(theme.gap_size),
-            top=bar.Gap(theme.gap_size),
-            ),
-        Screen(
-            bottom=bar.Bar(**get_bar(2)),
-            left=bar.Gap(theme.gap_size),
-            right=bar.Gap(theme.gap_size),
-            top=bar.Gap(theme.gap_size),
-            ),
-        ]
+            bottom=bar.Bar(**get_bar(i)),
+            left=bar.Gap(theme.gap_border_size),
+            right=bar.Gap(theme.gap_border_size),
+            top=bar.Gap(theme.gap_border_size),
+            )
+        )
 
 dgroups_key_binder = None
 dgroups_app_rules = []
-
 auto_fullscreen = True                  # (True | False)
 bring_front_click = "floating_only"     # (True | False | "floating_only")
 cursor_warp = False                     # (True | False)
@@ -237,12 +230,12 @@ follow_mouse_focus = False              # (True | False)
 focus_on_window_activation = "smart"    # ("urgent" | "focus" | "smart" | "never")
 reconfigure_screens = True              # (True | False)
 auto_minimize = False                   # (True | False)
-wl_input_rules = None
-wmname = "LG3D"
+wl_input_rules = None                   # (None | List of rules)
+wmname = "LG3D"                         # Just use LG3D because it makes Java apps work :/
+
 
 # AUTO START PROGRAMS
 @hook.subscribe.startup_once
 def autostart():
-    base_dir = "/home/m4rti/.config/qtile/scripts/"
-    subprocess.run(base_dir + "display_settings.sh")
-    subprocess.run(base_dir + "autostart.sh")
+    for script in autostart_scripts:
+        subprocess.run(base_dir + script) 
