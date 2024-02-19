@@ -7,9 +7,18 @@ border_size     = 2
 inner_gap       = 1
 outter_gap      = 4
 panel_size      = 24
-panel_margin    = [outter_gap, 0, 0, 0]
+panel_top       = False
 widget_padding  = 8
 widget_margin   = 0
+
+###
+
+panel_margin    = []
+
+if panel_top:
+    panel_margin = [0, 0, outter_gap, 0]
+else:
+    panel_margin = [outter_gap, 0, 0, 0]
 
 colors = {
         "background": "#080808",

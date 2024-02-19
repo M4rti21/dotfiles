@@ -14,6 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+    { "ThePrimeagen/vim-be-good" },
     {
         "nvim-telescope/telescope.nvim",
         version = "0.1.5",
@@ -58,6 +59,10 @@ local plugins = {
             vim.g.mkdp_filetypes = { "markdown" }
         end,
         ft = { "markdown" },
+    },
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
     },
 }
 

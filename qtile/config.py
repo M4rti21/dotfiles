@@ -285,13 +285,24 @@ def get_bar(index):
             }
     return pannel
 
-for i in range(screen_count):
-    screens.append(
+if theme.panel_top:
+    for i in range(screen_count):
+        screens.append(
+            Screen(
+                top=bar.Bar(**get_bar(i)),
+                left=bar.Gap(theme.outter_gap),
+                right=bar.Gap(theme.outter_gap),
+                bottom=bar.Gap(theme.outter_gap),
+                )
+            )
+else:
+    for i in range(screen_count):
+        screens.append(
         Screen(
-            bottom=bar.Bar(**get_bar(i)),
+            top=bar.Gap(theme.outter_gap),
             left=bar.Gap(theme.outter_gap),
             right=bar.Gap(theme.outter_gap),
-            top=bar.Gap(theme.outter_gap),
+            bottom=bar.Bar(**get_bar(i)),
             )
         )
 
