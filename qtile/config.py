@@ -272,7 +272,7 @@ def get_bar(index):
                     fmt=" {}",
                     emoji=False,
                     emoji_list=["󰸈", "󰕿", "󰖀", "󰕾"],
-                    mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle("vol") } 
+                    mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle("v") } 
                     ),
                 ToggleClock(),
                 widget.QuickExit(
