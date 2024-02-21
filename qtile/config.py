@@ -31,10 +31,10 @@ mod2 = "mod1"   # Alt                                       # Secondary mod key
 mod3 = "shift"                                              # Tertiary mod key
 mod4 = "control"                                            # Quaternary mod key
 
-primary_screen          = 1                                 # Primary screen (used for the systray)
-screen_count            = 3                                 # Number of screens
-workspace_per_screen    = 3                                 # Number of workspaces per screen
-default_layout          = "columns"                         # Default layout
+primary_screen = 1                                 # Primary screen (used for the systray)
+screen_count = 3                                 # Number of screens
+workspace_per_screen = 3                                 # Number of workspaces per screen
+default_layout = "columns"                         # Default layout
 base_dir = os.path.expanduser("~/.config/qtile/scripts/")   # Scripts directory
 autostart_scripts = [
         "display_settings_x11.sh",
@@ -44,10 +44,10 @@ workspace_count = screen_count * workspace_per_screen       # DO NOT MODIFY!!!
 
 
 # PROGRAMS
-terminal    = guess_terminal("alacritty") or "xterm"
-runner      = "rofi -show drun -show-icons"
-ss_select   = "flameshot gui"
-ss_full     = "flameshot full"
+terminal = guess_terminal("alacritty") or "xterm"
+runner = "rofi -show drun -show-icons"
+ss_select = "flameshot gui"
+ss_full = "flameshot full"
 
 # SCRATCHPADS 
 sps: List[ScrPad] =[
@@ -103,9 +103,9 @@ wl_input_rules = None                       # (None | List of rules)
 wmname = "LG3D"                             # Just use LG3D because it makes Java apps work :/
 
 # QTILE ARRAYS (DO NOT MODIFY)
-keys    = []
-mouse   = []
-groups  = []
+keys = []
+mouse = []
+groups = []
 screens = []
 layouts = []
 
@@ -257,7 +257,7 @@ def get_bar(index):
                     scroll=False,
                     borderwidth=2,
                     padding=4,
-                    margin_y=4,
+                    margin_y=3,
                     disable_drag=True,
                     use_mouse_wheel=False,
                     ),

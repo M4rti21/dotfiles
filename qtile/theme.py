@@ -1,19 +1,17 @@
 # THEME SETTINGS
 
-font_family     = "MartianMono Nerd Font"
-font_weight     = "Medium"
-font_size       = 12
-border_size     = 2
-inner_gap       = 0
-outter_gap      = 0
-panel_size      = 18
-panel_top       = False
-widget_padding  = 8
-widget_margin   = 0
+font_family = "MartianMono Nerd Font"
+font_weight = "Medium"
+font_size = 12
+border_size = 2
+inner_gap = 0
+outter_gap = 1
+panel_size = 20
+panel_top = False
+widget_padding = 8
+widget_margin = 0
 
-###
-
-panel_margin    = []
+panel_margin = []
 
 if panel_top:
     panel_margin = [0, 0, outter_gap, 0]
