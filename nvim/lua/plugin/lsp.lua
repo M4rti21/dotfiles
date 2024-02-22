@@ -1,6 +1,4 @@
 local lsp_zero = require("lsp-zero")
-local lspconfig = require("lspconfig")
-
 lsp_zero.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
     vim.keymap.set("n", "gd", function()
@@ -32,6 +30,7 @@ lsp_zero.on_attach(function(_, bufnr)
     end, opts)
 end)
 
+local lspconfig = require("lspconfig")
 lspconfig.lua_ls.setup({
     settings = {
         Lua = {
@@ -71,3 +70,9 @@ cmp.setup({
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
     }),
 })
+
+-- require('tailwind-sorter').setup({
+--     on_save_enabled = true,
+--     on_save_pattern = { '*.html', '*.js', '*.jsx', '*.tsx', '*.twig', '*.hbs', '*.php', '*.heex', '*.astro' }, -- The file patterns to watch and sort.
+--     node_path = 'node',
+-- })
