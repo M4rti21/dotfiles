@@ -13,13 +13,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = "*",
 })
 
-vim.g.mkdp_refresh_slow = 0
--- vim.g.mkdp_markdown_css = "../../nvim/src/github-markdown.css"
-vim.g.mkdp_theme = "dark"
-
 vim.o.wrap = false
 
 
 -- set tab indent to 4 spaces
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
+
+vim.opt.number = true
+vim.opt.relativenumber = true

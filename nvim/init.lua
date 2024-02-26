@@ -14,8 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    { "nvim-lua/plenary.nvim" },    -- i need this
-    { "ThePrimeagen/vim-be-good" }, -- learn vim :P
     {
         "nvim-telescope/telescope.nvim",
         version = "0.1.5",
@@ -25,7 +23,11 @@ local plugins = {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
     },
-    { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = true },
+    {
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly",
+        lazy = true
+    },
     { "github/copilot.vim" },
     { -- status bar
         "nvim-lualine/lualine.nvim",
@@ -50,24 +52,11 @@ local plugins = {
     { "stevearc/conform.nvim" },
     { "terrortylor/nvim-comment" },
     {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && yarn install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    },
-    {
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
-    -- { -- tailwindcss sorter
-    --     'laytan/tailwind-sorter.nvim',
-    --     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-lua/plenary.nvim' },
-    --     build = 'cd formatter && npm i && npm run build',
-    --     config = true,
-    -- },
+    -- learn vim :P
+    { "ThePrimeagen/vim-be-good" },
 }
 
 local opts = {}
