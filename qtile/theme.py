@@ -19,7 +19,7 @@ else:
     panel_margin = [outter_gap, 0, 0, 0]
 
 colors = {
-        "background": "#080808",
+        "background": "#000000",
         "foreground": "#bdbdbd",
         "disabled": "#323437",
         "accent": "#cc2850",

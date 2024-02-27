@@ -9,6 +9,7 @@ zoxide init fish | source
 alias ls="exa --all --long --icons --group-directories-first"
 alias cd="z"
 alias update="echo 'pacman' && sudo pacman -Syu && echo 'aur' && yay -Syu && echo 'flatpak' && flatpak update"
+alias purge="sudo pacman -Qdtq | sudo pacman -Rns -"
 alias nf="neofetch"
 alias vim="nvim"
 alias t="tmux"
