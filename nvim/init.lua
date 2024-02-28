@@ -11,6 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
@@ -55,6 +56,7 @@ local plugins = {
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
+    { "folke/zen-mode.nvim" },
     -- learn vim :P
     { "ThePrimeagen/vim-be-good" },
 }
