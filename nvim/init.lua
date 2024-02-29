@@ -70,6 +70,7 @@ require("config")
 
 -- import plugin configs
 require("plugin.conform")
+require("plugin.zen")
 require("plugin.lsp")
 require("plugin.lualine")
 require("plugin.nvim_comment")
