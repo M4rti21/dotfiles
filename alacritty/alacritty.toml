@@ -1,8 +1,8 @@
 [window]
 opacity = 1
 
-padding.x = 4
-padding.y = 4
+padding.x = 7
+padding.y = 7
 
 [font]
 normal.family = "MartianMono Nerd Font"
@@ -10,10 +10,10 @@ normal.style = "Medium"
 bold.family = "MartianMono Nerd Font"
 bold.style = "Bold"
 
-size = 11
+size = 12
 
 [cursor]
-style.shape = "Beam"
+style.shape = "Block"
 style.blinking = "Always"
 vi_mode_style.shape = "Block"
 
