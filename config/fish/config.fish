@@ -2,9 +2,15 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+function tmux-sessionizer
+    sh ~/dotfiles/scripts/tmux-sessionizer.sh
+end
+
 set -U fish_greeting
 
 zoxide init fish | source
+
+bind \cf 'tmux-sessionizer'
 
 alias cd="z"
 alias ls="exa --long --icons --group-directories-first"
