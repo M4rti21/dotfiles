@@ -19,12 +19,13 @@ fi
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
+inside_tmux=$(test "$TERM_PROGRAM" = 'tmux' && echo 'true' || echo 'false')
 
 # Check if session already exists, if yes, attach to it
 if tmux has-session -t=$selected_name 2>/dev/null; then
 
     # If inside a tmux session, switch to the selected session
-    if [[ -n $TMUX ]]; then
+    if [[ $inside_tmux == 'true' ]]; then
         tmux switch-client -t $selected_name
         exit 0
     fi
@@ -33,7 +34,7 @@ if tmux has-session -t=$selected_name 2>/dev/null; then
     exit 0
 fi
 # If tmux does not have a session with the selected name, create one
-if [[ -n $tmux_running ]]; then
+if [[ $inside_tmux == 'true' ]]; then
     tmux new-session -d -s $selected_name -c $selected
     tmux switch-client -t $selected_name
 else
