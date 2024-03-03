@@ -8,7 +8,7 @@ sudo pacman -S alacritty firefox fastfetch pcmanfm xarchiver tmux neovim btop
 cd ~
 git clone https://github.com/m4rti21/dotfiles.git
 ## backup old dotfiles as 'name'-'date'.bak
-cd .config
+cd ~/.config
 mv qtile qtile-$(date +%Y%m%d).bak
 mv picm picom-$(date +%Y%m%d).bak
 mv fish fish-$(date +%Y%m%d).bak
@@ -19,15 +19,15 @@ mv fastfetch fastfetch-$(date +%Y%m%d).bak
 mv nvim nvim-$(date +%Y%m%d).bak
 mv tmux tmux-$(date +%Y%m%d).bak
 ## create symlinks
-ln -s ~/dotfiles/.config/qtile
-ln -s ~/dotfiles/.config/picom
-ln -s ~/dotfiles/.config/fish
-ln -s ~/dotfiles/.config/alacritty
-ln -s ~/dotfiles/.config/rofi
-ln -s ~/dotfiles/.config/dunst
-ln -s ~/dotfiles/.config/fastfetch
-ln -s ~/dotfiles/.config/nvim
-ln -s ~/dotfiles/.config/tmux
+ln -s ~/dotfiles/config/qtile
+ln -s ~/dotfiles/config/picom
+ln -s ~/dotfiles/config/fish
+ln -s ~/dotfiles/config/alacritty
+ln -s ~/dotfiles/config/rofi
+ln -s ~/dotfiles/config/dunst
+ln -s ~/dotfiles/config/fastfetch
+ln -s ~/dotfiles/config/nvim
+ln -s ~/dotfiles/config/tmux
 cd ~
 mv .themes .themes-$(date +%Y%m%d).bak
 ln -s ~/dotfiles/themes .themes
