@@ -16,6 +16,7 @@ from typing import List
 from classes import ScrPad
 from widgets.caps import  Caps
 from widgets.clock import ToggleClock
+from widgets.wname import WName
 from libqtile import hook, widget
 from libqtile import bar
 from libqtile.layout.max import Max
@@ -63,7 +64,7 @@ sps: List[ScrPad] =[
             name = "spotify",
             key = "m",
             is_flatpak = True,
-            flatpak = "flatpak run com.spotify.Client",
+            flatpak = "env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U",
             ),
         # task manager
         ScrPad(
@@ -111,59 +112,59 @@ layouts = []
 
 # KEYBINDINGS
 keys.extend([
-        # Qtile controls
-        Key([mod1, mod4], "r", lazy.reload_config()),                                   # Reload the config
-        Key([mod1, mod4], "q", lazy.shutdown()),                                        # Shutdown Qtile
-        Key([mod1], "Tab", lazy.next_layout()),                                         # Toggle between layouts
-        Key([mod2], "Tab", lazy.group.next_window(), lazy.window.bring_to_front()),     # Move window focus to other window
-        # Switch between windows
-        Key([mod1], "h", lazy.layout.left()),                   # Move focus to left
-        Key([mod1], "l", lazy.layout.right()),                  # Move focus to right
-        Key([mod1], "j", lazy.layout.down()),                   # Move focus down
-        Key([mod1], "k", lazy.layout.up()),                                                                                                                                                                                                                                                              # Move focus up
-        # Move windows
-        Key([mod1, mod3], "h", lazy.layout.shuffle_left()),     # Move window to the left
-        Key([mod1, mod3], "l", lazy.layout.shuffle_right()),    # Move window to the right
-        Key([mod1, mod3], "j", lazy.layout.shuffle_down()),     # Move window down
-        Key([mod1, mod3], "k", lazy.layout.shuffle_up()),       # Move window up
-        # Resize window
-        Key([mod1, mod4], "h", lazy.layout.grow_left()),        # Grow window to the left
-        Key([mod1, mod4], "l", lazy.layout.grow_right()),       # Grow window to the right
-        Key([mod1, mod4], "j", lazy.layout.grow_down()),        # Grow window down
-        Key([mod1, mod4], "k", lazy.layout.grow_up()),          # Grow window up
-        # Window controls
-        Key([mod1], "w", lazy.window.kill()),                   # Kill focused window
-        Key([mod1], "f", lazy.window.toggle_fullscreen()),      # Toggle fullscreen on the focused window
-        Key([mod1], "t", lazy.window.toggle_floating()),        # Toggle floating on the focused window
-        # Run programs
-        Key([mod1], "r", lazy.spawn(runner)),                   # Rofi prompt
-        Key([mod1], "Return", lazy.spawn(terminal)),            # Launch terminal
-        Key([mod1, mod3], "s", lazy.spawn(ss_select)),          # Take a screenshot
-        Key([mod1, mod4], "s", lazy.spawn(ss_full)),            # Take a screenshot
-        # Extras
-        Key([mod1], "space", lazy.widget["keyboardlayout"].next_keyboard()),    # Toggle between keyboard layouts
-        ])
+    # Qtile controls
+    Key([mod1, mod4], "r", lazy.reload_config()),                                   # Reload the config
+    Key([mod1, mod4], "q", lazy.shutdown()),                                        # Shutdown Qtile
+    Key([mod1], "Tab", lazy.next_layout()),                                         # Toggle between layouts
+    Key([mod2], "Tab", lazy.group.next_window(), lazy.window.bring_to_front()),     # Move window focus to other window
+    # Switch between windows
+    Key([mod1], "h", lazy.layout.left()),                   # Move focus to left
+    Key([mod1], "l", lazy.layout.right()),                  # Move focus to right
+    Key([mod1], "j", lazy.layout.down()),                   # Move focus down
+    Key([mod1], "k", lazy.layout.up()),                                                                                                                                                                                                                                                              # Move focus up
+    # Move windows
+    Key([mod1, mod3], "h", lazy.layout.shuffle_left()),     # Move window to the left
+    Key([mod1, mod3], "l", lazy.layout.shuffle_right()),    # Move window to the right
+    Key([mod1, mod3], "j", lazy.layout.shuffle_down()),     # Move window down
+    Key([mod1, mod3], "k", lazy.layout.shuffle_up()),       # Move window up
+    # Resize window
+    Key([mod1, mod4], "h", lazy.layout.grow_left()),        # Grow window to the left
+    Key([mod1, mod4], "l", lazy.layout.grow_right()),       # Grow window to the right
+    Key([mod1, mod4], "j", lazy.layout.grow_down()),        # Grow window down
+    Key([mod1, mod4], "k", lazy.layout.grow_up()),          # Grow window up
+    # Window controls
+    Key([mod1], "w", lazy.window.kill()),                   # Kill focused window
+    Key([mod1], "f", lazy.window.toggle_fullscreen()),      # Toggle fullscreen on the focused window
+    Key([mod1], "t", lazy.window.toggle_floating()),        # Toggle floating on the focused window
+    # Run programs
+    Key([mod1], "r", lazy.spawn(runner)),                   # Rofi prompt
+    Key([mod1], "Return", lazy.spawn(terminal)),            # Launch terminal
+    Key([mod1, mod3], "s", lazy.spawn(ss_select)),          # Take a screenshot
+    Key([mod1, mod4], "s", lazy.spawn(ss_full)),            # Take a screenshot
+    # Extras
+    Key([mod1], "space", lazy.widget["keyboardlayout"].next_keyboard()),    # Toggle between keyboard layouts
+    ])
 
 mouse.extend([
-        Drag([mod1], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-        Drag([mod1], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-        Click([mod1], "Button1", lazy.window.bring_to_front()),
-        ])
+    Drag([mod1], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([mod1], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([mod1], "Button1", lazy.window.bring_to_front()),
+    ])
 
 # SCRATCHPADS
 drop_downs = []
 for sp in sps:
     if sp.is_flatpak:
         drop_downs.append(
-            DropDown(sp.key, sp.flatpak, match=Match(wm_class=sp.name), **theme.sp_size),
-            )
+                DropDown(sp.key, sp.flatpak, match=Match(wm_class=sp.name), **theme.sp_size),
+                )
     else:
         drop_downs.append(
-            DropDown(sp.key, sp.name, **theme.sp_size),
-            )
+                DropDown(sp.key, sp.name, **theme.sp_size),
+                )
 
     keys.append(Key([mod1], sp.key, lazy.group['sp'].dropdown_toggle(sp.key)))
-        
+
 groups.append(ScratchPad('sp', drop_downs))
 
 
@@ -183,17 +184,17 @@ for name in map(str, range(1, workspace_count + 1)):
         name=name,
         layout=default_layout,
         label=name
-    ))
+        ))
     # Add keybindings for the group
     keys.extend([
         Key([mod1], name, lazy.function(go_to_group(name))),
         Key([mod1, 'shift'], name, lazy.window.togroup(name)),
-    ])
+        ])
 
 layouts.extend([
-        Columns(**theme.borders),
-        Max(**theme.borders),
-        ])
+    Columns(**theme.borders),
+    Max(**theme.borders),
+    ])
 
 # FLOATING WINDOW RULES "xprop"
 floating_layout = Floating(
@@ -218,14 +219,14 @@ def get_bar(index):
                 widget.WidgetBox(
                     widgets=[
                         widget.TextBox(text="[", padding=0),
-                        widget.Systray(icon_size=16),
-                        widget.TextBox(text=" ]", padding=0),
-                    ],
-                text_closed="",
-                text_open="",
-                close_button_location='right',
-                )
-            ]
+                                       widget.Systray(icon_size=16),
+                                       widget.TextBox(text=" ]", padding=0),
+                        ],
+                    text_closed="",
+                    text_open="",
+                    close_button_location='right',
+                    )
+                ]
 
     visible_groups = []
 
@@ -233,7 +234,7 @@ def get_bar(index):
         if i % screen_count == index:
             visible_groups.append(str(i + 1))
 
-    pannel = {
+    return {
             "size" : theme.panel_size,
             "margin" : theme.panel_margin,
             "background" : theme.colors["background"],
@@ -242,6 +243,8 @@ def get_bar(index):
                     scale=0.75,
                     foreground=theme.colors["accent"],
                     ),
+                WName(short_name=True),
+                widget.Spacer(),
                 widget.GroupBox(
                     font=theme.font_family,
                     visible_groups=visible_groups,
@@ -260,7 +263,7 @@ def get_bar(index):
                     disable_drag=True,
                     use_mouse_wheel=False,
                     ),
-                widget.WindowName(format="{name}"),
+                widget.Spacer(),
                 *systray,
                 Caps(),
                 widget.KeyboardLayout(
@@ -268,10 +271,11 @@ def get_bar(index):
                     display_map={'us': 'ENG', 'es cat': 'CAT'},
                     ),
                 widget.Volume(
-                    fmt=" {}",
-                    emoji=False,
+                    #fmt=" {}",
+                    emoji=True,
                     emoji_list=["󰸈", "󰕿", "󰖀", "󰕾"],
-                    mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle("v") } 
+                    mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle("v") } ,
+                    fontsize=14,
                     ),
                 ToggleClock(),
                 widget.QuickExit(
@@ -281,28 +285,27 @@ def get_bar(index):
                 widget.Spacer(length=theme.widget_padding),
                 ],
             }
-    return pannel
 
 if theme.panel_top:
     for i in range(screen_count):
         screens.append(
-            Screen(
-                top=bar.Bar(**get_bar(i)),
-                left=bar.Gap(theme.outter_gap),
-                right=bar.Gap(theme.outter_gap),
-                bottom=bar.Gap(theme.outter_gap),
+                Screen(
+                    top=bar.Bar(**get_bar(i)),
+                    left=bar.Gap(theme.outter_gap),
+                    right=bar.Gap(theme.outter_gap),
+                    bottom=bar.Gap(theme.outter_gap),
+                    )
                 )
-            )
 else:
     for i in range(screen_count):
         screens.append(
-        Screen(
-            top=bar.Gap(theme.outter_gap),
-            left=bar.Gap(theme.outter_gap),
-            right=bar.Gap(theme.outter_gap),
-            bottom=bar.Bar(**get_bar(i)),
-            )
-        )
+                Screen(
+                    top=bar.Gap(theme.outter_gap),
+                    left=bar.Gap(theme.outter_gap),
+                    right=bar.Gap(theme.outter_gap),
+                    bottom=bar.Bar(**get_bar(i)),
+                    )
+                )
 
 widget_defaults = theme.widget_defaults
 
