@@ -1,12 +1,13 @@
 [global]
 origin = bottom-right
 paddint = 4
-offset = 8x29
+offset = 18x38
 font = "Geist Mono Nerd Font 11"
 frame_color = "#cc2850"
 frame_width = 2
 separator_color= frame
 gap_size = 2
+corner_radius = 10
 
 [urgency_low]
 background = "#080808"

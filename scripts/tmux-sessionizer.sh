@@ -4,6 +4,9 @@ directories=(
     "$HOME/Projects"
     "$HOME/Projects/wysi"
     "$HOME/Documents"
+    "$HOME/dotfiles"
+    "$HOME/dotfiles/config"
+    "$HOME/dotfiles/scripts"
     "$HOME"
 )
 
