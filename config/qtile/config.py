@@ -240,8 +240,7 @@ def get_bar(index):
             "widgets" : [
                 widget.CurrentLayoutIcon(
                     scale=0.75,
-                    use_mask=True,
-                    foreground=theme.colors["foreground"],
+                    foreground=theme.colors["accent"],
                     ),
                 widget.GroupBox(
                     font=theme.font_family,
@@ -276,8 +275,7 @@ def get_bar(index):
                     ),
                 ToggleClock(),
                 widget.QuickExit(
-                    default_text="",
-                    countdown_format="{}",
+                    default_text="",
                     countdown_start=4,
                     ),
                 widget.Spacer(length=theme.widget_padding),

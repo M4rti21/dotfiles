@@ -1,14 +1,13 @@
 return {
-
-    "bluz71/vim-moonfly-colors", 
-    name = "moonfly", 
-    lazy = false, 
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
     priority = 1000,
     dependencies = {
         "nvim-lualine/lualine.nvim",
-        "nvim-tree/nvim-web-devicons", 
+        "nvim-tree/nvim-web-devicons",
         "norcalli/nvim-colorizer.lua",
-        lazy = true 
+        "xiyaowong/transparent.nvim"
     },
 
     config = function()
@@ -99,6 +98,7 @@ return {
         local colorizer = require("colorizer")
         colorizer.setup()
 
+        vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "ExtraGroup" })
     end
 
 }

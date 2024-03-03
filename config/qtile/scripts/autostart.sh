@@ -17,5 +17,6 @@
 # APPLICATIONS
 dunst &                   # Notification daemon
 nitrogen --restore &      # Wallpaper
+picom &                   # Compositor
 
 otd-daemon &              # OpenTabletDriver
