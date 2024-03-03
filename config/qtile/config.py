@@ -32,10 +32,10 @@ mod2 = "mod1"   # Alt                                       # Secondary mod key
 mod3 = "shift"                                              # Tertiary mod key
 mod4 = "control"                                            # Quaternary mod key
 
-primary_screen = 1                                 # Primary screen (used for the systray)
-screen_count = 3                                 # Number of screens
-workspace_per_screen = 3                                 # Number of workspaces per screen
-default_layout = "columns"                         # Default layout
+primary_screen = 1                                          # Primary screen (used for the systray)
+screen_count = 3                                            # Number of screens
+workspace_per_screen = 3                                    # Number of workspaces per screen
+default_layout = "columns"                                  # Default layout
 base_dir = os.path.expanduser("~/.config/qtile/scripts/")   # Scripts directory
 autostart_scripts = [
         "display_settings_x11.sh",
@@ -143,7 +143,10 @@ keys.extend([
     Key([mod1, mod4], "s", lazy.spawn(ss_full)),            # Take a screenshot
     # Extras
     Key([mod1], "space", lazy.widget["keyboardlayout"].next_keyboard()),    # Toggle between keyboard layouts
+    Key([mod1, mod3], "p", lazy.spawn("picom")),                           # Toggle picom
+    Key([mod1, mod4], "p", lazy.spawn("kill picom")),                     # Kill picom
     ])
+
 
 mouse.extend([
     Drag([mod1], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
@@ -219,8 +222,8 @@ def get_bar(index):
                 widget.WidgetBox(
                     widgets=[
                         widget.TextBox(text="[", padding=0),
-                                       widget.Systray(icon_size=16),
-                                       widget.TextBox(text=" ]", padding=0),
+                        widget.Systray(icon_size=16),
+                        widget.TextBox(text=" ]", padding=0),
                         ],
                     text_closed="",
                     text_open="",
@@ -237,7 +240,7 @@ def get_bar(index):
     return {
             "size" : theme.panel_size,
             "margin" : theme.panel_margin,
-            "background" : theme.colors["background"],
+            "background" : theme.bar_color + theme.opaccity,
             "widgets" : [
                 widget.CurrentLayoutIcon(
                     scale=0.75,
@@ -249,7 +252,7 @@ def get_bar(index):
                     font=theme.font_family,
                     visible_groups=visible_groups,
                     highlight_method="line",
-                    highlight_color=[theme.colors["background"], theme.colors["background"]],
+                    highlight_color=[theme.bar_color, theme.bar_color],
                     inactive=theme.colors["disabled"],
                     this_screen_border=theme.colors["foreground"],
                     this_current_screen_border=theme.colors["accent"],

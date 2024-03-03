@@ -6,11 +6,11 @@ font_size = 12
 border_size = 2
 inner_gap = 4
 outter_gap = 4
-panel_size = 21
-panel_top = False
+panel_size = 24
+panel_top = True
 widget_padding = 8
 widget_margin = 0
-
+opaccity = "ff"         # Opacity for the bar "00" to "ff 
 panel_margin = []
 
 if panel_top:
@@ -22,8 +22,11 @@ colors = dict(
         background = "#000000",
         foreground = "#bdbdbd",
         disabled = "#323437",
+        dark = "#0c0c0c",
         accent = "#cc2850",
         )
+
+bar_color = colors["dark"]
 
 borders = dict(
         margin = inner_gap,

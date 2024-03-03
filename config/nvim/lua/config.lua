@@ -1,7 +1,6 @@
 vim.opt.wrap = false
 
--- set to 'a' to enable mouse support
-vim.opt.mouse = ''
+vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 vim.opt.number = true
