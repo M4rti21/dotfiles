@@ -10,7 +10,7 @@ panel_size = 24
 panel_top = True
 widget_padding = 8
 widget_margin = 0
-opaccity = "ff"         # Opacity for the bar "00" to "ff 
+opaccity = "ee"         # Opacity for the bar "00" to "ff 
 panel_margin = []
 
 if panel_top:

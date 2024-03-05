@@ -1,7 +1,7 @@
 * {
-    background:             #080808;
+    background:             #080808ee;
     foreground:             #bdbdbd;
-    disabled:               #323437;
+    disabled:               #32343799;
     accent:                 #cc2850;
 
     width:                  600;
@@ -22,18 +22,18 @@ window {
 }
 
 mainbox {
-    background-color:       @background;
+    background-color:       transparent;
 }
 
 inputbar {
     children:               [prompt,entry];
-    background-color:       @background;
+    background-color:       transparent;
     padding:                2px;
 }
 
 prompt {
     padding: 0px 0px 5px 0px;
-    background-color:       @background;
+    background-color:       transparent;
     text-color:             @foreground;
     border-radius:          3px;
 }
@@ -45,13 +45,13 @@ textbox-prompt-colon {
 
 entry {
     text-color:             @foreground;
-    background-color:       @background;
+    background-color:       transparent;
 }
 
 listview {
     columns:                2;
     lines:                  8;
-    background-color:       @background;
+    background-color:       transparent;
 }
 
 element {
@@ -88,18 +88,18 @@ element selected {
 }
 
 button {
-    background-color:       @background;
+    background-color:       transparent;
     text-color:             @disabled;
     vertical-align:         0.5; 
     horizontal-align:       0.5;
 }
 
 button selected {
-  background-color:         @background;
+  background-color:         transparent;
   text-color:               @foreground;
 }
 
 textbox {
     text-color:             @accent;
-    background-color:       @background;
+    background-color:       transparent;
 }
