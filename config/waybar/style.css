@@ -23,28 +23,17 @@ window#waybar {
 }
 
 .modules-left {
-    padding: 0 5px;
+    padding: 0 10px;
 }
 
 .modules-right {
     padding: 0 10px;
 }
 
-/* #workspaces,  */
-/* #clock, */
-/* #pulseaudio, */
-/* #window, */
-/* #custom-dnd, */
-/* #tray, */
-/* #keyboard-state, */
-/* #language */
-/* { */
-/*     background-color: @background; */
-/*     padding: 0 8px; */
-/*     border-radius: 100px; */
-/* } */
-
-#custom-dnd, #language {
+#custom-arch,
+#custom-search,
+#custom-dnd,
+#language {
     padding: 0 4px 0 0;
 }
 

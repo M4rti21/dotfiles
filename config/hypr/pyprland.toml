@@ -4,13 +4,6 @@ plugins = ["scratchpads", "lost_windows", "magnify", "expose"]
 [expose]
 include_special = false
 
-[scratchpads.btop]
-animation = "fromTop"
-command = "alacritty -e btop"
-class = "alacritty -e btop"
-lazy = true
-size = "75% 45%"
-
 [scratchpads.volume]
 animation = "fromTop"
 command = "pavucontrol"
@@ -19,17 +12,19 @@ lazy = true
 size = "50% 60%"
 unfocus = "hide"
 
-# [scratchpads.music]
-# animation = "fromTop"
-# command = "env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U"
-# class = "spotify"
-# size = "60% 70%"
-# unfocus = "hide"
-# class_match = true
+[scratchpads.music]
+animation = "fromTop"
+command = "LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify"
+class = "Spotify"
+lazy = true
+size = "60% 70%"
+unfocus = "hide"
+class_match = true
 
-# [scratchpads.password]
-# animation = "fromBottom"
-# command = "bitwarden"
-# class = "bitwarden"
-# lazy = true
-# size = "75% 45%"
+[scratchpads.password]
+animation = "fromTop"
+command = "flatpak run com.bitwarden.desktop"
+class = "Bitwarden"
+lazy = true
+size = "50% 60%"
+class_match = true

@@ -12,6 +12,7 @@
     ],
     "modules-right": [
         "tray",
+        "custom/search",
         "custom/dnd",
         "keyboard-state",
         "hyprland/language",
@@ -32,7 +33,7 @@
         "format": "{icon}",
         "format-icons": {
             "locked": "",
-            "unlocked": ""
+            "unlocked": ""
         }
     },
     "hyprland/workspaces": {
@@ -46,21 +47,26 @@
             "default": ""
         }
     },
+    "custom/arch": {
+        "format": "",
+        "on-click": "wlogout"
+    },
+    "custom/search": {
+        "format": "",
+        "on-click": "rofi -show drun"
+    },
     "custom/dnd": {
         "format": "",
-        "on-click": "dunstctl set-paused toggle",
-        //        "format-icons": {
-        //            "activated": "",
-        //            "deactivated": ""
-        //        }
+        "format-alt": "",
+        "on-click": "dunstctl set-paused toggle"
     },
     "tray": {
         "icon-size": 15,
         "spacing": 10
     },
     "clock": {
-        "format": " {:%H:%M}",
-        "format-alt": " {:%d/%m/%Y}"
+        "format": "{: %H:%M}",
+        "format-alt": "{: %d/%m/%Y}"
     },
     "pulseaudio": {
         "format": " {volume}%",
