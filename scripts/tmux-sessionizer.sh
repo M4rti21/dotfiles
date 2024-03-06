@@ -2,6 +2,10 @@
 
 directories=(
     "$HOME/Projects"
+    "$HOME/Projects/ies"
+    "$HOME/Projects/m7"
+    "$HOME/Projects/m8"
+    "$HOME/Projects/m9"
     "$HOME/Projects/wysi"
     "$HOME/Documents"
     "$HOME/dotfiles"

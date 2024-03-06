@@ -1,13 +1,15 @@
 [global]
-origin = bottom-right
-paddint = 4
-offset = 18x38
+origin = top-center
+padding = 4
+offset = 0x10
 font = "Geist Mono Nerd Font 11"
 frame_color = "#cc2850"
 frame_width = 2
 separator_color= frame
 gap_size = 2
 corner_radius = 10
+follow = keyboard
+alignment = center
 
 [urgency_low]
 background = "#080808"

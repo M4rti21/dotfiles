@@ -17,8 +17,7 @@ from classes import ScrPad
 from widgets.caps import  Caps
 from widgets.clock import ToggleClock
 from widgets.wname import WName
-from libqtile import hook, widget
-from libqtile import bar
+from libqtile import hook, widget, bar
 from libqtile.layout.max import Max
 from libqtile.layout.columns import Columns
 from libqtile.layout.floating import Floating

@@ -1,84 +1,61 @@
+@define-color background #080808;
+@define-color backgrounda rgba(8, 8, 8, 0.6);
+@define-color foreground #ffffff;
+@define-color disabled #323437;
+@define-color dark #0c0c0c;
+@define-color accent #cd1f48;
+
 * {
-	border: none;
-	font-family: GeistMono Nerd Font;
-	font-size: 14px;
-	font-weight: Bold;
-	color: #bdbdbd;
+    border: none;
+    margin: 0;
+    font-family: MartianMono Nerd Font;
+    font-weight: Bold;
+    font-size: 12px;
+    color: @foreground;
+}
+
+window {
+    margin: 0;
 }
 
 window#waybar {
-	background: #080808;
-	transition-property: background-color;
-	transition-duration: 0.5s;
+    background: @backgrounda;
 }
-.modules-right {
-}
-.modules-right * {
-	margin-right: 10px;
-	margin-left: 10px;
-}
-.modules-center {
-}
+
 .modules-left {
+    padding: 0 5px;
 }
 
-tooltip {
-	background: #323437;
-	border-radius: 10px;
+.modules-right {
+    padding: 0 10px;
 }
 
-#workspaces {
+/* #workspaces,  */
+/* #clock, */
+/* #pulseaudio, */
+/* #window, */
+/* #custom-dnd, */
+/* #tray, */
+/* #keyboard-state, */
+/* #language */
+/* { */
+/*     background-color: @background; */
+/*     padding: 0 8px; */
+/*     border-radius: 100px; */
+/* } */
+
+#custom-dnd, #language {
+    padding: 0 4px 0 0;
 }
+
+/*-----modules indv----*/
 #workspaces button {
-    background: transparent;
-    color: #323437;
+    padding: 1px 5px;
+    background-color: transparent;
 }
+
 #workspaces button:hover {
     box-shadow: inherit;
-    text-shadow: inherit;
-}
-
-#workspaces button.active {
-	transition: all 0.2s cubic-bezier(.55,-0.68,.48,1.682);
-}
-#workspaces button.urgent {
-    color: #ff5454;
-    background: #e3c78a;
-    border-radius: 10px;
-}
-
-#custom-sep {
-	color: #313244;
-	font-size: 18px;
-}
-
-#mode {
-	color: #cc3436;
-	font-weight: bold;
-}
-
-/*-----*/
-#tray {
-	
-}
-#network.disconnected {
-	color: #ff5454;
-}
-#network.disabled {
-	color: #e3c78a;
-}
-#idle_inhibitor.activated {
-	color: #2dcc36;
-}
-#pulseaudio.muted {
-	color: #e3c78a;
-}
-#battery.charging {
-	color: #8cc85f;
-}
-#battery.warning:not(.charging) {
-	color: #e3c78a;
-}
-#battery.critical:not(.charging) {
-	color: #ff5454;
+    background-color: @accent;
+    color: @background;
 }

@@ -23,7 +23,7 @@ colors = dict(
         foreground = "#bdbdbd",
         disabled = "#323437",
         dark = "#0c0c0c",
-        accent = "#cc2850",
+        accent = "#cd1f48",
         )
 
 bar_color = colors["dark"]
