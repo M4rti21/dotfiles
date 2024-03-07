@@ -14,6 +14,8 @@ return {
             magenta = "#cf87e8",
         }
 
+        local sessions = require('auto-session.lib');
+
         require("lualine").setup({
             options = {
                 icons_enabled = true,
@@ -52,7 +54,7 @@ return {
                 lualine_a = { "mode" },
                 lualine_b = { "branch" },
                 lualine_c = { "diagnostics", "diff" },
-                lualine_x = { "location" },
+                lualine_x = { "location", sessions.current_session_name },
                 lualine_y = { "filename" },
                 lualine_z = { "progress" },
             },
