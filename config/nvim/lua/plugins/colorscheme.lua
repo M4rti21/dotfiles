@@ -1,21 +1,37 @@
 return {
-    "bluz71/vim-moonfly-colors",
-    name = "moonfly",
-    lazy = false,
-    priority = 1000,
-    dependencies = {
+    {
         "nvim-tree/nvim-web-devicons",
         "xiyaowong/transparent.nvim"
     },
-
-    config = function()
-        vim.cmd("colorscheme moonfly")
-
-        vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#323437" })
-        vim.api.nvim_set_hl(0, "LineNr", { fg = "#bdbdbd" })
-        vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#323437" })
-
-        vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "ExtraGroup" })
-    end
+    {
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly",
+        lazy = false,
+        priority = 1000,
+    },
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        lazy = false,
+        priority = 1000,
+    },
+    {
+        "navarasu/onedark.nvim",
+        name = "onedark",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            local onedark = require('onedark')
+            onedark.setup {
+                style = 'warm'
+            }
+            onedark.load()
+        end
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000
+    }
 
 }
