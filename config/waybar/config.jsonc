@@ -12,7 +12,6 @@
     ],
     "modules-right": [
         "tray",
-        "custom/search",
         "custom/dnd",
         "keyboard-state",
         "hyprland/language",

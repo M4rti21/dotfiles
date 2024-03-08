@@ -1,5 +1,5 @@
 @define-color background #080808;
-@define-color backgrounda rgba(8, 8, 8, 0.6);
+@define-color backgrounda rgba(8, 8, 8, 0.8);
 @define-color foreground #ffffff;
 @define-color disabled #323437;
 @define-color dark #0c0c0c;
@@ -28,6 +28,9 @@ window#waybar {
 
 .modules-right {
     padding: 0 10px;
+}
+
+#tray {
 }
 
 #custom-arch,
