@@ -14,8 +14,9 @@ unfocus = "hide"
 
 [scratchpads.music]
 animation = "fromTop"
-command = "LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify"
+command = """flatpak run --file-forwarding --command=sh com.spotify.Client -c 'eval "$(sed s#LD_PRELOAD=#LD_PRELOAD=$HOME/.spotify-adblock/spotify-adblock.so:#g /app/bin/spotify)"' @@u %U @@"""
 class = "Spotify"
+process_tracking = false
 lazy = true
 size = "60% 70%"
 unfocus = "hide"
