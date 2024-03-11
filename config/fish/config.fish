@@ -8,12 +8,14 @@ end
 
 set -U fish_greeting
 
-zoxide init fish | source
-
 bind \cf 'tmux-sessionizer'
 
+# do this to make sure that the path is set correctly
+export ANDROID_HOME="$HOME/.android-sdk"
+export ANDROID_SDK_ROOT="$HOME/.android-sdk"
+
+
 alias c="clear"
-alias cd="z"
 alias ls="exa --long --icons --group-directories-first"
 alias la="exa --long --icons --group-directories-first --all"
 alias update="echo 'pacman' && sudo pacman -Syu && echo 'aur' && yay -Syu && echo 'flatpak' && flatpak update"
@@ -24,7 +26,7 @@ alias vim="nvim"
 alias t="tmux"
 alias ta="tmux a"
 alias tn="tmux new -s"
-alias tl="tmux ls"
 alias tk="tmux kill-session -t"
+alias tls="tmux ls"
 alias tat="tmux a -t"
 

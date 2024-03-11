@@ -47,8 +47,7 @@
         }
     },
     "custom/arch": {
-        "format": "",
-        "on-click": "wlogout"
+        "format": ""
     },
     "custom/search": {
         "format": "",

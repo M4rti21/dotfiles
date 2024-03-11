@@ -18,10 +18,34 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map('gr', builtin.lsp_references, '[G]oto [R]eferences')
         map('gi', builtin.lsp_implementations, '[G]oto [I]mplementation')
         map('gt', builtin.lsp_type_definitions, 'Type [D]efinition')
-        map('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
+        --map('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
         map('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
         map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
     end
+})
+
+local lualine = require("lualine")
+vim.api.nvim_create_autocmd("RecordingEnter", {
+    callback = function()
+        lualine.refresh({
+            place = { "statusline" },
+        })
+    end,
+})
+
+vim.api.nvim_create_autocmd("RecordingLeave", {
+    callback = function()
+        local timer = vim.loop.new_timer()
+        timer:start(
+            50,
+            0,
+            vim.schedule_wrap(function()
+                lualine.refresh({
+                    place = { "statusline" },
+                })
+            end)
+        )
+    end,
 })

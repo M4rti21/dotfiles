@@ -16,13 +16,13 @@ return {
             desc = '[/] Fuzzily search in current buffer'
         })
 
-        vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
         vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = '[P]roject [F]iles' })
-        vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-        vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-        vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-        vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-        vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+        vim.keymap.set('n', '<leader>lk', builtin.keymaps, { desc = '[L]ist [K]eymaps' })
+        vim.keymap.set('n', '<leader>lw', builtin.grep_string, { desc = '[L]ist current [W]ord' })
+        vim.keymap.set('n', '<leader>lg', builtin.live_grep, { desc = '[L]ist by [G]rep' })
+        vim.keymap.set('n', '<leader>ld', builtin.diagnostics, { desc = '[L]ist [D]iagnostics' })
+        vim.keymap.set('n', '<leader>lr', builtin.resume, { desc = '[L]ist [R]esume' })
+        vim.keymap.set('n', '<leader>l.', builtin.oldfiles, { desc = '[L]ist Recent Files ("." for repeat)' })
         vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
     end,
 
