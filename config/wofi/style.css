@@ -1,0 +1,41 @@
+* {
+    font-family: MartianMono Nerd Font;
+    color: #bdbdbd;
+    background: transparent;
+}
+
+#window {
+    background: rgba(8, 8, 8, 0.8);
+    margin: auto;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #cd1f48;
+}
+
+#input {
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+#outer-box {
+    padding: 10px;
+}
+
+#img {
+    margin-right: 10px;
+}
+
+#entry {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#entry:selected {
+    background-color: #323437;
+}
+
+#text {
+    margin: 2px;
+}

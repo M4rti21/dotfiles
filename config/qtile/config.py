@@ -245,8 +245,6 @@ def get_bar(index):
                     scale=0.75,
                     foreground=theme.colors["accent"],
                     ),
-                WName(short_name=True),
-                widget.Spacer(),
                 widget.GroupBox(
                     font=theme.font_family,
                     visible_groups=visible_groups,
@@ -265,6 +263,7 @@ def get_bar(index):
                     disable_drag=True,
                     use_mouse_wheel=False,
                     ),
+                WName(short_name=True),
                 widget.Spacer(),
                 *systray,
                 Caps(),
