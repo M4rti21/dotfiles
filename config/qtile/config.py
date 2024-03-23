@@ -265,6 +265,8 @@ def get_bar(index):
                     ),
                 WName(short_name=True),
                 widget.Spacer(),
+                ToggleClock(),
+                widget.Spacer(),
                 *systray,
                 Caps(),
                 widget.KeyboardLayout(
@@ -272,13 +274,12 @@ def get_bar(index):
                     display_map={'us': 'ENG', 'es cat': 'CAT'},
                     ),
                 widget.Volume(
-                    #fmt=" {}",
-                    emoji=True,
+                    fmt=" {}",
+                    emoji=False,
                     emoji_list=["󰸈", "󰕿", "󰖀", "󰕾"],
                     mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle("v") } ,
-                    fontsize=14,
+                    #fontsize=14,
                     ),
-                ToggleClock(),
                 widget.QuickExit(
                     default_text="",
                     countdown_start=4,
