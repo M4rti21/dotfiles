@@ -8,8 +8,8 @@
 * {
     border: none;
     margin: 0;
-    font-family: MartianMono Nerd Font;
-    font-weight: Bold;
+    font-family: 'SF Pro';
+    font-weight: bold;
     font-size: 12px;
     color: @foreground;
 }
@@ -30,8 +30,7 @@ window#waybar {
     padding: 0 10px;
 }
 
-#tray {
-}
+#tray {}
 
 #custom-arch,
 #custom-search,
@@ -46,8 +45,16 @@ window#waybar {
     background-color: transparent;
 }
 
+#workspaces button.focused{
+    background-color: @accent;
+}
+
 #workspaces button:hover {
     box-shadow: inherit;
     background-color: @accent;
     color: @background;
+}
+
+#pulseaudio {
+    font-size: 14px;
 }

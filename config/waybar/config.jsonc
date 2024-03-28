@@ -1,38 +1,37 @@
 {
     "layer": "top",
-    "position": "top",
-    "spacing": 10,
+    "position": "bottom",
+    "spacing": 20,
     "modules-left": [
         "custom/arch",
         "hyprland/workspaces",
         "hyprland/window"
     ],
-    "modules-center": [
-        "clock"
-    ],
+    "modules-center": [],
     "modules-right": [
         "tray",
-        "custom/dnd",
         "keyboard-state",
         "hyprland/language",
-        "pulseaudio"
+        "pulseaudio",
+        "clock",
+        "custom/dnd"
     ],
     "hyprland/window": {
-        "format": "{class}",
-        "format-alt": "{title}"
+        "format": "{title}",
+        "format-alt": "{class}"
     },
     "hyprland/language": {
         "format": "{}",
-        "format-en": "ENG",
-        "format-es": "CAT"
+        "format-en": "en",
+        "format-es": "ca"
     },
     "keyboard-state": {
         "numlock": false,
         "capslock": true,
-        "format": "{icon}",
+        "format": "{icon} ",
         "format-icons": {
             "locked": "",
-            "unlocked": ""
+            "unlocked": ""
         }
     },
     "hyprland/workspaces": {
@@ -63,15 +62,14 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{: %H:%M}",
-        "format-alt": "{: %d/%m/%Y}"
+        "format": "{:%a %b %d - %H:%M}"
     },
     "pulseaudio": {
-        "format": " {volume}%",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "0% {icon} ",
-        "format-source": "{volume}% ",
+        "format": "{icon} ",
+        "format-bluetooth": "",
+        "format-bluetooth-muted": "󰂲",
+        "format-muted": "󰝟",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -81,9 +79,9 @@
             "portable": "",
             "car": "",
             "default": [
-                "",
-                "",
-                ""
+                "󰕿",
+                "󰖀",
+                "󰕾"
             ]
         },
         "on-click": "pavucontrol"

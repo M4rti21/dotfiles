@@ -8,7 +8,22 @@ end
 
 set -U fish_greeting
 
+# PATH
+set -x  PATH $PATH
+set -gx PATH /usr/bin        $PATH 
+set -gx PATH /usr/sbin       $PATH 
+set -gx PATH /usr/local/bin  $PATH 
+set -gx PATH /usr/local/sbin $PATH 
+# Custom
+set -gx PATH $HOME/.config/tmux/plugins/tmuxifier/bin $PATH
+
+eval (tmuxifier init - fish)
+
 bind \cf 'tmux-sessionizer'
+
+# VARIABLES
+export EDITOR=nvim
+export BROWSER=firefox
 
 # do this to make sure that the path is set correctly
 export ANDROID_HOME="$HOME/.android-sdk"

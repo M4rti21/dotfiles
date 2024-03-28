@@ -1,13 +1,13 @@
 # THEME SETTINGS
 
 font_family = "MartianMono Nerd Font"
-font_weight = "Medium"
-font_size = 12
-border_size = 2
+font_weight = "Regular"
+font_size = 10
+border_size = 1
 inner_gap = 0
-outter_gap = 1
-panel_size = 24
-panel_top = True
+outter_gap = 0
+panel_size = 12
+panel_top = False
 widget_padding = 8
 widget_margin = 0
 opaccity = "ee"         # Opacity for the bar "00" to "ff 
@@ -20,10 +20,10 @@ else:
 
 colors = dict(
         background = "#000000",
-        foreground = "#bdbdbd",
+        foreground = "#f0f0f0",
         disabled = "#323437",
-        dark = "#0c0c0c",
-        accent = "#cd1f48",
+        dark = "#000000",
+        accent = "#cc0000",
         )
 
 bar_color = colors["dark"]
@@ -32,7 +32,7 @@ borders = dict(
         margin = inner_gap,
         single_margin = inner_gap,
         border_width = border_size,
-        border_on_single = True,
+        border_on_single = False,
         border_focus = colors["accent"],
         border_normal = colors["disabled"],
         )

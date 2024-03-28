@@ -9,39 +9,19 @@
 #
 #   github repo: https://github.com/M4rti21/dotfiles
 
-import os
 import subprocess
+import bar_config
 import theme
+import variables
 from typing import List
 from classes import ScrPad
-from widgets.caps import  Caps
-from widgets.clock import ToggleClock
-from widgets.wname import WName
-from libqtile import hook, widget, bar
+from libqtile import hook, bar
 from libqtile.layout.max import Max
 from libqtile.layout.columns import Columns
 from libqtile.layout.floating import Floating
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-
-# VARIABLES !!!IMPORTANT!!!
-mod1 = "mod4"   # Super                                     # Primary mod key
-mod2 = "mod1"   # Alt                                       # Secondary mod key
-mod3 = "shift"                                              # Tertiary mod key
-mod4 = "control"                                            # Quaternary mod key
-
-primary_screen = 1                                          # Primary screen (used for the systray)
-screen_count = 3                                            # Number of screens
-workspace_per_screen = 3                                    # Number of workspaces per screen
-default_layout = "columns"                                  # Default layout
-base_dir = os.path.expanduser("~/.config/qtile/scripts/")   # Scripts directory
-autostart_scripts = [
-        "display_settings_x11.sh",
-        "autostart.sh",
-        ]
-workspace_count = screen_count * workspace_per_screen       # DO NOT MODIFY!!!
-
 
 # PROGRAMS
 terminal = guess_terminal("alacritty") or "xterm"
@@ -109,11 +89,22 @@ groups = []
 screens = []
 layouts = []
 
+mod1 = variables.mod1
+mod2 = variables.mod2
+mod3 = variables.mod3
+mod4 = variables.mod4
+
+workspace_count = variables.workspace_count
+screen_count = variables.screen_count
+default_layout = variables.default_layout
+base_dir = variables.base_dir
+autostart_scripts = variables.autostart_scripts
+
 # KEYBINDINGS
 keys.extend([
     # Qtile controls
     Key([mod1, mod4], "r", lazy.reload_config()),                                   # Reload the config
-    Key([mod1, mod4], "q", lazy.shutdown()),                                        # Shutdown Qtile
+    Key([mod1, "shift"], "q", lazy.shutdown()),                                        # Shutdown Qtile
     Key([mod1], "Tab", lazy.next_layout()),                                         # Toggle between layouts
     Key([mod2], "Tab", lazy.group.next_window(), lazy.window.bring_to_front()),     # Move window focus to other window
     # Switch between windows
@@ -195,7 +186,7 @@ for name in map(str, range(1, workspace_count + 1)):
 
 layouts.extend([
     Columns(**theme.borders),
-    Max(**theme.borders),
+    Max(),
     ])
 
 # FLOATING WINDOW RULES "xprop"
@@ -214,100 +205,75 @@ floating_layout = Floating(
         **theme.borders
         )
 
-def get_bar(index):
-    systray = []
-    if index + 1 == primary_screen:
-        systray = [
-                widget.WidgetBox(
-                    widgets=[
-                        widget.TextBox(text="[", padding=0),
-                        widget.Systray(icon_size=16),
-                        widget.TextBox(text=" ]", padding=0),
-                        ],
-                    text_closed="",
-                    text_open="",
-                    close_button_location='right',
-                    )
-                ]
-
-    visible_groups = []
-
-    for i in range(workspace_count):
-        if i % screen_count == index:
-            visible_groups.append(str(i + 1))
-
-    return {
-            "size" : theme.panel_size,
-            "margin" : theme.panel_margin,
-            "background" : theme.bar_color + theme.opaccity,
-            "widgets" : [
-                widget.CurrentLayoutIcon(
-                    scale=0.75,
-                    foreground=theme.colors["accent"],
-                    ),
-                widget.GroupBox(
-                    font=theme.font_family,
-                    visible_groups=visible_groups,
-                    highlight_method="line",
-                    highlight_color=[theme.bar_color, theme.bar_color],
-                    inactive=theme.colors["disabled"],
-                    this_screen_border=theme.colors["foreground"],
-                    this_current_screen_border=theme.colors["accent"],
-                    active=theme.colors["foreground"],
-                    other_current_screen_border=theme.colors["disabled"],
-                    other_screen_border=theme.colors["disabled"],
-                    scroll=False,
-                    borderwidth=2,
-                    padding=4,
-                    margin_y=3,
-                    disable_drag=True,
-                    use_mouse_wheel=False,
-                    ),
-                WName(short_name=True),
-                widget.Spacer(),
-                ToggleClock(),
-                widget.Spacer(),
-                *systray,
-                Caps(),
-                widget.KeyboardLayout(
-                    configured_keyboards=['us', 'es cat'],
-                    display_map={'us': 'ENG', 'es cat': 'CAT'},
-                    ),
-                widget.Volume(
-                    fmt=" {}",
-                    emoji=False,
-                    emoji_list=["󰸈", "󰕿", "󰖀", "󰕾"],
-                    mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle("v") } ,
-                    #fontsize=14,
-                    ),
-                widget.QuickExit(
-                    default_text="",
-                    countdown_start=4,
-                    ),
-                widget.Spacer(length=theme.widget_padding),
-                ],
-            }
-
+# SCREENS
 if theme.panel_top:
-    for i in range(screen_count):
-        screens.append(
-                Screen(
-                    top=bar.Bar(**get_bar(i)),
-                    left=bar.Gap(theme.outter_gap),
-                    right=bar.Gap(theme.outter_gap),
-                    bottom=bar.Gap(theme.outter_gap),
-                    )
+    # for i in range(screen_count):
+    #     screens.append(
+    #             Screen(
+    #                 top=bar.Bar(**bar_config.get_bar(i)),
+    #                 left=bar.Gap(theme.outter_gap),
+    #                 right=bar.Gap(theme.outter_gap),
+    #                 bottom=bar.Gap(theme.outter_gap),
+    #                 )
+    #             )
+    screens.append(
+            Screen(
+                top=bar.Bar(**bar_config.get_bar(0)),
+                left=bar.Gap(theme.outter_gap),
+                right=bar.Gap(theme.outter_gap),
+                bottom=bar.Gap(theme.outter_gap),
                 )
+            )
+    screens.append(
+            Screen(
+                top=bar.Bar(**bar_config.get_bar(1)),
+                left=bar.Gap(theme.outter_gap+1),
+                right=bar.Gap(theme.outter_gap),
+                bottom=bar.Gap(theme.outter_gap),
+                )
+            )
+    screens.append(
+            Screen(
+                top=bar.Bar(**bar_config.get_bar(2)),
+                left=bar.Gap(theme.outter_gap),
+                right=bar.Gap(theme.outter_gap),
+                bottom=bar.Gap(theme.outter_gap),
+                )
+            )
 else:
-    for i in range(screen_count):
-        screens.append(
-                Screen(
-                    top=bar.Gap(theme.outter_gap),
-                    left=bar.Gap(theme.outter_gap),
-                    right=bar.Gap(theme.outter_gap),
-                    bottom=bar.Bar(**get_bar(i)),
-                    )
+    # for i in range(screen_count):
+    #     screens.append(
+    #             Screen(
+    #                 top=bar.Gap(theme.outter_gap),
+    #                 left=bar.Gap(theme.outter_gap),
+    #                 right=bar.Gap(theme.outter_gap),
+    #                 bottom=bar.Bar(**bar_config.get_bar(i)),
+    #                 )
+    #             )
+    screens.append(
+            Screen(
+                top=bar.Gap(theme.outter_gap),
+                left=bar.Gap(theme.outter_gap),
+                right=bar.Gap(theme.outter_gap),
+                bottom=bar.Bar(**bar_config.get_bar(0)),
                 )
+            )
+    screens.append(
+            Screen(
+                top=bar.Gap(theme.outter_gap),
+                left=bar.Gap(theme.outter_gap+1),
+                right=bar.Gap(theme.outter_gap),
+                bottom=bar.Bar(**bar_config.get_bar(1)),
+                )
+            )
+    screens.append(
+            Screen(
+                top=bar.Gap(theme.outter_gap+1),
+                left=bar.Gap(theme.outter_gap),
+                right=bar.Gap(theme.outter_gap),
+                bottom=bar.Bar(**bar_config.get_bar(2)),
+                )
+            )
 
 widget_defaults = theme.widget_defaults
 
