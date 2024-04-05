@@ -207,73 +207,25 @@ floating_layout = Floating(
 
 # SCREENS
 if theme.panel_top:
-    # for i in range(screen_count):
-    #     screens.append(
-    #             Screen(
-    #                 top=bar.Bar(**bar_config.get_bar(i)),
-    #                 left=bar.Gap(theme.outter_gap),
-    #                 right=bar.Gap(theme.outter_gap),
-    #                 bottom=bar.Gap(theme.outter_gap),
-    #                 )
-    #             )
-    screens.append(
-            Screen(
-                top=bar.Bar(**bar_config.get_bar(0)),
-                left=bar.Gap(theme.outter_gap),
-                right=bar.Gap(theme.outter_gap),
-                bottom=bar.Gap(theme.outter_gap),
+    for i in range(screen_count):
+        screens.append(
+                Screen(
+                    top=bar.Bar(**bar_config.get_bar(i)),
+                    left=bar.Gap(theme.outter_gap),
+                    right=bar.Gap(theme.outter_gap),
+                    bottom=bar.Gap(theme.outter_gap),
+                    )
                 )
-            )
-    screens.append(
-            Screen(
-                top=bar.Bar(**bar_config.get_bar(1)),
-                left=bar.Gap(theme.outter_gap+1),
-                right=bar.Gap(theme.outter_gap),
-                bottom=bar.Gap(theme.outter_gap),
-                )
-            )
-    screens.append(
-            Screen(
-                top=bar.Bar(**bar_config.get_bar(2)),
-                left=bar.Gap(theme.outter_gap),
-                right=bar.Gap(theme.outter_gap),
-                bottom=bar.Gap(theme.outter_gap),
-                )
-            )
 else:
-    # for i in range(screen_count):
-    #     screens.append(
-    #             Screen(
-    #                 top=bar.Gap(theme.outter_gap),
-    #                 left=bar.Gap(theme.outter_gap),
-    #                 right=bar.Gap(theme.outter_gap),
-    #                 bottom=bar.Bar(**bar_config.get_bar(i)),
-    #                 )
-    #             )
-    screens.append(
-            Screen(
-                top=bar.Gap(theme.outter_gap),
-                left=bar.Gap(theme.outter_gap),
-                right=bar.Gap(theme.outter_gap),
-                bottom=bar.Bar(**bar_config.get_bar(0)),
+    for i in range(screen_count):
+        screens.append(
+                Screen(
+                    top=bar.Gap(theme.outter_gap),
+                    left=bar.Gap(theme.outter_gap),
+                    right=bar.Gap(theme.outter_gap),
+                    bottom=bar.Bar(**bar_config.get_bar(i)),
+                    )
                 )
-            )
-    screens.append(
-            Screen(
-                top=bar.Gap(theme.outter_gap),
-                left=bar.Gap(theme.outter_gap+1),
-                right=bar.Gap(theme.outter_gap),
-                bottom=bar.Bar(**bar_config.get_bar(1)),
-                )
-            )
-    screens.append(
-            Screen(
-                top=bar.Gap(theme.outter_gap+1),
-                left=bar.Gap(theme.outter_gap),
-                right=bar.Gap(theme.outter_gap),
-                bottom=bar.Bar(**bar_config.get_bar(2)),
-                )
-            )
 
 widget_defaults = theme.widget_defaults
 

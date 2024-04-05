@@ -30,3 +30,24 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = true
 
 vim.opt.cmdheight = 0
+
+vim.opt.foldcolumn = '0' -- '0' is not bad
+vim.opt.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.fillchars = {
+    eob = ' ',
+    fold = ' ',
+    foldopen = '',
+    foldsep = ' ',
+    foldclose = ''
+}
+
+vim.cmd([[
+augroup MyColors
+autocmd!
+autocmd ColorScheme * highlight SignColumn guibg=NONE
+autocmd ColorScheme * highlight ColorColumn guibg=NONE
+autocmd ColorScheme * highlight FoldColumn guibg=NONE
+augroup end
+]])

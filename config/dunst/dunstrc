@@ -1,23 +1,22 @@
 [global]
-origin = top-center
-padding = 4
-offset = 0x10
-font = "Geist Mono Nerd Font 11"
-frame_color = "#cc2850"
+layer = top
+origin = top-right
+padding = 8
+offset = 12x12
+font = "SF Pro Text 12"
 frame_width = 2
-separator_color= frame
-gap_size = 2
-corner_radius = 10
+separator_color = frame
+gap_size = 8
+corner_radius = 8
 follow = keyboard
-alignment = center
+alignment = left
+frame_color = "#323437"
+background = "#323232cc"
+foreground = "#f0f0f0"
 
 [urgency_low]
-background = "#080808"
-foreground = "#CDD6F4"
 
 [urgency_normal]
-background = "#080808"
-foreground = "#CDD6F4"
 
 [urgency_critical]
 background = "#1E1E2E"

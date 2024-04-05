@@ -4,10 +4,13 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
     },
-
     config = function()
-        local capabilities = require('cmp_nvim_lsp').default_capabilities();
         local lspconfig = require("lspconfig")
+        local capabilities = require('cmp_nvim_lsp').default_capabilities();
+        capabilities.textDocument.foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true
+        }
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
@@ -27,8 +30,8 @@ return {
                         capabilities = capabilities,
                         settings = { Lua = { diagnostics = { globals = { "vim" } } } },
                     })
-                end,
-            },
+                end
+            }
         })
-    end,
+    end
 }

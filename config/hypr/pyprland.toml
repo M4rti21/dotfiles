@@ -5,7 +5,7 @@ plugins = ["scratchpads", "lost_windows", "magnify", "expose"]
 include_special = false
 
 [scratchpads.volume]
-animation = "fromTop"
+animation = "fromBottom"
 command = "pavucontrol"
 class = "pavucontrol"
 lazy = true
@@ -14,7 +14,7 @@ unfocus = "hide"
 
 [scratchpads.music]
 animation = "fromTop"
-command = """flatpak run --file-forwarding --command=sh com.spotify.Client -c 'eval "$(sed s#LD_PRELOAD=#LD_PRELOAD=$HOME/.spotify-adblock/spotify-adblock.so:#g /app/bin/spotify)"' @@u %U @@"""
+command = "env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U"
 class = "Spotify"
 process_tracking = false
 lazy = true
@@ -28,4 +28,5 @@ command = "flatpak run com.bitwarden.desktop"
 class = "Bitwarden"
 lazy = true
 size = "50% 60%"
+unfocus = "hide"
 class_match = true

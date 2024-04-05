@@ -8,3 +8,4 @@ file:///home/m4rti/dotfiles dotfiles
 file:///home/m4rti/.local .local
 file:///home/m4rti/.config .config
 file:///home/m4rti/.cache .cache
+file:///home/m4rti/.var .var

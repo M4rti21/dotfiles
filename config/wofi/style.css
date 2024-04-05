@@ -2,14 +2,14 @@
     font-family: 'SF Pro';
     font-weight: bold;
     font-size: 14px;
-    color: #bdbdbd;
+    color: #f0f0f0;
     background: transparent;
 }
 
 #window {
-    background: rgba(8, 8, 8, 0.95);
-    border-radius: 10px;
-    border: 2px solid #fc5453;
+    background: rgba(8, 8, 8, 0.8);
+    border-radius: 4px;
+    border: none;
 }
 
 #input {
@@ -20,6 +20,8 @@
 
 #outer-box {
     padding: 2px;
+    border-radius: 4px;
+    border: none;
 }
 
 #img {
@@ -37,5 +39,5 @@
 }
 
 #entry:selected {
-    background-color: #323437;
+    background-color: rgba(50, 50, 50, 0.6);
 }

@@ -11,6 +11,8 @@ return {
                 bash = { "beautysh" },
                 css = { "stylelint" },
                 java = { "astyle" },
+                go = { "gofmt" },
+                php = { "pint" }
             },
             format_on_save = {
                 timeout_ms = 500,

@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "bottom",
-    "spacing": 20,
+    "spacing": 18,
     "modules-left": [
         "custom/arch",
         "hyprland/workspaces",
@@ -26,12 +26,13 @@
         "format-es": "ca"
     },
     "keyboard-state": {
-        "numlock": false,
         "capslock": true,
+        "numlock": false,
+        "scrolllock": false,
         "format": "{icon} ",
         "format-icons": {
             "locked": "",
-            "unlocked": ""
+            "unlocked": ""
         }
     },
     "hyprland/workspaces": {
@@ -46,23 +47,38 @@
         }
     },
     "custom/arch": {
-        "format": ""
+        "format": "",
+        "tooltip": false
     },
     "custom/search": {
-        "format": "",
-        "on-click": "rofi -show drun"
+        "format": " ",
+        "on-click": "wofi -a",
+        "tooltip": false
     },
     "custom/dnd": {
         "format": "",
         "format-alt": "",
-        "on-click": "dunstctl set-paused toggle"
+        "on-click": "dunstctl set-paused toggle",
+        "tooltip": false
+    },
+    "custom/mediaplayer": {
+        "format": "󰝚 ",
+        "on-click": "playerctl play-pause"
+    },
+    "custom/play_previous": {
+        "format": "󰒮",
+        "on-click": "playerctl previous"
+    },
+    "custom/play_playnext": {
+        "format": "󰒭",
+        "on-click": "playerctl next"
     },
     "tray": {
-        "icon-size": 15,
+        "icon-size": 12,
         "spacing": 10
     },
     "clock": {
-        "format": "{:%a %b %d - %H:%M}"
+        "format": "{:%a %b %d   %H:%M}"
     },
     "pulseaudio": {
         "format": "{icon} ",
@@ -84,6 +100,6 @@
                 "󰕾"
             ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pypr toggle volume"
     }
 }

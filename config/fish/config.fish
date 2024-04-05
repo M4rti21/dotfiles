@@ -14,10 +14,6 @@ set -gx PATH /usr/bin        $PATH
 set -gx PATH /usr/sbin       $PATH 
 set -gx PATH /usr/local/bin  $PATH 
 set -gx PATH /usr/local/sbin $PATH 
-# Custom
-set -gx PATH $HOME/.config/tmux/plugins/tmuxifier/bin $PATH
-
-eval (tmuxifier init - fish)
 
 bind \cf 'tmux-sessionizer'
 
@@ -29,11 +25,10 @@ export BROWSER=firefox
 export ANDROID_HOME="$HOME/.android-sdk"
 export ANDROID_SDK_ROOT="$HOME/.android-sdk"
 
-
 alias c="clear"
 alias ls="exa --long --icons --group-directories-first"
 alias la="exa --long --icons --group-directories-first --all"
-alias update="echo 'pacman' && sudo pacman -Syu && echo 'aur' && yay -Syu && echo 'flatpak' && flatpak update"
+alias update="paru -Syu && echo 'flatpak' && flatpak update"
 alias purge="sudo pacman -Qdtq | sudo pacman -Rns - && flatpak uninstall --unused -y"
 alias nf="fastfetch"
 alias vim="nvim"

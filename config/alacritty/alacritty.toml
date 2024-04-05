@@ -1,20 +1,19 @@
 [window]
-opacity = 0.9
+opacity = 0.8
 
 padding.x = 12
 padding.y = 12
 
 [font]
-normal.family = "MartianMono Nerd Font"
-normal.style = "Medium"
-bold.family = "MartianMono Nerd Font"
+normal.family = "SF Mono Powerline"
+normal.style = "SemiBold"
+bold.family = "SF Mono Powerline"
 bold.style = "Bold"
-
-size = 12
+size = 13
 
 [cursor]
 style.shape = "Block"
-style.blinking = "Always"
+style.blinking = "Never"
 vi_mode_style.shape = "Block"
 
 [mouse]

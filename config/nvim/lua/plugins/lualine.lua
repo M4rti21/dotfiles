@@ -32,7 +32,7 @@ return {
                     normal = {
                         a = { fg = colors.black, bg = colors.blue },
                         b = { fg = colors.white, bg = colors.gray },
-                        c = { fg = colors.white, bg = colors.black },
+                        c = { fg = colors.white, bg = colors.transparent },
                     },
                     command = { a = { fg = colors.black, bg = colors.yellow } },
                     insert = { a = { fg = colors.black, bg = colors.green } },

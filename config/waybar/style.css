@@ -1,6 +1,5 @@
-@define-color background #080808;
-@define-color backgrounda rgba(8, 8, 8, 0.8);
-@define-color foreground #ffffff;
+@define-color background rgba(8, 8, 8, 0.8);
+@define-color foreground #f1f1f1;
 @define-color disabled #323437;
 @define-color dark #0c0c0c;
 @define-color accent #cd1f48;
@@ -8,6 +7,7 @@
 * {
     border: none;
     margin: 0;
+    padding: 0;
     font-family: 'SF Pro';
     font-weight: bold;
     font-size: 12px;
@@ -19,7 +19,7 @@ window {
 }
 
 window#waybar {
-    background: @backgrounda;
+    background: @background;
 }
 
 .modules-left {
@@ -32,20 +32,29 @@ window#waybar {
 
 #tray {}
 
-#custom-arch,
 #custom-search,
-#custom-dnd,
-#language {
-    padding: 0 4px 0 0;
+#keyboard-state,
+#pulseaudio {
+    font-size: 14px;
+}
+
+#custom-arch,
+#custom-dnd {
+    font-size: 12px;
+}
+
+#custom-arch,
+#custom-dnd {
+    padding: 0 4px;
 }
 
 /*-----modules indv----*/
 #workspaces button {
-    padding: 1px 5px;
+    padding: 0px 4px;
     background-color: transparent;
 }
 
-#workspaces button.focused{
+#workspaces button.focused {
     background-color: @accent;
 }
 
@@ -53,8 +62,4 @@ window#waybar {
     box-shadow: inherit;
     background-color: @accent;
     color: @background;
-}
-
-#pulseaudio {
-    font-size: 14px;
 }
