@@ -7,7 +7,35 @@ return {
     config = function()
         require("telescope").setup({
             defaults = {
-                file_ignore_patterns = { "node_modules/.*" },
+                file_ignore_patterns = {
+                    -- Common files
+                    "/*.png",
+                    "/*.jpg",
+                    "/*.jpeg",
+                    "/*.pdf",
+                    "/*.ttf",
+                    "/*.otf",
+                    -- Projects
+                    ".idea/*",
+                    ".vscode/*",
+                    ".vs/*",
+                    "/*.vsconfig",
+                    "/*.sln",
+                    "node_modules/*",
+                    -- Unity
+                    "Library/*",
+                    "Logs/*",
+                    "Packages/*",
+                    "Temp/*",
+                    "/*.unity",
+                    "/*.meta",
+                    "/*.prefab",
+                    "/*.asset",
+                    "/*.shader",
+                    "/*.mat",
+                    "/*.cache",
+                    "/*.cginc",
+                },
             },
         })
 
@@ -16,11 +44,11 @@ return {
         vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = '[P]roject [F]iles' })
         vim.keymap.set('n', '<leader>pw', builtin.live_grep, { desc = '[P]roject [W]ord' })
 
-        vim.keymap.set('n', '<leader>lk', builtin.keymaps, { desc = '[L]ist [K]eymaps' })
-        vim.keymap.set('n', '<leader>lw', builtin.grep_string, { desc = '[L]ist current [W]ord' })
-        vim.keymap.set('n', '<leader>ld', builtin.diagnostics, { desc = '[L]ist [D]iagnostics' })
-        vim.keymap.set('n', '<leader>lr', builtin.resume, { desc = '[L]ist [R]esume' })
-        vim.keymap.set('n', '<leader>l.', builtin.oldfiles, { desc = '[L]ist Recent Files ("." for repeat)' })
+        vim.keymap.set('n', '<leader>vk', builtin.keymaps, { desc = '[V]iew [K]eymaps' })
+        vim.keymap.set('n', '<leader>vw', builtin.grep_string, { desc = '[V]iew current [W]ord' })
+        vim.keymap.set('n', '<leader>vd', builtin.diagnostics, { desc = '[V]iew [D]iagnostics' })
+        vim.keymap.set('n', '<leader>vr', builtin.resume, { desc = '[V]iew [R]esume' })
+        vim.keymap.set('n', '<leader>v.', builtin.oldfiles, { desc = '[V]iew Recent Files ("." for repeat)' })
         vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
     end,
 
