@@ -3,8 +3,6 @@ return {
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
-        -- nnoremap <silent>[b :BufferLineCycleNext<CR>
-        -- nnoremap <silent>b] :BufferLineCyclePrev<CR>
         vim.keymap.set("n", "<leader>h", vim.cmd.BufferLineCyclePrev, { desc = 'Cycle Buffer Tab Prev' })
         vim.keymap.set("n", "<leader>l", vim.cmd.BufferLineCycleNext, { desc = 'Cycle Buffer Tab Next' })
         require("bufferline").setup({
@@ -27,6 +25,23 @@ return {
                     end
                     return indicator
                 end
+            },
+            highlights = {
+                fill = {
+                    bg = 'NONE',
+                },
+                background = {
+                    bg = 'NONE',
+                },
+                tab = {
+                    bg = 'NONE',
+                },
+                numbers = {
+                    bg = 'NONE',
+                },
+                diagnostic = {
+                    bg = 'NONE',
+                },
             }
         })
     end
