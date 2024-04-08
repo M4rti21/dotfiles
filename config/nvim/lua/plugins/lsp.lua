@@ -11,6 +11,9 @@ return {
             dynamicRegistration = false,
             lineFoldingOnly = true
         }
+        local function on_attach_callback(client, bufnr)
+            require('folding').on_attach()
+        end
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
@@ -22,6 +25,7 @@ return {
                 -- default handler
                 function(server_name)
                     lspconfig[server_name].setup({
+                        on_attach = on_attach_callback,
                         capabilities = capabilities
                     })
                 end,

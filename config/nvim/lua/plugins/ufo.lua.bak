@@ -9,12 +9,6 @@ return {
         vim.keymap.set('n', 'zC', ufo.closeAllFolds)
         vim.g.riv_fold_auto_update = 0
 
-        local ftMap = {
-            vim = 'indent',
-            python = 'indent',
-            git = ''
-        }
-
         ufo.setup({
             close_fold_kinds_for_ft = {
                 default = { 'imports', 'comment' },
@@ -24,7 +18,7 @@ return {
             preview = {
                 win_config = {
                     border = { '', '', '', '', '', '', '', '' },
-                    winhighlight = 'Normal:Folded',
+                    --winhighlight = 'Normal:Folded',
                     winblend = 0
                 },
                 mappings = {
@@ -34,8 +28,8 @@ return {
                     jumpBot = ']'
                 }
             },
-            provider_selector = function(_, filetype, _)
-                return ftMap[filetype]
+            provider_selector = function(bufnr, filetype, buftype)
+                return { 'treesitter', 'indent' }
             end
         })
     end

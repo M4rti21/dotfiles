@@ -1,0 +1,3 @@
+return {
+    "pierreglaser/folding-nvim"
+}

@@ -42,6 +42,33 @@ return {
                 diagnostic = {
                     bg = 'NONE',
                 },
+                close_button = {
+                    bg = 'NONE',
+                },
+                hint = {
+                    bg = 'NONE',
+                },
+                info = {
+                    bg = 'NONE',
+                },
+                warning = {
+                    bg = 'NONE',
+                },
+                error = {
+                    bg = 'NONE',
+                },
+                modified = {
+                    bg = 'NONE',
+                },
+                duplicate = {
+                    bg = 'NONE',
+                },
+                separator = {
+                    bg = 'NONE',
+                },
+                pick = {
+                    bg = 'NONE',
+                },
             }
         })
     end
