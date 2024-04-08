@@ -4,6 +4,8 @@
     font-size: 14px;
     color: #f0f0f0;
     background: transparent;
+    border: none;
+    outline: none;
 }
 
 #window {
@@ -34,8 +36,6 @@
     font-size: 16px;
     padding: 10px;
     border-radius: 0px;
-    border: none;
-    outline: none;
 }
 
 #entry:selected {
