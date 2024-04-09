@@ -8,7 +8,7 @@ This my personal qtile config for Arch Linux.
 - Arch Linux
 - git
 
-# NOT READ YET!!!
+# NOT READY YET!!!
 ### Instllation
 ```bash
 git clone https://github.com/m4rti21/dotfiles.git
