@@ -1,6 +1,6 @@
 [global]
 layer = top
-origin = top-right
+origin = bottom-right
 padding = 8
 offset = 12x12
 font = "SF Pro Text 12"
