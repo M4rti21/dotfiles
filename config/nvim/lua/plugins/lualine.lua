@@ -14,8 +14,6 @@ return {
             magenta = "#cf87e8",
         }
 
-        local sessions = require('auto-session.lib');
-
         local function show_macro_recording()
             local recording_register = vim.fn.reg_recording()
             if recording_register == "" then
@@ -70,7 +68,7 @@ return {
                     "diagnostics",
                     "diff"
                 },
-                lualine_x = { "location", sessions.current_session_name },
+                lualine_x = { "location" },
                 lualine_y = { "filename" },
                 lualine_z = { "progress" },
             },

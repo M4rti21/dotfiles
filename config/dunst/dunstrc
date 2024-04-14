@@ -3,16 +3,16 @@ layer = top
 origin = bottom-right
 padding = 8
 offset = 12x12
-font = "SF Pro Text 12"
+font = "SF Pro Text 10"
 frame_width = 2
 separator_color = frame
 gap_size = 8
 corner_radius = 8
 follow = keyboard
 alignment = left
-frame_color = "#323437"
-background = "#323232cc"
-foreground = "#f0f0f0"
+frame_color = "#4b4b4b"
+background = "#1e1e1e"
+foreground = "#ededed"
 
 [urgency_low]
 

@@ -10,11 +10,6 @@ normal.style = "SemiBold"
 bold.family = "SF Mono Powerline"
 bold.style = "Bold"
 size = 13
-# normal.family = "FiraMono Nerd Font"
-# normal.style = "Medium"
-# bold.family = "ComicShannsMono Nerd Font"
-# bold.style = "Bold"
-# size = 14
 
 [cursor]
 style.shape = "Block"

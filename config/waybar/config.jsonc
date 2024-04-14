@@ -3,33 +3,36 @@
     "position": "bottom",
     "spacing": 18,
     "modules-left": [
-        "custom/arch",
+//        "custom/arch",
         "hyprland/workspaces",
         "hyprland/window"
     ],
     "modules-center": [],
     "modules-right": [
         "tray",
+        // "custom/wl-gammarelay-temperature", 
+        // "custom/wl-gammarelay-brightness",
         "keyboard-state",
         "hyprland/language",
-        "pulseaudio",
+//        "pulseaudio",
         "clock",
         "custom/dnd"
     ],
     "hyprland/window": {
+        "icon": false,
         "format": "{title}",
         "format-alt": "{class}"
     },
     "hyprland/language": {
         "format": "{}",
-        "format-en": "en",
-        "format-es": "ca"
+        "format-en": "ENG",
+        "format-es": "CAT"
     },
     "keyboard-state": {
         "capslock": true,
         "numlock": false,
         "scrolllock": false,
-        "format": "{icon} ",
+        "format": "{icon}",
         "format-icons": {
             "locked": "",
             "unlocked": ""
@@ -73,12 +76,24 @@
         "format": "󰒭",
         "on-click": "playerctl next"
     },
+    "custom/wl-gammarelay-temperature": {
+        "format": "{} T",
+        "exec": "wl-gammarelay-rs watch {t}",
+        "on-scroll-up": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4999",
+        "on-scroll-down": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 3000"
+    },
+    "custom/wl-gammarelay-brightness": {
+        "format": "{}% B",
+        "exec": "wl-gammarelay-rs watch {bp}",
+        "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
+        "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02"
+    },
     "tray": {
         "icon-size": 12,
         "spacing": 10
     },
     "clock": {
-        "format": "{:%a %b %d   %H:%M}"
+        "format": "{:%a %b %d - %H:%M}"
     },
     "pulseaudio": {
         "format": "{icon} ",
