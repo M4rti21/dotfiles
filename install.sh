@@ -7,3 +7,4 @@ sudo pacman -S fish exa wofi alacritty alsa-utils polkit-gnome gnome-keyring gvf
 sudo pacman -S alacritty firefox fastfetch thunar thunar-archive-plugin xarchiver tmux neovim btop
 
 echo "hello"
+echo "hellowo"
