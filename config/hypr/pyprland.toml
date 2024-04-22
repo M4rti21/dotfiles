@@ -20,7 +20,7 @@ process_tracking = false
 lazy = true
 size = "60% 70%"
 unfocus = "hide"
-class_match = true
+match_by = "class"
 
 [scratchpads.password]
 animation = "fromTop"
@@ -29,4 +29,4 @@ class = "Bitwarden"
 lazy = true
 size = "50% 60%"
 unfocus = "hide"
-class_match = true
+match_by = "class"

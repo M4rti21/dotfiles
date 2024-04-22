@@ -38,6 +38,7 @@ window#waybar {
     font-size: 12px;
 }
 
+#keyboard-state,
 #custom-arch,
 #custom-dnd {
     padding: 0 4px;

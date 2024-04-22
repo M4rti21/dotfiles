@@ -54,6 +54,8 @@ vim.opt.fillchars = {
     foldclose = ''
 }
 
+vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- CMD
 vim.cmd.highlight({ "Error", "guibg=red" })
 vim.cmd.highlight({ "VirtColumn", "guibg=#949494" })

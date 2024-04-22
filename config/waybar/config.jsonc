@@ -3,18 +3,14 @@
     "position": "bottom",
     "spacing": 18,
     "modules-left": [
-//        "custom/arch",
         "hyprland/workspaces",
         "hyprland/window"
     ],
     "modules-center": [],
     "modules-right": [
         "tray",
-        // "custom/wl-gammarelay-temperature", 
-        // "custom/wl-gammarelay-brightness",
         "keyboard-state",
         "hyprland/language",
-//        "pulseaudio",
         "clock",
         "custom/dnd"
     ],
@@ -34,8 +30,8 @@
         "scrolllock": false,
         "format": "{icon}",
         "format-icons": {
-            "locked": "",
-            "unlocked": ""
+            "locked": "",
+            "unlocked": ""
         }
     },
     "hyprland/workspaces": {
@@ -49,72 +45,17 @@
             "default": ""
         }
     },
-    "custom/arch": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/search": {
-        "format": " ",
-        "on-click": "wofi -a",
-        "tooltip": false
-    },
     "custom/dnd": {
         "format": "",
         "format-alt": "",
         "on-click": "dunstctl set-paused toggle",
         "tooltip": false
     },
-    "custom/mediaplayer": {
-        "format": "󰝚 ",
-        "on-click": "playerctl play-pause"
-    },
-    "custom/play_previous": {
-        "format": "󰒮",
-        "on-click": "playerctl previous"
-    },
-    "custom/play_playnext": {
-        "format": "󰒭",
-        "on-click": "playerctl next"
-    },
-    "custom/wl-gammarelay-temperature": {
-        "format": "{} T",
-        "exec": "wl-gammarelay-rs watch {t}",
-        "on-scroll-up": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 4999",
-        "on-scroll-down": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 3000"
-    },
-    "custom/wl-gammarelay-brightness": {
-        "format": "{}% B",
-        "exec": "wl-gammarelay-rs watch {bp}",
-        "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
-        "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02"
-    },
     "tray": {
         "icon-size": 12,
         "spacing": 10
     },
     "clock": {
-        "format": "{:%a %b %d - %H:%M}"
-    },
-    "pulseaudio": {
-        "format": "{icon} ",
-        "format-bluetooth": "",
-        "format-bluetooth-muted": "󰂲",
-        "format-muted": "󰝟",
-        "format-source": "",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": [
-                "󰕿",
-                "󰖀",
-                "󰕾"
-            ]
-        },
-        "on-click": "pypr toggle volume"
+        "format": "{:%a %b %d   %H:%M}"
     }
 }

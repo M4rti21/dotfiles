@@ -5,9 +5,9 @@ padding.x = 12
 padding.y = 12
 
 [font]
-normal.family = "SF Mono Powerline"
-normal.style = "SemiBold"
-bold.family = "SF Mono Powerline"
+normal.family = "SF Mono"
+normal.style = "Medium"
+bold.family = "SF Mono"
 bold.style = "Bold"
 size = 13
 
@@ -20,7 +20,7 @@ vi_mode_style.shape = "Block"
 hide_when_typing = true
 
 [colors]
-draw_bold_text_with_bright_colors = true
+draw_bold_text_with_bright_colors = false
 
 [colors.bright]
 black = "#949494"
