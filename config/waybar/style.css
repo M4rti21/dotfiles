@@ -30,7 +30,9 @@ window#waybar {
     padding: 0 10px;
 }
 
-#tray {}
+#tray > * > * {
+    padding: 0 4px;
+}
 
 #custom-search,
 #keyboard-state,
@@ -38,9 +40,16 @@ window#waybar {
     font-size: 12px;
 }
 
-#keyboard-state,
+#group-drawer,
 #custom-arch,
 #custom-dnd {
+    padding: 0 4px;
+}
+
+#keyboard-state {
+    padding: 0;
+}
+#keyboard-state label.locked {
     padding: 0 4px;
 }
 

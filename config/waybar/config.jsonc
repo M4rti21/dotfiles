@@ -8,7 +8,7 @@
     ],
     "modules-center": [],
     "modules-right": [
-        "tray",
+        "group/group-drawer",
         "keyboard-state",
         "hyprland/language",
         "clock",
@@ -51,9 +51,26 @@
         "on-click": "dunstctl set-paused toggle",
         "tooltip": false
     },
+    "group/group-drawer": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-drawer",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/fold",
+            "tray"
+        ]
+    },
     "tray": {
         "icon-size": 12,
-        "spacing": 10
+        "show-passive-items": false,
+        "spacing": 0
+    },
+    "custom/fold": {
+        "format": " ",
+        "tooltip": false
     },
     "clock": {
         "format": "{:%a %b %d   %H:%M}"
