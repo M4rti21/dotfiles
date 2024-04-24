@@ -17,5 +17,4 @@ require("remaps");
 
 require("lazy").setup("plugins")
 
-require("autocmd");
 require("after");
