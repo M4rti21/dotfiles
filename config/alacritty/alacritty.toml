@@ -5,9 +5,9 @@ padding.x = 12
 padding.y = 12
 
 [font]
-normal.family = "SF Mono"
+normal.family = "SF Mono Powerline"
 normal.style = "Medium"
-bold.family = "SF Mono"
+bold.family = "SF Mono Powerline"
 bold.style = "Bold"
 size = 13
 

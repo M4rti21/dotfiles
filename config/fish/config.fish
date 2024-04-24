@@ -28,6 +28,7 @@ export ANDROID_SDK_ROOT="$HOME/.android-sdk"
 
 alias rm="trash-put"
 alias rmls="trash-list"
+alias fm="joshuto"
 alias ls="eza --long --icons --group-directories-first"
 alias la="eza --long --icons --group-directories-first --all"
 alias update="paru -Syu && echo 'flatpak' && flatpak update"
