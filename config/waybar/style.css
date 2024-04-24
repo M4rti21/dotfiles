@@ -12,6 +12,7 @@
     font-weight: bold;
     font-size: 12px;
     color: @foreground;
+    min-width: 14px;
 }
 
 window {
@@ -22,49 +23,52 @@ window#waybar {
     background: @background;
 }
 
-.modules-left {
-    padding: 0 4px;
-}
-
+.modules-left,
 .modules-right {
     padding: 0 10px;
 }
 
-#tray > * > * {
+#tray>*>* {
     padding: 0 4px;
 }
 
-#custom-search,
-#keyboard-state,
-#pulseaudio {
-    font-size: 12px;
+.not-power>* {
+    font-size: 16px;
+    min-width: 20px;
+    margin: 0 4px;
 }
 
-#group-drawer,
+#power-drawer {
+}
+
+#custom-arch {
+    margin-right: 4px;
+}
+#custom-logout {
+    color: #e3c78a
+}
+#custom-reboot {
+    color: #8cc85f
+}
+#custom-shutdown {
+    color: #ff5454
+}
+
 #custom-arch,
-#custom-dnd {
-    padding: 0 4px;
-}
-
 #keyboard-state {
-    padding: 0;
-}
-#keyboard-state label.locked {
-    padding: 0 4px;
+    font-size: 12px;
 }
 
 /*-----modules indv----*/
 #workspaces button {
     padding: 0px 4px;
-    border-bottom: 2px solid transparent;
 }
 
 #workspaces button.active {
     color: @background;
-    border-bottom: 2px solid @disabled;
-}
-#workspaces button.focused {
+    background: @dark;
 }
 
-#workspaces button:hover {
-}
+#workspaces button.focused {}
+
+#workspaces button:hover {}

@@ -40,8 +40,7 @@ return {
                     inactive = {
                         a = { fg = colors.white, bg = colors.black },
                         b = { fg = colors.white, bg = colors.black },
-                    },
-
+                    }
                 },
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
@@ -76,10 +75,10 @@ return {
             inactive_sections = {
                 lualine_a = {},
                 lualine_b = {},
-                lualine_c = {},
+                lualine_c = { "diagnostics", "diff" },
                 lualine_x = { "location" },
-                lualine_y = {},
-                lualine_z = {},
+                lualine_y = { "filename" },
+                lualine_z = { "progress" },
             },
             tabline = {},
             winbar = {},

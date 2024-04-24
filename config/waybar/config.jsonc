@@ -3,6 +3,7 @@
     "position": "bottom",
     "spacing": 18,
     "modules-left": [
+        "group/power-drawer",
         "hyprland/workspaces",
         "hyprland/window"
     ],
@@ -63,13 +64,43 @@
             "tray"
         ]
     },
+    "group/power-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/arch",
+            "custom/logout",
+            "custom/reboot",
+            "custom/shutdown"
+        ]
+    },
     "tray": {
         "icon-size": 12,
         "show-passive-items": false,
         "spacing": 0
     },
     "custom/fold": {
-        "format": " ",
+        "format": "",
+        "tooltip": false
+    },
+    "custom/arch": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip": false
+    },
+    "custom/shutdown": {
+        "format": "󰐥",
+        "tooltip": false
+    },
+    "custom/logout": {
+        "format": "󰗽",
         "tooltip": false
     },
     "clock": {
