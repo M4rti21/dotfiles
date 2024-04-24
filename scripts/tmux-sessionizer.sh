@@ -52,7 +52,7 @@ if [[ $dir == "$HOME/Projects"* ]]; then
     tmux rename-window -t $session:0 nvim
     tmux send-keys -t $session:0 "nvim" Enter
     tmux new-window -t $session:1 -n term -c $dir
-    tmux split-window -v -c "#{pane_current_path}"
+    # tmux split-window -v -c "#{pane_current_path}"
     tmux new-window -t $session:2 -n git -c $dir
     tmux send-keys -t $session:2 "git status" Enter
     tmux select-window -t $session:0

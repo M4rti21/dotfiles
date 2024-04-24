@@ -93,14 +93,17 @@
     },
     "custom/reboot": {
         "format": "󰜉",
+        "on-click": "reboot",
         "tooltip": false
     },
     "custom/shutdown": {
         "format": "󰐥",
+        "on-click": "shutdown now",
         "tooltip": false
     },
     "custom/logout": {
         "format": "󰗽",
+        "on-click": "hyprctl dispatch exit",
         "tooltip": false
     },
     "clock": {
