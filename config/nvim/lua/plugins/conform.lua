@@ -12,7 +12,8 @@ return {
                 css = { "stylelint" },
                 java = { "astyle" },
                 go = { "gofmt" },
-                php = { "pint" }
+                php = { "pint" },
+                vue = { "eslint_d" }
             },
             format_on_save = {
                 timeout_ms = 500,

@@ -21,10 +21,14 @@ bind \cf 'tmux-sessionizer'
 # VARIABLES
 export EDITOR=nvim
 export BROWSER=firefox
+export GOPATH="$HOME/.local/share/go"
+export __GL_SHADER_DISK_CACHE_PATH="$HOME/.local/share/nv"
+export NUGET_PACKAGES="$HOME/.local/share/nuget"
+export CARGO_HOME="$HOME/.local/share/cargo"
 
 # do this to make sure that the path is set correctly
-export ANDROID_HOME="$HOME/.android-sdk"
-export ANDROID_SDK_ROOT="$HOME/.android-sdk"
+export ANDROID_HOME="/opt/android-sdk"
+export ANDROID_SDK_ROOT="/opt/android-sdk"
 
 alias rm="trash-put"
 alias rmls="trash-list"

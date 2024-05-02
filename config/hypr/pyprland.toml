@@ -8,13 +8,13 @@ include_special = false
 animation = "fromBottom"
 command = "pavucontrol"
 class = "pavucontrol"
-lazy = true
+lazy = false
 size = "50% 60%"
 unfocus = "hide"
 
 [scratchpads.music]
 animation = "fromTop"
-command = """flatpak run --command=sh com.spotify.Client -c 'eval "$(sed s#LD_PRELOAD=#LD_PRELOAD=$HOME/.spotify-adblock/spotify-adblock.so:#g /app/bin/spotify)"'"""
+command = """flatpak run --command=sh com.spotify.Client -c 'eval "$(sed s#LD_PRELOAD=#LD_PRELOAD=$HOME/.local/share/spotify-adblock/spotify-adblock.so:#g /app/bin/spotify)"'"""
 class = "Spotify"
 process_tracking = false
 lazy = true

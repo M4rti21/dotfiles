@@ -3,10 +3,13 @@ return {
     main = "ibl",
     config = function()
         require("ibl").setup({
-            scope = { enabled = false },
+            scope = {
+                enabled = false,
+            },
             indent = {
-                char = "┃"
-            }
+                char = "┃",
+                smart_indent_cap = false,
+            },
         })
     end
 }

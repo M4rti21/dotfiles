@@ -1,5 +1,5 @@
 [window]
-opacity = 0.8
+opacity = 1
 
 padding.x = 12
 padding.y = 12
@@ -33,11 +33,11 @@ white = "#e4e4e4"
 yellow = "#c2c292"
 
 [colors.cursor]
-cursor = "#8e8e8e"
+cursor = "#f0f0f0"
 text = "#080808"
 
 [colors.normal]
-black = "#323437"
+black = "#343434"
 blue = "#80a0ff"
 cyan = "#79dac8"
 green = "#8cc85f"
@@ -48,8 +48,8 @@ yellow = "#e3c78a"
 
 [colors.primary]
 background = "#080808"
-bright_foreground = "#eeeeee"
-foreground = "#bdbdbd"
+bright_foreground = "#ffffff"
+foreground = "#ededed"
 
 [colors.selection]
 background = "#b2ceee"

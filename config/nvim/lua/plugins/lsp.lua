@@ -11,21 +11,15 @@ return {
             dynamicRegistration = false,
             lineFoldingOnly = true
         }
-        local function on_attach_callback(client, bufnr)
-            require('folding').on_attach()
-        end
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "tsserver",
             },
             automatic_installation = true,
             handlers = {
-                -- default handler
                 function(server_name)
                     lspconfig[server_name].setup({
-                        on_attach = on_attach_callback,
                         capabilities = capabilities
                     })
                 end,
@@ -48,11 +42,11 @@ return {
                 map('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
                 map('gr', builtin.lsp_references, '[G]oto [R]eferences')
                 map('gi', builtin.lsp_implementations, '[G]oto [I]mplementation')
-                map('gt', builtin.lsp_type_definitions, 'Type [D]efinition')
+                map('gt', builtin.lsp_type_definitions, '[G]oto [T]ype Definition')
                 --map('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
-                map('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+                --map('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
                 map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-                map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+                map('<A-return>', vim.lsp.buf.code_action, '[C]ode [A]ction')
                 map('K', vim.lsp.buf.hover, 'Hover Documentation')
             end
         })

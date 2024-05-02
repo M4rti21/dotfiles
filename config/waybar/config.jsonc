@@ -3,17 +3,15 @@
     "position": "bottom",
     "spacing": 18,
     "modules-left": [
-        "group/power-drawer",
         "hyprland/workspaces",
         "hyprland/window"
     ],
     "modules-center": [],
     "modules-right": [
-        "group/group-drawer",
         "keyboard-state",
         "hyprland/language",
         "clock",
-        "custom/dnd"
+        "group/group-drawer"
     ],
     "hyprland/window": {
         "icon": false,
@@ -46,12 +44,6 @@
             "default": ""
         }
     },
-    "custom/dnd": {
-        "format": "",
-        "format-alt": "",
-        "on-click": "dunstctl set-paused toggle",
-        "tooltip": false
-    },
     "group/group-drawer": {
         "orientation": "inherit",
         "drawer": {
@@ -60,22 +52,8 @@
             "transition-left-to-right": false
         },
         "modules": [
-            "custom/fold",
+            "custom/dnd",
             "tray"
-        ]
-    },
-    "group/power-drawer": {
-        "orientation": "horizontal",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "not-power",
-            "transition-left-to-right": true
-        },
-        "modules": [
-            "custom/arch",
-            "custom/logout",
-            "custom/reboot",
-            "custom/shutdown"
         ]
     },
     "tray": {
@@ -83,30 +61,14 @@
         "show-passive-items": false,
         "spacing": 0
     },
-    "custom/fold": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arch": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/reboot": {
-        "format": "󰜉",
-        "on-click": "reboot",
-        "tooltip": false
-    },
-    "custom/shutdown": {
-        "format": "󰐥",
-        "on-click": "shutdown now",
-        "tooltip": false
-    },
-    "custom/logout": {
-        "format": "󰗽",
-        "on-click": "hyprctl dispatch exit",
+    "custom/dnd": {
+        "format": "",
+        "format-alt": "",
+        "on-click": "dunstctl set-paused toggle",
         "tooltip": false
     },
     "clock": {
-        "format": "{:%a %b %d   %H:%M}"
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a %b %d}"
     }
 }

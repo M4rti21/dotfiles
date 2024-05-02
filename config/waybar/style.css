@@ -1,4 +1,4 @@
-@define-color background rgba(8, 8, 8, 1);
+@define-color background #000000;
 @define-color foreground #ededed;
 @define-color disabled #3a3a3a;
 @define-color dark #1e1e1e;
@@ -15,60 +15,40 @@
     min-width: 14px;
 }
 
-window {
-    margin: 0;
-}
-
 window#waybar {
     background: @background;
 }
 
+#custom-dnd {
+    padding-right: 8px;
+}
+
 .modules-left,
 .modules-right {
-    padding: 0 10px;
 }
 
 #tray>*>* {
     padding: 0 4px;
 }
 
-.not-power>* {
-    font-size: 16px;
-    min-width: 20px;
-    margin: 0 4px;
-}
-
-#power-drawer {
-}
-
-#custom-arch {
-    margin-right: 4px;
-}
-#custom-logout {
-    color: #e3c78a
-}
-#custom-reboot {
-    color: #8cc85f
-}
-#custom-shutdown {
-    color: #ff5454
-}
-
-#custom-arch,
-#keyboard-state {
-    font-size: 12px;
-}
-
 /*-----modules indv----*/
-#workspaces button {
-    padding: 0px 4px;
+#workspaces * {
+    margin: 0px;
+    min-height: 0px;
 }
 
-#workspaces button.active {
-    color: @background;
-    background: @dark;
+#workspaces button {
+    padding: 2px 4px;
 }
 
 #workspaces button.focused {}
 
 #workspaces button:hover {}
+
+#workspaces button.visible {
+    background: @dark;
+}
+
+#workspaces button.active {
+    background: @disabled;
+}

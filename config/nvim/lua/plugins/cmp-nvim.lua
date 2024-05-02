@@ -1,19 +1,26 @@
 return {
     "hrsh7th/nvim-cmp",
     dependencies = {
-        "neovim/nvim-lspconfig",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
+        "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-cmdline",
-        "hrsh7th/vim-vsnip",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        {
+            "L3MON4D3/LuaSnip",
+            -- follow latest release.
+            version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+            -- install jsregexp (optional!).
+            build = "make install_jsregexp"
+        }
     },
     config = function()
         local cmp = require("cmp")
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    vim.fn["vsnip#anonymous"](args.body)
+                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                 end
             },
             window = {
@@ -29,7 +36,7 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
-                { name = "vsnip" },
+                { name = "luasnip" },
             }, {
                 { name = "buffer" },
             })
