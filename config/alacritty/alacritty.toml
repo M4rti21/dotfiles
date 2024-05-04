@@ -1,5 +1,5 @@
 [window]
-opacity = 1
+opacity = 0.8
 
 padding.x = 12
 padding.y = 12
@@ -9,7 +9,7 @@ normal.family = "SF Mono Powerline"
 normal.style = "Medium"
 bold.family = "SF Mono Powerline"
 bold.style = "Bold"
-size = 13
+size = 12
 
 [cursor]
 style.shape = "Block"
