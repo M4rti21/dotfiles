@@ -4,7 +4,7 @@ This my personal qtile config for Arch Linux.
 
 ## Desktop 
 ```bash
-paru -S hyprland waybar hyprpaper hyprcursor pyprland wofi wl-gammarelay-rs
+paru -S hyprland xdg-desktop-portal-hyprland waybar hyprpaper hyprcursor pyprland wofi wl-gammarelay-rs
 ```
 
 ## Audio
@@ -46,6 +46,14 @@ paru -S fastfetch
 ## Coding
 ```bash
 paru -S git vim nvim tmux
+```
+
+## Flatpaks
+```bash
+paru -S flatpak
+# For themes
+paru -S xdg-desktop-portal-gtk xsettingsd
+
 ```
 
 ## QEMU/KVM

@@ -46,15 +46,37 @@ return {
         })
 
         local builtin = require("telescope.builtin")
-        vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = '[/] Search in current buffer' })
-        vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = '[P]roject [F]iles' })
-        vim.keymap.set('n', '<leader>pw', builtin.live_grep, { desc = '[P]roject [W]ord' })
 
-        vim.keymap.set('n', '<leader>vk', builtin.keymaps, { desc = '[V]iew [K]eymaps' })
-        vim.keymap.set('n', '<leader>vw', builtin.grep_string, { desc = '[V]iew current [W]ord' })
-        vim.keymap.set('n', '<leader>vd', builtin.diagnostics, { desc = '[V]iew [D]iagnostics' })
-        vim.keymap.set('n', '<leader>vr', builtin.resume, { desc = '[V]iew [R]esume' })
-        vim.keymap.set('n', '<leader>v.', builtin.oldfiles, { desc = '[V]iew Recent Files ("." for repeat)' })
-        vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+        vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find,
+            { desc = '[/] Search in current buffer' })
+
+        vim.keymap.set("n", "<leader>pf", builtin.find_files,
+            { desc = '[P]roject [F]iles' })
+
+        vim.keymap.set('n', '<leader>ps', builtin.live_grep,
+            { desc = '[P]roject [S]earch' })
+
+        vim.keymap.set('n', '<leader>pw', function()
+            local word = vim.fn.expand("<cword>")
+            builtin.grep_string({ search = word })
+        end, { desc = '[P]roject [W]ord [S]earch' })
+
+        vim.keymap.set('n', '<leader>vk', builtin.keymaps,
+            { desc = '[V]iew [K]eymaps' })
+
+        vim.keymap.set('n', '<leader>vw', builtin.grep_string,
+            { desc = '[V]iew current [W]ord' })
+
+        vim.keymap.set('n', '<leader>vd', builtin.diagnostics,
+            { desc = '[V]iew [D]iagnostics' })
+
+        vim.keymap.set('n', '<leader>vr', builtin.resume,
+            { desc = '[V]iew [R]esume' })
+
+        vim.keymap.set('n', '<leader>v.', builtin.oldfiles,
+            { desc = '[V]iew Recent Files ("." for repeat)' })
+
+        vim.keymap.set('n', '<leader><leader>', builtin.buffers,
+            { desc = '[ ] Find existing buffers' })
     end
 }

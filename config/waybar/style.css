@@ -1,8 +1,8 @@
-@define-color background #000000;
+@define-color black #000000;
+@define-color background #1e1e1e;
 @define-color foreground #ededed;
-@define-color disabled #3a3a3a;
-@define-color dark #1e1e1e;
-@define-color accent #cd1f48;
+@define-color gray #919191;
+@define-color disabled #343434;
 
 * {
     border: none;
@@ -16,7 +16,7 @@
 }
 
 window#waybar {
-    background: @background;
+    background: @black;
 }
 
 #custom-dnd {
@@ -24,8 +24,7 @@ window#waybar {
 }
 
 .modules-left,
-.modules-right {
-}
+.modules-right {}
 
 #tray>*>* {
     padding: 0 4px;
@@ -35,6 +34,7 @@ window#waybar {
 #workspaces * {
     margin: 0px;
     min-height: 0px;
+    color: @disabled;
 }
 
 #workspaces button {
@@ -45,10 +45,10 @@ window#waybar {
 
 #workspaces button:hover {}
 
-#workspaces button.visible {
-    background: @dark;
+#workspaces button.visible * {
+    color: @gray;
 }
 
-#workspaces button.active {
-    background: @disabled;
+#workspaces button.active * {
+    color: @foreground;
 }

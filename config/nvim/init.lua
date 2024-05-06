@@ -15,6 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 require("config");
 require("remaps");
 
-require("lazy").setup("plugins")
+require("lazy").setup({
+    spec = "plugins",
+    change_detection = { notify = false }
+})
 
 require("after");
