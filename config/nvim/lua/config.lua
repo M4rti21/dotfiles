@@ -13,9 +13,6 @@ vim.g.netrw_rmdir_cmd  = "ssh HOSTNAME trash-put"
 vim.g.netrw_rmf_cmd    = "ssh HOSTNAME rm -f"
 
 -- OPT
-vim.opt.list           = true
-vim.opt.listchars      = { tab = '| ', trail = '·', nbsp = '␣' }
-
 vim.opt.wrap           = false
 
 vim.opt.mouse          = ''
