@@ -15,7 +15,7 @@ vim.g.netrw_rmf_cmd    = "ssh HOSTNAME rm -f"
 -- OPT
 vim.opt.wrap           = false
 
-vim.opt.mouse          = ''
+vim.opt.mouse          = 'a'
 vim.opt.showmode       = false
 
 vim.opt.number         = true

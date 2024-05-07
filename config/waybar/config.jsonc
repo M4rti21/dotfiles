@@ -52,7 +52,7 @@
             "transition-left-to-right": false
         },
         "modules": [
-            "custom/dnd",
+            "custom/dunst",
             "tray"
         ]
     },
@@ -61,11 +61,11 @@
         "show-passive-items": false,
         "spacing": 0
     },
-    "custom/dnd": {
-        "format": "",
-        "format-alt": "",
+    "custom/dunst": {
+        "format": "{}",
+        "exec": "~/.config/waybar/custom/dunst.sh",
         "on-click": "dunstctl set-paused toggle",
-        "tooltip": false
+        "restart-interval": 1
     },
     "clock": {
         "format": "{:%H:%M}",

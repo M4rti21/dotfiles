@@ -19,7 +19,7 @@ window#waybar {
     background: @black;
 }
 
-#custom-dnd {
+#custom-dunst {
     padding-right: 8px;
 }
 
