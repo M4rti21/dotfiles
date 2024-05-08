@@ -3,6 +3,7 @@ return {
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+        "VidocqH/lsp-lens.nvim",
     },
     config = function()
         local lspconfig = require("lspconfig")
@@ -32,6 +33,26 @@ return {
             }
         })
 
+        local SymbolKind = vim.lsp.protocol.SymbolKind
+
+        require('lsp-lens').setup({
+            enable = true,
+            include_declaration = false, -- Reference include declaration
+            sections = {                 -- Enable / Disable specific request, formatter example looks 'Format Requests'
+                definition = false,
+                references = false,
+                implements = true,
+                git_authors = true,
+            },
+            ignore_filetype = {
+                "prisma",
+            },
+            -- Target Symbol Kinds to show lens information
+            target_symbol_kinds = { SymbolKind.Function, SymbolKind.Method, SymbolKind.Interface },
+            -- Symbol Kinds that may have target symbol kinds as children
+            wrapper_symbol_kinds = { SymbolKind.Class, SymbolKind.Struct },
+        })
+
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
             callback = function(event)
@@ -47,6 +68,7 @@ return {
                 --map('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
                 map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
                 map('<A-return>', vim.lsp.buf.code_action, '[C]ode [A]ction')
+                map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
                 map('K', vim.lsp.buf.hover, 'Hover Documentation')
             end
         })

@@ -68,7 +68,6 @@
         "restart-interval": 1
     },
     "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%a %b %d}"
+        "format": "{:%a %b %d   %H:%M}"
     }
 }
