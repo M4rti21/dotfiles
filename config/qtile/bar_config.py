@@ -65,7 +65,7 @@ def get_bar(index):
                 widget.Sep(),
                 widget.CheckUpdates(
                     distro="Arch_checkupdates",
-                    fmt=" {}",
+                    fmt="{}",
                     display_format="{updates}",
                     no_update_string="0",
                     initial_text="0"

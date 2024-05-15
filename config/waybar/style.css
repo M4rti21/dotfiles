@@ -4,6 +4,13 @@
 @define-color gray #919191;
 @define-color disabled #343434;
 
+/* CATPPUCCIN */
+/* @define-color black #11111b; */
+/* @define-color background #1e1e1e; */
+/* @define-color foreground #cdd6f4; */
+/* @define-color gray #585b70; */
+/* @define-color disabled #313244; */
+
 * {
     border: none;
     margin: 0;

@@ -55,6 +55,13 @@ paru -S flatpak
 paru -S xdg-desktop-portal-gtk xsettingsd
 
 ```
+## Add Windows Partition to systemd-boot
+```bash
+# Mount Windows boot partition (sda1 example)
+sudo mount /dev/sda1 /mnt/windows
+cd /mnt/windows/EFI
+sudo cp -r Microsoft /boot/EFI
+```
 
 ## QEMU/KVM
 Install KVM Packages:

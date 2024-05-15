@@ -13,7 +13,7 @@ vim.g.netrw_rmdir_cmd  = "ssh HOSTNAME trash-put"
 vim.g.netrw_rmf_cmd    = "ssh HOSTNAME rm -f"
 
 -- OPT
-vim.opt.wrap           = false
+vim.opt.wrap           = true
 
 vim.opt.mouse          = 'a'
 vim.opt.showmode       = false
@@ -24,7 +24,7 @@ vim.opt.relativenumber = true
 vim.opt.tabstop        = 4
 vim.opt.shiftwidth     = 4
 
-vim.opt.scrolloff      = 8
+vim.opt.scrolloff      = 10
 vim.opt.number         = true
 vim.opt.relativenumber = true
 

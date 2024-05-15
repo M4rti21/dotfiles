@@ -62,6 +62,7 @@
         "spacing": 0
     },
     "custom/dunst": {
+        "tooltip": false,
         "format": "{}",
         "exec": "~/.config/waybar/custom/dunst.sh",
         "on-click": "dunstctl set-paused toggle",

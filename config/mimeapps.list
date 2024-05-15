@@ -1,7 +1,7 @@
 [Default Applications]
 inode/directory=pcmanfm.desktop
-TerminalEmulator=kitty.desktop
-Terminal=kitty.desktop
+TerminalEmulator=alacritty.desktop
+Terminal=alacritty.desktop
 FileManager=pcmanfm.desktop
 image/png=imv.desktop
 text/plain=nvim.desktop
@@ -37,4 +37,3 @@ application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
 model/stl=com.ultimaker.cura.desktop;
 application/x-trash=nvim.desktop;
-image/jpeg=com.github.vikdevelop.photopea_app.desktop;
