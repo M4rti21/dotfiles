@@ -13,7 +13,8 @@ return {
                 java = { "astyle" },
                 go = { "gofmt" },
                 php = { "pint" },
-                vue = { "eslint_d" }
+                c = { "clang-format" },
+                cs = { "csharpier" }
             },
             format_on_save = {
                 timeout_ms = 500,
