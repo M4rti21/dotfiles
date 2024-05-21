@@ -1,74 +1,37 @@
-{
-    "layer": "top",
-    "position": "bottom",
-    "spacing": 18,
-    "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [],
-    "modules-right": [
-        "keyboard-state",
-        "hyprland/language",
-        "clock",
-        "group/group-drawer"
-    ],
-    "hyprland/window": {
-        "icon": false,
-        "format": "{title}",
-        "format-alt": "{class}"
-    },
-    "hyprland/language": {
-        "format": "{}",
-        "format-en": "ENG",
-        "format-es": "CAT"
-    },
-    "keyboard-state": {
-        "capslock": true,
-        "numlock": false,
-        "scrolllock": false,
-        "format": "{icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": false,
-        "warp-on-scroll": false,
-        "format": "{name}",
-        "format-icons": {
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
-    },
-    "group/group-drawer": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "not-drawer",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "custom/dunst",
-            "tray"
+[
+    {
+        "name": "bar2",
+        "layer": "top",
+        "position": "bottom",
+        "include": [
+            "~/.config/waybar/modules.json"
+        ],
+        "output": [
+            "DP-3"
+        ],
+        "spacing": 18,
+        "modules-left": [
+            "hyprland/workspaces"
+        ],
+        "modules-right": [
+            "hyprland/language",
+            "clock",
+            "group/group-tray"
         ]
     },
-    "tray": {
-        "icon-size": 12,
-        "show-passive-items": false,
-        "spacing": 0
-    },
-    "custom/dunst": {
-        "tooltip": false,
-        "format": "{}",
-        "exec": "~/.config/waybar/custom/dunst.sh",
-        "on-click": "dunstctl set-paused toggle",
-        "restart-interval": 1
-    },
-    "clock": {
-        "format": "{:%a %b %d   %H:%M}"
+    {
+        "name": "bar1",
+        "layer": "top",
+        "position": "bottom",
+        "include": [
+            "~/.config/waybar/modules.json"
+        ],
+        "output": [
+            "DP-1",
+            "DP-2"
+        ],
+        "modules-left": [
+            "hyprland/workspaces"
+        ]
     }
-}
+]

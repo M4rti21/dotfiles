@@ -1,0 +1,112 @@
+import theme
+import variables
+from widgets.caps import Caps
+from widgets.clock import ToggleClock
+from libqtile import widget
+from libqtile.lazy import lazy
+
+workspace_count = variables.workspace_count
+screen_count = variables.screen_count
+primary_screen = variables.primary_screen
+
+def get_bar(index):
+    systray = []
+
+    if index + 1 == primary_screen:
+        systray = [
+                widget.WidgetBox(
+                    widgets=[
+                        widget.TextBox(text="[", padding=0),
+                        widget.Systray(icon_size=16),
+                        widget.TextBox(text=" ]", padding=0),
+                        ],
+                    text_closed="",
+                    text_open="",
+                    close_button_location='right',
+                    )
+                ]
+
+    visible_groups = []
+
+    for i in range(workspace_count):
+            if i % screen_count == index:
+                visible_groups.append(str(i + 1))
+
+    return {
+            "size" : theme.panel_size,
+            "margin" : theme.panel_margin,
+            "background" : theme.bar_color + theme.opaccity,
+            "widgets" : [
+                widget.CurrentLayoutIcon(
+                    scale=1,
+                    foreground=theme.colors["foreground"],
+                    ),
+                widget.Sep(),
+                widget.GroupBox(
+                    font=theme.font_family,
+                    visible_groups=visible_groups,
+                    highlight_method="text",
+                    highlight_color=[theme.bar_color, theme.bar_color],
+                    inactive=theme.colors["disabled"],
+                    this_screen_border=theme.colors["foreground"],
+                    this_current_screen_border=theme.colors["accent"],
+                    active=theme.colors["foreground"],
+                    other_current_screen_border=theme.colors["disabled"],
+                    other_screen_border=theme.colors["disabled"],
+                    scroll=False,
+                    padding=4,
+                    margin_y=3,
+                    disable_drag=True,
+                    use_mouse_wheel=False,
+                    ),
+                # WName(short_name=True),
+                widget.Sep(),
+                widget.WindowName(),
+                *systray,
+                widget.Sep(),
+                widget.CheckUpdates(
+                    distro="Arch_checkupdates",
+                    fmt="{}",
+                    display_format="{updates}",
+                    no_update_string="0",
+                    initial_text="0"
+                    ),
+                widget.Sep(),
+                widget.DF(
+                    fmt="󰉋 {}",
+                    format="{uf}{m} - {r:.0f}%",
+                    visible_on_warn=False,
+                    ),
+                # widget.Sep(),
+                # widget.Net(
+                #     fmt="󰲝 NET: {}",
+                #     format="{down:6.1f}{down_suffix:<2}↓↑{up:6.1f}{up_suffix:<2}"
+                #     ),
+                widget.Sep(),
+                widget.Memory(
+                    fmt=" {}",
+                    format="{MemUsed:.0f}/{MemTotal:.0f}{mm}",
+                    measure_mem="G",
+                    ),
+                widget.Sep(),
+                widget.CPU(
+                    fmt=" {}",
+                    format="{load_percent}%",
+                    max_chars=10,
+                    ),
+                widget.Sep(),
+                Caps(),
+                widget.KeyboardLayout(
+                    configured_keyboards=['us', 'es cat'],
+                    display_map={'us': 'ENG', 'es cat': 'CAT'},
+                    ),
+                widget.Volume(
+                    fmt=" {}",
+                    emoji=False,
+                    emoji_list=["󰸈", "󰕿", "󰖀", "󰕾"],
+                    mouse_callbacks={'Button1': lazy.group['sp'].dropdown_toggle("v") } ,
+                    #fontsize=14,
+                    ),
+                ToggleClock(),
+                ],
+            }

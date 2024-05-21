@@ -26,6 +26,7 @@ from libqtile.utils import guess_terminal
 # PROGRAMS
 terminal = guess_terminal("alacritty") or "xterm"
 runner = "rofi -show drun -show-icons"
+browser = "flatpak run org.mozilla.firefox"
 ss_select = "flameshot gui"
 ss_full = "flameshot full"
 
@@ -43,7 +44,7 @@ sps: List[ScrPad] =[
             name = "spotify",
             key = "m",
             is_flatpak = True,
-            flatpak = "env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U",
+            flatpak = """flatpak run --command=sh com.spotify.Client -c 'eval "$(sed s#LD_PRELOAD=#LD_PRELOAD=$HOME/.local/share/spotify-adblock/spotify-adblock.so:#g /app/bin/spotify)"'""",
             ),
         # task manager
         ScrPad(
@@ -82,13 +83,6 @@ auto_minimize = False                       # (True | False)
 wl_input_rules = None                       # (None | List of rules)
 wmname = "LG3D"                             # Just use LG3D because it makes Java apps work :/
 
-# QTILE ARRAYS (DO NOT MODIFY)
-keys = []
-mouse = []
-groups = []
-screens = []
-layouts = []
-
 mod1 = variables.mod1
 mod2 = variables.mod2
 mod3 = variables.mod3
@@ -101,17 +95,17 @@ base_dir = variables.base_dir
 autostart_scripts = variables.autostart_scripts
 
 # KEYBINDINGS
-keys.extend([
+keys = [
     # Qtile controls
-    Key([mod1, mod4], "r", lazy.reload_config()),                                   # Reload the config
-    Key([mod1, "shift"], "q", lazy.shutdown()),                                        # Shutdown Qtile
-    Key([mod1], "Tab", lazy.next_layout()),                                         # Toggle between layouts
-    Key([mod2], "Tab", lazy.group.next_window(), lazy.window.bring_to_front()),     # Move window focus to other window
+    Key([mod1, mod4], "r", lazy.reload_config()),           # Reload the config
+    Key([mod1, "shift"], "q", lazy.shutdown()),             # Shutdown Qtile
+    Key([mod1], "Tab", lazy.next_layout()),                 # Toggle between layouts
+    Key([mod2], "Tab", lazy.group.next_window(), lazy.window.bring_to_front()), # Move window focus to other window
     # Switch between windows
     Key([mod1], "h", lazy.layout.left()),                   # Move focus to left
     Key([mod1], "l", lazy.layout.right()),                  # Move focus to right
     Key([mod1], "j", lazy.layout.down()),                   # Move focus down
-    Key([mod1], "k", lazy.layout.up()),                                                                                                                                                                                                                                                              # Move focus up
+    Key([mod1], "k", lazy.layout.up()),                     # Move focus up
     # Move windows
     Key([mod1, mod3], "h", lazy.layout.shuffle_left()),     # Move window to the left
     Key([mod1, mod3], "l", lazy.layout.shuffle_right()),    # Move window to the right
@@ -129,20 +123,41 @@ keys.extend([
     # Run programs
     Key([mod1], "r", lazy.spawn(runner)),                   # Rofi prompt
     Key([mod1], "Return", lazy.spawn(terminal)),            # Launch terminal
+    Key([mod1], "i", lazy.spawn(browser)),                  # Rofi prompt
     Key([mod1, mod3], "s", lazy.spawn(ss_select)),          # Take a screenshot
     Key([mod1, mod4], "s", lazy.spawn(ss_full)),            # Take a screenshot
     # Extras
     Key([mod1], "space", lazy.widget["keyboardlayout"].next_keyboard()),    # Toggle between keyboard layouts
-    Key([mod1, mod3], "p", lazy.spawn("picom")),                           # Toggle picom
-    Key([mod1, mod4], "p", lazy.spawn("kill picom")),                     # Kill picom
-    ])
+    Key([mod1, mod3], "p", lazy.spawn("picom")),            # Toggle picom
+    Key([mod1, mod4], "p", lazy.spawn("kill picom")),       # Kill picom
+    ]
 
 
-mouse.extend([
+mouse = [
     Drag([mod1], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod1], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod1], "Button1", lazy.window.bring_to_front()),
-    ])
+    ]
+
+# GROUPS
+groups = []
+for name in '1234567890':
+    # Create a group
+    groups.append(Group(
+        name=name,
+        layout="columns",
+        label="█"
+        ))
+    # Add keybindings for the group
+    keys.extend([
+        Key([mod1], name, lazy.group[name].toscreen()),
+        Key([mod1, 'shift'], name, lazy.window.togroup(name))
+        ])
+
+layouts = [
+    Columns(**theme.borders),
+    Max()
+    ]
 
 # SCRATCHPADS
 drop_downs = []
@@ -159,35 +174,6 @@ for sp in sps:
     keys.append(Key([mod1], sp.key, lazy.group['sp'].dropdown_toggle(sp.key)))
 
 groups.append(ScratchPad('sp', drop_downs))
-
-
-# GROUPS
-# This function is a helper to keep each group on its own screen for a multi monitor setup
-def go_to_group(name):
-    def f(qtile):
-        screen_index = (int(name) - 1) % screen_count
-        qtile.cmd_to_screen(screen_index)
-        qtile.groups_map[name].cmd_toscreen()
-    return f
-
-# Create groups
-for name in map(str, range(1, workspace_count + 1)):
-    # Create a group
-    groups.append(Group(
-        name=name,
-        layout=default_layout,
-        label=name
-        ))
-    # Add keybindings for the group
-    keys.extend([
-        Key([mod1], name, lazy.function(go_to_group(name))),
-        Key([mod1, 'shift'], name, lazy.window.togroup(name)),
-        ])
-
-layouts.extend([
-    Columns(**theme.borders),
-    Max(),
-    ])
 
 # FLOATING WINDOW RULES "xprop"
 floating_layout = Floating(
@@ -206,26 +192,33 @@ floating_layout = Floating(
         )
 
 # SCREENS
-if theme.panel_top:
-    for i in range(screen_count):
-        screens.append(
-                Screen(
-                    top=bar.Bar(**bar_config.get_bar(i)),
-                    left=bar.Gap(theme.outter_gap),
-                    right=bar.Gap(theme.outter_gap),
-                    bottom=bar.Gap(theme.outter_gap),
-                    )
-                )
-else:
-    for i in range(screen_count):
-        screens.append(
-                Screen(
-                    top=bar.Gap(theme.outter_gap),
-                    left=bar.Gap(theme.outter_gap),
-                    right=bar.Gap(theme.outter_gap),
-                    bottom=bar.Bar(**bar_config.get_bar(i)),
-                    )
-                )
+screens = [
+        Screen(
+            top=bar.Gap(theme.outter_gap),
+            left=bar.Gap(theme.outter_gap),
+            right=bar.Gap(theme.outter_gap),
+            bottom=bar.Bar(**bar_config.get_bar(0))
+        ),
+        Screen(
+            top=bar.Gap(theme.outter_gap),
+            left=bar.Gap(theme.outter_gap),
+            right=bar.Gap(theme.outter_gap),
+            bottom=bar.Bar(**bar_config.get_bar(3))
+            ),
+        Screen(
+            top=bar.Gap(theme.outter_gap),
+            left=bar.Gap(theme.outter_gap),
+            right=bar.Gap(theme.outter_gap),
+            bottom=bar.Bar(**bar_config.get_bar(1)),
+        ),
+        Screen(
+            top=bar.Gap(theme.outter_gap),
+            left=bar.Gap(theme.outter_gap),
+            right=bar.Gap(theme.outter_gap),
+            bottom=bar.Bar(**bar_config.get_bar(2)),
+            )
+        ]
+
 
 widget_defaults = theme.widget_defaults
 

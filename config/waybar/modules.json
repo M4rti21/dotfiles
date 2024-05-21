@@ -1,0 +1,49 @@
+{
+    "hyprland/window": {
+        "icon": false,
+        "format": "{title}",
+        "format-alt": "{class}"
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "ENG",
+        "format-es": "CAT"
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "warp-on-scroll": false,
+        "format": " "
+    },
+    "group/group-tray": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-drawer",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/dunst",
+            "tray"
+        ]
+    },
+    "custom/tray-icon": {
+        "format": " ",
+        "tooltip": false
+    },
+    "tray": {
+        "icon-size": 10,
+        "show-passive-items": false,
+        "spacing": 0
+    },
+    "custom/dunst": {
+        "tooltip": false,
+        "format": "{}",
+        "exec": "~/.config/waybar/custom/dunst.sh",
+        "on-click": "dunstctl set-paused toggle",
+        "restart-interval": 1
+    },
+    "clock": {
+        "format": "{:%a %b %d   %H:%M}"
+    }
+}
