@@ -14,7 +14,8 @@ return {
                 go = { "gofmt" },
                 php = { "pint" },
                 c = { "clang-format" },
-                cs = { "csharpier" }
+                cs = { "csharpier" },
+                html = { "htmlbeautifier" }
             },
             format_on_save = {
                 timeout_ms = 500,
