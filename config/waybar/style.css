@@ -6,17 +6,17 @@
 @define-color bg2 #343434;
 @define-color bg3 #919191;
 
-@define-color black #000000;
+@define-color black rgba(0, 0, 0, 1);
 @define-color disabled #303030;
 @define-color border #343434;
 
 @define-color accent #235278;
 
 * {
+    font-weight: 600;
     border: none;
     margin: 0;
     padding: 0;
-    font-family: 'SF Pro';
     font-weight: bold;
     color: @fg;
     min-width: 8px;
@@ -56,22 +56,21 @@ window#waybar {
 #workspaces button {
     margin: 0 2px 0 0;
     min-width: 14px;
+    background-color: transparent;
 }
 
 #workspaces button * {
-    color: @bg2;
-}
-
-#workspaces button:not(.empty) * {
     color: @fg2;
 }
 
 #workspaces button.visible * {
-    color: @fg;
+    background-color: @disabled;
 }
 
-
 #workspaces button.active * {
+    background-color: @accent;
+}
+
+#workspaces button:not(.empty) * {
     color: @fg;
-    background: @accent;
 }

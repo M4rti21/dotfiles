@@ -8,14 +8,14 @@ include_special = false
 animation = "fromBottom"
 command = "pavucontrol"
 class = "pavucontrol"
-lazy = false
+lazy = true
 size = "50% 60%"
 unfocus = "hide"
 
 [scratchpads.spotify]
 animation = "fromTop"
-command = "com.spotify.Client"
-class = "Spotify"
+command = "com.github.KRTirtho.Spotube"
+class = "spotube"
 lazy = true
 size = "60% 70%"
 unfocus = "hide"
@@ -23,7 +23,7 @@ match_by = "class"
 
 [scratchpads.password]
 animation = "fromTop"
-command = "flatpak run com.bitwarden.desktop"
+command = "com.bitwarden.desktop"
 class = "Bitwarden"
 lazy = true
 size = "50% 60%"

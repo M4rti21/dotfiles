@@ -23,8 +23,7 @@
 @define-color info #3584e4;
 
 * {
-    font-family: 'SF Pro';
-    font-weight: bold;
+    font-weight: 600;
     font-size: 14px;
     color: @fg;
     border: none;
