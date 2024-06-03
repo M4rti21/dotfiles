@@ -44,7 +44,6 @@ export __GL_SHADER_DISK_CACHE_PATH="$XDG_DATA_HOME/nv"
 # do this to make sure that the path is set correctly
 alias rm="trash-put"
 alias rmls="trash-list"
-alias fm="joshuto"
 alias ls="eza --long --icons --group-directories-first"
 alias la="eza --long --icons --group-directories-first --all"
 alias nf="fastfetch"

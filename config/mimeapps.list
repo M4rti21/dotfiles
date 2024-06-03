@@ -3,22 +3,25 @@ inode/directory=pcmanfm.desktop
 TerminalEmulator=alacritty.desktop
 Terminal=alacritty.desktop
 FileManager=pcmanfm.desktop
-image/png=imv.desktop
 text/plain=nvim.desktop
+text/html=brave-browser.desktop
+image/png=imv-dir.desktop
+image/jpg=imv-dir.desktop
+image/jpeg=imv-dir.desktop
+image/gif=imv-dir.desktop
 video/mp4=mpv.desktop
-application/octet-stream=nvim.desktop
+x-scheme-handler/trash=pcmanfm.desktop
 x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/https=brave-browser.desktop
 x-scheme-handler/chrome=brave-browser.desktop
-text/html=brave-browser.desktop
+x-scheme-handler/mailto=brave-browser.desktop
+application/xhtml+xml=brave-browser.desktop
 application/x-extension-htm=brave-browser.desktop
 application/x-extension-html=brave-browser.desktop
 application/x-extension-shtml=brave-browser.desktop
-application/xhtml+xml=brave-browser.desktop
 application/x-extension-xhtml=brave-browser.desktop
 application/x-extension-xht=brave-browser.desktop
-x-scheme-handler/trash=pcmanfm.desktop
-x-scheme-handler/mailto=brave-browser.desktop
+application/octet-stream=nvim.desktop
 
 [Added Associations]
 image/png=imv.desktop;
@@ -39,4 +42,3 @@ model/stl=com.ultimaker.cura.desktop;
 application/x-trash=nvim.desktop;
 inode/directory=pcmanfm.desktop;
 x-scheme-handler/trash=pcmanfm.desktop;
-
