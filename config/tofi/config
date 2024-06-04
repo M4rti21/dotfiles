@@ -1,19 +1,25 @@
 anchor = bottom
 width = 100%
-height = 16
+height = 13
 horizontal = true
 prompt-text = "  "
-font = "SF Pro Text Bold"
-font-size = 10
+font = "SF Pro Bold"
+font-size = 8
 hint-font = true
 outline-width = 0
 border-width = 0
-default-result-color = #919191
-background-color = #000000
-selection-color = #f1f1f1
 min-input-width = 120
 result-spacing = 20
+background-color = #000000
+
 padding-top = 0
 padding-bottom = 0
 padding-left = 0
 padding-right = 0
+
+input-color = #fefefe
+default-result-color = #9e9e9e
+selection-background= #7571AD
+selection-color = #000000
+
+selection-match-color = #fefefe

@@ -1,3 +1,9 @@
+if status is-login 
+    if [ "$(tty)" = "/dev/tty1" ]
+        Hyprland &> /dev/null
+    end
+end
+
 function tmux-sessionizer
     sh ~/dotfiles/scripts/tmux-sessionizer.sh
 end

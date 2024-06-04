@@ -3,6 +3,12 @@ set shell sh
 set icons true
 set hidden true
 set ignorecase true
+set sixel true
+
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -27,29 +33,12 @@ set scrolloff 10
 set cursorpreviewfmt "\033[7;2m"
 
 # use enter for shell commands
-map <enter> shell
 
 # show the result of execution of previous commands
-map ` !true
 
 # execute current file (must be executable)
-map x $$f
-map x $$f
-map X !$f
 
 # dedicated keys for file opener actions
-map o &mimeopen $f
-map O $mimeopen --ask $f
-
-map gh cd ~
-map g/ cd /
-map gc cd ~/.config
-map gd cd ~/Downloads
-map gp cd ~/Projects
-map gi cd ~/Pictures
-map gs cd ~/Pictures/screenshots
-map gv cd ~/Videos
-map gw cd ~/dotfiles/wallpapers
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
@@ -87,15 +76,11 @@ cmd touch ${{
 cmd rm ${{
     set -f
     printf "$fx\n"
-    printf "delete? [y/n] "
+    printf "delete? [y/n]: "
     read ans
     [ "$ans" = "y" ] && trash-put $fx
 }}
 
-# use '<delete>' key for either 'trash' or 'delete' command
-map <delete> rm
-# map <delete> delete
-#
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
@@ -128,3 +113,25 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+map <enter> shell
+map ` !true
+
+map x $$f
+map X !$f
+map o &mimeopen $f
+map O $mimeopen --ask $f
+
+map gh cd ~
+map g/ cd /
+map gc cd ~/.config
+map gd cd ~/Downloads
+map gp cd ~/Projects
+map gi cd ~/Pictures
+map gs cd ~/Pictures/screenshots
+map gv cd ~/Videos
+map gw cd ~/dotfiles/wallpapers
+
+map s %ripdrag *
+
+map <delete> rm

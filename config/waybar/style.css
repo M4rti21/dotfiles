@@ -1,16 +1,14 @@
-@define-color fg #f1f1f1;
-@define-color fg2 #949494;
-
 @define-color bg #1e1e1e;
-@define-color bg1 #242424;
-@define-color bg2 #343434;
-@define-color bg3 #919191;
+@define-color fg #fefefe;
+@define-color fg2 #9e9e9e;
+@define-color ac #7571AD;
+@define-color ds #303030;
 
-@define-color black rgba(0, 0, 0, 1);
-@define-color disabled #303030;
-@define-color border #343434;
-
-@define-color accent #235278;
+@define-color black #000000;
+@define-color danger #ed333b;
+@define-color success #33d17a;
+@define-color warning #f8e45c;
+@define-color info #3584e4;
 
 * {
     font-weight: 600;
@@ -63,12 +61,15 @@ window#waybar {
     color: @fg2;
 }
 
+#workspaces button.empty * {}
+
 #workspaces button.visible * {
-    background-color: @disabled;
+    background-color: @ds;
+    color: @black;
 }
 
 #workspaces button.active * {
-    background-color: @accent;
+    background-color: @ac;
 }
 
 #workspaces button:not(.empty) * {

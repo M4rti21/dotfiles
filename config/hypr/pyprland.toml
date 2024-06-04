@@ -5,12 +5,12 @@ plugins = ["scratchpads", "lost_windows", "magnify", "expose"]
 include_special = false
 
 [scratchpads.volume]
-animation = "fromBottom"
-command = "pavucontrol"
-class = "pavucontrol"
-lazy = true
-size = "50% 60%"
+animation = "fromTop"
+command = "flatpak run com.saivert.pwvucontrol"
+class = "com.saivert.pwvucontrol"
+size = "40% 90%"
 unfocus = "hide"
+lazy = true
 
 [scratchpads.spotify]
 animation = "fromTop"

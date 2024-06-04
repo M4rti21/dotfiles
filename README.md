@@ -14,8 +14,10 @@ paru -S pipewire wireplumber alsa-utils pavucontrol
 
 ## File Management
 ```bash
-# Your file manager of choice
+# GUI file manager
 paru -S pcmanfm-gtk3
+# TUI file manager
+paru -S lf ripdrag
 # Trash support
 paru -S gvfs
 # Archive (zip/unzip)

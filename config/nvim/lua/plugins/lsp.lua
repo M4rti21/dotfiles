@@ -42,7 +42,7 @@ return {
                 definition = false,
                 references = false,
                 implements = true,
-                git_authors = true,
+                git_authors = false,
             },
             ignore_filetype = {
                 "prisma",
