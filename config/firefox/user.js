@@ -645,6 +645,7 @@ user_pref("privacy.clearOnShutdown.cache", true);     // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.history", true);   // [DEFAULT: true]
+user_pref("privacy.clearOnShutdown.sessions", false);  // [DEFAULT: true]
 // user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
 /* 2812: set Session Restore to clear on shutdown (if 2810 is true) [FF34+]
  * [NOTE] Not needed if Session Restore is not used (0102) or it is already cleared with history (2811)
@@ -660,9 +661,8 @@ user_pref("privacy.clearOnShutdown.history", true);   // [DEFAULT: true]
  * [WARNING] Be selective with what sites you "Allow", as they also disable partitioning (1767271)
  * [SETTING] to add site exceptions: Ctrl+I>Permissions>Cookies>Allow (when on the website in question)
  * [SETTING] to manage site exceptions: Options>Privacy & Security>Permissions>Settings ***/
-user_pref("privacy.clearOnShutdown.sessions", false);  // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.cookies", false); // Cookies
-user_pref("privacy.clearOnShutdown.offlineApps", true); // Site Data
+user_pref("privacy.clearOnShutdown.offlineApps", false); // Site Data
 
 /** SANITIZE MANUAL: IGNORES "ALLOW" SITE EXCEPTIONS ***/
 /* 2820: reset default items to clear with Ctrl-Shift-Del [SETUP-CHROME]
@@ -775,10 +775,12 @@ user_pref("privacy.resistFingerprinting", false); // [FF41+]
 /* 4502: set new window size rounding max values [FF55+]
  * [SETUP-CHROME] sizes round down in hundreds: width to 200s and height to 100s, to fit your screen
  * [1] https://bugzilla.mozilla.org/1330882 ***/
+user_pref("privacy.window.maxInnerWidth", 1600);
+user_pref("privacy.window.maxInnerHeight", 900);
 /* 4503: disable mozAddonManager Web API [FF57+]
  * [NOTE] To allow extensions to work on AMO, you also need 2662
  * [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988 ***/
-user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
+user_pref("privacy.resistFingerprinting.block_mozAddonManager", false);
 /* 4504: enable RFP letterboxing [FF67+]
  * Dynamically resizes the inner window by applying margins in stepped ranges [2]
  * If you use the dimension pref, then it will only apply those resolutions.
@@ -802,7 +804,7 @@ user_pref("browser.display.use_system_colors", true); // [DEFAULT: false NON-WIN
  * Fingerprinting: provides a uniform look and feel across platforms [2]
  * [1] https://bugzilla.mozilla.org/1381938
  * [2] https://bugzilla.mozilla.org/1411425 ***/
-user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
+user_pref("widget.non-native-theme.enabled", false); // [DEFAULT: true]
 /* 4512: enforce links targeting new windows to open in a new tab instead
  * 1=most recent window or tab, 2=new window, 3=new tab
  * Stops malicious window sizes and some screen resolution leaks.
@@ -816,7 +818,7 @@ user_pref("browser.link.open_newwindow", 3); // [DEFAULT: 3]
 user_pref("browser.link.open_newwindow.restriction", 0);
 /* 4520: disable WebGL (Web Graphics Library)
  * [SETUP-WEB] If you need it then override it. RFP still randomizes canvas for naive scripts ***/
-user_pref("webgl.disabled", false);
+user_pref("webgl.disabled", true);
 
 /*** [SECTION 5000]: OPTIONAL OPSEC
    Disk avoidance, application data isolation, eyeballs...
