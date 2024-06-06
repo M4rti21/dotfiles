@@ -15,25 +15,6 @@
     --fullscreen-sidebar-width: 1px;
 }
 
-/* macOS specific styles */
-@media (-moz-platform: macos) {
-    #TabsToolbar:not([customizing="true"]) {
-        visibility: collapse !important;
-    }
-
-    :root:not([customizing="true"]) #nav-bar:not([inFullscreen]) {
-        padding-left: 80px !important;
-    }
-
-    :root:not([customizing="true"]) #TabsToolbar .titlebar-buttonbox-container {
-        visibility: visible !important;
-        position: absolute;
-        top: 12px;
-        left: 0px;
-        display: block;
-    }
-}
-
 /* Linux/GTK specific styles */
 @media (-moz-gtk-csd-available),
 (-moz-platform: linux) {

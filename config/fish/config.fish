@@ -26,6 +26,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+export DEFAULT_TERM=foot
+export TERM=$DEFAULT_TERM
+
 # Home paths
 export XCURSOR_PATH=/usr/share/icons:$XDG_DATA_HOME/icons
 
@@ -36,6 +39,7 @@ export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 # export MYVIMRC="$XDG_CONFIG_HOME/.vimrc"
@@ -48,6 +52,10 @@ export NUGET_PACKAGES="$XDG_DATA_HOME/nuget"
 export __GL_SHADER_DISK_CACHE_PATH="$XDG_DATA_HOME/nv"
 
 # do this to make sure that the path is set correctly
+alias start="sudo systemctl start"
+alias stop="sudo systemctl stop"
+alias restart="sudo systemctl restart"
+
 alias rm="trash-put"
 alias rmls="trash-list"
 alias ls="eza --long --icons --group-directories-first"
