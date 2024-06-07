@@ -45,10 +45,10 @@
         "spacing": 0
     },
     "battery": {
-        "interval": 60,
+        "interval": 30,
         "states": {
-            "warning": 20,
-            "critical": 10
+            "warning": 30,
+            "critical": 20
         },
         "format": "{icon}    {capacity}%",
         "format-charging": "{icon}    {capacity}% ",
