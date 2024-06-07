@@ -11,6 +11,7 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "battery",
         "hyprland/language",
         "clock#date",
         "clock#time",
