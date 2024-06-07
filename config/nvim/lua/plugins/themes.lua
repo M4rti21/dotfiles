@@ -14,6 +14,21 @@ return {
                 vim.g.transparent_groups or {},
                 { "ExtraGroup" }
             )
+            vim.g.moonflyTransparent = true
+            vim.g.moonflyVirtualTextColor = true
+            vim.g.moonflyCursorColor = true
+            vim.g.moonflyUndercurls = true
+            vim.g.moonflyUnderlineMatchParen = true
+            vim.g.moonflyWinSeparator = 2
+            vim.opt.fillchars = {
+                horiz = '━',
+                horizup = '┻',
+                horizdown = '┳',
+                vert = '┃',
+                vertleft = '┫',
+                vertright = '┣',
+                verthoriz = '╋',
+            }
 
             vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "gray" })
             vim.api.nvim_set_hl(0, "LineNr", { fg = "white" })
