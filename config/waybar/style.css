@@ -74,3 +74,16 @@ window#waybar {
 #workspaces button:not(.empty) * {
     color: @fg;
 }
+
+
+#battery.warning {
+    color: @warning;
+}
+
+#battery.critical {
+    color: @danger;
+}
+
+#battery.charging {
+    color: @success;
+}
