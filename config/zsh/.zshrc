@@ -48,6 +48,9 @@ alias ls="eza --long --icons --group-directories-first"
 alias la="eza --long --icons --group-directories-first --all"
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
+alias update="paru -Syu && flatpak update"
+alias purge="paru -Qdtq | paru -R - && flatpak uninstall --unused"
+
 # programs
 alias nf="fastfetch"
 alias vim="nvim"
@@ -65,17 +68,32 @@ if [[ -o login ]]; then
     fi
 fi
 
+# HISTORY
+HISTFILE=$XDG_CACHE_HOME/.zsh-history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 # PLUGINS
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
+
+zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit load zsh-users/zsh-history-substring-search
+zinit ice wait atload 'history_substring_search_config'
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # PROMPT
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
-zstyle ':vcs_info:git:*' formats ' %F{blue}%s:(%f%F{red}%b%f%F{blue})%f %a'
+zstyle ':vcs_info:git:*' formats ' %F{blue}%s:(%f%F{red}%b%f%F{blue})%f'
 
 setopt PROMPT_SUBST
 PROMPT='%F{green}%~%f${vcs_info_msg_0_} %F{yellow}$%f '
+
+tmux-sessionizer() $HOME/dotfiles/scripts/tmux-sessionizer.sh
+zle -N tmux-sessionizer
+bindkey -s '^F' tmux-sessionizer^M

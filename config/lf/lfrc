@@ -131,6 +131,7 @@ map gi cd ~/Pictures
 map gs cd ~/Pictures/screenshots
 map gv cd ~/Videos
 map gw cd ~/dotfiles/wallpapers
+map gm cd /run/media/m4rti
 
 map s %ripdrag *
 
