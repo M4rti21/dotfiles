@@ -16,8 +16,8 @@
 }
 
 button {
-    border-radius: 0;
     color: @fg;
+    border-radius: 0;
     background-color: @bg;
     border-style: solid;
     border-width: 1px;
