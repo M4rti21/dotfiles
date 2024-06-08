@@ -41,7 +41,6 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
-alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 # export MYVIMRC="$XDG_CONFIG_HOME/.vimrc"
 # export VIMINIT="source $MYVIMRC"
 
@@ -51,6 +50,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export NUGET_PACKAGES="$XDG_DATA_HOME/nuget"
 export __GL_SHADER_DISK_CACHE_PATH="$XDG_DATA_HOME/nv"
 
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 # do this to make sure that the path is set correctly
 alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"
