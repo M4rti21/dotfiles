@@ -1,10 +1,16 @@
 * linguist-vendored
 *.lua linguist-vendored=false
 *.py linguist-vendored=false
-*.fish linguist-vendored=false
+*.js linguist-vendored=false
+*.ini linguist-vendored=false
+*.css linguist-vendored=false
 *.sh linguist-vendored=false
+*.fish linguist-vendored=false
+*.zsh linguist-vendored=false
+*.conf linguist-vendored=false
 *.conf linguist-vendored=false
 *.json linguist-vendored=false
 *.yml linguist-vendored=false
 *.yaml linguist-vendored=false
 *.toml linguist-vendored=false
+*.rasi linguist-vendored=false

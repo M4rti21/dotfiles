@@ -76,8 +76,10 @@ setopt appendhistory
 
 # PLUGINS
 zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=black"
 
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit load zsh-users/zsh-history-substring-search
