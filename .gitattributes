@@ -3,7 +3,6 @@
 *.py linguist-vendored=false
 *.js linguist-vendored=false
 *.ini linguist-vendored=false
-*.css linguist-vendored=false
 *.sh linguist-vendored=false
 *.fish linguist-vendored=false
 *.zsh linguist-vendored=false
