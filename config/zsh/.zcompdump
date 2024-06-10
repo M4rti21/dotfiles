@@ -1,4 +1,4 @@
-#files: 1154	version: 5.9
+#files: 1159	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -1482,6 +1482,9 @@ _comps=(
 'type' '_which'
 'typeset' '_typeset'
 'udevadm' '_udevadm'
+'udiskie' '_udiskie'
+'udiskie-mount' '_udiskie-mount'
+'udiskie-umount' '_udiskie-umount'
 'udisksctl' '_udisksctl'
 'ufw' '_ufw'
 'ulimit' '_ulimit'
@@ -1629,6 +1632,7 @@ _comps=(
 'wiggle' '_wiggle'
 'wipefs' '_wipefs'
 'wl-copy' '_wl-copy'
+'wlogout' '_wlogout'
 'wl-paste' '_wl-paste'
 'wodim' '_cdrecord'
 'wpa_cli' '_wpa_cli'
@@ -1921,7 +1925,8 @@ autoload -Uz _afew _android _archlinux-java _artisan _atach \
             _systemd _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn \
             _systemd-path _systemd-run _systemd-tmpfiles _timedatectl _trash \
             _trash-empty _trash-list _trash-put _trash-restore _udevadm \
-            _udisks2 _updpkgsums _wl-copy _wl-paste _wpctl \
+            _udiskie _udiskie-canonical_paths _udiskie-mount _udiskie-umount _udisks2 \
+            _updpkgsums _wl-copy _wlogout _wl-paste _wpctl \
             _cdr _all_labels _all_matches _alternative _approximate \
             _arg_compile _arguments _bash_completions _cache_invalid _call_function \
             _combination _complete _complete_debug _complete_help _complete_help_generic \
