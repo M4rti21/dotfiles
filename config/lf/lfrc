@@ -1,15 +1,15 @@
+set sixel true
+
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id 
+&ctpvquit $id
+
 # interpreter for shell commands
 set shell sh
 set icons true
 set hidden true
 set ignorecase true
-
-set sixel true
-set preview true
-set previewer ctpv
-set cleaner ctpvclear
-&ctpv -s $id
-&ctpvquit $id
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -132,7 +132,7 @@ map gi cd ~/Pictures
 map gs cd ~/Pictures/screenshots
 map gv cd ~/Videos
 map gw cd ~/dotfiles/wallpapers
-map gm cd "/run/media/m4rti
+map gm cd /run/media/m4rti
 
 map s %ripdrag *
 

@@ -1,15 +1,3 @@
-@define-color bg #1e1e1e;
-@define-color fg #fefefe;
-@define-color fg2 #9e9e9e;
-@define-color ac #7571AD;
-@define-color ds #303030;
-
-@define-color black #000000;
-@define-color danger #ed333b;
-@define-color success #33d17a;
-@define-color warning #f8e45c;
-@define-color info #3584e4;
-
 * {
     font-weight: 600;
     border: none;
@@ -64,7 +52,6 @@ window#waybar {
 
 #workspaces button.visible * {
     background-color: @ds;
-    color: @black;
 }
 
 #workspaces button.active * {
