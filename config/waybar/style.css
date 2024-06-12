@@ -55,7 +55,7 @@ window#waybar {
 }
 
 #workspaces button.active * {
-    background-color: @ac;
+    background-color: @i3;
 }
 
 #workspaces button:not(.empty) * {

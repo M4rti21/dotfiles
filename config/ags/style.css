@@ -1,0 +1,46 @@
+* {
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-width: 8px;
+}
+
+window.bar {
+    background-color: @black;
+    color: @fg;
+    font-size: 12px;
+}
+
+button {
+    min-width: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+}
+
+button:active {
+    background-color: @i3;
+}
+
+button:hover {
+    background-color: @ds;
+}
+
+label {
+    font-weight: bold;
+}
+
+.workspaces button.focused {}
+
+.client-title {
+    color: @fg;
+}
+
+.notification {
+    color: yellow;
+}
+
+levelbar block,
+highlight {
+    min-height: 10px;
+}

@@ -1,15 +1,16 @@
-set sixel true
-
-set previewer ctpv
-set cleaner ctpvclear
-&ctpv -s $id 
-&ctpvquit $id
-
 # interpreter for shell commands
 set shell sh
 set icons true
 set hidden true
 set ignorecase true
+
+set sixel true
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id 
+&ctpvquit $id
+
+set drawbox true
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -31,7 +32,6 @@ set ifs "\n"
 set scrolloff 10
 
 # Use the `dim` attribute instead of underline for the cursor in the preview pane
-set cursorpreviewfmt "\033[7;2m"
 
 # use enter for shell commands
 
