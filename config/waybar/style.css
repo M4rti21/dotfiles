@@ -32,6 +32,7 @@ window#waybar {
     margin: 0px;
     min-height: 0px;
     border-radius: 0;
+    background: none;
 }
 
 #workspaces button:hover {
@@ -39,23 +40,22 @@ window#waybar {
 }
 
 #workspaces button {
-    margin: 0 2px 0 0;
     min-width: 14px;
-    background-color: transparent;
+    padding: 0;
 }
 
 #workspaces button * {
     color: @fg2;
 }
 
-#workspaces button.empty * {}
+#workspaces button.empty {}
 
-#workspaces button.visible * {
+#workspaces button.visible {
     background-color: @ds;
 }
 
-#workspaces button.active * {
-    background-color: @i3;
+#workspaces button.active {
+    background-color: @ac;
 }
 
 #workspaces button:not(.empty) * {

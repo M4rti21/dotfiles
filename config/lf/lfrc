@@ -82,6 +82,13 @@ cmd rm ${{
     [ "$ans" = "y" ] && trash-put $fx
 }}
 
+cmd chmod ${{
+    printf "Mode Bits: "
+    read ans
+    for file in "$fx" do
+        chmod $ans $file
+    done
+}}
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
@@ -97,15 +104,6 @@ cmd extract ${{
     esac
 }}
 
-# compress current file or selected files with tar and gunzip
-cmd tar ${{
-    set -f
-    mkdir $1
-    cp -r $fx $1
-    tar czf $1.tar.gz $1
-    rm -rf $1
-}}
-
 # compress current file or selected files with zip
 cmd zip ${{
     set -f
@@ -114,6 +112,25 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+# # exa
+# cmd on-select &{{
+#     lf -remote "send $id set statfmt \"$(eza -ld --icons --color=always "$f")\""
+# }}
+
+cmd fzf_search ${{
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    res="$(
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+    )"
+    [ -n "$res" ] && lf -remote "send $id select \"$res\""
+}}
+map f :fzf_search
+
+cmd wp %rm ~/Pictures/wallpapers/current && ln -s $f ~/Pictures/wallpapers/current && killall hyprpaper && hyprctl dispatch exec hyprpaper
 
 map <enter> shell
 map ` !true
@@ -133,7 +150,6 @@ map gs cd ~/Pictures/screenshots
 map gv cd ~/Videos
 map gw cd ~/dotfiles/wallpapers
 map gm cd /run/media/m4rti
+map gt cd ~/.local/share/Trash/files
+map go cd ~/.local/share/osu-wine/osu!
 
-map s %ripdrag *
-
-map <delete> rm

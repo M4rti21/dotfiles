@@ -4,6 +4,7 @@ export PATH=/usr/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/share/cargo/bin:$PATH
 
 # XDG_DIRS
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -50,11 +51,8 @@ alias purge="paru -Qdtq | paru -R - && flatpak uninstall --unused"
 alias nf="fastfetch"
 alias vim="nvim"
 alias t="tmux"
-alias ta="tmux a"
-alias tn="tmux new -s"
-alias tk="tmux kill-session -t"
+alias tks="tmux kill-session -t"
 alias tls="tmux ls"
-alias tat="tmux a -t"
 
 lfcd () {
     # `command` is needed in case `lfcd` is aliased to `lf`
@@ -90,8 +88,6 @@ zinit load zsh-users/zsh-history-substring-search
 zinit ice wait atload 'history_substring_search_config'
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
 
 # I need this for some reason /shrug
 autoload -Uz compinit
@@ -115,6 +111,15 @@ PROMPT='%F{green}%~%f${vcs_info_msg_0_} %F{yellow}$%f '
 tmux-sessionizer() $HOME/dotfiles/scripts/tmux-sessionizer.sh
 zle -N tmux-sessionizer
 bindkey -s '^F' tmux-sessionizer^M
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
+bindkey "^H" backward-delete-char
+bindkey "^?" backward-delete-char
 
 # AUTO LOGIN
 if [[ -o login ]]; then

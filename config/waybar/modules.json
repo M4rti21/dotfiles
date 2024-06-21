@@ -52,7 +52,13 @@
         },
         "format": "{icon}    {capacity}%",
         "format-charging": "{icon}    {capacity}% ",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "max-length": 25
     },
     "custom/dunst": {
@@ -66,6 +72,6 @@
         "format": "{:%H:%M}"
     },
     "clock#date": {
-        "format": "{:%a %b %d}"
+        "format": "{:%d/%m/%y}"
     }
 }

@@ -43,3 +43,4 @@ model/stl=com.ultimaker.cura.desktop;
 application/x-trash=nvim.desktop;
 inode/directory=lf.desktop;
 x-scheme-handler/trash=lf.desktop;
+application/pdf=org-usercreated-1.desktop;
