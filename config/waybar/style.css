@@ -58,6 +58,10 @@ window#waybar {
     background-color: @ac;
 }
 
+#workspaces button.active * {
+    color: @bg;
+}
+
 #workspaces button:not(.empty) * {
     color: @fg;
 }

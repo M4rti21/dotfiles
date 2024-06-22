@@ -5,6 +5,8 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/share/cargo/bin:$PATH
+export PATH=$HOME/dotfiles/scripts:$PATH
+export PATH=$HOME/dotfiles/bin:$PATH
 
 # XDG_DIRS
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -108,16 +110,14 @@ zstyle ':vcs_info:git:*' formats ' %F{blue}%s:(%f%F{red}%b%f%F{blue})%f'
 setopt PROMPT_SUBST
 PROMPT='%F{green}%~%f${vcs_info_msg_0_} %F{yellow}$%f '
 
-tmux-sessionizer() $HOME/dotfiles/scripts/tmux-sessionizer.sh
-zle -N tmux-sessionizer
 bindkey -s '^F' tmux-sessionizer^M
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
-bindkey  "^[[3~"  delete-char
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[[3~" delete-char
 bindkey "^H" backward-delete-char
 bindkey "^?" backward-delete-char
 

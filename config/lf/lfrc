@@ -99,6 +99,8 @@ cmd extract ${{
         *.tar.gz|*.tgz) tar xzvf $f;;
         *.tar.xz|*.txz) tar xJvf $f;;
         *.zip) unzip $f;;
+        *.osz) unzip $f;;
+        *.osk) unzip $f;;
         *.rar) unrar x $f;;
         *.7z) 7z x $f;;
     esac
@@ -135,6 +137,7 @@ cmd wp %rm ~/Pictures/wallpapers/current && ln -s $f ~/Pictures/wallpapers/curre
 map <enter> shell
 map ` !true
 
+map s $ripdrag ./*
 map x $$f
 map X !$f
 map o &mimeopen $f

@@ -68,6 +68,10 @@ vim.cmd.highlight({ "BufferLineFill", "guibg=NONE" })
 vim.cmd.highlight({ "FoldColumn", "guibg=NONE" })
 vim.cmd.highlight({ "FoldColumn", "guibg=NONE" })
 vim.cmd.highlight({ "ColorColumn ", "guibg=NONE" })
+vim.cmd.highlight({ "Cursor", "guibg=white guifg=black" })
+
+vim.o.guicursor = 'n-v-c:block-Cursor'
+vim.o.guicursor = vim.o.guicursor .. ',i:ver25-iCursor'
 
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })

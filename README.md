@@ -1,61 +1,77 @@
 # My Dotfiles
 
-This my personal qtile config for Arch Linux.
+This my personal Hyprland config for Arch Linux.
 
 ## Desktop 
 ```bash
-paru -S hyprland xdg-desktop-portal-hyprland waybar hyprpaper hyprcursor pyprland wofi wl-gammarelay-rs
+hyprland                        # WM/Compositor
+xdg-desktop-portal-hyprland     # screenshare portal
+xdg-desktop-portal-gtk          # file picker portal
+waybar                          # panel 
+hyprpaper                       # wallpaper
+tofi                            # run launcher
+wl-gammarelay-rs                # brightness/nightmode
 ```
 
 ## Audio
 ```bash
-paru -S pipewire wireplumber alsa-utils pavucontrol 
+pipewire 
+pipewire-pulse
+wireplumber 
+alsa-utils 
+pavucontrol 
+```
+
+#### Terminal
+```bash
+zsh         # shell
+foot        # terminal
+exa         # ls replacement
+btop        # tui system monitor
+fastfetch   # better neofetch
+tmux        # terminal multiplexer
 ```
 
 ## File Management
+#### File manager
 ```bash
-# GUI file manager
-paru -S pcmanfm-gtk3
-# TUI file manager
-paru -S lf ripdrag
-# Trash support
-paru -S gvfs
-# Archive (zip/unzip)
-paru -S xarchiver
-# Mount External Drives + Manage Keys
-paru -S polkit-gnome gnome-keyring
-```
-## Terminal goodies
-```bash
-# My prefered Terminal + kitty for backup
-paru -S alacritty kitty
-# My prefered shell
-paru -S fish
-# we can check our available shells with
-# cat /etc/shells 
-# then change our user default shell
-chsh-s /usr/bin/fish 
-# Better ls
-paru -S exa
-# Better rm
-paru -S trash-cli
-# TUI System Monitor
-paru -S btop
-# Faster Neofetch
-paru -S fastfetch
-```
+lf              # file manager
+ripdrag         # drag from terminal 
+ctpv            # file preview handler
+chafa           # image preview
 
-## Coding
+zip
+unzip
+unrar
+tar
+7z
+
+imv             # image viewer
+mpv             # video player
+zathura         # pdf viewer
+
+nvim            # text editor
+gimp            # image editor (FLATPAK)
+inkscape        # vector graphics (FLATPAK)
+groff           # pdf compiler
+
+trash-cli       # rm replacement
+```
+#### Mount External Drives
 ```bash
-paru -S git vim nvim tmux
+udiskie         # automount drives
+```
+#### Manage Keys
+```bash
+gnome-keyring   # application key manager
+bitwarden       # password manager (FLATPAK)
 ```
 
 ## Flatpaks
 ```bash
-paru -S flatpak
+flatpak
 # For themes
-paru -S xdg-desktop-portal-gtk xsettingsd
-
+xsettingsd
 ```
 ## Add Windows Partition to systemd-boot
 ```bash

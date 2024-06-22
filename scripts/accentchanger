@@ -1,0 +1,21 @@
+#!/bin/sh
+
+if [ $# -eq 1 ]; then
+    # gtk theme
+    for file in /home/m4rti/dotfiles/themes/adw-gtk3-custom/gtk-*/gtk*.css; do
+        sed -i "/@define-color ac/s/#.*;/#$1;/" "$file"
+    done
+    # hyprland
+    sed -i "/col.active_border = rgb/s/(.*/($1)/" "$HOME/dotfiles/config/hypr/hyprland/theme.conf"
+    # tofi
+    sed -i "/selection-background = /s/#.*/#$1/" "$HOME/dotfiles/config/tofi/config"
+    # dunst
+    sed -i "/frame_color = /s/\"#.*\"/\"#$1\"/" "$HOME/dotfiles/config/dunst/dunstrc"
+
+
+    killall dunst || true
+    notify-send "Accent color changed to #$1"
+    # Restart waybar
+    killall waybar || true
+    hyprctl dispatch exec waybar > /dev/null || true
+fi
