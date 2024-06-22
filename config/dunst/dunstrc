@@ -10,8 +10,11 @@ gap_size = 8
 corner_radius = 8
 follow = keyboard
 alignment = left
-background = "#141321"
-foreground = "#e5dde5"
+background = "#1e1e1e"
+foreground = "#fefefe"
+frame_color = "#a46c3c"
+
+[urgency_warning]
 frame_color = "#a46c3c"
 
 [urgency_critical]

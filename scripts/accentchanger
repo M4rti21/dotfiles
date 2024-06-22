@@ -12,10 +12,11 @@ if [ $# -eq 1 ]; then
     # dunst
     sed -i "/frame_color = /s/\"#.*\"/\"#$1\"/" "$HOME/dotfiles/config/dunst/dunstrc"
 
-
+    # Restart dunst
     killall dunst || true
-    notify-send "Accent color changed to #$1"
     # Restart waybar
     killall waybar || true
-    hyprctl dispatch exec waybar > /dev/null || true
+    hyprctl dispatch exec waybar > /dev/null
+
+    notify-send "Accent color changed to #$1"
 fi
