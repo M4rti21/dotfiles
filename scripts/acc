@@ -1,0 +1,121 @@
+#!/bin/sh
+
+# 1 - Accent
+# 2 - Foreground
+# 3 - Background
+# 4 - Disabled
+
+# files
+DISCORD="$HOME/.var/app/dev.vencord.Vesktop/config/vesktop/themes/DNOME.css"
+HYPRLAND="$HOME/dotfiles/config/hypr/hyprland/theme.conf"
+TOFI="$HOME/dotfiles/config/tofi/config"
+DUNST="$HOME/dotfiles/config/dunst/dunstrc"
+GTK="$HOME/dotfiles/themes/adw-gtk3-custom/gtk-*/gtk*.css"
+
+# Change accent color if provided
+if [ $# -ge 1 ]; then
+    # gtk theme
+    for file in $GTK; do
+        sed -i "/@define-color ac/s/#.*;/#$1;/" "$file"
+    done
+    # hyprland
+    sed -i "/col.active_border = rgb/s/rgb(.*)/rgb($1)/" "$HYPRLAND"
+    # tofi
+    sed -i "/selection-background = /s/#.*/#$1/" "$TOFI"
+    # dunst
+    sed -i "/frame_color = /s/\"#.*\"/\"#$1\"/" "$DUNST"
+    # discord
+    sed -i "/--background-accent: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--logo-primary: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--focus-primary: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--textbox-markdown-syntax: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--radio-group-dot-foreground: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--brand-experiment-560: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--brand-experiment: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--control-brand-foreground: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--dnome-accent: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--dnome-accent-lighter: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--dnome-darker-accent: /s/#.*;/#$1;/" "$DISCORD"
+    sed -i "/--dnome-accent-soft: /s/#.*;/#$1;/" "$DISCORD"
+fi
+
+# Change foreground color if provided
+if [ $# -ge 2 ]; then
+    # gtk theme
+    for file in $GTK; do
+        sed -i "/@define-color fg/s/#.*;/#$2;/" "$file"
+    done
+    # tofi
+    sed -i "/selection-color = /s/#.*/#$2/" "$HOME/dotfiles/config/tofi/config"
+    # dunst
+    sed -i "/foreground = /s/\"#.*\"/\"#$2\"/" "$HOME/dotfiles/config/dunst/dunstrc"
+    # discord
+    sed -i "/--text-normal: /s/#.*;/#$2;/" "$DISCORD"
+    sed -i "/--mention-foreground: /s/#.*;/#$2;/" "$DISCORD"
+fi
+
+# Change background color if provided
+if [ $# -ge 3 ]; then
+    # gtk theme
+    for file in /home/m4rti/dotfiles/themes/adw-gtk3-custom/gtk-*/gtk*.css; do
+        sed -i "/@define-color bg/s/#.*;/#$3;/" "$file"
+    done
+    # hyprland
+    sed -i "/col.inactive_border = rgb/s/rgb(.*)/rgb($3)/" "$HOME/dotfiles/config/hypr/hyprland/theme.conf"
+    # duns
+    sed -i "/background = /s/\"#.*\"/\"#$3\"/" "$HOME/dotfiles/config/dunst/dunstrc"
+    # discord
+    sed -i "/--background-primary: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--background-secondary: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--background-secondary-alt: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--background-tertiary: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--background-floating: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--background-mobile-primary: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--background-mobile-secondary: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--background-modifier-selected: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--background-modifier-accent: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--background-modifier-hover: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--scrollbar-auto-track: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--scrollbar-auto-scrollbar-color-track: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--channeltextarea-background: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--activity-card-background: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--input-background: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--deprecated-card-bg: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-base: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-bg: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-sidebar: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-scroll-bg: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-list-item-hover: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-list-item-selected: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-list-item-hover-selected: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-list-item-selected: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-searchbox: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-popup-hover: /s/#.*;/#$3;/" "$DISCORD"
+    sed -i "/--dnome-popup-selected: /s/#.*;/#$3;/" "$DISCORD"
+fi
+
+# Change disabled color if provided
+if [ $# -ge 4 ]; then
+    # gtk theme
+    for file in /home/m4rti/dotfiles/themes/adw-gtk3-custom/gtk-*/gtk*.css; do
+        sed -i "/@define-color ds/s/#.*;/#$4;/" "$file"
+    done
+    # tofi
+    sed -i "/default-result-color = /s/#.*/#$4/" "$HOME/dotfiles/config/tofi/config"
+    # discord
+    sed -i "/--scrollbar-thin-thumb: /s/#.*;/#$4;/" "$DISCORD"
+    sed -i "/--scrollbar-auto-scrollbar-color-thumb: /s/#.*;/#$4;/" "$DISCORD"
+    sed -i "/--scrollbar-auto-thumb: /s/#.*;/#$4;/" "$DISCORD"
+    sed -i "/--profile-body-divider-color: /s/#.*;/#$4;/" "$DISCORD"
+    sed -i "/--profile-message-input-border-color: /s/#.*;/#$4;/" "$DISCORD"
+    sed -i "/--dnome-border: /s/#.*;/#$4;/" "$DISCORD"
+fi
+
+
+# Restart dunst
+killall dunst || true
+# Restart waybar
+killall waybar || true
+hyprctl dispatch exec waybar > /dev/null
+
+notify-send "Accent color changed"

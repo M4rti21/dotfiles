@@ -1,6 +1,19 @@
 return {
     "nvim-lualine/lualine.nvim",
     config = function()
+        local colors = {
+            transparent = "none",
+            black = "#16161D",
+            gray = "#1f1f28",
+            white = "#dcd7ba",
+            red = "#e46876",
+            yellow = "#dca561",
+            green = "#98bb6c",
+            cyan = "#6a9589",
+            blue = "#7e9cd8",
+            magenta = "#957fb8",
+        }
+
         local function show_macro_recording()
             local recording_register = vim.fn.reg_recording()
             if recording_register == "" then
@@ -14,21 +27,21 @@ return {
         lualine.setup({
             options = {
                 icons_enabled = true,
-                -- theme = {
-                --     normal = {
-                --         a = { fg = "0", bg = "3" },
-                --         b = { fg = colors.white, bg = colors.gray },
-                --         c = { fg = colors.white, bg = colors.transparent },
-                --     },
-                --     command = { a = { fg = colors.black, bg = colors.yellow } },
-                --     insert = { a = { fg = colors.black, bg = colors.green } },
-                --     visual = { a = { fg = colors.black, bg = colors.magenta } },
-                --     replace = { a = { fg = colors.black, bg = colors.red } },
-                --     inactive = {
-                --          a = { fg = colors.white, bg = colors.black },
-                --          b = { fg = colors.white, bg = colors.black },
-                --      }
-                -- },
+                theme = {
+                    normal = {
+                        a = { fg = colors.black, bg = colors.blue },
+                        b = { fg = colors.white, bg = colors.gray },
+                        c = { fg = colors.white, bg = colors.transparent },
+                    },
+                    command = { a = { fg = colors.black, bg = colors.yellow } },
+                    insert = { a = { fg = colors.black, bg = colors.green } },
+                    visual = { a = { fg = colors.black, bg = colors.magenta } },
+                    replace = { a = { fg = colors.black, bg = colors.red } },
+                    inactive = {
+                        a = { fg = colors.white, bg = colors.black },
+                        b = { fg = colors.white, bg = colors.black },
+                    }
+                },
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
                 disabled_filetypes = {
