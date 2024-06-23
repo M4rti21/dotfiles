@@ -1,22 +1,65 @@
 #!/bin/sh
 
-if [ $# -eq 1 ]; then
+# 1 - Accent
+# 2 - Foreground
+# 3 - Background
+# 4 - Disabled
+
+# Change accent color if provided
+if [ $# -ge 1 ]; then
     # gtk theme
     for file in /home/m4rti/dotfiles/themes/adw-gtk3-custom/gtk-*/gtk*.css; do
         sed -i "/@define-color ac/s/#.*;/#$1;/" "$file"
     done
     # hyprland
-    sed -i "/col.active_border = rgb/s/(.*/($1)/" "$HOME/dotfiles/config/hypr/hyprland/theme.conf"
+    sed -i "/col.active_border = rgb/s/rgb(.*)/rgb($1)/" "$HOME/dotfiles/config/hypr/hyprland/theme.conf"
     # tofi
     sed -i "/selection-background = /s/#.*/#$1/" "$HOME/dotfiles/config/tofi/config"
     # dunst
     sed -i "/frame_color = /s/\"#.*\"/\"#$1\"/" "$HOME/dotfiles/config/dunst/dunstrc"
-
-    # Restart dunst
-    killall dunst || true
-    # Restart waybar
-    killall waybar || true
-    hyprctl dispatch exec waybar > /dev/null
-
-    notify-send "Accent color changed to #$1"
 fi
+
+# Change foreground color if provided
+if [ $# -ge 2 ]; then
+    # gtk theme
+    for file in /home/m4rti/dotfiles/themes/adw-gtk3-custom/gtk-*/gtk*.css; do
+        sed -i "/@define-color fg/s/#.*;/#$2;/" "$file"
+    done
+    # tofi
+    sed -i "/selection-color = /s/#.*/#$2/" "$HOME/dotfiles/config/tofi/config"
+    # dunst
+    sed -i "/foreground = /s/\"#.*\"/\"#$2\"/" "$HOME/dotfiles/config/dunst/dunstrc"
+fi
+
+# Change background color if provided
+if [ $# -ge 3 ]; then
+    # gtk theme
+    for file in /home/m4rti/dotfiles/themes/adw-gtk3-custom/gtk-*/gtk*.css; do
+        sed -i "/@define-color bg/s/#.*;/#$3;/" "$file"
+    done
+    # tofi
+    sed -i "/background-color = /s/#.*/#$3/" "$HOME/dotfiles/config/tofi/config"
+    # dunst
+    sed -i "/background = /s/\"#.*\"/\"#$3\"/" "$HOME/dotfiles/config/dunst/dunstrc"
+fi
+
+# Change disabled color if provided
+if [ $# -ge 4 ]; then
+    # gtk theme
+    for file in /home/m4rti/dotfiles/themes/adw-gtk3-custom/gtk-*/gtk*.css; do
+        sed -i "/@define-color ds/s/#.*;/#$4;/" "$file"
+    done
+    # hyprland
+    sed -i "/col.inactive_border = rgb/s/rgb(.*)/rgb($4)/" "$HOME/dotfiles/config/hypr/hyprland/theme.conf"
+    # tofi
+    sed -i "/default-result-color = /s/#.*/#$4/" "$HOME/dotfiles/config/tofi/config"
+fi
+
+
+# Restart dunst
+killall dunst || true
+# Restart waybar
+killall waybar || true
+hyprctl dispatch exec waybar > /dev/null
+
+notify-send "Accent color changed"

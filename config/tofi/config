@@ -10,7 +10,7 @@ outline-width = 0
 border-width = 0
 min-input-width = 120
 result-spacing = 20
-background-color = #000000
+background-color = #0B0A0A
 
 terminal = tofi
 fuzzy-match = true
@@ -21,9 +21,9 @@ padding-left = 0
 padding-right = 0
 
 input-color = #fefefe
-default-result-color = #9e9e9e
-selection-background = #a46c3c
-selection-color = #fefefe
+default-result-color = #232224
+selection-background = #42322B
+selection-color = #E7EDE6
 selection-background-padding = 4, 4
 input-background-padding = 4, 4
 alternate-result-background-padding = 4, 4

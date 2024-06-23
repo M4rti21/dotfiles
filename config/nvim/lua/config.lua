@@ -62,17 +62,16 @@ vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpo
 
 -- CMD
 vim.cmd.highlight({ "Error", "guibg=red" })
-vim.cmd.highlight({ "VirtColumn", "guibg=#949494" })
+vim.cmd.highlight({ "VirtColumn", "guibg=WHITE" })
 vim.cmd.highlight({ "SignColumn", "guibg=NONE" })
 vim.cmd.highlight({ "BufferLineFill", "guibg=NONE" })
 vim.cmd.highlight({ "FoldColumn", "guibg=NONE" })
 vim.cmd.highlight({ "FoldColumn", "guibg=NONE" })
 vim.cmd.highlight({ "ColorColumn ", "guibg=NONE" })
-vim.cmd.highlight({ "Cursor", "guibg=white guifg=black" })
+vim.cmd.highlight({ "Cursor", "cterm=bold guibg=white guifg=black" })
 
 vim.o.guicursor = 'n-v-c:block-Cursor'
 vim.o.guicursor = vim.o.guicursor .. ',i:ver25-iCursor'
-
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
