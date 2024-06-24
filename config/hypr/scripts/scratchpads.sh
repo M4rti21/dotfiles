@@ -19,7 +19,7 @@ toggle_scratchpad() {
 if [ "$1" = "volume" ]; then
     toggle_scratchpad "volume" "pavucontrol"
 elif [ "$1" = "password" ]; then
-    toggle_scratchpad "password" 'flatpak run --file-forwarding --command=sh com.spotify.Client -c '\''eval "$(sed s#LD_PRELOAD=#LD_PRELOAD=$HOME/.spotify-adblock/spotify-adblock.so:#g /app/bin/spotify)"'\'' @@u %U @@'
+    toggle_scratchpad "password" 'flatpak run com.bitwarden.desktop'
 elif [ "$1" = "music" ]; then
     toggle_scratchpad "music" "flatpak run com.spotify.Client"
 fi
