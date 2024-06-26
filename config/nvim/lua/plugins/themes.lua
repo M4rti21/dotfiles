@@ -61,17 +61,29 @@ return {
                 },
                 overrides = function(colors)
                     local theme = colors.theme
+                    local c = colors.palette
                     return {
-                        String = { fg = colors.palette.carpYellow },
-                        Number = { fg = colors.palette.jujiWhite },
+                        String = { fg = c.carpYellow },
+                        Number = { fg = c.jujiWhite },
+                        Float = { fg = c.jujiWhite },
+                        Boolean = { fg = c.jujiWhite },
 
-                        TelescopeTitle = { fg = theme.ui.special, bold = true },
-                        TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-                        TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-                        TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-                        TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-                        TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-                        TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+                        Error = { fg = c.autumnRed },
+                        ErrorMsg = { fg = c.autumnRed },
+
+                        DiagnosticError = { fg = c.autumnRed },
+                        DiagnosticWarn = { fg = c.roninYellow },
+                        DiagnosticInfo = { fg = c.springBlue },
+                        DiagnosticHint = { fg = c.fujiGray },
+                        DiagnosticOk = { fg = c.springGreen },
+
+                        TelescopeTitle = { fg = c.fujiWhite, bold = true },
+                        TelescopePromptBorder = { fg = c.fujiWhite, bg = "none" },
+                        TelescopeResultsBorder = { fg = c.fujiWhite, bg = "none" },
+                        TelescopePreviewBorder = { fg = c.fujiWhite, bg = "none" },
+                        TelescopeSelection = { fg = c.sumiInk0, bg = c.fujiWhite },
+                        -- TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+                        -- TelescopePreviewNormal = { bg = theme.ui.bg_dim },
 
                         Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1, blend = vim.o.pumblend },
                         PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },

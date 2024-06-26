@@ -5,3 +5,8 @@
 # Japanese BG
 # AC    FG      BG      DS
 BF7C53  E7EDE6  0B0A0A  8A8A7E
+
+
+# Leaf BG
+# AC    FG      BG      DS
+00ff00  E7EDE6  0B0A0A  8A8A7E
