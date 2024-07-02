@@ -1,12 +1,13 @@
-# Default
 # AC    FG      BG      DS
-285577 FEFEFE  1E1E1E  909090
 
-# Japanese BG
-# AC    FG      BG      DS
+# Default
+285577  FEFEFE  1E1E1E  909090
+
+# Japan
 BF7C53  E7EDE6  0B0A0A  8A8A7E
 
+# Leaf
+36653B  E7EDE6  0B0A0A  8A8A7E
 
-# Leaf BG
-# AC    FG      BG      DS
-00ff00  E7EDE6  0B0A0A  8A8A7E
+# i3
+285577  FFFFFF  0C0C0C  5F676A

@@ -31,5 +31,17 @@ return {
         vim.filetype.add({
             pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
         })
+
+        -- vim.treesitter.language.register("html", "ejs")
+
+        local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+        parser_config.ejs = {
+            install_info = {
+                url = "~/.local/share/treesitter",
+                files = { "src/parser.c" },
+                requires_generate_from_grammar = true,
+            },
+            filetype = "ejs",
+        }
     end
 }
