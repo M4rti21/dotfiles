@@ -26,6 +26,7 @@ lfcd () {
 
 alias lf="lfcd"
 alias gti="git"     # ...
+alias exti="exit"   # ...
 
 # ZINIT
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"

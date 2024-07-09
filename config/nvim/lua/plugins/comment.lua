@@ -6,8 +6,8 @@ return {
             comment_empty = true,
             comment_empty_trim_whitespace = true,
             create_mappings = true,
-            line_mapping = "gcc",
-            operator_mapping = "gc",
+            line_mapping = "gcc",    -- normal mode
+            operator_mapping = "gc", -- visual mode
             comment_chunk_text_object = "ic",
             hook = nil,
         })

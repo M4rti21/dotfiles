@@ -56,6 +56,7 @@ inkscape        # vector graphics (FLATPAK)
 groff           # pdf compiler
 
 trash-cli       # rm replacement
+wl-clipboard    # clipboard
 ```
 #### Mount External Drives
 ```bash
@@ -70,6 +71,7 @@ bitwarden       # password manager (FLATPAK)
 ## Flatpaks
 ```bash
 flatpak
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # For themes
 xsettingsd
 ```

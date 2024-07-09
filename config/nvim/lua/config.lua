@@ -30,7 +30,7 @@ vim.opt.relativenumber = true
 
 vim.opt.clipboard      = 'unnamedplus'
 vim.opt.completeopt    = 'menuone,noselect'
-vim.opt.termguicolors  = true
+vim.opt.termguicolors  = false
 
 vim.opt.breakindent    = true
 vim.opt.undofile       = true

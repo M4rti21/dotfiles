@@ -12,7 +12,7 @@ follow = keyboard
 alignment = left
 background = "#0B0A0A"
 foreground = "#E7EDE6"
-frame_color = "#BF7C53"
+frame_color = "#C34043"
 
 [urgency_critical]
 frame_color="#ed333b"

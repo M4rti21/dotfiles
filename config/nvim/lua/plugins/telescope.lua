@@ -20,6 +20,7 @@ return {
                     "/*.pdf",
                     "/*.ttf",
                     "/*.otf",
+                    "/*.webp",
                     -- Projects
                     ".idea/*",
                     ".vscode/*",
