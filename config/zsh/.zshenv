@@ -4,9 +4,10 @@ export PATH=/usr/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/share/cargo/bin:$PATH
-export PATH=$HOME/dotfiles/scripts:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
+export PATH=$HOME/dotfiles/scripts:$PATH
+export PATH=$HOME/.local/share/cargo/bin:$PATH
+export PATH=$HOME/.local/share/go/bin:$PATH
 
 # XDG_DIRS
 export XDG_CONFIG_HOME="$HOME/.config"

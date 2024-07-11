@@ -1,20 +1,49 @@
-{
-    "name": "bar",
-    "layer": "top",
-    "position": "bottom",
-    "include": [
-        "~/.config/waybar/modules.json"
-    ],
-    "spacing": 20,
-    "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-right": [
-        "battery",
-        "hyprland/language",
-        "clock#date",
-        "clock#time",
-        "group/group-tray"
-    ]
-}
+[
+    {
+        "name": "bar",
+        "layer": "top",
+        "output": [
+            "DP-1",
+            "DP-2"
+        ],
+        "position": "bottom",
+        "include": [
+            "~/.config/waybar/modules.json"
+        ],
+        "spacing": 20,
+        "modules-left": [
+            "hyprland/workspaces"
+            // "hyprland/window"
+        ],
+        "modules-right": []
+        // "battery",
+        // "hyprland/language",
+        // "clock#date",
+        // "clock#time",
+        // "group/group-tray"
+    },
+    {
+        "name": "bar",
+        "layer": "top",
+        "output": [
+            "DP-3",
+            "eDP-1"
+        ],
+        "position": "bottom",
+        "include": [
+            "~/.config/waybar/modules.json"
+        ],
+        "spacing": 20,
+        "modules-left": [
+            "hyprland/workspaces"
+            // "hyprland/window"
+        ],
+        "modules-right": [
+            // "battery",
+            "hyprland/language",
+            "clock#date",
+            "clock#time",
+            "group/group-tray"
+        ]
+    }
+]

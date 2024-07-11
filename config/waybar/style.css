@@ -8,6 +8,10 @@
 }
 
 .bar {
+    font-size: 1px;
+}
+
+window.DP-3 * {
     font-size: 12px;
 }
 
@@ -20,7 +24,7 @@ window#waybar {
 }
 
 #tray {
-    padding: 0 8px;
+    padding: 0 4px;
 }
 
 #tray>* {
@@ -40,7 +44,7 @@ window#waybar {
 }
 
 #workspaces button {
-    min-width: 14px;
+    min-width: 12px;
     padding: 0;
 }
 
@@ -50,20 +54,16 @@ window#waybar {
 
 #workspaces button.empty {}
 
-#workspaces button.visible {
+#workspaces button:not(.empty) {
     background-color: @ds;
 }
 
-#workspaces button.visible * {
-    color: @bg;
+#workspaces button.visible {
+    background-color: @fg;
 }
 
 #workspaces button.active {
     background-color: @ac;
-}
-
-#workspaces button:not(.empty) * {
-    color: @fg;
 }
 
 #battery.warning {
@@ -77,3 +77,53 @@ window#waybar {
 #battery.charging {
     color: @success;
 }
+
+/* #workspaces * { */
+/*     margin: 0px; */
+/*     min-height: 0px; */
+/*     border-radius: 0; */
+/*     background: none; */
+/* } */
+/*  */
+/* #workspaces button:hover { */
+/*     background: none; */
+/* } */
+/*  */
+/* #workspaces button { */
+/*     min-width: 12px; */
+/*     padding: 0; */
+/* } */
+/*  */
+/* #workspaces button * { */
+/*     color: @ds; */
+/* } */
+/*  */
+/* #workspaces button.empty {} */
+/*  */
+/* #workspaces button.visible { */
+/*     background-color: @ds; */
+/* } */
+/*  */
+/* #workspaces button.visible * { */
+/*     color: @bg; */
+/* } */
+/*  */
+/* #workspaces button.active { */
+/*     background-color: @ac; */
+/* } */
+/*  */
+/* #workspaces button:not(.empty) * { */
+/*     color: @fg; */
+/* } */
+/*  */
+/* #battery.warning { */
+/*     color: @warning; */
+/* } */
+/*  */
+/* #battery.critical { */
+/*     color: @danger; */
+/* } */
+/*  */
+/* #battery.charging { */
+/*     color: @success; */
+/* } */
