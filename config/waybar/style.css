@@ -11,7 +11,7 @@
     font-size: 1px;
 }
 
-window.DP-3 * {
+window.DP-3 *, window.eDP-1 * {
     font-size: 12px;
 }
 
