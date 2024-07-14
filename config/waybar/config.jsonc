@@ -26,8 +26,8 @@
         "name": "bar",
         "layer": "top",
         "output": [
-            "DP-3",
-            "eDP-1"
+            "eDP-1",
+            "DP-3"
         ],
         "position": "bottom",
         "include": [
@@ -39,7 +39,7 @@
             // "hyprland/window"
         ],
         "modules-right": [
-            // "battery",
+            "battery",
             "hyprland/language",
             "clock#date",
             "clock#time",
