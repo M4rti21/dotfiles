@@ -44,7 +44,7 @@ vim.opt.smartcase      = true
 
 vim.opt.hlsearch       = true
 
-vim.opt.cmdheight      = 0
+-- vim.opt.cmdheight      = 0
 
 vim.opt.foldcolumn     = '0' -- '0' is not bad
 vim.opt.foldlevel      = 99  -- Using ufo provider need a large value, feel free to decrease the value

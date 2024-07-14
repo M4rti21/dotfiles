@@ -3,7 +3,7 @@
 This my personal Hyprland config for Arch Linux.
 
 ## Desktop 
-```bash
+```sh
 hyprland                        # WM/Compositor
 xdg-desktop-portal-hyprland     # screenshare portal
 xdg-desktop-portal-gtk          # file picker portal
@@ -14,7 +14,7 @@ wl-gammarelay-rs                # brightness/nightmode
 ```
 
 ## Audio
-```bash
+```sh
 pipewire 
 pipewire-pulse
 wireplumber 
@@ -23,7 +23,7 @@ pavucontrol
 ```
 
 #### Terminal
-```bash
+```sh
 zsh         # shell
 foot        # terminal
 exa         # ls replacement
@@ -34,7 +34,7 @@ tmux        # terminal multiplexer
 
 ## File Management
 #### File manager
-```bash
+```sh
 lf              # file manager
 ripdrag         # drag from terminal 
 ctpv            # file preview handler
@@ -59,33 +59,38 @@ trash-cli       # rm replacement
 wl-clipboard    # clipboard
 ```
 #### Mount External Drives
-```bash
+```sh
 udiskie         # automount drives
 ```
 #### Manage Keys
-```bash
+```sh
 gnome-keyring   # application key manager
 bitwarden       # password manager (FLATPAK)
 ```
 
 ## Flatpaks
-```bash
+```sh
 flatpak
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # For themes
 xsettingsd
 ```
 ## Add Windows Partition to systemd-boot
-```bash
+```sh
 # Mount Windows boot partition (sda1 example)
 sudo mount /dev/sda1 /mnt/windows
 cd /mnt/windows/EFI
 sudo cp -r Microsoft /boot/EFI
 ```
 
+## Other
+```sh
+i2c-ch341-dkms  # 3D printer arduino drivers
+```
+
 ## QEMU/KVM
 Install KVM Packages:
-```bash
+```sh
 paru -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat ebtables iptables
 # For TPM support (windows 11) install
 paru -S swtpm 

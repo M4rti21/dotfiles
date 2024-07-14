@@ -25,7 +25,7 @@ export BROWSER=firefox
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
-
+export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export BUN_INSTALL="$XDG_DATA_HOME/bun"
 export GOPATH="$XDG_DATA_HOME/go"
 export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
