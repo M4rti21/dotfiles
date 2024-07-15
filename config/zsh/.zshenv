@@ -20,6 +20,7 @@ export DEFAULT_TERM=foot
 export TERM=foot
 export EDITOR=nvim
 export BROWSER=firefox
+export IBM_TELEMETRY_DISABLED=true  # lol
 
 # XDG-CLEANUP
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
