@@ -15,7 +15,7 @@ return {
                 php = { "pint" },
                 c = { "clang-format" },
                 cs = { "csharpier" },
-                html = { "htmlbeautifier" }
+                html = { "htmlbeautifier" },
             },
             format_on_save = {
                 timeout_ms = 500,

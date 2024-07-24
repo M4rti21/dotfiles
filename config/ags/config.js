@@ -1,3 +1,5 @@
+import { NotificationPopups } from "./notificationPopups.js"
+
 const hyprland = await Service.import("hyprland")
 const notifications = await Service.import("notifications")
 const mpris = await Service.import("mpris")
@@ -8,6 +10,16 @@ const systemtray = await Service.import("systemtray")
 const date = Variable("", {
     poll: [1000, 'date "+%H:%M %b %e."'],
 })
+
+Utils.timeout(100, () => Utils.notify({
+    summary: "Notification Popup Example",
+    iconName: "info-symbolic",
+    body: "Lorem ipsum dolor sit amet, qui minim labore adipisicing "
+        + "minim sint cillum sint consectetur cupidatat.",
+    actions: {
+        "Cool": () => print("pressed Cool"),
+    },
+}))
 
 // widgets can be only assigned as a child in one container
 // so to make a reuseable widget, make it a function
@@ -208,7 +220,10 @@ function Bar(monitor = 0) {
 App.config({
     style: "./style.css",
     windows: [
-        Bar(),
+        Bar(0),
+        Bar(1),
+        Bar(2),
+        NotificationPopups(),
 
         // you can call it, for each monitor
         // Bar(0),

@@ -7,21 +7,27 @@
     min-width: 8px;
 }
 
-.bar {
-    font-size: 1px;
+/* window { */
+/*     font-size: 1px; */
+/* } */
+
+window {
+    font-size: 10px;
 }
 
-window.DP-3 *, window.eDP-1 * {
-    font-size: 12px;
+/* window.DP-3 *, */
+/* window.eDP-1 * { */
+/*     font-size: 12px; */
+/* } */
+
+.modules-right {
+    padding-right: 8px;
 }
 
 window#waybar {
     background: @black;
 }
 
-#custom-dunst {
-    padding-right: 8px;
-}
 
 #tray {
     padding: 0 4px;
@@ -32,52 +38,6 @@ window#waybar {
 }
 
 /*-----modules indv----*/
-#workspaces * {
-    margin: 0px;
-    min-height: 0px;
-    border-radius: 0;
-    background: none;
-}
-
-#workspaces button:hover {
-    background: none;
-}
-
-#workspaces button {
-    min-width: 12px;
-    padding: 0;
-}
-
-#workspaces button * {
-    color: @ds;
-}
-
-#workspaces button.empty {}
-
-#workspaces button:not(.empty) {
-    background-color: @ds;
-}
-
-#workspaces button.visible {
-    background-color: @fg;
-}
-
-#workspaces button.active {
-    background-color: @ac;
-}
-
-#battery.warning {
-    color: @warning;
-}
-
-#battery.critical {
-    color: @danger;
-}
-
-#battery.charging {
-    color: @success;
-}
-
 /* #workspaces * { */
 /*     margin: 0px; */
 /*     min-height: 0px; */
@@ -100,20 +60,16 @@ window#waybar {
 /*  */
 /* #workspaces button.empty {} */
 /*  */
-/* #workspaces button.visible { */
+/* #workspaces button:not(.empty) { */
 /*     background-color: @ds; */
 /* } */
 /*  */
-/* #workspaces button.visible * { */
-/*     color: @bg; */
+/* #workspaces button.visible { */
+/*     background-color: @fg; */
 /* } */
 /*  */
 /* #workspaces button.active { */
 /*     background-color: @ac; */
-/* } */
-/*  */
-/* #workspaces button:not(.empty) * { */
-/*     color: @fg; */
 /* } */
 /*  */
 /* #battery.warning { */
@@ -127,3 +83,53 @@ window#waybar {
 /* #battery.charging { */
 /*     color: @success; */
 /* } */
+
+#workspaces * {
+    margin: 0px;
+    min-height: 0px;
+    border-radius: 0;
+    background: none;
+}
+
+#workspaces button:hover {
+    background: none;
+}
+
+#workspaces button {
+    min-width: 12px;
+    padding: 0;
+}
+
+#workspaces button * {
+    color: @ds;
+}
+
+#workspaces button.empty {}
+
+#workspaces button.visible {
+    background-color: @ds;
+}
+
+#workspaces button.visible * {
+    color: @black;
+}
+
+#workspaces button.active {
+    background-color: @ac;
+}
+
+#workspaces button:not(.empty) * {
+    color: @fg;
+}
+
+#battery.warning {
+    color: @warning;
+}
+
+#battery.critical {
+    color: @danger;
+}
+
+#battery.charging {
+    color: @success;
+}

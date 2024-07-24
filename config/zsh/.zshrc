@@ -19,14 +19,13 @@ alias t="tmux"
 alias tks="tmux kill-session -t"
 alias tls="tmux ls"
 
-lfcd () {
-    # `command` is needed in case `lfcd` is aliased to `lf`
-    cd "$(command lf -print-last-dir "$@")"
-}
+lfcd () { cd "$(command lf -print-last-dir "$@")" }
 
 alias lf="lfcd"
-alias gti="git"     # ...
-alias exti="exit"   # ...
+
+# common typos
+alias gti="git"
+alias exti="exit"
 
 # ZINIT
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"

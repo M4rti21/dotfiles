@@ -13,7 +13,7 @@
         "disable-scroll": true,
         "all-outputs": false,
         "warp-on-scroll": false,
-        "format": " "
+        "format": "{}"
     },
     "group/group-tray": {
         "orientation": "inherit",
@@ -23,7 +23,7 @@
             "transition-left-to-right": false
         },
         "modules": [
-            "custom/dunst",
+            "custom/trayicon",
             "tray"
         ]
     },
@@ -48,6 +48,10 @@
             ""
         ],
         "max-length": 25
+    },
+    "custom/trayicon": {
+        "tooltip": false,
+        "format": ""
     },
     "custom/dunst": {
         "tooltip": false,

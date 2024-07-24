@@ -3,22 +3,6 @@
 # These examples require Nerd Fonts or a compatible font to be used.
 # See https://www.nerdfonts.com for more information.
 
-# default values from lf (with matching order)
-# ln      l       # LINK
-# or      l       # ORPHAN
-# tw      t       # STICKY_OTHER_WRITABLE
-# ow      d       # OTHER_WRITABLE
-# st      t       # STICKY
-# di      d       # DIR
-# pi      p       # FIFO
-# so      s       # SOCK
-# bd      b       # BLK
-# cd      c       # CHR
-# su      u       # SETUID
-# sg      g       # SETGID
-# ex      x       # EXEC
-# fi      -       # FILE
-
 # file types (with matching order)
 ln             # LINK
 or             # ORPHAN
@@ -34,22 +18,6 @@ su      u       # SETUID
 sg      g       # SETGID
 ex             # EXEC
 fi      󰈔       # FILE
-
-# disable some default filetype icons, let them choose icon by filename
-# ln             # LINK
-# or             # ORPHAN
-# tw              # STICKY_OTHER_WRITABLE
-# ow              # OTHER_WRITABLE
-# st              # STICKY
-# di             # DIR
-# pi              # FIFO
-# so              # SOCK
-# bd              # BLK
-# cd              # CHR
-# su              # SETUID
-# sg              # SETGID
-# ex              # EXEC
-# fi             # FILE
 
 # file extensions (vim-devicons)
 *.styl          
@@ -124,9 +92,9 @@ fi      󰈔       # FILE
 *.ml            λ
 *.mli           λ
 *.diff          
-*.db            
-*.sql           
-*.dump          
+*.db            
+*.sql           
+*.dump          
 *.clj           
 *.cljc          
 *.cljs          
@@ -185,6 +153,7 @@ fi      󰈔       # FILE
 *dropbox                
 *.ds_store              
 *.gitconfig             
+*.config                
 *.gitignore             
 *.gitattributes         
 *.gitlab-ci.yml         
@@ -233,17 +202,6 @@ fi      󰈔       # FILE
 *Gemfile                
 *Makefile               
 *CMakeLists.txt         
-
-# file patterns (vim-devicons) (patterns not supported in lf)
-# .*jquery.*\.js$         
-# .*angular.*\.js$        
-# .*backbone.*\.js$       
-# .*require.*\.js$        
-# .*materialize.*\.js$    
-# .*materialize.*\.css$   
-# .*mootools.*\.js$       
-# .*vimrc.*               
-# Vagrantfile$            
 
 # file patterns (file name adaptations)
 *jquery.min.js          
@@ -331,47 +289,71 @@ Vagrantfile             
 *.mkv   
 *.webm  
 *.ogm   
-*.mp4   
-*.m4v   
-*.mp4v  
-*.vob   
-*.qt    
-*.nuv   
-*.wmv   
-*.asf   
-*.rm    
-*.rmvb  
-*.flc   
-*.avi   
-*.fli   
-*.flv   
-*.gl    
-*.dl    
-*.xcf   
-*.xwd   
-*.yuv   
-*.cgm   
-*.emf   
-*.ogv   
-*.ogx   
+
+# video formats
+*.mp4   󰕧
+*.m4v   󰕧
+*.mp4v  󰕧
+*.vob   󰕧
+*.qt    󰕧
+*.nuv   󰕧
+*.wmv   󰕧
+*.asf   󰕧
+*.rm    󰕧
+*.rmvb  󰕧
+*.flc   󰕧
+*.avi   󰕧
+*.fli   󰕧
+*.flv   󰕧
+*.gl    󰕧
+*.dl    󰕧
+*.xcf   󰕧
+*.xwd   󰕧
+*.yuv   󰕧
+*.cgm   󰕧
+*.emf   󰕧
+*.ogv   󰕧
+*.ogx   󰕧
 
 # audio formats (extensions from dircolors defaults)
-*.aac   
-*.au    
-*.flac  
-*.m4a   
-*.mid   
-*.midi  
-*.mka   
-*.mp3   
-*.mpc   
-*.ogg   
-*.ra    
-*.wav   
-*.oga   
-*.opus  
-*.spx   
-*.xspf  
+*.aac   󰝚
+*.au    󰝚
+*.flac  󰝚
+*.m4a   󰝚
+*.mid   󰝚
+*.midi  󰝚
+*.mka   󰝚
+*.mp3   󰝚
+*.mpc   󰝚
+*.ogg   󰝚
+*.ra    󰝚
+*.wav   󰝚
+*.oga   󰝚
+*.opus  󰝚
+*.spx   󰝚
+*.xspf  󰝚
 
-# other formats
-.pdf   
+# documents
+*.pdf   
+
+# fonts
+*.ttf   
+*.otf   
+*.woff  
+*.woff2 
+
+# osu
+*.osu   󰀼
+*.osz   󱝟
+*.osk   󱝓
+*.osr   󱝥
+
+# executables
+*.exe        
+*.msi        
+*.Appimage   
+*.flatpak    
+*.snap       
+
+# other
+*.ics   

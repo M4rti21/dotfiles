@@ -14,6 +14,7 @@ return {
                 go = "go run .",
                 js = "bun %f",
                 ts = "bun %f",
+                py = "python %f"
             },
             compnrun = {
                 go = "go run .",
