@@ -1,3 +1,9 @@
+@define-color ac #7daea3;
+@define-color fg #fbf1c7;
+@define-color bg #282524;
+@define-color ds #7c9791;
+@define-color black #000000;
+
 * {
     font-weight: 600;
     border: none;

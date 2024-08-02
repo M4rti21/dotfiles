@@ -20,7 +20,12 @@ return {
                     "/*.pdf",
                     "/*.ttf",
                     "/*.otf",
+                    "/*.woff",
+                    "/*.woff2",
                     "/*.webp",
+                    "/*.mp3",
+                    "/*.mp4",
+                    "/*.mkv",
                     -- Projects
                     ".idea/*",
                     ".vscode/*",

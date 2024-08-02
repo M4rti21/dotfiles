@@ -1,5 +1,14 @@
 return {
     {
+        'sainnhe/gruvbox-material',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.g.gruvbox_material_enable_italic = true
+            vim.cmd.colorscheme('gruvbox-material')
+        end
+    },
+    {
         "bluz71/vim-moonfly-colors",
         dependencies = {
             "nvim-tree/nvim-web-devicons",
@@ -28,7 +37,7 @@ return {
                 vertright = '┣',
                 verthoriz = '╋',
             }
-            vim.cmd("colorscheme moonfly")
+            -- vim.cmd("colorscheme moonfly")
         end
     },
     {
@@ -106,7 +115,7 @@ return {
             })
 
             -- setup must be called before loading
-            vim.cmd("colorscheme kanagawa")
+            -- vim.cmd("colorscheme kanagawa")
         end
     }
 }
