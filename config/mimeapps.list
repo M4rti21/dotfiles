@@ -44,3 +44,7 @@ application/x-trash=nvim.desktop;
 inode/directory=footfm.desktop;
 x-scheme-handler/trash=foot.desktop;
 application/pdf=zathura.desktop;
+osu/osr=osu-winello-file-extensions-handler.desktop;
+osu/osk=osu-winello-file-extensions-handler.desktop;
+osu/osu=osu-winello-file-extensions-handler.desktop;
+osu/osz=osu-winello-file-extensions-handler.desktop;

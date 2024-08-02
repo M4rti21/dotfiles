@@ -8,9 +8,9 @@ padding.x = 8
 padding.y = 4
 
 [font]
-normal.family = "SF Mono Powerline"
+normal.family = "IBM Plex Mono"
 normal.style = "Medium"
-bold.family = "SF Mono Powerline"
+bold.family = "IBM Plex Mono"
 bold.style = "Bold"
 size = 12
 
@@ -52,7 +52,7 @@ draw_bold_text_with_bright_colors = false
  yellow = "#e3c78a"
 
  [colors.primary]
- background = "#880808"
+ background = "#080808"
  bright_foreground = "#ffffff"
  foreground = "#ededed"
 
