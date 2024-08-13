@@ -8,6 +8,7 @@ export PATH=$HOME/dotfiles/bin:$PATH
 export PATH=$HOME/dotfiles/scripts:$PATH
 export PATH=$HOME/.local/share/cargo/bin:$PATH
 export PATH=$HOME/.local/share/go/bin:$PATH
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # XDG_DIRS
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -23,11 +24,11 @@ export BROWSER=firefox
 export IBM_TELEMETRY_DISABLED=true  # lol
 
 # XDG-CLEANUP
+export BUN_INSTALL="$HOME/.local/share/bun" 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
-export BUN_INSTALL="$XDG_DATA_HOME/bun"
 export GOPATH="$XDG_DATA_HOME/go"
 export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"

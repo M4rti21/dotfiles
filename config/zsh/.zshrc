@@ -83,3 +83,6 @@ bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 bindkey "^H" backward-delete-char
 bindkey "^?" backward-delete-char
+
+# bun completions
+[ -s "/home/m4rti/.local/share/bun/_bun" ] && source "/home/m4rti/.local/share/bun/_bun"
