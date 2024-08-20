@@ -26,7 +26,7 @@ pavucontrol
 ```sh
 zsh         # shell
 foot        # terminal
-exa         # ls replacement
+eza         # ls replacement
 btop        # tui system monitor
 fastfetch   # better neofetch
 tmux        # terminal multiplexer
