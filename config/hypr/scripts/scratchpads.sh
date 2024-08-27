@@ -17,7 +17,7 @@ toggle_scratchpad() {
 }
 
 if [ "$1" = "volume" ]; then
-    toggle_scratchpad "volume" "flatpak run com.saivert.pwvucontrol"
+    toggle_scratchpad "volume" "flatpak run org.pulseaudio.pavucontrol"
 elif [ "$1" = "password" ]; then
     toggle_scratchpad "password" 'flatpak run com.bitwarden.desktop'
 elif [ "$1" = "music" ]; then

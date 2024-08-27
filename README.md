@@ -7,6 +7,7 @@ This my personal Hyprland config for Arch Linux.
 hyprland                        # WM/Compositor
 xdg-desktop-portal-hyprland     # screenshare portal
 xdg-desktop-portal-gtk          # file picker portal
+xdg-user-dirs                   # something
 waybar                          # panel 
 hyprpaper                       # wallpaper
 tofi                            # run launcher
@@ -56,7 +57,10 @@ inkscape        # vector graphics (FLATPAK)
 groff           # pdf compiler
 
 trash-cli       # rm replacement
-wl-clipboard    # clipboard
+wl-clipboard    # clipboard on wayland
+wl-clip-persist # clipboard persist on wayland
+xclip           # clipboard on X11
+cliphist        # clipboard history
 ```
 #### Mount External Drives
 ```sh

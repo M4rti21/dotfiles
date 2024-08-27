@@ -20,7 +20,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export DEFAULT_TERM=foot
 export TERM=foot
 export EDITOR=nvim
-export BROWSER=firefox
+export BROWSER=zen-browser
 export IBM_TELEMETRY_DISABLED=true  # lol
 
 # XDG-CLEANUP
