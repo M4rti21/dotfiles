@@ -1,0 +1,14 @@
+set ssl_starttls=no
+set ssl_force_tls=no
+
+set folder = "imap://m4rti21@proton.me@127.0.0.1:1143"
+
+set smtp_url = "smtp://m4rti21@proton.me@127.0.0.1:1025"
+
+set spoolfile = "+INBOX"
+
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
+
+mailboxes =INBOX =Sent =Trash =Drafts =Spam
