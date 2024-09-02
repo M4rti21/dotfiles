@@ -1,9 +1,10 @@
-set ssl_starttls=no
-set ssl_force_tls=no
+set ssl_starttls = no
+set ssl_force_tls = no
 
-set folder = "imap://m4rti21@proton.me@127.0.0.1:1143"
+set folder = "imap://m4rti21@proton.me@192.168.1.200:1143"
+set smtp_url = "smtp://m4rti21@proton.me@192.168.1.200:1025"
 
-set smtp_url = "smtp://m4rti21@proton.me@127.0.0.1:1025"
+source passwords
 
 set spoolfile = "+INBOX"
 
@@ -12,3 +13,26 @@ set trash = "+Trash"
 set postponed = "+Drafts"
 
 mailboxes =INBOX =Sent =Trash =Drafts =Spam
+
+set from = "m4rti21@proton.me"
+set realname = "Martí Comas Canal"
+
+bind index,pager \CP sidebar-prev
+# Ctrl-P – Previous Mailbox
+bind index,pager \CN sidebar-next
+# Ctrl-N – Next Mailbox
+bind index,pager \CO sidebar-open
+# Ctrl-O – Open Highlighted Mailbox
+
+source colors
+
+set sidebar_visible
+set sidebar_format = "%B%<F? [%F]>%* %<N?%N/>%S"
+set mail_check_stats
+
+#set index_format="%F %N %-30s %d (%4c)"
+#
+set date_format="%d %b R"       # 2021-05-06 09:20:03
+
+#set index_format="%6D %20F  %-30s (%6c)"
+#set index_format="%4C %Z %D %-15.15L (%4l) %s"
