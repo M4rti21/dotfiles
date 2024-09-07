@@ -12,6 +12,10 @@ waybar                          # panel
 hyprpaper                       # wallpaper
 tofi                            # run launcher
 wl-gammarelay-rs                # brightness/nightmode
+wl-clipboard                    # clipboard on wayland
+wl-clip-persist                 # clipboard persist on wayland
+xclip                           # clipboard on X11
+cliphist                        # clipboard history
 ```
 
 ## Audio
@@ -28,7 +32,9 @@ pavucontrol
 zsh         # shell
 foot        # terminal
 eza         # ls replacement
+bat         # better cat
 btop        # tui system monitor
+rocm-smi-lib # btop dependency for gpu monitoring on AMD
 fastfetch   # better neofetch
 tmux        # terminal multiplexer
 ```
@@ -37,6 +43,7 @@ tmux        # terminal multiplexer
 #### File manager
 ```sh
 lf              # file manager
+perl-file-mimeinfo # mimeopen command
 ripdrag         # drag from terminal 
 ctpv            # file preview handler
 chafa           # image preview
@@ -45,22 +52,19 @@ zip
 unzip
 unrar
 tar
-7z
+p7zip
 
 imv             # image viewer
 mpv             # video player
 zathura         # pdf viewer
+zathura-pdf-poppler
 
-nvim            # text editor
+neovim          # text editor
 gimp            # image editor (FLATPAK)
 inkscape        # vector graphics (FLATPAK)
 groff           # pdf compiler
 
 trash-cli       # rm replacement
-wl-clipboard    # clipboard on wayland
-wl-clip-persist # clipboard persist on wayland
-xclip           # clipboard on X11
-cliphist        # clipboard history
 ```
 #### Mount External Drives
 ```sh
@@ -79,6 +83,17 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 # For themes
 xsettingsd
 ```
+
+## AppImage
+```sh
+fuse2
+```
+
+## Snap
+```sh
+# not gonna use that lol
+```
+
 ## Add Windows Partition to systemd-boot
 ```sh
 # Mount Windows boot partition (sda1 example)

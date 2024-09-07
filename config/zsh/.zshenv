@@ -16,6 +16,11 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+export XDG_DATA_DIRS="/usr/share:$XDG_DATA_DIRS"
+export XDG_DATA_DIRS="/$HOME/.local/share:$XDG_DATA_DIRS"
+export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
+export XDG_DATA_DIRS="/$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+
 # ENV
 export DEFAULT_TERM=foot
 export TERM=foot
