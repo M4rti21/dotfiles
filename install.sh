@@ -35,7 +35,7 @@ paru -S --needed pipewire pipewire-pulse pipewire-alsa wireplumber alsa-utils pa
 
 echo "\nInstalling shell \n"
 
-paru -S --needed zsh foot eza bat trash-cli tmux
+paru -S --needed zsh foot eza jq bat trash-cli tmux
 
 echo "\nChanging default shell to zsh"
 chsh -s /usr/bin/zsh
@@ -100,8 +100,11 @@ echo "\nInstalling terminal utils\n"
 paru -S --needed btop fastfetch lf perl-file-mimeinfo ripdrag chafa ctpv zip unzip unrar tar p7zip imv mpv zathura zathura-pdf-poppler neovim vim
 
 # Desktop
-echo "\nInstalling hyprland\n"
+echo "\nInstalling hyprland...\n"
 paru -S --needed hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-user-dirs waybar hyprpaper tofi wl-gammarelay-rs wl-clipboard wl-clip-persist xclip cliphist
+
+echo "\nInstalling costumization apps...\n"
+paru -S --needed nwg-look qt5ct qt6ct
 
 read -p "Do you want Flatpak support? [y/N] " flatpaks
 flatpaks=$(echo "$flatpaks" | tr '[:upper:]' '[:lower:]')

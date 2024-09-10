@@ -61,7 +61,7 @@
         "restart-interval": 1
     },
     "clock#time": {
-        "format": "{:%H:%M}"
+        "format": "{:%I:%M %p}"
     },
     "clock#date": {
         "format": "{:%d/%m/%y}"

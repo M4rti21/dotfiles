@@ -24,6 +24,7 @@ export XDG_DATA_DIRS="/$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 # ENV
 export DEFAULT_TERM=foot
 export TERM=foot
+export TERMINAL=foot
 export EDITOR=nvim
 export IBM_TELEMETRY_DISABLED=true  # lol
 

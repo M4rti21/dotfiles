@@ -33,6 +33,7 @@ zsh         # shell
 foot        # terminal
 eza         # ls replacement
 bat         # better cat
+jq          # json parser
 btop        # tui system monitor
 rocm-smi-lib # btop dependency for gpu monitoring on AMD
 fastfetch   # better neofetch
@@ -62,7 +63,7 @@ zathura-pdf-poppler
 neovim          # text editor
 gimp            # image editor (FLATPAK)
 inkscape        # vector graphics (FLATPAK)
-groff           # pdf compiler
+texlive         # pdf compiler
 
 trash-cli       # rm replacement
 ```
