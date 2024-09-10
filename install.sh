@@ -35,7 +35,7 @@ paru -S --needed pipewire pipewire-pulse pipewire-alsa wireplumber alsa-utils pa
 
 echo "\nInstalling shell \n"
 
-paru -S --needed zsh foot eza jq bat trash-cli tmux
+paru -S --needed zsh foot eza jq bat trash-cli tmux ffmpeg
 
 echo "\nChanging default shell to zsh"
 chsh -s /usr/bin/zsh
@@ -97,7 +97,7 @@ esac
 
 # Terminal utils
 echo "\nInstalling terminal utils\n"
-paru -S --needed btop fastfetch lf perl-file-mimeinfo ripdrag chafa ctpv zip unzip unrar tar p7zip imv mpv zathura zathura-pdf-poppler neovim vim
+paru -S --needed btop fastfetch lf perl-file-mimeinfo ripdrag chafa ctpv zip unzip unrar tar p7zip imv mpv zathura zathura-pdf-poppler neovim vim ffmpegthumbnailer
 
 # Desktop
 echo "\nInstalling hyprland...\n"
