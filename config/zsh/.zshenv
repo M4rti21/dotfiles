@@ -22,11 +22,12 @@ export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
 export XDG_DATA_DIRS="/$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 
 # ENV
-export DEFAULT_TERM=foot
-export TERM=foot
-export TERMINAL=foot
+export BROWSER=librewolf
 export EDITOR=nvim
-export IBM_TELEMETRY_DISABLED=true  # lol
+export MENU=tofi
+export TERM=foot
+export DEFAULT_TERM="$TERM"
+export TERMINAL="$TERM"
 
 # XDG-CLEANUP
 export XCURSOR_PATH="/usr/share/icons:$XDG_DATA_HOME/icons"
@@ -48,3 +49,6 @@ export WGATRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export WINEPREFIX="$XDG_DATA_HOME/wine"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export __GL_SHADER_DISK_CACHE_PATH="$XDG_DATA_HOME/nv"
+
+# OTHERS
+export IBM_TELEMETRY_DISABLED=true  # lol

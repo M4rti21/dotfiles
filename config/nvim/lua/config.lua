@@ -6,7 +6,7 @@ vim.g.maplocalleader   = " "
 vim.g.netrw_banner     = 0
 vim.g.netrw_list_hide  = '^./'
 vim.g.netrw_hide       = 1
-vim.g.colorcolumn      = 80
+vim.opt.colorcolumn    = "81"
 
 vim.g.netrw_rm_cmd     = "ssh HOSTNAME trash-put"
 vim.g.netrw_rmdir_cmd  = "ssh HOSTNAME trash-put"
@@ -46,8 +46,8 @@ vim.opt.hlsearch       = true
 
 -- vim.opt.cmdheight      = 0
 
-vim.opt.foldcolumn     = '0' -- '0' is not bad
-vim.opt.foldlevel      = 99  -- Using ufo provider need a large value, feel free to decrease the value
+vim.opt.foldcolumn     = '0'      -- '0' is not bad
+vim.opt.foldlevel      = 99       -- Using ufo provider need a large value, feel free to decrease the value
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable     = true
 vim.opt.fillchars      = {

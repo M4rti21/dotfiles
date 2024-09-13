@@ -1,13 +1,15 @@
 #!/bin/sh
 
 start_dir=$(pwd)
-mkdir -p ~/Documents
-mkdir -p ~/Downloads
-mkdir -p ~/Games
-mkdir -p ~/Pictures
-mkdir -p ~/Pictures/screenshots
-mkdir -p ~/Projects
-mkdir -p ~/Videos
+mkdir -p "$HOME/Documents"
+mkdir -p "$HOME/Downloads"
+mkdir -p "$HOME/Games"
+mkdir -p "$HOME/Pictures"
+mkdir -p "$HOME/Pictures/screenshots"
+mkdir -p "$HOME/Projects"
+mkdir -p "$HOME/Videos"
+mkdir -p "$HOME/.local/share/gnupg"
+mkdir -p "$HOME/.local/bin"
 
 if ! command -v paru >/dev/null 2>&1
 then
@@ -35,7 +37,7 @@ paru -S --needed pipewire pipewire-pulse pipewire-alsa wireplumber alsa-utils pa
 
 echo "\nInstalling shell \n"
 
-paru -S --needed zsh foot eza jq bat trash-cli tmux ffmpeg
+paru -S --needed zsh foot eza jq bat trash-cli tmux ffmpeg man lsof usbutils polkit-gnome
 
 echo "\nChanging default shell to zsh"
 chsh -s /usr/bin/zsh
@@ -97,7 +99,7 @@ esac
 
 # Terminal utils
 echo "\nInstalling terminal utils\n"
-paru -S --needed btop fastfetch lf perl-file-mimeinfo ripdrag chafa ctpv zip unzip unrar tar p7zip imv mpv zathura zathura-pdf-poppler neovim vim ffmpegthumbnailer
+paru -S --needed btop fastfetch lf perl-file-mimeinfo ripdrag chafa zip unzip unrar tar p7zip imv mpv zathura zathura-pdf-poppler neovim vim ffmpegthumbnailer
 
 # Desktop
 echo "\nInstalling hyprland...\n"
@@ -138,6 +140,15 @@ else
     echo "Skipping..."
 fi
 
+read -p "Do you want Bluetooth support? [y/N] " blue
+blue=$(echo "$blue" | tr '[:upper:]' '[:lower:]')
+
+if [ "$blue" = "y" ]; then
+    paru -S --needed bluez bluetui
+else
+    echo "Skipping..."
+fi
+
 echo "Linking all configs..."
 
 target_dir="$HOME/.config"
@@ -153,21 +164,6 @@ for dir in "$start_dir/config"/*; do
         echo "Symlink already exists: $symlink_path"
     fi
 done
-
-
-# Define target directories
-icons_target="$HOME/.local/share"
-icons_target2="$HOME/.icons"
-themes_target="$HOME/.local/share"
-themes_target2="$HOME/.themes"
-fonts_target="$HOME/.local/share"
-wallpapers_target="$HOME/Pictures/wallpapers"
-
-# Define source directories
-icons_source="$start_dir/icons"
-themes_source="$start_dir/themes"
-fonts_source="$start_dir/fonts"
-wallpapers_source="$start_dir/wallpapers"
 
 # Function to create symlink if it doesn't exist
 create_symlink() {
@@ -192,11 +188,28 @@ create_symlink() {
 }
 
 # Create symlinks for icons, themes, and fonts
-create_symlink "$icons_source" "$icons_target"
-create_symlink "$icons_source" "$icons_target2"
-create_symlink "$themes_source" "$themes_target"
-create_symlink "$themes_source" "$themes_target2"
-create_symlink "$fonts_source" "$fonts_target"
-create_symlink "$wallpapers_source" "$wallpapers_target"
+create_symlink "$start_dir/icons" "$HOME/.local/share"
+create_symlink "$start_dir/icons" "$HOME/.icons"
+create_symlink "$start_dir/themes" "$HOME/.local/share"
+create_symlink "$start_dir/themes" "$HOME/.themes"
+create_symlink "$start_dir/fonts" "$HOME/.local/share"
+create_symlink "$start_dir/wallpapers" "$HOME/Pictures/wallpapers"
+
+echo "Copying scripts"
+git clone https://github.com/m4rti21/tmux-sessionizer ~/Projects/tmux-sessionizer
+git clone https://github.com/m4rti21/ctpv ~/Projects/ctpv
+git clone https://github.com/m4rti21/compi.nvim ~/Projects/compi.nvim
+git clone https://github.com/m4rti21/acc ~/Projects/acc
+
+create_symlink "$HOME/Projects/acc/acc" "$HOME/.local/bin"
+create_symlink "$HOME/Projects/tmux-sessionizer/tmux-sessionizer" "$HOME/.local/bin"
+
+cd "$HOME/Projects/ctpv"
+make
+
+create_symlink "$HOME/Projects/ctpv/ctpv" "$HOME/.local/bin"
+create_symlink "$HOME/Projects/ctpv/ctpvclear" "$HOME/.local/bin"
+
+cd "$start_dir"
 
 echo "All done!"
