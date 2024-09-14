@@ -1,0 +1,64 @@
+#!/bin/sh
+
+notify_error() {
+    local message="$1"
+    notify-send "Book (Error)" "$message"
+}
+
+while getopts ":o" opt; do
+    case ${opt} in
+        o )
+            open_link="true"
+            ;;
+        \? )
+            notify_error "Invalid option: -$OPTARG"
+            usage
+            ;;
+        : )
+            notify_error "Invalid option: -$OPTARG requires an argument"
+            usage
+            ;;
+    esac
+done
+shift $((OPTIND -1))
+
+if [ $# -lt 1 ]; then
+    notify_error "No argument provided. Usage: $0 <list>"
+    exit 1
+fi
+
+list="$1"
+config_file="$HOME/.config/book/$list"
+
+if [ ! -f "$config_file" ]; then
+    notify_error "'$config_file' does not exist."
+    exit 1
+fi
+
+writer=""
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    if ! command -v wtype &> /dev/null; then
+        notify_error "wtype is not installed."
+        exit 1
+    fi
+    writer="wtype"
+else
+    if ! command -v xdotool &> /dev/null; then
+        notify_error "xdotool is not installed."
+        exit 1
+    fi
+    writer="xdotool type"
+fi
+
+text=$(cat "$config_file" | tofi | cut -d ' ' -f 1)
+if [ -n "$text" ]; then
+    if [ "$open_link" = "true" ]; then
+        xdg-open "$text" 2>/dev/null
+        if [ $? -ne 0 ]; then
+            notify_error "Failed to open link: $text"
+        fi
+    else
+        eval "$writer \"$text\""
+    fi
+fi

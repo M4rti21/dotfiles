@@ -37,7 +37,7 @@ paru -S --needed pipewire pipewire-pulse pipewire-alsa wireplumber alsa-utils pa
 
 echo "\nInstalling shell \n"
 
-paru -S --needed zsh foot eza jq bat trash-cli tmux ffmpeg man lsof usbutils polkit-gnome
+paru -S --needed zsh foot eza jq bat trash-cli tmux ffmpeg man lsof usbutils polkit-gnome wtype
 
 echo "\nChanging default shell to zsh"
 chsh -s /usr/bin/zsh
