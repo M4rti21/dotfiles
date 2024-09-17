@@ -7,7 +7,6 @@ alias rm="trash-put"
 alias rmls="trash-list"
 alias ls="eza --long --icons --group-directories-first"
 alias la="eza --long --icons --group-directories-first --all"
-alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
 alias update="paru -Syu && flatpak update"
 alias purge="paru -Qdtq | paru -R - && flatpak uninstall --unused"

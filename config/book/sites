@@ -1,19 +1,25 @@
-https://wysi727.com             # Personal osu!site When You See It
-https://m4rti.dev               # Personal Site Marti
-https://drive.m4rti.dev         # Nextcloud
-https://search.m4rti.dev        # SearXNG Search Engine
-https://voo.m4rti.dev           # Minesweeper
-https://wiki.hyprland.org       # Hyprland Wiki
-https://aur.archlinux.org       # AUR Arch User Repository
-https://wiki.archlinux.org      # Arch Linux Wiki
-https://github.com/m4rti21      # GitHub Profile Marti
-https://github.com/wysi-inc     # GitHub Profile Wysi727
-https://mail.proton.me          # Proton Mail
-https://mail.google.me          # Google Mail Gmail
-https://maps.google.com         # Google Maps
-https://translate.google.com    # Google Translate
-https://lukesmith.xyz           # Luke Smith's Webpage
-https://chat.openai.com         # Chat GPT AI
-https://discord.com/app         # Discord App
-https://youtube.com             # YouTube
-https://flathub.org             # Flatpak Store
+https://wysi727.com                         # Personal osu!site When You See It
+https://m4rti.dev                           # Personal Site Marti
+https://drive.m4rti.dev                     # Nextcloud
+https://search.m4rti.dev                    # SearXNG Search Engine
+https://voo.m4rti.dev                       # Minesweeper
+https://wiki.hyprland.org                   # Hyprland Wiki
+https://aur.archlinux.org                   # AUR Arch User Repository
+https://wiki.archlinux.org                  # Arch Linux Wiki
+https://github.com/m4rti21                  # GitHub Profile Marti
+https://github.com/m4rti21/dotfiles         # GitHub Marti Dotfiles
+https://github.com/wysi-inc                 # GitHub Profile Wysi727
+https://github.com/wysi-inc/web             # GitHub Wysi727 Web
+https://github.com/LukeSmithxyz/voidrice    # GitHub Luke Smith Dotfiles
+https://mail.proton.me                      # Proton Mail
+https://mail.google.me                      # Google Mail Gmail
+https://maps.google.com                     # Google Maps
+https://translate.google.com                # Google Translate
+https://lukesmith.xyz                       # Luke Smith's Webpage
+https://chat.openai.com                     # Chat GPT AI
+https://discord.com/app                     # Discord App
+https://youtube.com                         # YouTube
+https://flathub.org                         # Flatpak Store
+http://localhost:1313                       # Hugo 1313
+http://localhost:4000                       # Wysi 4000
+http://localhost:3000                       # React 3000

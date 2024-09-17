@@ -1,10 +1,10 @@
 set ssl_starttls = no
 set ssl_force_tls = no
 
-set folder = "imap://m4rti21@proton.me@192.168.1.200:1143"
-set smtp_url = "smtp://m4rti21@proton.me@192.168.1.200:1025"
-
-source passwords
+# set folder = "imap://m4rti21@proton.me@192.168.1.200:1143"
+# set smtp_url = "smtp://m4rti21@proton.me@192.168.1.200:1025"
+#
+# source passwords
 
 set spoolfile = "+INBOX"
 
@@ -14,8 +14,8 @@ set postponed = "+Drafts"
 
 mailboxes =INBOX =Sent =Trash =Drafts =Spam
 
-set from = "m4rti21@proton.me"
-set realname = "Martí Comas Canal"
+# set from = "m4rti21@proton.me"
+# set realname = "Martí Comas Canal"
 
 bind index,pager \CP sidebar-prev
 # Ctrl-P – Previous Mailbox

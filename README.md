@@ -27,7 +27,7 @@ alsa-utils
 pavucontrol 
 ```
 
-#### Terminal
+## Terminal
 ```sh
 zsh                 # shell
 foot                # terminal
@@ -38,35 +38,37 @@ btop                # tui system monitor
 rocm-smi-lib        # btop dependency for gpu monitoring on AMD
 fastfetch           # better neofetch
 tmux                # terminal multiplexer
+trash-cli           # rm replacement
 ```
 
-## File Management
-#### File manager
+#### File management
 ```sh
 lf                  # file manager
-perl-file-mimeinfo  # mimeopen command
 ripdrag             # drag from terminal 
 ctpv                # file preview handler
 chafa               # image preview
 ffmpegthumbnailer   # video preview
+perl-file-mimeinfo  # mimeopen command
 
 zip
 unzip
 unrar
 tar
 p7zip
+```
 
+#### Other apps
+```sh
 imv                 # image viewer
 mpv                 # video player
 zathura             # pdf viewer
 zathura-pdf-poppler
-
+newsboat            # rss reader
 neovim              # text editor
 gimp                # image editor (FLATPAK)
 inkscape            # vector graphics (FLATPAK)
 texlive             # pdf compiler
 
-trash-cli           # rm replacement
 ```
 #### Mount External Drives
 ```sh

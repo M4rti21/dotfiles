@@ -33,6 +33,7 @@ export TERMINAL="$TERM"
 export XCURSOR_PATH="/usr/share/icons:$XDG_DATA_HOME/icons"
 export BUN_INSTALL="$HOME/.local/share/bun"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NODE_REPL_HISTORY="$XDG_STATE_HOME"/node_repl_history
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
@@ -49,6 +50,10 @@ export WGATRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export WINEPREFIX="$XDG_DATA_HOME/wine"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export __GL_SHADER_DISK_CACHE_PATH="$XDG_DATA_HOME/nv"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
+alias mbsync=mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
 # OTHERS
 export IBM_TELEMETRY_DISABLED=true  # lol

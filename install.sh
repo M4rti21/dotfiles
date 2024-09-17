@@ -99,7 +99,7 @@ esac
 
 # Terminal utils
 echo "\nInstalling terminal utils\n"
-paru -S --needed btop fastfetch lf perl-file-mimeinfo ripdrag chafa zip unzip unrar tar p7zip imv mpv zathura zathura-pdf-poppler neovim vim ffmpegthumbnailer
+paru -S --needed btop fastfetch lf perl-file-mimeinfo ripdrag chafa zip unzip unrar tar p7zip imv mpv zathura zathura-pdf-poppler neovim vim ffmpegthumbnailer newsboat
 
 # Desktop
 echo "\nInstalling hyprland...\n"
