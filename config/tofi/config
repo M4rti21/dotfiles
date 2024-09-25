@@ -21,9 +21,9 @@ padding-left = 10
 padding-right = 10
 
 input-color = #fefefe
-default-result-color = #3c3836
-selection-background = #83a598
-selection-color = #ebdbb2
+default-result-color = #555555
+selection-background = #7daea3
+selection-color = #fbf1c7
 selection-background-padding = 4, 4
 input-background-padding = 4, 4
 alternate-result-background-padding = 4, 4
