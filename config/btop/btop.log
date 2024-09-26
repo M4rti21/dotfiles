@@ -192,3 +192,6 @@ Use --utf-force argument to force start if you're sure your terminal can handle 
 
 2024/09/25 (15:12:46) | ===> btop++ v.1.4.0
 2024/09/25 (15:12:46) | WARNING: NVML: Failed to get maximum GPU power draw, defaulting to 225W: Not Supported
+
+2024/09/26 (11:11:51) | ===> btop++ v.1.4.0
+2024/09/26 (11:11:51) | WARNING: NVML: Failed to get maximum GPU power draw, defaulting to 225W: Not Supported
