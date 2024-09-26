@@ -82,10 +82,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = "*",
 })
 
+-- local tailwind_group = vim.api.nvim_create_augroup("Tailwind", { clear = true })
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 --     callback = function()
---         vim.highlight.on_yank()
+--         local filetype = vim.fn.expand("%:e")
+--         if filetype == "tsx" then
+--             vim.cmd [[TailwindSort]]
+--         end
 --     end,
---     group = highlight_group,
+--     group = tailwind_group,
 --     pattern = "*",
 -- })
