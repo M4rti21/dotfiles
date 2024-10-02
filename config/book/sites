@@ -1,4 +1,4 @@
-https://wysi727.com                         # Personal osu!site When You See It
+https://wysi727.com                         # wysi
 https://m4rti.dev                           # Personal Site Marti
 https://drive.m4rti.dev                     # Nextcloud
 https://search.m4rti.dev                    # SearXNG Search Engine
@@ -7,10 +7,9 @@ https://wiki.hyprland.org                   # Hyprland Wiki
 https://aur.archlinux.org                   # AUR Arch User Repository
 https://wiki.archlinux.org                  # Arch Linux Wiki
 https://github.com/m4rti21                  # GitHub Profile Marti
-https://github.com/m4rti21/dotfiles         # GitHub Marti Dotfiles
-https://github.com/wysi-inc                 # GitHub Profile Wysi727
-https://github.com/wysi-inc/web             # GitHub Wysi727 Web
-https://github.com/LukeSmithxyz/voidrice    # GitHub Luke Smith Dotfiles
+https://github.com/m4rti21/dotfiles         # GitHub
+https://github.com/wysi-inc                 # GitHub
+https://github.com/wysi-inc/web             # GitHub
 https://uoc.edu                             # UOC Universitat
 https://mail.proton.me                      # Proton Mail
 https://mail.google.me                      # Google Mail Gmail
@@ -21,6 +20,7 @@ https://chat.openai.com                     # Chat GPT AI
 https://discord.com/app                     # Discord App
 https://youtube.com                         # YouTube
 https://flathub.org                         # Flatpak Store
-http://localhost:1313                       # Hugo 1313
-http://localhost:4000                       # Wysi 4000
-http://localhost:3000                       # React 3000
+http://localhost:1313                       # hugo dev
+http://localhost:4727                       # wysi dev
+http://localhost:3000                       # react dev
+https://www.youtube.com/watch?v=jfKfPfyJRdk # lofi

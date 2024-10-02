@@ -183,4 +183,5 @@ map gt cd ~/.local/share/Trash/files    # [t]rash
 map ga cd ~/.local/share/applications   # [a]pplications
 map gA cd ~/.local/share/flatpak/exports/share/applications # flatpak [A]pplications
 map gn cd ~/Nextcloud                   # [n]extcloud
+map gu cd ~/Nextcloud/Documents/UOC     # [u]oc
 map go cd ~/Games/osu!                  # [o]su!
