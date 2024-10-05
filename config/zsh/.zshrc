@@ -1,32 +1,3 @@
-# ALIAS
-# system
-alias start="sudo systemctl start"
-alias stop="sudo systemctl stop"
-alias restart="sudo systemctl restart"
-alias rm="trash-put"
-alias rmls="trash-list"
-alias ls="eza --long --icons --group-directories-first"
-alias la="eza --long --icons --group-directories-first --all"
-alias tree="eza --tree --icons --all"
-
-alias update="paru -Syu && flatpak update"
-alias purge="paru -Qdtq | paru -R - && flatpak uninstall --unused"
-
-# programs
-alias nf="fastfetch"
-alias vim="nvim"
-alias t="tmux"
-alias tks="tmux kill-session -t"
-alias tls="tmux ls"
-
-lfcd () { cd "$(command lf -print-last-dir "$@")" }
-
-alias lf="lfcd"
-
-# common typos
-alias gti="git"
-alias exti="exit"
-
 # ZINIT
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -84,23 +55,7 @@ bindkey "^[[3~" delete-char
 bindkey "^H" backward-delete-char
 bindkey "^?" backward-delete-char
 
-declare -A pomo_options
-pomo_options["work"]="45"
-pomo_options["break"]="10"
-pomo_options["test"]="1"
-
-pomodoro () {
-  if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
-  val=$1
-  echo $val | lolcat
-  timer ${pomo_options["$val"]}m
-  notify-send "'$val' session done"
-  fi
-}
-
-alias wo="pomodoro 'work'"
-alias br="pomodoro 'break'"
-alias te="pomodoro 'test'"
-
 # bun completions
 [ -s "/home/m4rti/.local/share/bun/_bun" ] && source "/home/m4rti/.local/share/bun/_bun"
+source ~/.config/zsh/.zshalias
+source ~/.config/zsh/.zsh-pomodoro
