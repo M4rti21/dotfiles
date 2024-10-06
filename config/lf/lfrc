@@ -156,7 +156,7 @@ cmd fzf_search ${{
 }}
 map f :fzf_search
 
-cmd wp %rm ~/Pictures/wallpapers/current && ln -s $f ~/Pictures/wallpapers/current && killall hyprpaper && hyprctl dispatch exec hyprpaper
+cmd wp %rm ~/Pictures/wallpaper && ln -s $f ~/Pictures/wallpaper && killall hyprpaper && hyprctl dispatch exec hyprpaper
 
 map <enter> shell
 map ` !true
@@ -177,11 +177,11 @@ map gp cd ~/Projects                    # [p]rojects
 map gi cd ~/Pictures                    # [i]mages / p[i]ctures
 map gs cd ~/Pictures/screenshots        # [s]creenshots
 map gv cd ~/Videos                      # [v]ideos
-map gw cd ~/dotfiles/wallpapers         # [w]allpapers
 map gm cd /run/media/m4rti              # [m]ount / [m]edia
 map gt cd ~/.local/share/Trash/files    # [t]rash
-map ga cd ~/.local/share/applications   # [a]pplications
-map gA cd ~/.local/share/flatpak/exports/share/applications # flatpak [A]pplications
 map gn cd ~/Nextcloud                   # [n]extcloud
+map gw cd ~/Nextcloud/Wallpapers        # [w]allpapers
 map gu cd ~/Nextcloud/Documents/UOC     # [u]oc
 map go cd ~/Games/osu!                  # [o]su!
+map ga cd ~/.local/share/applications   # [a]pplications
+map gA cd ~/.local/share/flatpak/exports/share/applications # flatpak [A]pplications

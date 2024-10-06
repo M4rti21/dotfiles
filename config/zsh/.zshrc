@@ -57,5 +57,10 @@ bindkey "^?" backward-delete-char
 
 # bun completions
 [ -s "/home/m4rti/.local/share/bun/_bun" ] && source "/home/m4rti/.local/share/bun/_bun"
+
+# zoxide 
+eval "$(zoxide init zsh)"
+
+# IMPORTS
 source ~/.config/zsh/.zshalias
 source ~/.config/zsh/.zsh-pomodoro
