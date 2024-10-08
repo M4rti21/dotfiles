@@ -30,7 +30,7 @@
     "tray": {
         "icon-size": 10,
         "show-passive-items": false,
-        "spacing": 5
+        "spacing": 10
     },
     "battery": {
         "interval": 30,

@@ -53,3 +53,4 @@ osu/osz=osu-winello-file-extensions-handler.desktop;
 [Removed Applications]
 
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+text/markdown=nvim.desktop;

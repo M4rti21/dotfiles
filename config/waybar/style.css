@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     color: @fg;
+    min-height: 0px;
 }
 
 /* window { */
@@ -24,7 +25,7 @@ window {
 }
 
 window#waybar {
-    background: @black;
+    background: #000;
 }
 
 
