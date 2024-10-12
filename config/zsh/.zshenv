@@ -25,9 +25,8 @@ export XDG_DATA_DIRS="/$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 export BROWSER=librewolf
 export EDITOR=nvim
 export MENU=tofi
-export TERM=foot
-export DEFAULT_TERM="$TERM"
-export TERMINAL="$TERM"
+export TERMINAL=foot
+export DEFAULT_TERM="$TERMINAL"
 
 # XDG-CLEANUP
 export XCURSOR_PATH="/usr/share/icons:$XDG_DATA_HOME/icons"
@@ -59,3 +58,4 @@ alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
 # OTHERS
 export IBM_TELEMETRY_DISABLED=true  # lol
+export GTK_USE_PORTAL=1

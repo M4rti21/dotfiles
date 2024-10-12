@@ -39,6 +39,9 @@ echo "\nInstalling shell \n"
 
 paru -S --needed zsh foot eza jq bat trash-cli tmux ffmpeg man lsof usbutils polkit-gnome wtype
 
+# Set foot as xdg exec terminal
+sudo ln -s /usr/bin/foot /usr/bin/xdg-terminal-exec
+
 echo "\nChanging default shell to zsh"
 chsh -s /usr/bin/zsh
 
