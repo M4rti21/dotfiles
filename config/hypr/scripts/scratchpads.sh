@@ -20,6 +20,6 @@ if [ "$1" = "volume" ]; then
     toggle_scratchpad "volume" "pavucontrol"
 elif [ "$1" = "password" ]; then
     toggle_scratchpad "password" 'flatpak run com.bitwarden.desktop'
-elif [ "$1" = "music" ]; then
-    toggle_scratchpad "music" "flatpak run com.spotify.Client"
+# elif [ "$1" = "music" ]; then
+#     toggle_scratchpad "music" "LD_PRELOAD=~/Projects/spotifywm/spotifywm.so flatpak run com.spotify.Client"
 fi
