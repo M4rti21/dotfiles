@@ -17,3 +17,6 @@ C34043  FEFEFE 1E1E1E  303030
 
 # i3
 285577  FFFFFF  0C0C0C  5F676A
+
+# Discord Custom CSS
+https://raw.githubusercontent.com/Costeer/Gruvbox-Material-Themes/refs/heads/main/Discord%20Theme/materialgruvbox-2.theme.css
