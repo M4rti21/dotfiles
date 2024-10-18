@@ -51,7 +51,7 @@ else
     writer="xdotool type"
 fi
 
-text=$(cat "$config_file" | tofi | cut -d ' ' -f 1)
+text=$(cat "$config_file" | tofi -c ~/.config/tofi/center.config | cut -d ' ' -f 1)
 if [ -n "$text" ]; then
     if [ "$open_link" = "true" ]; then
         xdg-open "$text" 2>/dev/null

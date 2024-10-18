@@ -21,5 +21,5 @@ if [ "$1" = "volume" ]; then
 elif [ "$1" = "password" ]; then
     toggle_scratchpad "password" 'flatpak run com.bitwarden.desktop'
 elif [ "$1" = "music" ]; then
-    toggle_scratchpad "music" "flatpak run com.github.KRTirtho.Spotube"
+    toggle_scratchpad "music" "flatpak run com.spotify.Client"
 fi

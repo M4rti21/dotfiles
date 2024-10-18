@@ -7,18 +7,9 @@
     min-height: 0px;
 }
 
-/* window { */
-/*     font-size: 1px; */
-/* } */
-
 window {
     font-size: 10px;
 }
-
-/* window.DP-3 *, */
-/* window.eDP-1 * { */
-/*     font-size: 12px; */
-/* } */
 
 .modules-right {
     padding-right: 8px;
@@ -37,53 +28,6 @@ window#waybar {
     padding: 0 4px;
 }
 
-/*-----modules indv----*/
-/* #workspaces * { */
-/*     margin: 0px; */
-/*     min-height: 0px; */
-/*     border-radius: 0; */
-/*     background: none; */
-/* } */
-/*  */
-/* #workspaces button:hover { */
-/*     background: none; */
-/* } */
-/*  */
-/* #workspaces button { */
-/*     min-width: 12px; */
-/*     padding: 0; */
-/* } */
-/*  */
-/* #workspaces button * { */
-/*     color: @ds; */
-/* } */
-/*  */
-/* #workspaces button.empty {} */
-/*  */
-/* #workspaces button:not(.empty) { */
-/*     background-color: @ds; */
-/* } */
-/*  */
-/* #workspaces button.visible { */
-/*     background-color: @fg; */
-/* } */
-/*  */
-/* #workspaces button.active { */
-/*     background-color: @ac; */
-/* } */
-/*  */
-/* #battery.warning { */
-/*     color: @warning; */
-/* } */
-/*  */
-/* #battery.critical { */
-/*     color: @danger; */
-/* } */
-/*  */
-/* #battery.charging { */
-/*     color: @success; */
-/* } */
-
 #workspaces * {
     margin: 0px;
     min-height: 0px;
@@ -101,13 +45,13 @@ window#waybar {
 }
 
 #workspaces button * {
-    color: @ds;
+    color: #999999;
 }
 
-#workspaces button.empty {}
+/* #workspaces button.empty {} */
 
 #workspaces button.visible {
-    background-color: @ds;
+    background-color: #999999;
 }
 
 #workspaces button.visible * {
@@ -121,16 +65,4 @@ window#waybar {
 #workspaces button:not(.empty) * {
     color: @fg;
     text-shadow: 1px 1px 2px @black;
-}
-
-#battery.warning {
-    color: @warning;
-}
-
-#battery.critical {
-    color: @danger;
-}
-
-#battery.charging {
-    color: @success;
 }
