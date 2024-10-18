@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=VerilUOC
+Comment=Eina Veril UOC
+Type=Application
+Exec=java -jar /home/m4rti/.local/bin/VerilUOC_3.3.5.jar
+Terminal=false
+Categories=Education;
