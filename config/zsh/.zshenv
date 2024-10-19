@@ -53,6 +53,7 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export __GL_SHADER_DISK_CACHE_PATH="$XDG_DATA_HOME/nv"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
+export JAVA_OPTIONS="-Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java -Djavafx.cachedir=${XDG_CACHE_HOME}/openjfx"
 alias mbsync=mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 

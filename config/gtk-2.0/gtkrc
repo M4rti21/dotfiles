@@ -3,8 +3,8 @@
 
 include "/home/m4rti/.gtkrc-2.0.mine"
 gtk-theme-name="adw-gtk3-custom"
-gtk-icon-theme-name="Haiku"
-gtk-font-name="IBM Plex Sans 11"
+gtk-icon-theme-name="Adwaita"
+gtk-font-name="IBM Plex Sans weight=450 11"
 gtk-cursor-theme-name="Banana"
 gtk-cursor-theme-size=32
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
