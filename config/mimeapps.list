@@ -28,12 +28,8 @@ text/markdown=nvim.desktop;
 [Removed Applications]
 
 [Default Applications]
-text/plain=nvim.desktop;
 image/jpg=imv-dir.desktop;
-video/mp4=mpv.desktop;
 x-scheme-handler/trash=org.codeberg.dnkl.foot.desktop;
-x-scheme-handler/http=librewolf.desktop;
-x-scheme-handler/https=librewolf.desktop;
 x-scheme-handler/chrome=librewolf.desktop;
 x-scheme-handler/mailto=librewolf.desktop;
 application/x-extension-htm=librewolf.desktop;
@@ -45,7 +41,6 @@ application/octet-stream=nvim.desktop;
 x-scheme-handler/tetrio=tetrio-desktop.desktop;
 x-scheme-handler/discord-1216669957799018608=discord-1216669957799018608.desktop;
 inode/directory=lf.desktop
-text/html=librewolf.desktop
 text/tab-separated-values=org.libreoffice.LibreOffice.calc.desktop
 text/spreadsheet=org.libreoffice.LibreOffice.calc.desktop
 text/csv=org.libreoffice.LibreOffice.calc.desktop
@@ -83,7 +78,6 @@ application/mxf=mpv.desktop
 application/x-osu-beatmap-archive=osuwinello-file-extensions-handler.desktop
 application/x-osu-replay=osuwinello-file-extensions-handler.desktop
 application/x-osu-skin-archive=osuwinello-file-extensions-handler.desktop
-application/ogg=org.audacityteam.Audacity.desktop
 application/x-audacity-project+sqlite3=org.audacityteam.Audacity.desktop
 application/x-audacity-project=org.audacityteam.Audacity.desktop
 application/x-wine-extension-msp=com.usebottles.bottles.desktop
