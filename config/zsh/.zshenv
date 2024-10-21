@@ -60,3 +60,4 @@ alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 # OTHERS
 export IBM_TELEMETRY_DISABLED=true  # lol
 export GTK_USE_PORTAL=1
+export LD_BIND_NOW=1

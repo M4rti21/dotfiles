@@ -8,7 +8,7 @@ return {
                 python = { "isort", "black" },
                 javascript = { "deno" },
                 typescript = { "deno" },
-                bash = { "beautysh" },
+                bash = { "shfmt" },
                 css = { "stylelint" },
                 java = { "astyle" },
                 go = { "gofmt" },
@@ -16,6 +16,7 @@ return {
                 c = { "clang-format" },
                 cs = { "csharpier" },
                 html = { "htmlbeautifier" },
+                sh = { "shfmt" },
             },
             format_on_save = {
                 timeout_ms = 500,
