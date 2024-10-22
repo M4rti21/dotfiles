@@ -4,10 +4,10 @@ return {
         local conform = require("conform")
         conform.setup({
             formatters_by_ft = {
-                lua = { "stylua" },
+                lua = { "lua-format" },
                 python = { "isort", "black" },
-                javascript = { "deno" },
-                typescript = { "deno" },
+                javascript = { "deno_fmt" },
+                typescript = { "deno_fmt" },
                 bash = { "shfmt" },
                 css = { "stylelint" },
                 java = { "astyle" },
