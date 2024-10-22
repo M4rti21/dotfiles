@@ -11,6 +11,8 @@ mkdir -p "$HOME/Videos"
 mkdir -p "$HOME/.local/share/gnupg"
 mkdir -p "$HOME/.local/bin"
 
+poppler
+
 if ! command -v paru >/dev/null 2>&1
 then
     echo "paru is not installed, installing..."
