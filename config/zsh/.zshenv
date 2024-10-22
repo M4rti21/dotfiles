@@ -22,6 +22,7 @@ export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
 export XDG_DATA_DIRS="/$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 
 # ENV
+export HOSTNAME="$(cat /etc/hostname)"
 export BROWSER=librewolf
 export EDITOR=nvim
 export MENU=tofi
