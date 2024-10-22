@@ -5,6 +5,7 @@
         "format-alt": "{class}"
     },
     "hyprland/language": {
+        "tooltip": false,
         "format": "{}",
         "format-en": "ENG",
         "format-es": "CAT"
@@ -33,15 +34,23 @@
         "spacing": 10
     },
     "battery": {
-        "interval": 30,
+        "tooltip": false,
         "states": {
             "warning": 30,
-            "critical": 20
+            "critical": 15
         },
-        "format": "{capacity}%",
-        "format-charging": "{capacity}% ",
-        "format-icons": [ "", "", "", "", "" ],
-        "max-length": 25
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "custom/trayicon": {
         "tooltip": false,
@@ -59,5 +68,44 @@
     },
     "clock#date": {
         "format": "{:%d/%m/%y}"
+    },
+    "backlight": {
+        "tooltip": false,
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "pulseaudio": {
+        "tooltip": false,
+        "format": "{volume}% {icon}  {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     }
 }
