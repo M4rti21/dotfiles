@@ -1,0 +1,17 @@
+com.bitwarden.desktop
+com.github.tchx84.Flatseal
+io.github.giantpinkrobots.flatsweep
+com.mongodb.Compass
+com.rtosta.zapzap
+dev.vencord.Vesktop
+io.github.ungoogled_software.ungoogled_chromium
+io.gitlab.librewolf-community
+org.filezillaproject.Filezilla
+org.gimp.GIMP
+org.inkscape.Inkscape
+org.audacityteam.Audacity
+org.libreoffice.LibreOffice
+org.mozilla.Thunderbird
+org.qbittorrent.qBittorrent
+org.gnome.Calculator
+com.github.IsmaelMartinez.teams_for_linux
