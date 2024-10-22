@@ -3,6 +3,7 @@ return {
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+        "artemave/workspace-diagnostics.nvim"
     },
     config = function()
         local lspconfig = require("lspconfig")
@@ -18,13 +19,26 @@ return {
             handlers = {
                 function(server_name)
                     lspconfig[server_name].setup({
-                        capabilities = capabilities
+                        capabilities = capabilities,
+                        on_attach = function(client, bufnr)
+                            require("workspace-diagnostics")
+                                .populate_workspace_diagnostics(
+                                    client,
+                                    bufnr
+                                )
+                        end
                     })
                 end,
                 ["lua_ls"] = function()
                     lspconfig.lua_ls.setup({
                         capabilities = capabilities,
-                        settings = { Lua = { diagnostics = { globals = { "vim" } } } },
+                        settings = {
+                            Lua = {
+                                diagnostics = {
+                                    globals = { "vim" }
+                                }
+                            }
+                        },
                     })
                 end
             }
