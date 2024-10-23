@@ -1,0 +1,8 @@
+neovim
+ripgrep
+bun-bin
+nodejs
+npm
+stylua
+prettierd
+shfmt

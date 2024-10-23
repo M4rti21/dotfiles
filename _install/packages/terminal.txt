@@ -16,7 +16,6 @@ fastfetch
 lf
 perl-file-mimeinfo
 ripdrag
-ripgrep
 zip
 unzip
 unrar
@@ -28,7 +27,6 @@ poppler
 zathura
 zathura-pdf-poppler
 vim
-neovim
 ffmpeg
 ffmpegthumbnailer
 newsboat
@@ -36,6 +34,3 @@ chafa
 lynx
 mdcat
 bat
-bun-bin
-nodejs
-npm
