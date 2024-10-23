@@ -1,5 +1,4 @@
 #!/bin/bash
-sleep 2
 # Get the connected monitors
 monitors=( $(hyprctl monitors | grep -oP 'Monitor \K[\w-]+') )
 
@@ -16,7 +15,7 @@ done
 
 # Use connected monitors or default to the first available ones
 if [ ${#connected_monitors[@]} -eq 0 ]; then
-    echo "No specified monitors are connected. Defaulting to the first connected monitor."
+    notify-send "No specified monitors are connected. Defaulting to the first connected monitor."
     connected_monitors=("${monitors[@]:0:1}")
 fi
 
