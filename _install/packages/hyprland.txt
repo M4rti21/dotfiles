@@ -6,6 +6,7 @@ hyprpolkitagent
 hyprshot
 hyprpicker
 hyprutils
+hyprland-monitor-attached
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 xdg-user-dirs
