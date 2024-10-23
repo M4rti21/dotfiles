@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sleep 2
 # Get the connected monitors
 monitors=( $(hyprctl monitors | grep -oP 'Monitor \K[\w-]+') )
 
@@ -54,4 +54,4 @@ case ${#connected_monitors[@]} in
         ;;
 esac
 
-echo "Workspaces have been bound to the connected monitors."
+notify-send "Workspaces have been bound to the connected monitors."
