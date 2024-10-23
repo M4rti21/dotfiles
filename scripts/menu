@@ -5,15 +5,15 @@ DIRS="
 $HOME/.local/share/applications
 $HOME/.local/share/flatpak/exports/share/applications
 "
-APPS=$(grep -hr "Name=" $DIRS/*.desktop | \
-    sed 's/^Name=//' | \
+APPS=$(grep -hr "Name=" $DIRS/*.desktop |
+    sed 's/^Name=//' |
     sort)
 
 SELECTED=$(echo "$APPS" | bemenu -i -p "Select an application:")
 
 if [ -n "$SELECTED" ]; then
-    EXEC=$(grep -hr "Name=$SELECTED" $DIRS/*.desktop | \
-        sed -n 's/^.*Exec=//p' | \
+    EXEC=$(grep -hr "Name=$SELECTED" $DIRS/*.desktop |
+        sed -n 's/^.*Exec=//p' |
         head -n 1)
     if [ -n "$EXEC" ]; then
         # Execute the selected application

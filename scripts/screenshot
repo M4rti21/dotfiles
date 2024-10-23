@@ -6,20 +6,20 @@ fullscreen=""
 
 while getopts ":f" opt; do
     case ${opt} in
-        f )
-            fullscreen="true"
-            ;;
-        \? )
-            notify_error "Invalid option: -$OPTARG"
-            usage
-            ;;
-        : )
-            notify_error "Invalid option: -$OPTARG requires an argument"
-            usage
-            ;;
+    f)
+        fullscreen="true"
+        ;;
+    \?)
+        notify_error "Invalid option: -$OPTARG"
+        usage
+        ;;
+    :)
+        notify_error "Invalid option: -$OPTARG requires an argument"
+        usage
+        ;;
     esac
 done
-shift $((OPTIND -1))
+shift $((OPTIND - 1))
 
 IMG_NAME="$SCREENSHOT_DIR/$(date '+%Y-%m-%d-%H%M%S').png"
 
@@ -29,6 +29,6 @@ else
     grim -g "$(slurp -d)" $IMG_NAME
 fi
 
-wl-copy < $IMG_NAME 
+wl-copy <$IMG_NAME
 
 notify-send --icon="$IMG_NAME" "Screenshot copied!" "$IMG_NAME"

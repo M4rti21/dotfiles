@@ -6,7 +6,7 @@
 # 4 - Disabled
 
 help() {
-  printf "How to use:
+    printf "How to use:
 1 - Accent
 2 - Foreground
 3 - Background
@@ -124,11 +124,10 @@ if [ $# -ge 4 ]; then
     sed -i "/--dnome-border: /s/#.*;/#$4;/" "$DISCORD"
 fi
 
-
 # Restart dunst
 killall dunst || true
 # Restart waybar
 killall waybar || true
-hyprctl dispatch exec waybar > /dev/null
+hyprctl dispatch exec waybar >/dev/null
 
 notify-send "Accent color changed"
