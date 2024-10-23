@@ -27,7 +27,7 @@ return {
         lualine.setup({
             options = {
                 icons_enabled = true,
-                theme = 'gruvbox-material',
+                theme = "gruvbox-material",
                 -- theme = {
                 --     normal = {
                 --         a = { fg = colors.black, bg = colors.blue },
@@ -43,8 +43,8 @@ return {
                 --         b = { fg = colors.white, bg = colors.black },
                 --     }
                 -- },
-                component_separators = { left = '', right = '' },
-                section_separators = { left = '', right = '' },
+                component_separators = { left = "", right = "" },
+                section_separators = { left = "", right = "" },
                 disabled_filetypes = {
                     statusline = {},
                     winbar = {},
@@ -60,14 +60,19 @@ return {
             },
             sections = {
                 lualine_a = { "mode" },
-                lualine_b = { "branch" },
+                lualine_b = { "branch", "diff" },
                 lualine_c = {
                     {
                         "macro-recording",
                         fmt = show_macro_recording,
                     },
-                    "diagnostics",
-                    "diff"
+                    {
+                        "diagnostics",
+                        sources = { "nvim_diagnostic", "nvim_workspace_diagnostic" },
+
+                        -- Displays diagnostics for the defined severity types
+                        sections = { "error", "warn", "info", "hint" },
+                    },
                 },
                 lualine_x = { "location" },
                 lualine_y = { "filename" },
@@ -76,7 +81,7 @@ return {
             inactive_sections = {
                 lualine_a = {},
                 lualine_b = {},
-                lualine_c = { "diagnostics", "diff" },
+                lualine_c = { "diagnostics" },
                 lualine_x = { "location" },
                 lualine_y = { "filename" },
                 lualine_z = { "progress" },
