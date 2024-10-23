@@ -2,6 +2,7 @@
 
 directories="
 $HOME/Projects
+$HOME/Work
 $HOME/Documents
 $HOME/dotfiles
 $HOME/dotfiles/config

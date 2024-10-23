@@ -4,18 +4,21 @@ return {
         local conform = require("conform")
         conform.setup({
             formatters_by_ft = {
-                lua = { "lua-format" },
+                lua = { "stylua" },
                 python = { "isort", "black" },
-                javascript = { "deno_fmt" },
-                typescript = { "deno_fmt" },
+                typescript = { "prettierd", "prettier", stop_after_first = true },
+                typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+                javascript = { "prettierd", "prettier", stop_after_first = true },
+                javascriptreact = { "prettierd", "prettier", stop_after_first = true },
                 bash = { "shfmt" },
-                css = { "stylelint" },
+                css = { "prettierd", "prettier", stop_after_first = true },
                 java = { "astyle" },
                 go = { "gofmt" },
                 php = { "pint" },
                 c = { "clang-format" },
                 cs = { "csharpier" },
-                html = { "htmlbeautifier" },
+                html = { "prettierd", "prettier", stop_after_first = true },
+                json = { "prettierd", "prettier", stop_after_first = true },
                 sh = { "shfmt" },
             },
             format_on_save = {
@@ -24,13 +27,6 @@ return {
             }
         })
 
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = "*",
-            callback = function(args)
-                conform.format({ bufnr = args.buf })
-            end,
-        })
-
-        vim.opt.formatexpr = "v:lua.require'conform'.formatexpr()"
+        vim.opt.formatexpr = "v:lua.require('conform').formatexpr()"
     end
 }

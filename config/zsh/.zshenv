@@ -9,6 +9,7 @@ export PATH="$HOME/dotfiles/scripts:$PATH"
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
 export PATH="$HOME/.local/share/go/bin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.local/share/npm/bin:$PATH"
 
 # XDG_DIRS
 export XDG_CONFIG_HOME="$HOME/.config"

@@ -2,20 +2,20 @@
 vim.g.mapleader        = " "
 vim.g.maplocalleader   = " "
 
---  vim.g.netrw_liststyle = 0
 vim.g.netrw_banner     = 0
-vim.g.netrw_list_hide  = '^./'
+vim.g.netrw_list_hide  = "^./"
 vim.g.netrw_hide       = 1
-vim.opt.colorcolumn    = "81"
+-- vim.g.netrw_liststyle  = 3
 
-vim.g.netrw_rm_cmd     = "ssh HOSTNAME trash-put"
-vim.g.netrw_rmdir_cmd  = "ssh HOSTNAME trash-put"
-vim.g.netrw_rmf_cmd    = "ssh HOSTNAME rm -f"
+vim.g.netrw_rm_cmd     = "trash-put"
+vim.g.netrw_rmdir_cmd  = "trash-put"
+vim.g.netrw_rmf_cmd    = "rm -f"
 
 -- OPT
+vim.opt.colorcolumn    = "81"
 vim.opt.wrap           = false
 
-vim.opt.mouse          = 'a'
+vim.opt.mouse          = "a"
 vim.opt.showmode       = false
 
 vim.opt.number         = true
@@ -28,8 +28,8 @@ vim.opt.scrolloff      = 10
 vim.opt.number         = true
 vim.opt.relativenumber = true
 
-vim.opt.clipboard      = 'unnamedplus'
-vim.opt.completeopt    = 'menuone,noselect'
+vim.opt.clipboard      = "unnamedplus"
+vim.opt.completeopt    = "menuone,noselect"
 vim.opt.termguicolors  = true
 
 vim.opt.breakindent    = true
@@ -46,16 +46,16 @@ vim.opt.hlsearch       = true
 
 -- vim.opt.cmdheight      = 0
 
-vim.opt.foldcolumn     = '0' -- '0' is not bad
+vim.opt.foldcolumn     = "0" -- "0" is not bad
 vim.opt.foldlevel      = 99  -- Using ufo provider need a large value, feel free to decrease the value
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable     = true
 vim.opt.fillchars      = {
-    eob = ' ',
-    fold = ' ',
-    foldopen = '',
-    foldsep = ' ',
-    foldclose = ''
+    eob = " ",
+    fold = " ",
+    foldopen = "",
+    foldsep = " ",
+    foldclose = ""
 }
 
 vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
@@ -70,8 +70,8 @@ vim.cmd.highlight({ "FoldColumn", "guibg=NONE" })
 vim.cmd.highlight({ "ColorColumn ", "guibg=NONE" })
 vim.cmd.highlight({ "Cursor", "cterm=bold guibg=white guifg=black" })
 
-vim.o.guicursor = 'n-v-c:block-Cursor'
-vim.o.guicursor = vim.o.guicursor .. ',i:ver25-iCursor'
+vim.o.guicursor = "n-v-c:block-Cursor"
+vim.o.guicursor = vim.o.guicursor .. ",i:ver25-iCursor"
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {

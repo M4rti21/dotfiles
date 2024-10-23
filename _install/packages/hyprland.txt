@@ -19,3 +19,4 @@ cliphist
 nwg-look
 qt5ct
 qt6ct
+dunst
