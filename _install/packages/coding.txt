@@ -3,6 +3,7 @@ ripgrep
 bun-bin
 nodejs
 npm
+docker
 stylua
 prettierd
 shfmt
