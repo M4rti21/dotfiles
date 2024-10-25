@@ -3,6 +3,9 @@ ripgrep
 bun-bin
 nodejs
 npm
+rust
+go
+zig
 docker
 stylua
 prettierd

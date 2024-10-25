@@ -7,10 +7,10 @@ tmux
 fzf
 zoxide
 man-db
-lsof
 usbutils
 polkit-gnome 
 wtype
+timer-bin
 btop
 fastfetch
 lf

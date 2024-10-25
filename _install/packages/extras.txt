@@ -1,2 +1,7 @@
+udiskie
 nextcloud-client
 opentabletdriver
+noto-fonts-cjk
+noto-fonts-emoji
+selectdefaultapplication-fork-git
+xdg-ninja-git
