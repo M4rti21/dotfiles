@@ -64,3 +64,4 @@ eval "$(zoxide init zsh)"
 # IMPORTS
 source ~/.config/zsh/.zshalias
 source ~/.config/zsh/.zsh-pomodoro
+source /usr/share/nvm/init-nvm.sh
