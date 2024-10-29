@@ -19,6 +19,7 @@ return {
 				html = { "prettierd" },
 				json = { "prettierd" },
 				sh = { "shfmt" },
+				toml = { "taplo" },
 			},
 		})
 		vim.api.nvim_create_autocmd("BufWritePre", {
