@@ -34,6 +34,7 @@ export DEFAULT_TERM="$TERMINAL"
 export XCURSOR_PATH="/usr/share/icons:$XDG_DATA_HOME/icons"
 export BUN_INSTALL="$HOME/.local/share/bun"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
 export NODE_REPL_HISTORY="$XDG_STATE_HOME"/node_repl_history
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"

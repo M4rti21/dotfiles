@@ -7,4 +7,4 @@ bridge-utils
 openbsd-netcat
 ebtables
 iptables
-swtmp
+swtpm
