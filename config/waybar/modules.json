@@ -1,108 +1,86 @@
 {
-    "hyprland/window": {
-        "icon": false,
-        "format": "{title}",
-        "format-alt": "{class}"
+  "hyprland/window": {
+    "icon": false,
+    "icon-size": 10,
+    "format": "{title}",
+    "format-alt": "{class}"
+  },
+  "hyprland/language": {
+    "tooltip": false,
+    "format": "{}",
+    "format-en": "ENG",
+    "format-es": "CAT"
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "warp-on-scroll": false,
+    "format": "{}"
+  },
+  "group/group-tray": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-drawer",
+      "transition-left-to-right": false
     },
-    "hyprland/language": {
-        "tooltip": false,
-        "format": "{}",
-        "format-en": "ENG",
-        "format-es": "CAT"
+    "modules": ["custom/trayicon", "tray"]
+  },
+  "tray": {
+    "icon-size": 10,
+    "show-passive-items": false,
+    "spacing": 10
+  },
+  "battery": {
+    "tooltip": false,
+    "states": {
+      "warning": 30,
+      "critical": 15
     },
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": false,
-        "warp-on-scroll": false,
-        "format": "{}"
-    },
-    "group/group-tray": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 500,
-            "children-class": "not-drawer",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "custom/trayicon",
-            "tray"
-        ]
-    },
-    "tray": {
-        "icon-size": 10,
-        "show-passive-items": false,
-        "spacing": 10
-    },
-    "battery": {
-        "tooltip": false,
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}%",
-        "format-full": "{capacity}%",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    "custom/trayicon": {
-        "tooltip": false,
-        "format": ""
-    },
-    "custom/dunst": {
-        "tooltip": false,
-        "format": "{}",
-        "exec": "~/.config/waybar/custom/dunst.sh",
-        "on-click": "dunstctl set-paused toggle",
-        "restart-interval": 1
-    },
-    "clock#time": {
-        "format": "{:%I:%M %p}"
-    },
-    "clock#date": {
-        "format": "{:%d/%m/%y}"
-    },
-    "backlight": {
-        "tooltip": false,
-        "format": "{percent}% {icon}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    "pulseaudio": {
-        "tooltip": false,
-        "format": "{volume}% {icon}  {format_source}",
-        "format-muted": "󰝟",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "default": [
-                "",
-                "",
-                ""
-            ]
-        }
-    },
-    "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format": "{capacity}%",
+    "format-full": "{capacity}%",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "custom/trayicon": {
+    "tooltip": false,
+    "format": ""
+  },
+  "custom/dunst": {
+    "tooltip": false,
+    "format": "{}",
+    "exec": "~/.config/waybar/custom/dunst.sh",
+    "on-click": "dunstctl set-paused toggle",
+    "restart-interval": 1
+  },
+  "clock#time": {
+    "format": "{:%I:%M %p}"
+  },
+  "clock#date": {
+    "format": "{:%d/%m/%y}"
+  },
+  "backlight": {
+    "tooltip": false,
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  "pulseaudio": {
+    "tooltip": false,
+    "format": "{volume}% {icon}  {format_source}",
+    "format-muted": "󰝟",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
     }
+  },
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  }
 }

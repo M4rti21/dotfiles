@@ -20,12 +20,11 @@ window#waybar {
     background: #000;
 }
 
-
 #tray {
     padding: 0 4px;
 }
 
-#tray>* {
+#tray > * {
     padding: 0 4px;
 }
 
