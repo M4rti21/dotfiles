@@ -1,68 +1,68 @@
 * {
-    font-family: IBM Plex Mono;
-    font-weight: 600;
-    border: none;
-    margin: 0;
-    padding: 0;
-    color: @fg;
-    min-height: 0px;
+  /* font-family: IBM Plex Mono; */
+  font-weight: 600;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: @fg;
+  min-height: 0px;
 }
 
 window {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .modules-right {
-    padding-right: 8px;
+  padding-right: 8px;
 }
 
 window#waybar {
-    background: #000;
+  background: #000;
 }
 
 #tray {
-    padding: 0 4px;
+  padding: 0 4px;
 }
 
 #tray > * {
-    padding: 0 4px;
+  padding: 0 4px;
 }
 
 #workspaces * {
-    margin: 0px;
-    min-height: 0px;
-    border-radius: 0;
-    background: none;
+  margin: 0px;
+  min-height: 0px;
+  border-radius: 0;
+  background: none;
 }
 
 #workspaces button:hover {
-    background: none;
+  background: none;
 }
 
 #workspaces button {
-    min-width: 12px;
-    padding: 0;
+  min-width: 12px;
+  padding: 0;
 }
 
 #workspaces button * {
-    color: #999999;
+  color: #999999;
 }
 
 /* #workspaces button.empty {} */
 
 #workspaces button.visible {
-    background-color: #999999;
+  background-color: #999999;
 }
 
 #workspaces button.visible * {
-    color: @black;
+  color: @black;
 }
 
 #workspaces button.active {
-    background-color: @ac;
+  background-color: @ac;
 }
 
 #workspaces button:not(.empty) * {
-    color: @fg;
-    text-shadow: 1px 1px 2px @black;
+  color: @fg;
+  text-shadow: 1px 1px 2px @black;
 }
