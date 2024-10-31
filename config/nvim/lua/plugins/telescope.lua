@@ -12,10 +12,10 @@ return {
 				prompt_prefix = "   ",
 				selection_caret = " ",
 				entry_prefix = " ",
-				sorting_strategy = "descending",
+				sorting_strategy = "ascending",
 				layout_config = {
 					horizontal = {
-						prompt_position = "bottom",
+						prompt_position = "top",
 						preview_width = 0.5,
 					},
 					width = 0.8,
