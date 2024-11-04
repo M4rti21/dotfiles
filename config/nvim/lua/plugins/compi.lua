@@ -1,5 +1,6 @@
 return {
-	dir = "~/Projects/compi.nvim",
+	-- dir = "~/Projects/compi.nvim",
+	"m4rti21/compi.nvim",
 	config = function()
 		local compi = require("compi")
 		compi.setup({

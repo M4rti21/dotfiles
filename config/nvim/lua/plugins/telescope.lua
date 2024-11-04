@@ -1,13 +1,12 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = {
+		"nvim-telescope/telescope-file-browser.nvim",
+		"nvim-lua/plenary.nvim",
+	},
 	config = function()
-		require("telescope").setup({
-			pickers = {
-				find_files = {
-					hidden = true,
-				},
-			},
+		local telescope = require("telescope")
+		telescope.setup({
 			defaults = {
 				prompt_prefix = "   ",
 				selection_caret = " ",
@@ -21,47 +20,41 @@ return {
 					width = 0.8,
 					height = 0.8,
 				},
+				-- borderchars = {
+				-- prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+				-- results = { " " },
+				-- preview = { " " },
+				-- },
 				mappings = {
 					n = { ["q"] = require("telescope.actions").close },
 				},
-				file_ignore_patterns = {
-					-- Common files
-					"/*.png",
-					"/*.jpg",
-					"/*.jpeg",
-					"/*.pdf",
-					"/*.ttf",
-					"/*.otf",
-					"/*.woff",
-					"/*.woff2",
-					"/*.webp",
-					"/*.mp3",
-					"/*.mp4",
-					"/*.mkv",
-					-- Projects
-					".idea/*",
-					".vscode/*",
-					".vs/*",
-					"/*.vsconfig",
-					"/*.sln",
-					"node_modules/*",
-					".git/*",
-					-- Unity
-					"Library/*",
-					"Logs/*",
-					"Packages/*",
-					"Temp/*",
-					"/*.unity",
-					"/*.meta",
-					"/*.prefab",
-					"/*.asset",
-					"/*.shader",
-					"/*.mat",
-					"/*.cache",
-					"/*.cginc",
+			},
+			pickers = {
+				find_files = {
+					hidden = false,
+				},
+			},
+			extensions = {
+				file_browser = {
+					-- theme = "ivy",
+					-- disables netrw and use telescope-file-browser in its place
+					hijack_netrw = true,
+					grouped = true,
+					mappings = {
+						["i"] = {
+							-- ["%"] =
+						},
+						["n"] = {
+							-- your custom normal mode mappings
+						},
+					},
 				},
 			},
 		})
+		-- To get telescope-file-browser loaded and working with telescope,
+		-- you need to call load_extension, somewhere after setup function:
+		telescope.load_extension("file_browser")
+		vim.keymap.set("n", "<space>pv", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 
 		local builtin = require("telescope.builtin")
 
