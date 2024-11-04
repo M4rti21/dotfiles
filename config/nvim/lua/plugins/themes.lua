@@ -45,15 +45,4 @@ return {
 			transparent_mode = true,
 		},
 	},
-	{
-		"luisiacc/gruvbox-baby",
-		config = function()
-			vim.g.gruvbox_baby_function_style = "NONE"
-			vim.g.gruvbox_baby_keyword_style = "italic"
-			vim.g.gruvbox_baby_telescope_theme = true
-			-- vim.g.gruvbox_baby_transparent_mode = true
-			vim.g.gruvbox_baby_background_color = "dark"
-			-- vim.cmd([[colorscheme gruvbox-baby]])
-		end,
-	},
 }

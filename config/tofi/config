@@ -20,9 +20,9 @@ padding-bottom = 0
 padding-left = 0
 padding-right = 0
 
-input-color = #fefefe
-default-result-color = #999999
-selection-color = #000000
+input-color = #fbf1c7
+default-result-color = #555555
+selection-color = #282524
 selection-background = #7daea3
 selection-background-padding = 4, 4
 input-background-padding = 4, 4

@@ -16,7 +16,7 @@ help() {
 # files
 DISCORD="$HOME/.var/app/dev.vencord.Vesktop/config/vesktop/themes/DNOME.css"
 HYPRLAND="$HOME/.config/hypr/hyprland/theme.conf"
-TOFI="$HOME/.config/tofi/config"
+TOFI="$HOME/.config/tofi/"
 DUNST="$HOME/.config/dunst/dunstrc"
 GTK="$HOME/.local/share/themes/adw-gtk3-custom/gtk-*/gtk*.css"
 
@@ -34,7 +34,8 @@ if [ $# -ge 1 ]; then
     # hyprland
     sed -i "/col.active_border = rgb/s/rgb(.*)/rgb($1)/" "$HYPRLAND"
     # tofi
-    sed -i "/selection-background = /s/#.*/#$1/" "$TOFI"
+    sed -i "/selection-background = /s/#.*/#$1/" "$TOFI/config"
+    sed -i "/selection-background = /s/#.*/#$1/" "$TOFI/center.config"
     # dunst
     sed -i "/frame_color = /s/\"#.*\"/\"#$1\"/" "$DUNST"
     # discord
@@ -59,7 +60,8 @@ if [ $# -ge 2 ]; then
         sed -i "/@define-color fg/s/#.*;/#$2;/" "$file"
     done
     # tofi
-    sed -i "/selection-color = /s/#.*/#$2/" "$HOME/dotfiles/config/tofi/config"
+    sed -i "/input-color = /s/#.*/#$2/" "$TOFI/config"
+    sed -i "/input-color= /s/#.*/#$2/" "$TOFI/center.config"
     # dunst
     sed -i "/foreground = /s/\"#.*\"/\"#$2\"/" "$HOME/dotfiles/config/dunst/dunstrc"
     # discord
@@ -73,6 +75,9 @@ if [ $# -ge 3 ]; then
     for file in /home/m4rti/dotfiles/themes/adw-gtk3-custom/gtk-*/gtk*.css; do
         sed -i "/@define-color bg/s/#.*;/#$3;/" "$file"
     done
+    # tofi
+    sed -i "/selection-color = /s/#.*/#$3/" "$TOFI/config"
+    sed -i "/selection-color = /s/#.*/#$3/" "$TOFI/center.config"
     # duns
     sed -i "/background = /s/\"#.*\"/\"#$3\"/" "$HOME/dotfiles/config/dunst/dunstrc"
     # discord

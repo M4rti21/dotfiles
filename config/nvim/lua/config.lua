@@ -14,6 +14,8 @@ vim.g.netrw_rmf_cmd = "rm -f"
 -- OPT
 vim.opt.colorcolumn = "81"
 vim.opt.wrap = false
+vim.opt.cursorline = true
+vim.opt.swapfile = false
 
 vim.opt.mouse = "a"
 vim.opt.showmode = false
@@ -54,6 +56,15 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#" }) -- Adjust background color
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#bdbdbd" }) -- Adjust foreground color
+vim.cmd([[
+  augroup CursorLineNr
+    autocmd!
+    autocmd ColorScheme * highlight CursorLineNr guifg=#bdbdbd
+  augroup END
+]])
+
 -- CMD
 vim.cmd.highlight({ "Error", "guibg=red" })
 vim.cmd.highlight({ "VirtColumn", "guibg=WHITE" })
@@ -63,6 +74,11 @@ vim.cmd.highlight({ "FoldColumn", "guibg=NONE" })
 vim.cmd.highlight({ "FoldColumn", "guibg=NONE" })
 vim.cmd.highlight({ "ColorColumn ", "guibg=NONE" })
 vim.cmd.highlight({ "Cursor", "cterm=bold guibg=white guifg=black" })
+
+-- -- Highlights the line
+-- CursorLine = { fg = 'NONE', bg = c.black2 },
+-- -- Highlights the line number
+-- CursorLineNr = { fg = c.white },
 
 vim.o.guicursor = "n-v-c:block-Cursor"
 vim.o.guicursor = vim.o.guicursor .. ",i:ver25-iCursor"

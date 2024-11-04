@@ -54,15 +54,14 @@ window#waybar {
   background-color: #999999;
 }
 
-#workspaces button.visible * {
-  color: @black;
-}
-
 #workspaces button.active {
   background-color: @ac;
 }
 
 #workspaces button:not(.empty) * {
   color: @fg;
-  text-shadow: 1px 1px 2px @black;
+}
+
+#workspaces button.visible * {
+  color: @black;
 }
