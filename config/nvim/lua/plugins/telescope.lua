@@ -6,6 +6,7 @@ return {
 	},
 	config = function()
 		local telescope = require("telescope")
+		local fb_actions = telescope.extensions.file_browser.actions
 		telescope.setup({
 			defaults = {
 				prompt_prefix = "   ",
@@ -41,11 +42,8 @@ return {
 					hijack_netrw = true,
 					grouped = true,
 					mappings = {
-						["i"] = {
-							-- ["%"] =
-						},
 						["n"] = {
-							-- your custom normal mode mappings
+							["%"] = fb_actions.create,
 						},
 					},
 				},
