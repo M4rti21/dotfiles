@@ -1,0 +1,45 @@
+{
+    "folderIcon": "T",
+    "menu": "tofi",
+    "urls": [
+        "This repo # https://github.com/m4rti21/book",
+        "This repo # https://git.m4rti.dev/book",
+        "This is a test # https://m4rti.dev",
+        "This is another test # https://wysi727.com"
+    ],
+    "folders": [
+        {
+            "name": "Arch",
+            "urls": [
+                "This is a test # https://archlinux.org",
+                "This is another test # https://artixlinux.org"
+            ]
+        },
+        {
+            "name": "Debian",
+            "urls": [
+                "https://debian.org",
+                "https://ubuntu.org",
+                "https://linuxmint.com"
+            ],
+            "folders": [
+                {
+                    "name": "more1",
+                    "urls": [
+                        "https://test1.com",
+                        "https://test2.org",
+                        "https://test3.org"
+                    ]
+                },
+                {
+                    "name": "more2",
+                    "urls": [
+                        "https://test1.com",
+                        "https://test2.org",
+                        "https://test3.org"
+                    ]
+                }
+            ]
+        }
+    ]
+}

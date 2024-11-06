@@ -1,1 +1,3 @@
+folderIcon = ""
 menu = "tofi -c ~/.config/tofi/center.config"
+run = "xdg-open"

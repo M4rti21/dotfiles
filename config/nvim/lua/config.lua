@@ -15,7 +15,7 @@ vim.g.netrw_rmf_cmd = "rm -f"
 vim.opt.colorcolumn = "81"
 vim.opt.wrap = false
 vim.opt.cursorline = true
-vim.opt.swapfile = false
+vim.opt.swapfile = true
 
 vim.opt.mouse = "a"
 vim.opt.showmode = false

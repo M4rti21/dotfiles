@@ -32,7 +32,7 @@ return {
 			},
 			pickers = {
 				find_files = {
-					hidden = false,
+					hidden = true,
 				},
 			},
 			extensions = {
