@@ -1,3 +1,5 @@
 folderIcon = ""
 menu = "tofi -c ~/.config/tofi/center.config"
+# menu = "fzf"
 run = "xdg-open"
+showUrl = false

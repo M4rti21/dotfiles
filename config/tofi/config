@@ -20,10 +20,10 @@ padding-bottom = 0
 padding-left = 0
 padding-right = 0
 
-input-color = #fbf1c7
-default-result-color = #555555
-selection-color = #282524
-selection-background = #7daea3
+input-color = #ebdbb2
+default-result-color = #7c6f64
+selection-color = #1b1b1b
+selection-background = #8ec07c
 selection-background-padding = 4, 4
 input-background-padding = 4, 4
 alternate-result-background-padding = 4, 4
