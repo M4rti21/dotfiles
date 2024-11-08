@@ -1,2 +1,0 @@
-menu = "tofi -c ~/.config/tofi/center.config"
-run = "flatpak run io.github.zen_browser.zen -p Work -new-tab"

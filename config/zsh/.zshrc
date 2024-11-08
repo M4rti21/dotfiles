@@ -62,6 +62,6 @@ eval "$(zoxide init zsh)"
 source ~/.config/zsh/.zshalias
 source ~/.config/zsh/.zsh-pomodoro
 
-start_nvm() {
+nvm_init() {
     source /usr/share/nvm/init-nvm.sh
 }

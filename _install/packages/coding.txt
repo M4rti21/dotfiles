@@ -1,8 +1,9 @@
 neovim
 ripgrep
-bun-bin
 nodejs
 npm
+bun-bin
+deno
 rust
 go
 zig
