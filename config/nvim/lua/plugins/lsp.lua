@@ -12,6 +12,8 @@ return {
 			dynamicRegistration = false,
 			lineFoldingOnly = true,
 		}
+		local workspace_diagnostics = require("workspace-diagnostics")
+		workspace_diagnostics.setup()
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = { "lua_ls" },
@@ -20,9 +22,7 @@ return {
 				function(server_name)
 					lspconfig[server_name].setup({
 						capabilities = capabilities,
-						on_attach = function(client, bufnr)
-							require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
-						end,
+						on_attach = workspace_diagnostics.populate_workspace_diagnostics,
 					})
 				end,
 				["lua_ls"] = function()
@@ -57,6 +57,15 @@ return {
 				map("<A-return>", vim.lsp.buf.code_action, "[C]ode [A]ction")
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 				map("K", vim.lsp.buf.hover, "Hover Documentation")
+			end,
+		})
+
+		vim.api.nvim_set_keymap("n", "<space>x", "", {
+			noremap = true,
+			callback = function()
+				for _, client in ipairs(vim.lsp.buf_get_clients()) do
+					require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
+				end
 			end,
 		})
 	end,

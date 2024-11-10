@@ -18,6 +18,7 @@ return {
 				cs = { "csharpier" },
 				html = { "prettierd" },
 				json = { "prettierd" },
+				jsonc = { "prettierd" },
 				sh = { "shfmt" },
 				toml = { "taplo" },
 			},
