@@ -156,7 +156,7 @@ cmd fzf_search ${{
 }}
 map f :fzf_search
 
-cmd wp %rm ~/Pictures/wallpaper && ln -s $f ~/Pictures/wallpaper && killall hyprpaper && hyprctl dispatch exec hyprpaper
+cmd wp %rm ~/Pictures/wallpaper ; ln -s $f ~/Pictures/wallpaper ; killall hyprpaper ; hyprctl dispatch exec hyprpaper
 
 map <enter> shell
 map ` !true

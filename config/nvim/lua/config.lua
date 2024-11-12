@@ -65,6 +65,13 @@ vim.cmd([[
   augroup END
 ]])
 
+vim.cmd([[
+  augroup CursorLine
+    autocmd!
+    autocmd ColorScheme * highlight CursorLine guibg=#222222
+  augroup END
+]])
+
 -- CMD
 vim.cmd.highlight({ "Error", "guibg=red" })
 vim.cmd.highlight({ "VirtColumn", "guibg=WHITE" })
