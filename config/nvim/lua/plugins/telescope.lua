@@ -6,6 +6,8 @@ return {
 	},
 	config = function()
 		local telescope = require("telescope")
+		local builtin = require("telescope.builtin")
+		local actions = require("telescope.actions")
 		local fb_actions = telescope.extensions.file_browser.actions
 		telescope.setup({
 			defaults = {
@@ -27,7 +29,7 @@ return {
 				-- preview = { " " },
 				-- },
 				mappings = {
-					n = { ["q"] = require("telescope.actions").close },
+					n = { ["q"] = actions.close },
 				},
 				file_ignore_patterns = {
 					-- Projects
@@ -72,24 +74,11 @@ return {
 				},
 			},
 		})
-		-- To get telescope-file-browser loaded and working with telescope,
-		-- you need to call load_extension, somewhere after setup function:
-		telescope.load_extension("file_browser")
-		vim.keymap.set(
-			"n",
-			"<space>pv",
-			":Telescope file_browser path=%:p:h select_buffer=true,--hidden,--files,-u<CR>"
-		)
-
-		local builtin = require("telescope.builtin")
-
+		local pt_cmd = ":Telescope file_browser path=%:p:h select_buffer=true,--hidden,--files,-u<CR>"
+		local pf_cmd = ":Telescope find_files find_command=rg,--ignore,--hidden,--files,-u<CR>"
+		vim.keymap.set("n", "<space>pt", pt_cmd, { desc = "[P]roject [T]elescope" })
 		vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "[/] Search in current buffer" })
-		vim.keymap.set(
-			"n",
-			"<leader>pf",
-			":Telescope find_files find_command=rg,--ignore,--hidden,--files,-u<CR>",
-			{ desc = "[P]roject [F]iles" }
-		)
+		vim.keymap.set("n", "<leader>pf", pf_cmd, { desc = "[P]roject [F]iles" })
 		vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "[P]roject [S]tring" })
 		vim.keymap.set("n", "<leader>pe", builtin.diagnostics, { desc = "[P]roject [E]rrors (diagnostics)" })
 		vim.keymap.set("n", "<leader>vk", builtin.keymaps, { desc = "[V]iew [K]eymaps" })

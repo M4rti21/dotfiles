@@ -10,7 +10,7 @@ $HOME
 "
 
 if [ $# -eq 1 ]; then
-    dir=$(find $directories -mindepth 1 -maxdepth 1 -type d | $1)
+    dir=$1
 else
     dir=$(find $directories -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
