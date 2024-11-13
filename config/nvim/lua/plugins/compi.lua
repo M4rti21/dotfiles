@@ -17,6 +17,7 @@ return {
 				ts = "bun %f",
 				py = "python %f",
 				html = "$BROWSER %f",
+				lua = "love .",
 			},
 			compnrun = {
 				go = "go run .",

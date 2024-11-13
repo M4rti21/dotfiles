@@ -4,6 +4,7 @@ eza
 jq
 trash-cli
 tmux
+tmate
 fzf
 zoxide
 man-db
