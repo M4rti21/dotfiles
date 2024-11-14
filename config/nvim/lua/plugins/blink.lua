@@ -23,7 +23,7 @@ return {
 				update_delay_ms = 50,
 			},
 			ghost_text = {
-				enabled = true,
+				enabled = false,
 			},
 		},
 	},
