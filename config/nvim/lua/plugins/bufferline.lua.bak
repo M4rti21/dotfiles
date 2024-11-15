@@ -1,0 +1,15 @@
+return {
+	"akinsho/bufferline.nvim",
+	version = "*",
+	dependencies = "nvim-tree/nvim-web-devicons",
+	config = function()
+		local bufferline = require("bufferline")
+		bufferline.setup({
+			buffer_close_icon = nil,
+			close_icon = nil,
+		})
+
+		vim.keymap.set("n", "<leader>n", "<cmd>:BufferLineCycleNext<CR>")
+		vim.keymap.set("n", "<leader>N", "<cmd>:BufferLineCyclePrev<CR>")
+	end,
+}
