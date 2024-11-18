@@ -18,9 +18,7 @@ alias purge="paru -Qdtq | paru -R - && flatpak uninstall --unused"
 # programs
 alias nf="fastfetch"
 alias vim="nvim"
-alias t="tmux"
 alias tks="tmux kill-session -t"
-alias tls="tmux ls"
 alias lg="lazygit"
 
 lfcd () { cd "$(command lf -print-last-dir "$@")" }
