@@ -1,8 +1,12 @@
 return {
 	{
+		"tadmccorkle/markdown.nvim",
+		ft = "markdown",
+	},
+	{
 		"toppair/peek.nvim",
-		event = { "VeryLazy" },
 		build = "deno task --quiet build:fast",
+		ft = "markdown",
 		config = function()
 			local peek = require("peek")
 			peek.setup({
