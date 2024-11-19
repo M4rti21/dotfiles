@@ -3,9 +3,11 @@
 directories="
 $HOME/Projects/Personal
 $HOME/Projects/Work
-$HOME/Documents
+$HOME/.config
 $HOME/dotfiles
 $HOME/dotfiles/config
+$HOME/Nextcloud/Notes
+$HOME/Documents
 $HOME
 "
 

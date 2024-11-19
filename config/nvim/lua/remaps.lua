@@ -20,8 +20,8 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "[p]aste without copying" })
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "[d]elete without copying" })
 
 -- Move
-vim.keymap.set("v", "J", ":m '>+1<Cr>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<Cr>gv=gv")
+vim.keymap.set("v", "<A-j>", ":m '>+1<Cr>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<Cr>gv=gv")
 
 -- FUN
 
