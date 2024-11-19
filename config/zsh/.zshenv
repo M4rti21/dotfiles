@@ -28,6 +28,7 @@ export EDITOR=nvim
 export MENU=tofi
 export TERMINAL=foot
 export DEFAULT_TERM="$TERMINAL"
+export MANPAGER='nvim +Man!'
 
 # XDG-CLEANUP
 export XCURSOR_PATH="/usr/share/icons:$XDG_DATA_HOME/icons"

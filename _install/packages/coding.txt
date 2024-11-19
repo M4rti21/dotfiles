@@ -11,3 +11,5 @@ docker
 stylua
 prettierd
 shfmt
+tree-sitter
+tree-sitter-cli
