@@ -8,7 +8,14 @@ return {
 			vim.g.gruvbox_material_better_performange = true
 			vim.g.gruvbox_material_transparent_background = true
 			vim.g.gruvbox_material_background = "medium"
-			vim.cmd([[colorscheme gruvbox-material]])
+			vim.cmd("colorscheme gruvbox-material")
+		end,
+	},
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			-- vim.cmd("colorscheme rose-pine-moon")
 		end,
 	},
 }
