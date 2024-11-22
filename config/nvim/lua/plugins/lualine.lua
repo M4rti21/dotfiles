@@ -27,7 +27,7 @@ return {
 		lualine.setup({
 			options = {
 				icons_enabled = true,
-				theme = "gruvbox-material",
+				-- theme = "gruvbox-material",
 				-- theme = {
 				--     normal = {
 				--         a = { fg = colors.black, bg = colors.blue },
@@ -53,7 +53,7 @@ return {
 				always_divide_middle = true,
 				globalstatus = false,
 				refresh = {
-					statusline = 1000,
+					statusline = 100,
 					tabline = 1000,
 					winbar = 1000,
 				},
