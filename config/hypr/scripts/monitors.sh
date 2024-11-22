@@ -46,10 +46,12 @@ case ${#connected_monitors[@]} in
     for i in {1..5}; do
         set_workspace $i "${connected_monitors[0]}"
     done
-    for i in {6..8}; do
+    for i in {6..7}; do
         set_workspace $i "${connected_monitors[1]}"
     done
-    set_workspace 9 "${connected_monitors[2]}"
+    for i in {8..9}; do
+        set_workspace $i "${connected_monitors[2]}"
+    done
     ;;
 esac
 

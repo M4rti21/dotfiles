@@ -173,6 +173,7 @@ map g/ cd /                             # [/]
 map gc cd ~/.config                     # [c]onfig
 map gf cd ~/dotfiles                    # dot[f]iles
 map gd cd ~/Downloads                   # [d]ownloads
+map gD cd ~/Documents                   # [d]ocuments
 map gp cd ~/Projects                    # [p]rojects
 map gi cd ~/Pictures                    # [i]mages / p[i]ctures
 map gs cd ~/Pictures/screenshots        # [s]creenshots
@@ -180,6 +181,7 @@ map gv cd ~/Videos                      # [v]ideos
 map gm cd /run/media/m4rti              # [m]ount / [m]edia
 map gt cd ~/.local/share/Trash/files    # [t]rash
 map gn cd ~/Nextcloud                   # [n]extcloud
+map gN cd ~/Nextcloud/Notes             # [N]notes
 map gw cd ~/Nextcloud/Wallpapers        # [w]allpapers
 map gu cd ~/Nextcloud/Documents/UOC     # [u]oc
 map go cd ~/Games/osu!                  # [o]su!
