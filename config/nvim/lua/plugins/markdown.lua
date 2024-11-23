@@ -20,8 +20,8 @@ return {
 				throttle_at = 200000, -- start throttling when file exceeds this
 				throttle_time = "auto", -- minimum amount of time in milliseconds
 			})
-			vim.api.nvim_create_user_command("PeekOpen", peek.open, {})
-			vim.api.nvim_create_user_command("PeekClose", peek.close, {})
+			vim.api.nvim_create_user_command("popen", peek.open, {})
+			vim.api.nvim_create_user_command("pclose", peek.close, {})
 		end,
 	},
 }
