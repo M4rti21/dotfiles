@@ -11,7 +11,7 @@
 | Purple     | #543c7c | #E7EDE6 | #0B0A0A | #2e2e2e |
 | i3         | #285577 | #FFFFFF | #0C0C0C | #5F676A |
 | Monochrome | #dddddd | #ffffff | #1e1e1e | #333333 |
-| Kanagawa   | #D7AF87 | #C5C9C5 | #181616 | #8A9A7B |
+| Kanagawa   | #D7AF87 | #C5C9C5 | #181616 | #303030 |
 
 # Discord Custom CSS
 `https://raw.githubusercontent.com/Costeer/Gruvbox-Material-Themes/refs/heads/main/Discord%20Theme/materialgruvbox-2.theme.css`

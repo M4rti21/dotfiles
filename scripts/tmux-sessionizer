@@ -3,6 +3,7 @@
 directories="
 $HOME/Projects/Personal
 $HOME/Projects/Work
+$HOME/Programs
 $HOME/.config
 $HOME/dotfiles
 $HOME/dotfiles/config

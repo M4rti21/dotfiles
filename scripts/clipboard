@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cliphist list | cut -d' ' -f2- | tofi -c ~/.config/tofi/center.config | wl-copy

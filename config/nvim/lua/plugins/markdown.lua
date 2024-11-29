@@ -6,6 +6,7 @@ return {
 	{
 		"toppair/peek.nvim",
 		build = "deno task --quiet build:fast",
+		lazy = true,
 		ft = "markdown",
 		config = function()
 			local peek = require("peek")
@@ -20,8 +21,8 @@ return {
 				throttle_at = 200000, -- start throttling when file exceeds this
 				throttle_time = "auto", -- minimum amount of time in milliseconds
 			})
-			vim.api.nvim_create_user_command("popen", peek.open, {})
-			vim.api.nvim_create_user_command("pclose", peek.close, {})
+			-- vim.api.nvim_create_user_command("PeekOpen", peek.open, {})
+			-- vim.api.nvim_create_user_command("PeekClose", peek.close, {})
 		end,
 	},
 }

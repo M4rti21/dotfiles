@@ -26,14 +26,9 @@
         "name": "bar",
         "layer": "top",
         "position": "bottom",
-        "include": [
-            "~/.config/waybar/modules.json"
-        ],
+        "include": ["~/.config/waybar/modules.json"],
         "spacing": 20,
-        "modules-left": [
-            "hyprland/workspaces",
-            "hyprland/window"
-        ],
+        "modules-left": ["hyprland/workspaces", "hyprland/window"],
         "modules-right": [
             "group/group-tray",
             // "pulseaudio",
@@ -41,7 +36,7 @@
             "battery",
             "hyprland/language",
             "clock#date",
-            "clock#time"
-        ]
-    }
+            "clock#time",
+        ],
+    },
 ]

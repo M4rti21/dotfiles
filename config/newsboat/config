@@ -1,7 +1,8 @@
 #show-read-feeds no
 auto-reload yes
 
-external-url-viewer "urlscan -dc -r 'xdg-open {}'"
+browser "nohup xdg-open >/dev/null 2>&1"
+# external-url-viewer "nohup urlscan -dc -r 'xdg-open {}'"
 
 feed-sort-order lastupdated
 
@@ -25,23 +26,22 @@ bind-key U show-urls
 bind-key x pb-delete
 
 color listnormal cyan default
-color listfocus black yellow standout bold
+color listfocus yellow black standout bold
 color listnormal_unread blue default
 color listfocus_unread yellow default bold
-color info red black bold
+color info red default bold
 color article white default
 
-browser xdg-open
 macro , open-in-browser
-macro t set browser "qndl" ; open-in-browser ; set browser xdg-open
-macro a set browser "tsp yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser xdg-open
-macro v set browser "setsid -f mpv" ; open-in-browser ; set browser xdg-open
-macro w set browser "lynx" ; open-in-browser ; set browser xdg-open
-macro d set browser "dmenuhandler" ; open-in-browser ; set browser xdg-open
-macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browser xdg-open
-macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser xdg-open
-macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser xdg-open
-macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser xdg-open
+macro t set browser "qndl" ; open-in-browser
+macro a set browser "tsp yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser
+macro v set browser "setsid -f mpv" ; open-in-browser
+macro w set browser "lynx" ; open-in-browser
+macro d set browser "dmenuhandler" ; open-in-browser
+macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser
+macro C set browser "youtube-viewer --comments=%u" ; open-in-browser
+macro p set browser "peertubetorrent %u 480" ; open-in-browser
+macro P set browser "peertubetorrent %u 1080" ; open-in-browser
 
 highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black

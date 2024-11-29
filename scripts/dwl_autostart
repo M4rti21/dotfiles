@@ -1,0 +1,20 @@
+#!/bin/sh
+mako & # Notifications
+
+# Screensharing
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots &
+systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr &
+
+udiskie -s & # Auto Mount drives
+
+wl-paste --type text --watch cliphist store &  # Stores only text data
+wl-paste --type image --watch cliphist store & # Stores only image data
+wl-clip-persist --clipboard both &
+
+cumputer_monitors_wayland.sh & # Monitors
+slstatus &                     # Bar
+wbg ~/Pictures/wallpaper &     # Wallpaper
+nextcloud --background &       # Nextcloud
+wl-gammarelay-rs run &         # Brightness / Night mode
+
+otd-daemon & # Tablet Drivers

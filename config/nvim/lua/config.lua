@@ -17,7 +17,7 @@ vim.opt.wrap = false
 vim.opt.cursorline = true
 vim.opt.swapfile = true
 
-vim.opt.mouse = "a"
+vim.opt.mouse = "a" -- a = activate, "" = deactivate
 vim.opt.showmode = false
 
 vim.opt.number = true
@@ -56,21 +56,24 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
--- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#" }) -- Adjust background color
--- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#bdbdbd" }) -- Adjust foreground color
-vim.cmd([[
-  augroup CursorLineNr
-    autocmd!
-    autocmd ColorScheme * highlight CursorLineNr guifg=#bdbdbd
-  augroup END
-]])
+vim.api.nvim_create_augroup("CursorLineNr", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = "CursorLineNr",
+	pattern = "*",
+	callback = function()
+		-- vim.api.nvim_set_hl(0, "CursorLineNr", { guifg = "#bdbdbd" })
+	end,
+})
 
-vim.cmd([[
-  augroup CursorLine
-    autocmd!
-    autocmd ColorScheme * highlight CursorLine guibg=#222222
-  augroup END
-]])
+-- CursorLine highlight
+vim.api.nvim_create_augroup("CursorLine", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = "CursorLine",
+	pattern = "*",
+	callback = function()
+		-- vim.api.nvim_set_hl(0, "CursorLine", { guibg = "#222222" })
+	end,
+})
 
 -- CMD
 vim.cmd.highlight({ "Error", "guibg=red" })
