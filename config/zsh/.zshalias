@@ -8,15 +8,16 @@ alias rmls="trash-list"
 alias ls="eza --long --icons --group-directories-first"
 alias la="eza --long --icons --group-directories-first --all"
 alias tree="eza --tree --icons --all"
-alias cd="z"
 alias cat="bat --paging=never --style=plain --theme='ansi'"
-alias catt="bat --theme='ansi'"
+alias bat="bat --theme='ansi'"
 
 alias update="paru -Syu && flatpak update"
 alias purge="paru -Qdtq | paru -R - && flatpak uninstall --unused"
 
 # programs
 alias nf="fastfetch"
+alias v="nvim"
+alias vi="nvim"
 alias vim="nvim"
 alias tks="tmux kill-session -t"
 alias lg="lazygit"

@@ -55,9 +55,6 @@ bindkey "^[[3~" delete-char
 bindkey "^H" backward-delete-char
 bindkey "^?" backward-delete-char
 
-# zoxide 
-eval "$(zoxide init zsh)"
-
 # IMPORTS
 source ~/.config/zsh/.zshalias
 source ~/.config/zsh/.zsh-pomodoro
