@@ -1,3 +1,2 @@
 #!/bin/sh
-
-wlr-randr --output eDP-1 --scale 1.25 &
+wlr-randr --output eDP-1 --scale 1.25

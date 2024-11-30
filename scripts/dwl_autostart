@@ -2,8 +2,8 @@
 mako & # Notifications
 
 # Screensharing
+dbus-update-activation-environment DISPLAY &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots &
-dbus-update-activation-environment DISPLAY
 systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr &
 
 udiskie -s & # Auto Mount drives
@@ -12,7 +12,7 @@ wl-paste --type text --watch cliphist store &  # Stores only text data
 wl-paste --type image --watch cliphist store & # Stores only image data
 wl-clip-persist --clipboard both &
 
-wlr_monitors_current.sh &  # Monitors
+wlr_monitors_current.sh    # Monitors
 slstatus &                 # Bar
 wbg ~/Pictures/wallpaper & # Wallpaper
 nextcloud --background &   # Nextcloud
