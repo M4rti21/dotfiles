@@ -14,7 +14,7 @@ return {
 				java = { "astyle" },
 				go = { "gofmt" },
 				php = { "pint" },
-				c = { "clang-format" },
+				-- c = { "clang-format" },
 				cs = { "csharpier" },
 				html = { "prettierd" },
 				json = { "prettierd" },

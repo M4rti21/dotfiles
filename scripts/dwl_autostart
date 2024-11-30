@@ -3,6 +3,7 @@ mako & # Notifications
 
 # Screensharing
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots &
+dbus-update-activation-environment DISPLAY
 systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr &
 
 udiskie -s & # Auto Mount drives

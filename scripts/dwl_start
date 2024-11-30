@@ -2,13 +2,14 @@
 
 ### Env variables
 export XDG_SESSION_TYPE=wayland
+export WLR_RENDERER=vulkan
 
-# export XCURSOR_THEME=Banana
-# export XCURSOR_SIZE=42
-# export ICON_THEME=MoreWaita
-# export GTK_THEME=adw-gtk3-dark
+export XCURSOR_THEME=Banana
+export XCURSOR_SIZE=42
+export ICON_THEME=MoreWaita
+export GTK_THEME=adw-gtk3-dark
 
-# export SDL_VIDEODRIVER=x11
+export SDL_VIDEODRIVER=wayland
 export CLUTTER_BACKEND=wayland
 
 # GTK
