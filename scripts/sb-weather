@@ -1,0 +1,25 @@
+#!/bin/sh
+#  24 °C - Partly cloudy
+LOCATION="Barcelona"
+
+weatherreport="${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport"
+
+getforecast() {
+    timeout --signal=1 2s curl -sf "wttr.in/$LOCATION" >"$weatherreport" || exit 1
+}
+
+# Forecast should be updated only once a day.
+checkforecast() {
+    [ -s "$weatherreport" ] && [ "$(stat -c %y "$weatherreport" 2>/dev/null |
+        cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ]
+}
+
+showweather() {
+    temperature=$(grep -i '°C' "$weatherreport" | head -1 | grep -oP '\S+(?=\s°C)') # Extract temperature in °C
+    condition=$(cat $weatherreport | sed -n 3p | cut -c32-)
+    echo "$temperature - $condition"
+}
+
+checkforecast || getforecast
+
+showweather

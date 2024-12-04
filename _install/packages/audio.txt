@@ -3,4 +3,4 @@ pipewire-pulse
 pipewire-alsa
 wireplumber
 alsa-utils
-pavucontrol
+pulsemixer

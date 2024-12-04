@@ -15,6 +15,7 @@ return {
 				go = { "gofmt" },
 				php = { "pint" },
 				-- c = { "clang-format" },
+				cpp = { "clang-format" },
 				cs = { "csharpier" },
 				html = { "prettierd" },
 				json = { "prettierd" },

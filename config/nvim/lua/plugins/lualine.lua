@@ -22,7 +22,6 @@ return {
 				return "Recording @" .. recording_register
 			end
 		end
-
 		local lualine = require("lualine")
 		lualine.setup({
 			options = {

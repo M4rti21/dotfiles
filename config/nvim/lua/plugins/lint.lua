@@ -4,8 +4,6 @@ return {
 		config = function()
 			local lint = require("lint")
 			lint.linters_by_ft = {
-				css = { "eslint_d" },
-				json = { "eslint_d" },
 				javascript = { "eslint_d" },
 				typescript = { "eslint_d" },
 				javascriptreact = { "eslint_d" },

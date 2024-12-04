@@ -21,6 +21,7 @@ alias vi="nvim"
 alias vim="nvim"
 alias tks="tmux kill-session -t"
 alias lg="lazygit"
+alias mutt="neomutt"
 
 lfcd () { cd "$(command lf -print-last-dir "$@")" }
 

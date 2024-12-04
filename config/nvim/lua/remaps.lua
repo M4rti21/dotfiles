@@ -26,7 +26,7 @@ key.set("n", "+", "<C-a>")
 key.set("n", "-", "<C-x>")
 
 -- Seelect all
-key.set("n", "<C-a>", "gg<S-v>G")
+-- key.set("n", "<C-a>", "gg<S-v>G")
 
 -- FUN
 
