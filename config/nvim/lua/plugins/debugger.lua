@@ -12,63 +12,56 @@ return {
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",
 		"theHamsta/nvim-dap-virtual-text",
+		"mxsdev/nvim-dap-vscode-js",
 		{
 			"microsoft/vscode-js-debug",
 			build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
 		},
-		{
-			"mxsdev/nvim-dap-vscode-js",
-			opts = {
-				debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
-				adapters = { "pwa-node", "pwa-chrome" },
-			},
-		},
 	},
 	config = function()
 		local dap = require("dap")
+		local daputils = require("dap.utils")
 		local dapui = require("dapui")
 		local dapvirt = require("nvim-dap-virtual-text")
+		local dapvscodejs = require("dap-vscode-js")
 
 		dapui.setup()
 		dapvirt.setup()
 
-		dap.adapters["pwa-node"] = {
-			type = "executable",
-			host = "127.0.0.1",
-			port = "${port}",
-			executable = {
-				command = "node",
-				-- 💀 Make sure to update this path to point to your installation
-				args = { "~/.local/bin/js-debug/src/dapDebugServer.js", "${port}" },
+		dapvscodejs.setup({
+			debugger_path = os.getenv("HOME") .. "/.local/share/nvim/lazy/vscode-js-debug", -- Path to vscode-js-debug installation.
+			adapters = {
+				"pwa-node",
+				"pwa-chrome",
+				"pwa-msedge",
+				"node-terminal",
+				"pwa-extensionHost",
 			},
-		}
+		})
 
 		for _, lang in ipairs(js_langs) do
 			dap.configurations[lang] = {
 				{
 					type = "pwa-node",
 					request = "launch",
-					name = "Run file (bun)",
-					cwd = "${workspaceFolder}",
-					runtimeArgs = { "--inspect-brk" },
+					name = "Debug file",
 					program = "${file}",
-					runtimeExecutable = "bun",
-					attachSimplePort = 6499,
+					cwd = "${workspaceFolder}",
 				},
 				{
 					type = "pwa-node",
 					request = "launch",
-					name = "Run file (node)",
+					name = "Debug file (bun)",
+					program = "${file}",
 					cwd = "${workspaceFolder}",
-					sourceMaps = true,
+					runtimeExecutable = "bun",
 				},
 				{
 					type = "pwa-node",
 					request = "attach",
 					name = "Attach",
-					processId = require("dap.utils").pick_process,
+					processId = daputils.pick_process,
 					cwd = "${workspaceFolder}",
-					sourceMaps = true,
 				},
 			}
 		end
