@@ -168,7 +168,6 @@ map o $mimeopen $f
 map O $mimeopen --ask $f
 
 map gh cd ~                             # [h]ome
-map g~ cd ~                             # [~]
 map g/ cd /                             # [/]
 map gc cd ~/.config                     # [c]onfig
 map gf cd ~/dotfiles                    # dot[f]iles
@@ -184,4 +183,6 @@ map gn cd ~/Nextcloud                   # [n]extcloud
 map gN cd ~/Nextcloud/Notes             # [N]notes
 map gw cd ~/Nextcloud/Wallpapers        # [w]allpapers
 map gu cd ~/Nextcloud/Documents/UOC     # [u]oc
-map go cd ~/Games/osu!                  # [o]su!
+map gG cd ~/Games                       # [G]ames
+map ga cd ~/.local/share/applications   # [a]pplications
+map gA cd ~/.local/share/flatpak/exports/share/applications  # flatpak [A]pplications
