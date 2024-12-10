@@ -4,7 +4,7 @@ return {
 		require("netrw").setup({
 			icons = {
 				symlink = "",
-				directory = "",
+				directory = "",
 				file = "",
 			},
 			use_devicons = true,
