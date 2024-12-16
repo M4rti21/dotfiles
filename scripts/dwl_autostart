@@ -15,7 +15,8 @@ wl-clip-persist --clipboard both &
 wlr_monitors_current.sh    # Monitors
 slstatus &                 # Bar
 wbg ~/Pictures/wallpaper & # Wallpaper
-nextcloud --background &   # Nextcloud
+# nextcloud --background &   # Nextcloud
 wl-gammarelay-rs run &     # Brightness / Night mode
+flatpak run com.nextcloud.desktopclient.nextcloud --background
 
 otd-daemon & # Tablet Drivers
