@@ -57,8 +57,5 @@ bindkey "^?" backward-delete-char
 
 # IMPORTS
 source ~/.config/zsh/.zshalias
-source ~/.config/zsh/.zsh-pomodoro
 
-nvm_init() {
-    source /usr/share/nvm/init-nvm.sh
-}
+alias nvm_init="source /usr/share/nvm/init-nvm.sh"
