@@ -24,9 +24,9 @@ XDG_CURRENT_DESKTOP=sway
 IMG_NAME="$SCREENSHOT_DIR/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png"
 
 if [ "$fullscreen" = "true" ]; then
-    flameshot full --raw > $IMG_NAME
+    flameshot full --raw >$IMG_NAME
 else
-    flameshot gui --raw > $IMG_NAME
+    flameshot gui --raw >$IMG_NAME
 fi
 
 wl-copy <$IMG_NAME
