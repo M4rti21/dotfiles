@@ -1,7 +1,6 @@
 #!/bin/sh
 
 SCREENSHOT_DIR=~/Pictures/screenshots
-
 fullscreen=""
 
 while getopts ":f" opt; do
@@ -21,14 +20,24 @@ while getopts ":f" opt; do
 done
 shift $((OPTIND - 1))
 
-IMG_NAME="$SCREENSHOT_DIR/$(date '+%Y-%m-%d-%H%M%S').png"
+XDG_CURRENT_DESKTOP=sway
+IMG_NAME="$SCREENSHOT_DIR/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png"
 
 if [ "$fullscreen" = "true" ]; then
-    grim -g "$(slurp -o -d)" $IMG_NAME
+    flameshot full --raw >$IMG_NAME
 else
-    grim -g "$(slurp -d)" $IMG_NAME
+    flameshot gui --raw >$IMG_NAME
 fi
 
 wl-copy <$IMG_NAME
-
 notify-send --icon="$IMG_NAME" "Screenshot copied!" "$IMG_NAME"
+
+# if [ "$fullscreen" = "true" ]; then
+#     grim -g "$(slurp -o -d)" $IMG_NAME
+# else
+#     grim -g "$(slurp -d)" $IMG_NAME
+# fi
+#
+# wl-copy <$IMG_NAME
+#
+# notify-send --icon="$IMG_NAME" "Screenshot copied!" "$IMG_NAME"
