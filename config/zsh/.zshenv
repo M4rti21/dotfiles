@@ -23,11 +23,10 @@ export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
 export XDG_DATA_DIRS="/$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 
 # ENV
-export HOSTNAME="$(cat /etc/hostname)"
-export EDITOR=nvim
-export BROWSER=librewolf
-export MENU=tofi
-export TERMINAL=foot
+export EDITOR="nvim"
+export BROWSER="librewolf"
+export MENU="tofi"
+export TERMINAL="foot"
 export DEFAULT_TERM="$TERMINAL"
 export MANPAGER='nvim +Man!'
 

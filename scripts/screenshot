@@ -1,6 +1,5 @@
 #!/bin/sh
 
-SCREENSHOT_DIR=~/Pictures/screenshots
 fullscreen=""
 
 while getopts ":f" opt; do
@@ -9,35 +8,22 @@ while getopts ":f" opt; do
         fullscreen="true"
         ;;
     \?)
-        notify_error "Invalid option: -$OPTARG"
-        usage
-        ;;
-    :)
-        notify_error "Invalid option: -$OPTARG requires an argument"
-        usage
+        notify-send "Invalid option: -$OPTARG"
         ;;
     esac
 done
 shift $((OPTIND - 1))
 
-XDG_CURRENT_DESKTOP=sway
+COORDENATES_CACHE="/tmp/screenshot"
+SCREENSHOT_DIR="~/Pictures/screenshots"
 IMG_NAME="$SCREENSHOT_DIR/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png"
 
 if [ "$fullscreen" = "true" ]; then
-    flameshot full --raw >$IMG_NAME
+    slurp -d -o >"$COORDENATES_CACHE"
 else
-    flameshot gui --raw >$IMG_NAME
+    slurp -d >"$COORDENATES_CACHE"
 fi
+grim -g "$(cat "$COORDENATES_CACHE")" $IMG_NAME
 
 wl-copy <$IMG_NAME
 notify-send --icon="$IMG_NAME" "Screenshot copied!" "$IMG_NAME"
-
-# if [ "$fullscreen" = "true" ]; then
-#     grim -g "$(slurp -o -d)" $IMG_NAME
-# else
-#     grim -g "$(slurp -d)" $IMG_NAME
-# fi
-#
-# wl-copy <$IMG_NAME
-#
-# notify-send --icon="$IMG_NAME" "Screenshot copied!" "$IMG_NAME"
