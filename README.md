@@ -6,18 +6,19 @@ Wallpapers here:
 
 ## Desktop 
 ```sh
-hyprland            # WM/Compositor
-xdg-desktop-portal-hyprland # screenshare portal
-xdg-desktop-portal-gtk      # file picker portal
-xdg-user-dirs       # something
-waybar              # panel 
-hyprpaper           # wallpaper
-tofi                # run launcher
-wl-gammarelay-rs    # brightness/nightmode
-wl-clipboard        # clipboard on wayland
-wl-clip-persist     # clipboard persist on wayland
-xclip               # clipboard on X11
-cliphist            # clipboard history
+dwl                     # WM/Compositor
+xdg-desktop-portal-wlr  # screenshare portal
+xdg-desktop-portal-gtk  # file picker portal
+xdg-user-dirs           # something
+wbg                     # wallpaper
+tofi                    # run launcher
+wl-gammarelay-rs        # brightness/nightmode
+wl-clipboard            # clipboard on wayland
+wl-clip-persist         # clipboard persist on wayland
+xclip                   # clipboard on X11
+cliphist                # clipboard history
+slurp                   # screenshot
+grim                    # screenshot
 ```
 
 ## Audio
@@ -26,7 +27,7 @@ pipewire
 pipewire-pulse
 wireplumber 
 alsa-utils 
-pavucontrol 
+pulsemixer
 ```
 
 ## Terminal
@@ -40,7 +41,9 @@ btop                # tui system monitor
 rocm-smi-lib        # btop dependency for gpu monitoring on AMD
 fastfetch           # better neofetch
 tmux                # terminal multiplexer
+tmate               # tmux remote
 trash-cli           # rm replacement
+stow                # dotfile manager
 ```
 
 #### File management
@@ -64,13 +67,12 @@ p7zip
 imv                 # image viewer
 mpv                 # video player
 zathura             # pdf viewer
-zathura-pdf-poppler
+zathura-pdf-poppler # pdf plugin
 newsboat            # rss reader
 neovim              # text editor
 gimp                # image editor (FLATPAK)
 inkscape            # vector graphics (FLATPAK)
 texlive             # pdf compiler
-
 ```
 #### Mount External Drives
 ```sh
@@ -86,16 +88,6 @@ bitwarden           # password manager (FLATPAK)
 ```sh
 flatpak
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-```
-
-## AppImage
-```sh
-fuse2
-```
-
-## Snap
-```sh
-# not gonna use that lol
 ```
 
 ## Add Windows Partition to systemd-boot

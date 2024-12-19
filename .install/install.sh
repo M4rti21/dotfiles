@@ -53,35 +53,6 @@ else
     paru -Syu
 fi
 
-create_symlink() {
-    src=$1
-    tgt=$2
-    current_date=$(date +"%Y%m%d_%H%M%S") # Format the current date
-
-    # Check if source directory exists
-    if [ -d "$src" ]; then
-        # Create target directory if it doesn't exist
-        if [ -e "$tgt" ]; then
-            # Rename existing directory
-            mv "$tgt" "${tgt}_bak_$current_date"
-            echo "Renamed existing directory: $tgt to ${tgt}_bak_$current_date"
-        fi
-
-        mkdir -p "$tgt" # Create the target directory
-        link_path="$tgt/$(basename "$src")"
-
-        # Create the symlink if it doesn't already exist
-        if [ ! -e "$link_path" ]; then
-            ln -s "$src" "$link_path"
-            echo "Created symlink: $link_path -> $src"
-        else
-            echo "Symlink already exists: $link_path"
-        fi
-    else
-        echo "Source directory does not exist: $src"
-    fi
-}
-
 ask() {
     read -p "$1 [y/N]: " res
     res=$(echo "$res" | tr '[:upper:]' '[:lower:]')
@@ -149,26 +120,5 @@ fi
 
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install $(cat "$script_dir/packages/flatpaks.txt" | xargs)
-
-target_dir="$HOME/.config"
-mkdir -p "$target_dir"
-# Loop through each item in the $start_dir/config directory
-for dir in "$start_dir/config"/*; do
-    dir_name=$(basename "$dir")
-    symlink_path="$target_dir/$dir_name"
-    if [ ! -e "$symlink_path" ]; then
-        ln -s "$dir" "$symlink_path"
-        echo "Created symlink: $symlink_path -> $dir"
-    else
-        echo "Symlink already exists: $symlink_path"
-    fi
-done
-
-create_symlink "$start_dir/icons" "$HOME/.local/share"
-create_symlink "$start_dir/icons" "$HOME/.icons"
-create_symlink "$start_dir/themes" "$HOME/.local/share"
-create_symlink "$start_dir/themes" "$HOME/.themes"
-create_symlink "$start_dir/fonts" "$HOME/.local/share"
-create_symlink "$start_dir/wallpapers" "$HOME/Pictures/wallpapers"
 
 echo "All done!"
