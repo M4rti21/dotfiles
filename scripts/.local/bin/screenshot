@@ -1,0 +1,29 @@
+#!/bin/sh
+
+fullscreen=""
+
+while getopts ":f" opt; do
+    case ${opt} in
+    f)
+        fullscreen="true"
+        ;;
+    \?)
+        notify-send "Invalid option: -$OPTARG"
+        ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+COORDENATES_CACHE=/tmp/screenshot
+SCREENSHOT_DIR=~/Pictures/screenshots
+IMG_NAME=$SCREENSHOT_DIR/screenshot_"$(date '+%Y-%m-%d_%H-%M-%S')".png
+
+if [ "$fullscreen" = "true" ]; then
+    slurp -d -o >"$COORDENATES_CACHE"
+else
+    slurp -d >"$COORDENATES_CACHE"
+fi
+grim -g "$(cat "$COORDENATES_CACHE")" "$IMG_NAME"
+
+wl-copy <"$IMG_NAME"
+notify-send --icon="$IMG_NAME" "Screenshot copied!" "$IMG_NAME"
