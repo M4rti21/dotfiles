@@ -6,7 +6,48 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"artemave/workspace-diagnostics.nvim",
-			"saghen/blink.cmp",
+			{
+				"saghen/blink.cmp",
+				lazy = false,
+				-- dependencies = "rafamadriz/friendly-snippets",
+				version = "v0.*",
+				opts = {
+					keymap = {
+						["<CR>"] = { "accept", "fallback" },
+						["<C-j>"] = { "select_next", "fallback" },
+						["<C-k>"] = { "select_prev", "fallback" },
+						["<C-b>"] = { "scroll_documentation_down", "fallback" },
+						["<C-f>"] = { "scroll_documentation_up", "fallback" },
+						["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+					},
+					sources = {
+						default = { "lsp", "path", "snippets" },
+					},
+					appearance = {
+						use_nvim_cmp_as_default = true,
+						nerd_font_variant = "mono",
+					},
+					completion = {
+						trigger = {
+							prefetch_on_insert = false,
+							show_in_snippet = false,
+							show_on_keyword = false,
+							show_on_trigger_character = false,
+							show_on_accept_on_trigger_character = false,
+							show_on_insert_on_trigger_character = false,
+							show_on_x_blocked_trigger_characters = { "'", '"', "(", "{" },
+						},
+						documentation = {
+							auto_show = false,
+							auto_show_delay_ms = 50,
+							update_delay_ms = 50,
+						},
+						ghost_text = {
+							enabled = false,
+						},
+					},
+				},
+			},
 			"pmizio/typescript-tools.nvim",
 		},
 		config = function()
