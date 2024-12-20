@@ -2,7 +2,7 @@
 
 ### Env variables
 export XDG_SESSION_TYPE=wayland
-# export WLR_RENDERER=vulkan
+export WLR_RENDERER=vulkan
 
 export XCURSOR_THEME=Banana
 export XCURSOR_SIZE=42

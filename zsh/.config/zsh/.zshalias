@@ -1,8 +1,5 @@
 # ALIAS
 # system
-alias start="sudo systemctl start"
-alias stop="sudo systemctl stop"
-alias restart="sudo systemctl restart"
 alias rm="trash-put"
 alias rmls="trash-list"
 alias ls="eza --long --icons --group-directories-first -1"
@@ -22,9 +19,21 @@ alias vi="nvim"
 alias vim="nvim"
 alias tks="tmux kill-session -t"
 alias lg="lazygit"
+alias ld="lazydocker"
 alias mutt="neomutt"
 
+
 lfcd () { cd "$(command lf -print-last-dir "$@")" }
+
+start () { 
+    service=$1
+    if [ $service = "nvm" ]; then
+        source /usr/share/nvm/init-nvm.sh
+    elif [ $service = "docker" ]; then
+        sudo systemctl start containerd
+        sudo systemctl start docker
+    fi
+}
 
 alias lf="lfcd"
 

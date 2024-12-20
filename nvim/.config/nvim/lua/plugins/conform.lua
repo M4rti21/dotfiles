@@ -14,6 +14,7 @@ return {
 				java = { "astyle" },
 				go = { "gofmt" },
 				php = { "pint" },
+				python = { "pyink" },
 				-- c = { "clang-format" },
 				cpp = { "clang-format" },
 				cs = { "csharpier" },
