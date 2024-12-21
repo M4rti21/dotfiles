@@ -4,9 +4,8 @@ directories="
 $HOME/Projects/Personal
 $HOME/Projects/Work
 $HOME/.config
-$HOME/dotfiles
-$HOME/dotfiles/config
-$HOME/Nextcloud/Notes
+$HOME/.local/bin
+$HOME/Nextcloud
 $HOME/Documents
 $HOME
 "
@@ -14,7 +13,7 @@ $HOME
 if [ $# -eq 1 ]; then
     dir=$1
 else
-    dir=$(find $directories -mindepth 1 -maxdepth 1 -type d | fzf)
+    dir=$(find $directories -mindepth 1 -maxdepth 1 -follow -type d | fzf)
 fi
 
 if [ -z "$dir" ]; then

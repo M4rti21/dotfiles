@@ -147,8 +147,6 @@ map f :fzf_search
 # cmd wp %rm ~/Pictures/wallpaper ; ln -s $f ~/Pictures/wallpaper ; killall hyprpaper ; hyprctl dispatch exec hyprpaper
 cmd wp %rm ~/Pictures/wallpaper ; ln -s $f ~/Pictures/wallpaper ; killall wbg ; nohup wbg ~/Pictures/wallpaper > /dev/null 2>&1 & 
 
-cmd touch $touch $*
-map n push :touch<space>
 
 map <enter> shell
 map ` !true
@@ -159,8 +157,10 @@ map X !$f
 map o $mimeopen $f
 map O $mimeopen --ask $f
 
+map i push :touch<space>
+cmd touch $touch $*
 
-map N push :mkdir<space>
+map I push :mkdir<space>
 cmd mkdir $mkdir $*
 
 map gh cd ~                             # [h]ome

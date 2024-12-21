@@ -27,11 +27,27 @@ lfcd () { cd "$(command lf -print-last-dir "$@")" }
 
 start () { 
     service=$1
-    if [ $service = "nvm" ]; then
+    if [ $service = "dwl" ]; then
+        dwl_start
+    elif [ $service = "nvm" ]; then
         source /usr/share/nvm/init-nvm.sh
     elif [ $service = "docker" ]; then
         sudo systemctl start containerd
         sudo systemctl start docker
+    elif [ $service = "bluetooth" ]; then
+        sudo systemctl start bluetooth
+    fi
+}
+
+stop () { 
+    service=$1
+    if [ $service = "dwl" ]; then
+        killall dwl
+    elif [ $service = "docker" ]; then
+        sudo systemctl stop docker
+        sudo systemctl stop containerd
+    elif [ $service = "bluetooth" ]; then
+        sudo systemctl stop bluetooth
     fi
 }
 

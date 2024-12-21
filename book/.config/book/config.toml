@@ -3,3 +3,4 @@ menu = "tofi-centered"
 # menu = "fzf"
 run = "xdg-open"
 showUrl = false
+showAll = true
