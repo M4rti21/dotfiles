@@ -18,8 +18,8 @@ wbg ~/Pictures/wallpaper & # Wallpaper
 wl-gammarelay-rs run & # Brightness / Night mode
 com.nextcloud.desktopclient.nextcloud --background &
 
-com.rtosta.zapzap &            # WhatsApp
-com.discordapp.DiscordCanary & # Discord
+com.rtosta.zapzap &   # WhatsApp
+xyz.armcord.ArmCord & # Discord
 
 org.mozilla.Thunderbird &                # Email
 deskopen webapp-ProtonMail7726.desktop & # ProtonMail
