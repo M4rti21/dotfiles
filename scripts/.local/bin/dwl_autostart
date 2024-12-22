@@ -16,6 +16,14 @@ wlr_monitors_current.sh    # Monitors
 wbg ~/Pictures/wallpaper & # Wallpaper
 # nextcloud --background &   # Nextcloud
 wl-gammarelay-rs run & # Brightness / Night mode
-com.nextcloud.desktopclient.nextcloud --background
+com.nextcloud.desktopclient.nextcloud --background &
+
+com.rtosta.zapzap &            # WhatsApp
+com.discordapp.DiscordCanary & # Discord
+
+org.mozilla.Thunderbird &                # Email
+deskopen webapp-ProtonMail7726.desktop & # ProtonMail
 
 otd-daemon & # Tablet Drivers
+
+busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 2500 &
