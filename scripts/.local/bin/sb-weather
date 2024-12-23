@@ -1,7 +1,6 @@
 #!/bin/sh
 #  24 °C - Partly cloudy
-location="Sabadell"
-
+#
 weatherreport="${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport"
 touch "$weatherreport"
 

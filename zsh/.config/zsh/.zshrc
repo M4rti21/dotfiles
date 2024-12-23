@@ -57,3 +57,4 @@ bindkey "^?" backward-delete-char
 
 # IMPORTS
 source ~/.config/zsh/.zshalias
+source ~/.config/zsh/.zsh-priv-env
