@@ -13,7 +13,7 @@ return {
 				version = "v0.*",
 				opts = {
 					keymap = {
-						["<CR>"] = { "accept", "fallback" },
+						["<Tab>"] = { "accept", "fallback" },
 						["<C-j>"] = { "select_next", "fallback" },
 						["<C-k>"] = { "select_prev", "fallback" },
 						["<C-b>"] = { "scroll_documentation_down", "fallback" },
@@ -29,9 +29,9 @@ return {
 					},
 					completion = {
 						trigger = {
-							prefetch_on_insert = false,
+							prefetch_on_insert = true,
 							show_in_snippet = false,
-							show_on_keyword = false,
+							show_on_keyword = true,
 							show_on_trigger_character = false,
 							show_on_accept_on_trigger_character = false,
 							show_on_insert_on_trigger_character = false,

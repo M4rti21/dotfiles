@@ -36,6 +36,8 @@ start () {
         sudo systemctl start docker
     elif [ $service = "bluetooth" ]; then
         sudo systemctl start bluetooth
+    elif [ $service = "python" ]; then
+        source "$HOME/Projects/Personal/python/venv/bin/activate"
     fi
 }
 
@@ -48,6 +50,8 @@ stop () {
         sudo systemctl stop containerd
     elif [ $service = "bluetooth" ]; then
         sudo systemctl stop bluetooth
+    elif [ $service = "python" ]; then
+        deactivate
     fi
 }
 

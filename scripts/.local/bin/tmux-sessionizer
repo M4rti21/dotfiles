@@ -3,6 +3,7 @@
 directories="
 $HOME/Projects/Personal
 $HOME/Projects/Work
+$HOME/Projects/Suckless
 $HOME/.config
 $HOME/.local/bin
 $HOME/Nextcloud
