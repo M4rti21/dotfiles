@@ -1,0 +1,4 @@
+type            = process
+command         = /usr/lib/dinit/dockerd
+smooth-recovery = true
+logfile         = /tmp/dockerd.log

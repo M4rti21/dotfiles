@@ -1,12 +1,18 @@
 #!/bin/sh
+
+# Audio
+pipewire & 
+pipewire-pulse & 
+wireplumber &
+
 mako & # Notifications
+
+export $(dbus-launch)
 
 # Screensharing
 dbus-update-activation-environment DISPLAY &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots &
-systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr &
-
-udiskie -s & # Auto Mount drives
+# systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr &
 
 wl-paste --type text --watch cliphist store &  # Stores only text data
 wl-paste --type image --watch cliphist store & # Stores only image data
@@ -17,6 +23,7 @@ wbg ~/Pictures/wallpaper & # Wallpaper
 # nextcloud --background &   # Nextcloud
 wl-gammarelay-rs run & # Brightness / Night mode
 com.nextcloud.desktopclient.nextcloud --background &
+# nextcloud --background
 
 com.rtosta.zapzap &   # WhatsApp
 xyz.armcord.ArmCord & # Discord

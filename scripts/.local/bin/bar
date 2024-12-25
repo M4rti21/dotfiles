@@ -2,8 +2,6 @@
 
 sep=' | '
 
-chasis="$(hostnamectl chassis)"
-
 batt_file='/tmp/sb-batt.out'
 disk_file='/tmp/sb-disk.out'
 vol_file='/tmp/sb-vol.out'
