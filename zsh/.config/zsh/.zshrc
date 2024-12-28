@@ -58,3 +58,35 @@ bindkey "^?" backward-delete-char
 # IMPORTS
 source ~/.config/zsh/.zshalias
 source ~/.config/zsh/.zsh-priv-env
+
+start () { 
+    service=$1
+    if [ $service = "dwl" ]; then
+        dwl_start
+    elif [ $service = "nvm" ]; then
+        source /usr/share/nvm/init-nvm.sh
+    elif [ $service = "docker" ]; then
+        sudo dinitctl start dockerd
+    elif [ $service = "bluetooth" ]; then
+        sudo dinitctl start bluetoothd
+    elif [ $service = "python" ]; then
+        source "$HOME/Projects/Personal/python/venv/bin/activate"
+    else
+        echo "no service with name $service"
+    fi
+}
+
+stop () { 
+    service=$1
+    if [ $service = "dwl" ]; then
+        killall dwl
+    elif [ $service = "docker" ]; then
+        sudo dinitctl stop dockerd
+    elif [ $service = "bluetooth" ]; then
+        sudo dinitctl stop bluetoothd
+    elif [ $service = "python" ]; then
+        deactivate
+    else
+        echo "no service with name $service"
+    fi
+}

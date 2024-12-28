@@ -10,6 +10,8 @@ mako & # Notifications
 export $(dbus-launch)
 
 # Screensharing
+pre_user_dbus.sh &
+
 dbus-update-activation-environment DISPLAY &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots &
 # systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr &
@@ -22,15 +24,18 @@ wlr_monitors_current.sh    # Monitors
 wbg ~/Pictures/wallpaper & # Wallpaper
 # nextcloud --background &   # Nextcloud
 wl-gammarelay-rs run & # Brightness / Night mode
-com.nextcloud.desktopclient.nextcloud --background &
+
+com.hunterwittenborn.Celeste --background &
+# com.nextcloud.desktopclient.nextcloud --background &
 # nextcloud --background
 
 com.rtosta.zapzap &   # WhatsApp
-xyz.armcord.ArmCord & # Discord
+dev.vencord.Vesktop & # Discord
 
 org.mozilla.Thunderbird &                # Email
 deskopen webapp-ProtonMail7726.desktop & # ProtonMail
 
 otd-daemon & # Tablet Drivers
 
-busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 2500 &
+wlsunset -T 5000 -t 3000 &
+# busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 2500 &

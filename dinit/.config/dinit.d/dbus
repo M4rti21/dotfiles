@@ -1,5 +1,3 @@
-type=process
-command = /usr/bin/dbus-daemon --session --nofork --nopidfile --print-address 5 --address $DBUS_SESSION_BUS_ADDRESS
-load-options = sub-vars
-logfile = /home/look/.local/share/dinit/dbus.log
-ready-notification=pipefd:5
+type               = process
+command            = /usr/lib/dinit/user/dbus --print-address=4
+ready-notification = pipefd:4

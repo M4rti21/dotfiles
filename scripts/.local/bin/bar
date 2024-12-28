@@ -8,6 +8,7 @@ vol_file='/tmp/sb-vol.out'
 date_file='/tmp/sb-date.out'
 time_file='/tmp/sb-time.out'
 wttr_file='/tmp/sb-wttr.out'
+ip_file='/tmp/sb-ip.out'
 
 update_block() {
     cmd="$2"
@@ -29,6 +30,7 @@ update_block 3600 "sb-weather" "$wttr_file" &
 update_block 1 "sb-volume" "$vol_file" &
 update_block 1 "sb-date" "$date_file" &
 update_block 1 "sb-time" "$time_file" &
+update_block 600 "sb-ip" "$ip_file" &
 
 while true; do
     if [ "$chasis" = "laptop" ]; then
@@ -42,8 +44,9 @@ while true; do
     date=$(cat "$date_file")
     time=$(cat "$time_file")
     wttr=$(cat "$wttr_file")
+    ip=$(cat "$ip_file")
 
     # Debugging output to see what's being printed
-    echo " $wttr$sep$batt$disk$sep$vol$sep$date$sep$time "
+    echo " $wttr$sep$ip$sep$batt$disk$sep$vol$sep$date$sep$time "
     sleep 1
 done

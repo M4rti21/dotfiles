@@ -1,3 +1,4 @@
 type = process
 command = /home/m4rti/.local/bin/bar
 restart = true
+logfile = /tmp/bar

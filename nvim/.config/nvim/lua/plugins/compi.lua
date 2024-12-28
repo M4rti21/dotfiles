@@ -18,6 +18,7 @@ return {
 				py = "python %f",
 				html = "$BROWSER %f",
 				lua = "love .",
+                php = "php -S localhost:8000"
 			},
 			compnrun = {
 				go = "go run .",

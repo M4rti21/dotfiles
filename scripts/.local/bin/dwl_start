@@ -40,11 +40,17 @@ export SAL_USE_VCLPLUGIN=qt5
 
 export WOBSOCK="$XDG_RUNTIME_DIR/wob.sock"
 
-export $(dbus-launch)
 export NSS_USE_SHARED_DB=ENABLED
 
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark" & # GTK THEME
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &            # Polkit
+
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/dbus-session
+export XDG_RUNTIME_DIR=/run/user/1000
+
+export $(dbus-launch)
+
+exec dinit >> ~/.local/share/dinit/dinit.log &
 
 ## start dwl
 bar | dwl -s 'dwl_autostart'
