@@ -53,4 +53,5 @@ export $(dbus-launch)
 exec dinit >> ~/.local/share/dinit/dinit.log &
 
 ## start dwl
-bar | dwl -s 'dwl_autostart'
+# bar | dwl -s 'dwl_autostart'
+dwl -s 'dwl_autostart'

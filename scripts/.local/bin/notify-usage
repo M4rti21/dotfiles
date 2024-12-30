@@ -1,0 +1,16 @@
+#!/bin/sh
+
+cpu() {
+    top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1"%"}'
+}
+
+ram() {
+    free -h | awk 'NR==2 {print $3,"/", $2}'
+}
+
+disk() {
+    location="/"
+    printf "%s" "$location: " "$(df -h "$location" | awk ' /[0-9]/ {print $5}')"
+}
+
+notify-send " Usage" "CPU: $(cpu)\nRAM: $(ram)\nDISK: $(disk)"

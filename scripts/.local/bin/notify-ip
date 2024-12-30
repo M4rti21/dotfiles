@@ -1,0 +1,3 @@
+#!/bin/sh
+
+notify-send "󰒍 ip addresses" "$(ip -4 -j addr | jq -r 'map(select(.ifname != "lo") | "\(.ifname): \(.addr_info[].local)") | join("\n")')"

@@ -14,5 +14,10 @@ background = "#181616"
 foreground = "#C5C9C5"
 frame_color = "#D7AF87"
 
+show_icons = left
+icon_theme = "MoreWaita, Adwaita"
+max_icon_size = 32
+enable_recursive_icon_lookup = true
+
 [urgency_critical]
 frame_color="#ed333b"

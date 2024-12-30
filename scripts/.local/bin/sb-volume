@@ -23,4 +23,4 @@ $((vol >= 1))) icon="" ;;
 *) echo 󰸈 && exit ;;
 esac
 
-echo "$icon $vol%"
+echo "$vol%"
