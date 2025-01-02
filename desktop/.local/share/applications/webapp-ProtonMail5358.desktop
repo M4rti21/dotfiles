@@ -1,0 +1,19 @@
+[Desktop Entry]
+Version=1.0
+Name=Proton Mail
+Comment=Web App
+Exec=/home/m4rti/.local/share/flatpak/exports/bin/io.github.ungoogled_software.ungoogled_chromium --app=https://mail.proton.me --class=WebApp-ProtonMail5358 --name=WebApp-ProtonMail5358 --user-data-dir=/home/m4rti/.var/app/io.github.ungoogled_software.ungoogled_chromium/data/profiles/ProtonMail5358 
+Terminal=false
+Type=Application
+Icon=/home/m4rti/.local/share/icons/QuickWebApps/ProtonMail.svg
+Categories=GTK;Web;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-ProtonMail5358
+StartupNotify=true
+X-MultipleArgs=false
+X-WebApp-Browser=Ungoogled Chromium (User Flatpak)
+X-WebApp-URL=https://mail.proton.me
+X-WebApp-Navbar=false
+X-WebApp-PrivateWindow=false
+X-WebApp-Isolated=true
+X-WebApp-CustomParameters=

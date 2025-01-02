@@ -23,6 +23,7 @@ return {
 				jsonc = { "prettierd" },
 				sh = { "shfmt" },
 				toml = { "taplo" },
+				tex = { "latexindent" },
 			},
 		})
 		vim.api.nvim_create_autocmd("BufWritePre", {

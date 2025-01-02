@@ -1,0 +1,8 @@
+[MIME Cache]
+application/x-osu-beatmap-archive=osuwinello-file-extensions-handler.desktop;
+application/x-osu-replay=osuwinello-file-extensions-handler.desktop;
+application/x-osu-skin-archive=osuwinello-file-extensions-handler.desktop;
+application/xhtml_xml=webapp-ProtonMail5358.desktop;
+text/html=webapp-ProtonMail5358.desktop;
+text/xml=webapp-ProtonMail5358.desktop;
+x-scheme-handler/osu=osuwinello-url-handler.desktop;

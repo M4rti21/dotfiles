@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=osu!
+MimeType=application/x-osu-skin-archive;application/x-osu-replay;application/x-osu-beatmap-archive;
+Exec=/home/m4rti/.local/share/osuconfig/osu-handler-wine %f
+NoDisplay=true
+StartupNotify=true
+Icon=/home/m4rti/.local/share/icons/osu-wine.png

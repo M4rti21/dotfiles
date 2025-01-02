@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=osu!
+MimeType=x-scheme-handler/osu;
+Exec=/home/m4rti/.local/share/osuconfig/osu-handler-wine %u
+NoDisplay=true
+StartupNotify=true
+Icon=/home/m4rti/.local/share/icons/osu-wine.png

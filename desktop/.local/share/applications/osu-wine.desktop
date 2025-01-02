@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=osu!
+Comment=osu! - Rhythm is just a *click* away!
+Type=Application
+Exec=/home/m4rti/.local/bin/osu-wine %U
+Icon=/home/m4rti/.local/share/icons/osu-wine.png
+Terminal=false
+Categories=Wine;Game;

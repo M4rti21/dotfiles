@@ -1,5 +1,5 @@
 folderIcon = ""
-menu = "tofi-centered"
+menu = "tofi"
 # menu = "fzf"
 run = "xdg-open"
 showUrl = false

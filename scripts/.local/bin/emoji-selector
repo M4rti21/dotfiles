@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cat ~/.local/share/stuff/emojis | tofi-centered | awk '{print $1}' | wl-copy

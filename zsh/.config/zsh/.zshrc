@@ -71,6 +71,9 @@ start () {
         sudo dinitctl start bluetoothd
     elif [ $service = "python" ]; then
         source "$HOME/Projects/Personal/python/venv/bin/activate"
+    elif [ $service = "waydroid" ]; then
+        sudo waydroid container start &
+        waydroid session start &
     else
         echo "no service with name $service"
     fi
@@ -86,6 +89,9 @@ stop () {
         sudo dinitctl stop bluetoothd
     elif [ $service = "python" ]; then
         deactivate
+    elif [ $service = "waydroid" ]; then
+        waydroid session stop &
+        sudo waydroid container stop &
     else
         echo "no service with name $service"
     fi

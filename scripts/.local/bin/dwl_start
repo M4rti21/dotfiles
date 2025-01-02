@@ -5,7 +5,7 @@ export XDG_SESSION_TYPE=wayland
 export WLR_RENDERER=vulkan
 
 export XCURSOR_THEME=Banana
-export XCURSOR_SIZE=42
+export XCURSOR_SIZE=40
 export ICON_THEME=MoreWaita
 export GTK_THEME=adw-gtk3-dark
 
@@ -53,5 +53,5 @@ export $(dbus-launch)
 exec dinit >> ~/.local/share/dinit/dinit.log &
 
 ## start dwl
-# bar | dwl -s 'dwl_autostart'
+# bar | dwl -s 'dwl_aut1381ostart'
 dwl -s 'dwl_autostart'

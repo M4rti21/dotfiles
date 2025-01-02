@@ -11,7 +11,8 @@ getforecast() {
 showweather() {
     temperature="$(grep -i '°C' "$weatherreport" | head -1 | grep -oP '\S+(?=\s°C)')"
     condition="$(cat $weatherreport | sed -n 3p | cut -c 17-)"
-    notify-send " Weather" "$temperature°C - $condition"
+    place="$(cat $weatherreport | sed -n 1p)"
+    notify-send " Weather" "$place\n$temperature°C - $condition"
 }
 
 getforecast

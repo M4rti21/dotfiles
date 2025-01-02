@@ -14,7 +14,11 @@ $HOME
 if [ $# -eq 1 ]; then
     dir=$1
 else
-    dir=$(find $directories -mindepth 1 -maxdepth 1 -follow -type d | fzf)
+    if [ -z "$TERM" ]; then
+        dir=$(find $directories -mindepth 1 -maxdepth 1 -follow -type d | tofi)
+    else
+        dir=$(find $directories -mindepth 1 -maxdepth 1 -follow -type d | fzf)
+    fi
 fi
 
 if [ -z "$dir" ]; then
@@ -27,17 +31,23 @@ inside_tmux=$(if [ "$TERM_PROGRAM" = 'tmux' ]; then echo 'true'; else echo 'fals
 
 if tmux has-session -t="$session" 2>/dev/null; then
     if [ "$inside_tmux" = 'true' ]; then
-        tmux switch-client -t "$session"
+        command="tmux switch-client -t $session"
         exit 0
     fi
-    tmux attach-session -t "$session"
+    command="tmux attach-session -t $session"
     exit 0
 fi
 
 tmux new-session -d -s "$session" -c "$dir"
 
 if [ "$inside_tmux" = 'true' ]; then
-    tmux switch-client -t "$session"
+    command="tmux switch-client -t $session"
 else
-    tmux attach-session -t "$session"
+    command="tmux attach-session -t $session"
+fi
+
+if [ -z "$TERM" ]; then
+    foot -e "$command"
+else
+    eval "$command"
 fi
